@@ -32,6 +32,11 @@ Public Class CreateCustomer
             CityTextBox.Focus()
             CityTextBox.BackColor = Color.Red
         Else
+            FirstNameTextBox.Text = FirstNameTextBox.Text.ToUpper
+            FirstLastNameTextBox.Text = FirstLastNameTextBox.Text.ToUpper
+            SecondLastNameTextBox.Text = SecondLastNameTextBox.Text.ToUpper
+            EmailAddressTextBox.Text = EmailAddressTextBox.Text.ToUpper
+            CityTextBox.Text = CityTextBox.Text.ToUpper
             Me.CustomersTableAdapter.InsertCustomer(FirstNameTextBox.Text, FirstLastNameTextBox.Text, SecondLastNameTextBox.Text, PhoneNumberMaskedTextBox.Text, EmailAddressTextBox.Text,
                                                 GenderComboBox.SelectedItem, CityTextBox.Text, StateExemptComboBox.SelectedItem, MunicipalExemptComboBox.SelectedItem, DiscountNumericUpDown.Value,
                                                 Date.Today)

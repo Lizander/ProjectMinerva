@@ -555,7 +555,7 @@ Partial Public Class JupiterDataSet
             Me.columnFirstLastName.AllowDBNull = False
             Me.columnFirstLastName.MaxLength = 50
             Me.columnSecondLastName.MaxLength = 50
-            Me.columnPhoneNumber.MaxLength = 10
+            Me.columnPhoneNumber.MaxLength = 35
             Me.columnEmailAddress.MaxLength = 50
             Me.columnGender.MaxLength = 10
             Me.columnCity.AllowDBNull = False
@@ -1229,12 +1229,12 @@ Namespace JupiterDataSetTableAdapters
                 "honeNumber], [EmailAddress], [Gender], [City], [StateExempt], [MunicipalExempt]," & _
                 " [Discount], [LatestVisit]) VALUES (@FirstName, @FirstLastName, @SecondLastName," & _
                 " @PhoneNumber, @EmailAddress, @Gender, @City, @StateExempt, @MunicipalExempt, @D" & _
-                "iscount, @LatestVisit);"
+                "iscount, @LatestVisit);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstLastName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstLastName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SecondLastName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SecondLastName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PhoneNumber", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PhoneNumber", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailAddress", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gender", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Gender", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -1661,7 +1661,7 @@ Namespace JupiterDataSetTableAdapters
                 command.Parameters(2).Value = CType(SecondLastName, String)
             End If
             If (PhoneNumber Is Nothing) Then
-                command.Parameters(3).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("PhoneNumber")
             Else
                 command.Parameters(3).Value = CType(PhoneNumber, String)
             End If

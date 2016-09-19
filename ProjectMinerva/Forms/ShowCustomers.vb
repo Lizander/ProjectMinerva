@@ -1,6 +1,6 @@
 ﻿Public Class ShowCustomers
 
-    Private Sub CustomersBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles CustomersBindingNavigatorSaveItem.Click
+    Private Sub CustomersBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.CustomersBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)

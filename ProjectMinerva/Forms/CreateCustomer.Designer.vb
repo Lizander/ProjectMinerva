@@ -146,6 +146,15 @@ Partial Class CreateCustomer
         DiscountLabel.TabIndex = 16
         DiscountLabel.Text = "Discount:"
         '
+        'PhoneNumberLabel
+        '
+        PhoneNumberLabel.AutoSize = True
+        PhoneNumberLabel.Location = New System.Drawing.Point(27, 99)
+        PhoneNumberLabel.Name = "PhoneNumberLabel"
+        PhoneNumberLabel.Size = New System.Drawing.Size(81, 13)
+        PhoneNumberLabel.TabIndex = 6
+        PhoneNumberLabel.Text = "Phone Number:"
+        '
         'FirstNameTextBox
         '
         Me.FirstNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "FirstName", True))
@@ -276,15 +285,6 @@ Partial Class CreateCustomer
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.CustomersTableAdapter = Me.CustomersTableAdapter
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'PhoneNumberLabel
-        '
-        PhoneNumberLabel.AutoSize = True
-        PhoneNumberLabel.Location = New System.Drawing.Point(27, 99)
-        PhoneNumberLabel.Name = "PhoneNumberLabel"
-        PhoneNumberLabel.Size = New System.Drawing.Size(81, 13)
-        PhoneNumberLabel.TabIndex = 6
-        PhoneNumberLabel.Text = "Phone Number:"
         '
         'PhoneNumberMaskedTextBox
         '
