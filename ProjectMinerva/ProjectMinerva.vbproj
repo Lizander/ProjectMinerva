@@ -85,6 +85,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.vb" />
     <Compile Include="Forms\CreateCustomer.Designer.vb">
       <DependentUpon>CreateCustomer.vb</DependentUpon>
     </Compile>

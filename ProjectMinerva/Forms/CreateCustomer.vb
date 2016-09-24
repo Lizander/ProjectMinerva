@@ -1,7 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 
 Public Class CreateCustomer
-
+    Dim NewCustomer As New Customer
     Private Sub CustomersBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.CustomersBindingSource.EndEdit()
@@ -32,14 +32,18 @@ Public Class CreateCustomer
             CityTextBox.Focus()
             CityTextBox.BackColor = Color.Red
         Else
-            FirstNameTextBox.Text = FirstNameTextBox.Text.ToUpper
-            FirstLastNameTextBox.Text = FirstLastNameTextBox.Text.ToUpper
-            SecondLastNameTextBox.Text = SecondLastNameTextBox.Text.ToUpper
-            EmailAddressTextBox.Text = EmailAddressTextBox.Text.ToUpper
-            CityTextBox.Text = CityTextBox.Text.ToUpper
-            Me.CustomersTableAdapter.InsertCustomer(FirstNameTextBox.Text, FirstLastNameTextBox.Text, SecondLastNameTextBox.Text, PhoneNumberMaskedTextBox.Text, EmailAddressTextBox.Text,
-                                                GenderComboBox.SelectedItem, CityTextBox.Text, StateExemptComboBox.SelectedItem, MunicipalExemptComboBox.SelectedItem, DiscountNumericUpDown.Value,
-                                                Date.Today)
+            NewCustomer.FirstName = FirstNameTextBox.Text.ToUpper
+            NewCustomer.FirstLastName = FirstLastNameTextBox.Text.ToUpper
+            NewCustomer.SecondLastName = SecondLastNameTextBox.Text.ToUpper
+            NewCustomer.EmailAddress = EmailAddressTextBox.Text.ToUpper
+            NewCustomer.City = CityTextBox.Text.ToUpper
+            NewCustomer.Gender = GenderComboBox.SelectedItem
+            NewCustomer.PhoneNumber = PhoneNumberMaskedTextBox.Text
+            NewCustomer.StateExempt = StateExemptComboBox.SelectedItem
+            NewCustomer.MunicipalExempt = MunicipalExemptComboBox.SelectedItem
+            NewCustomer.Discount = DiscountNumericUpDown.Value
+            NewCustomer.LatestVisit = Date.Today
+            NewCustomer.Create(Me.CustomersTableAdapter)
             Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)
             Me.Close()
         End If
