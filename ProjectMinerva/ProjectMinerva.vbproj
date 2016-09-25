@@ -96,17 +96,23 @@
     <Compile Include="Classes\Store.vb" />
     <Compile Include="Classes\Supplier.vb" />
     <Compile Include="Classes\User.vb" />
+    <Compile Include="Forms\AdministrationPanel.Designer.vb">
+      <DependentUpon>AdministrationPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdministrationPanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CreateCustomer.Designer.vb">
       <DependentUpon>CreateCustomer.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\CreateCustomer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.vb">
+    <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Forms\Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ShowCustomers.Designer.vb">
@@ -138,11 +144,14 @@
     <Compile Include="Classes\Tire.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AdministrationPanel.resx">
+      <DependentUpon>AdministrationPanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CreateCustomer.resx">
       <DependentUpon>CreateCustomer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ShowCustomers.resx">
       <DependentUpon>ShowCustomers.vb</DependentUpon>
