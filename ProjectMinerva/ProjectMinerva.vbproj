@@ -85,7 +85,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.vb" />
+    <Compile Include="Classes\Customer.vb" />
+    <Compile Include="Classes\Product.vb" />
+    <Compile Include="Classes\Sale.vb" />
+    <Compile Include="Classes\Service.vb" />
+    <Compile Include="Classes\Store.vb" />
+    <Compile Include="Classes\Supplier.vb" />
+    <Compile Include="Classes\User.vb" />
     <Compile Include="Forms\CreateCustomer.Designer.vb">
       <DependentUpon>CreateCustomer.vb</DependentUpon>
     </Compile>
@@ -125,6 +131,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Classes\Tire.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\CreateCustomer.resx">

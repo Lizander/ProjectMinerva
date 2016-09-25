@@ -127,6 +127,7 @@ Public Class Customer
     End Property
 
     Public Sub Find(Table As CustomersTableAdapter, ID As Integer)
+        'TODO finish method or refactor it
         Dim Result = Table.GetDataBySearchingID(ID)
         If Result.Count = 1 Then
             Dim Row = Result.Rows(0)
