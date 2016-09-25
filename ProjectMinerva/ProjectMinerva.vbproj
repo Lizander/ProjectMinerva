@@ -85,7 +85,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Access.vb" />
+    <Compile Include="Classes\Category.vb" />
     <Compile Include="Classes\Customer.vb" />
+    <Compile Include="Classes\LineItem.vb" />
+    <Compile Include="Classes\Note.vb" />
     <Compile Include="Classes\Product.vb" />
     <Compile Include="Classes\Sale.vb" />
     <Compile Include="Classes\Service.vb" />
