@@ -1,4 +1,4 @@
-﻿Public Class ShowCustomers
+﻿Public Class FindCustomers
 
     Private Sub CustomersBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()

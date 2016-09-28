@@ -1,10 +1,7 @@
 ﻿Public Class Main
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        CreateCustomer.Show()
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        ShowCustomers.Show()
+    Private Sub AdministrationButton_Click(sender As Object, e As EventArgs) Handles AdministrationButton.Click
+        AdministrationPanel.ShowDialog()
+        Me.Close()
     End Sub
 End Class

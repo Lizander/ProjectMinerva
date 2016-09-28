@@ -22,64 +22,67 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.SalesHomeButton = New System.Windows.Forms.Button()
+        Me.TireSearchButton = New System.Windows.Forms.Button()
+        Me.AdministrationButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Button1
+        'SalesHomeButton
         '
-        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.SalesHomeButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button1.BackColor = System.Drawing.Color.Honeydew
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(179, 215)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(205, 149)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Sale Home Screen"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.SalesHomeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.SalesHomeButton.BackColor = System.Drawing.Color.SkyBlue
+        Me.SalesHomeButton.FlatAppearance.BorderSize = 0
+        Me.SalesHomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SalesHomeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SalesHomeButton.Location = New System.Drawing.Point(179, 215)
+        Me.SalesHomeButton.Name = "SalesHomeButton"
+        Me.SalesHomeButton.Size = New System.Drawing.Size(205, 149)
+        Me.SalesHomeButton.TabIndex = 0
+        Me.SalesHomeButton.Text = "Sale Home Screen"
+        Me.SalesHomeButton.UseVisualStyleBackColor = False
         '
-        'Button2
+        'TireSearchButton
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button2.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(618, 215)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(205, 149)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Tire Search"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.TireSearchButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.TireSearchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TireSearchButton.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.TireSearchButton.FlatAppearance.BorderSize = 0
+        Me.TireSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.TireSearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TireSearchButton.Location = New System.Drawing.Point(618, 215)
+        Me.TireSearchButton.Name = "TireSearchButton"
+        Me.TireSearchButton.Size = New System.Drawing.Size(205, 149)
+        Me.TireSearchButton.TabIndex = 1
+        Me.TireSearchButton.Text = "Tire Search"
+        Me.TireSearchButton.UseVisualStyleBackColor = False
         '
-        'Button3
+        'AdministrationButton
         '
-        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.AdministrationButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button3.BackColor = System.Drawing.Color.Firebrick
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(1060, 215)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(205, 149)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Adminitration Panel"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.AdministrationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.AdministrationButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.AdministrationButton.FlatAppearance.BorderSize = 0
+        Me.AdministrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AdministrationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdministrationButton.Location = New System.Drawing.Point(1060, 215)
+        Me.AdministrationButton.Name = "AdministrationButton"
+        Me.AdministrationButton.Size = New System.Drawing.Size(205, 149)
+        Me.AdministrationButton.TabIndex = 2
+        Me.AdministrationButton.Text = "Adminitration Panel"
+        Me.AdministrationButton.UseVisualStyleBackColor = False
         '
         'Main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.Color.LightCyan
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1481, 672)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.AdministrationButton)
+        Me.Controls.Add(Me.TireSearchButton)
+        Me.Controls.Add(Me.SalesHomeButton)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Project Minerva"
@@ -87,8 +90,8 @@ Partial Class Main
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents SalesHomeButton As System.Windows.Forms.Button
+    Friend WithEvents TireSearchButton As System.Windows.Forms.Button
+    Friend WithEvents AdministrationButton As System.Windows.Forms.Button
 
 End Class

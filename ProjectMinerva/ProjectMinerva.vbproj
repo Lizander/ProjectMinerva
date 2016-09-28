@@ -108,6 +108,60 @@
     <Compile Include="Forms\CreateCustomer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\CreateProduct.Designer.vb">
+      <DependentUpon>CreateProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateService.Designer.vb">
+      <DependentUpon>CreateService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateSupplier.Designer.vb">
+      <DependentUpon>CreateSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateTire.Designer.vb">
+      <DependentUpon>CreateTire.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateTire.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersHome.Designer.vb">
+      <DependentUpon>CustomersHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomersHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindProduct.Designer.vb">
+      <DependentUpon>FindProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindService.Designer.vb">
+      <DependentUpon>FindService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindSupplier.Designer.vb">
+      <DependentUpon>FindSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindTire.Designer.vb">
+      <DependentUpon>FindTire.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindTire.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -115,10 +169,34 @@
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ShowCustomers.Designer.vb">
-      <DependentUpon>ShowCustomers.vb</DependentUpon>
+    <Compile Include="Forms\ProductsHome.Designer.vb">
+      <DependentUpon>ProductsHome.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ShowCustomers.vb">
+    <Compile Include="Forms\ProductsHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServicesHome.Designer.vb">
+      <DependentUpon>ServicesHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServicesHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindCustomers.Designer.vb">
+      <DependentUpon>FindCustomers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindCustomers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersHome.Designer.vb">
+      <DependentUpon>SuppliersHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuppliersHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TiresHome.Designer.vb">
+      <DependentUpon>TiresHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TiresHome.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JupiterDataSet.Designer.vb">
@@ -150,11 +228,50 @@
     <EmbeddedResource Include="Forms\CreateCustomer.resx">
       <DependentUpon>CreateCustomer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateProduct.resx">
+      <DependentUpon>CreateProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateService.resx">
+      <DependentUpon>CreateService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateSupplier.resx">
+      <DependentUpon>CreateSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateTire.resx">
+      <DependentUpon>CreateTire.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersHome.resx">
+      <DependentUpon>CustomersHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindProduct.resx">
+      <DependentUpon>FindProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindService.resx">
+      <DependentUpon>FindService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindSupplier.resx">
+      <DependentUpon>FindSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindTire.resx">
+      <DependentUpon>FindTire.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ShowCustomers.resx">
-      <DependentUpon>ShowCustomers.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\ProductsHome.resx">
+      <DependentUpon>ProductsHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServicesHome.resx">
+      <DependentUpon>ServicesHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindCustomers.resx">
+      <DependentUpon>FindCustomers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersHome.resx">
+      <DependentUpon>SuppliersHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TiresHome.resx">
+      <DependentUpon>TiresHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

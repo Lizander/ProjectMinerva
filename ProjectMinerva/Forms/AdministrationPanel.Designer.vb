@@ -31,121 +31,161 @@ Partial Class AdministrationPanel
         Me.OptionButton = New System.Windows.Forms.Button()
         Me.SaleButton = New System.Windows.Forms.Button()
         Me.ReportButton = New System.Windows.Forms.Button()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'SupplierButton
         '
-        Me.SupplierButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.SupplierButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SupplierButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.SupplierButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.SupplierButton.ForeColor = System.Drawing.SystemColors.ControlText
         Me.SupplierButton.Location = New System.Drawing.Point(164, 38)
         Me.SupplierButton.Name = "SupplierButton"
         Me.SupplierButton.Size = New System.Drawing.Size(144, 72)
         Me.SupplierButton.TabIndex = 0
         Me.SupplierButton.Text = "Suppliers"
-        Me.SupplierButton.UseVisualStyleBackColor = True
+        Me.SupplierButton.UseVisualStyleBackColor = False
         '
         'TireButton
         '
-        Me.TireButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.TireButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TireButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TireButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.TireButton.ForeColor = System.Drawing.SystemColors.ControlText
         Me.TireButton.Location = New System.Drawing.Point(164, 144)
         Me.TireButton.Name = "TireButton"
         Me.TireButton.Size = New System.Drawing.Size(144, 72)
         Me.TireButton.TabIndex = 1
         Me.TireButton.Text = "Tires"
-        Me.TireButton.UseVisualStyleBackColor = True
+        Me.TireButton.UseVisualStyleBackColor = False
         '
         'ServiceButton
         '
-        Me.ServiceButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.ServiceButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ServiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.ServiceButton.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ServiceButton.Location = New System.Drawing.Point(164, 248)
         Me.ServiceButton.Name = "ServiceButton"
         Me.ServiceButton.Size = New System.Drawing.Size(144, 72)
         Me.ServiceButton.TabIndex = 2
         Me.ServiceButton.Text = "Services"
-        Me.ServiceButton.UseVisualStyleBackColor = True
+        Me.ServiceButton.UseVisualStyleBackColor = False
         '
         'ProductButton
         '
-        Me.ProductButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.ProductButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProductButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ProductButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.ProductButton.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ProductButton.Location = New System.Drawing.Point(164, 355)
         Me.ProductButton.Name = "ProductButton"
         Me.ProductButton.Size = New System.Drawing.Size(144, 72)
         Me.ProductButton.TabIndex = 3
         Me.ProductButton.Text = "Products"
-        Me.ProductButton.UseVisualStyleBackColor = True
+        Me.ProductButton.UseVisualStyleBackColor = False
         '
         'CustomerButton
         '
-        Me.CustomerButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.CustomerButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CustomerButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.CustomerButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.CustomerButton.ForeColor = System.Drawing.SystemColors.ControlText
         Me.CustomerButton.Location = New System.Drawing.Point(164, 467)
         Me.CustomerButton.Name = "CustomerButton"
         Me.CustomerButton.Size = New System.Drawing.Size(144, 72)
         Me.CustomerButton.TabIndex = 4
         Me.CustomerButton.Text = "Customers"
-        Me.CustomerButton.UseVisualStyleBackColor = True
+        Me.CustomerButton.UseVisualStyleBackColor = False
         '
         'UserButton
         '
-        Me.UserButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.UserButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UserButton.Location = New System.Drawing.Point(654, 144)
+        Me.UserButton.AutoSize = True
+        Me.UserButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.UserButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.UserButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.UserButton.Location = New System.Drawing.Point(1018, 161)
         Me.UserButton.Name = "UserButton"
         Me.UserButton.Size = New System.Drawing.Size(144, 72)
         Me.UserButton.TabIndex = 6
         Me.UserButton.Text = "Users"
-        Me.UserButton.UseVisualStyleBackColor = True
+        Me.UserButton.UseVisualStyleBackColor = False
         '
         'OptionButton
         '
-        Me.OptionButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.OptionButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OptionButton.Location = New System.Drawing.Point(654, 38)
+        Me.OptionButton.AutoSize = True
+        Me.OptionButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.OptionButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.OptionButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.OptionButton.Location = New System.Drawing.Point(1018, 55)
         Me.OptionButton.Name = "OptionButton"
         Me.OptionButton.Size = New System.Drawing.Size(144, 72)
         Me.OptionButton.TabIndex = 5
         Me.OptionButton.Text = "Options"
-        Me.OptionButton.UseVisualStyleBackColor = True
+        Me.OptionButton.UseVisualStyleBackColor = False
         '
         'SaleButton
         '
-        Me.SaleButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.SaleButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaleButton.Location = New System.Drawing.Point(1055, 144)
+        Me.SaleButton.AutoSize = True
+        Me.SaleButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.SaleButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.SaleButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.SaleButton.Location = New System.Drawing.Point(1018, 399)
         Me.SaleButton.Name = "SaleButton"
         Me.SaleButton.Size = New System.Drawing.Size(144, 72)
         Me.SaleButton.TabIndex = 8
         Me.SaleButton.Text = "Search Sales"
-        Me.SaleButton.UseVisualStyleBackColor = True
+        Me.SaleButton.UseVisualStyleBackColor = False
         '
         'ReportButton
         '
-        Me.ReportButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.ReportButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportButton.Location = New System.Drawing.Point(1055, 38)
+        Me.ReportButton.AutoSize = True
+        Me.ReportButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ReportButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.ReportButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ReportButton.Location = New System.Drawing.Point(1018, 293)
         Me.ReportButton.Name = "ReportButton"
         Me.ReportButton.Size = New System.Drawing.Size(144, 72)
         Me.ReportButton.TabIndex = 7
         Me.ReportButton.Text = "Reports"
-        Me.ReportButton.UseVisualStyleBackColor = True
+        Me.ReportButton.UseVisualStyleBackColor = False
+        '
+        'BackButton
+        '
+        Me.BackButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.BackButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.BackButton.Location = New System.Drawing.Point(1318, 576)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(144, 72)
+        Me.BackButton.TabIndex = 9
+        Me.BackButton.Text = "Back"
+        Me.BackButton.UseVisualStyleBackColor = False
         '
         'AdministrationPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1474, 660)
+        Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SaleButton)
         Me.Controls.Add(Me.ReportButton)
         Me.Controls.Add(Me.UserButton)
@@ -156,8 +196,11 @@ Partial Class AdministrationPanel
         Me.Controls.Add(Me.TireButton)
         Me.Controls.Add(Me.SupplierButton)
         Me.Name = "AdministrationPanel"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdministrationPanel"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents SupplierButton As System.Windows.Forms.Button
@@ -169,4 +212,5 @@ Partial Class AdministrationPanel
     Friend WithEvents OptionButton As System.Windows.Forms.Button
     Friend WithEvents SaleButton As System.Windows.Forms.Button
     Friend WithEvents ReportButton As System.Windows.Forms.Button
+    Friend WithEvents BackButton As System.Windows.Forms.Button
 End Class
