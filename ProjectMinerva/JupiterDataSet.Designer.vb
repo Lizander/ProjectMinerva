@@ -4423,8 +4423,8 @@ Partial Public Class JupiterDataSet
             Me.columnContactFirstLastName.AllowDBNull = false
             Me.columnContactFirstLastName.MaxLength = 50
             Me.columnContactSecondLastName.MaxLength = 50
-            Me.columnBusinessPhone.MaxLength = 10
-            Me.columnContactPhone.MaxLength = 10
+            Me.columnBusinessPhone.MaxLength = 20
+            Me.columnContactPhone.MaxLength = 20
             Me.columnBusinessEmail.MaxLength = 50
             Me.columnAddressLineOne.MaxLength = 50
             Me.columnAddressLineTwo.MaxLength = 50
@@ -12690,13 +12690,34 @@ Namespace JupiterDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Id, BusinessName, ContactName, ContactFirstLastName, ContactSecondLastName"& _ 
                 ", BusinessPhone, ContactPhone, BusinessEmail, AddressLineOne, AddressLineTwo, Ci"& _ 
                 "ty, Country, Zipcode FROM dbo.Suppliers"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[Suppliers] ([BusinessName], [ContactName], [ContactFirstLastNa"& _ 
+                "me], [ContactSecondLastName], [BusinessPhone], [ContactPhone], [BusinessEmail], "& _ 
+                "[AddressLineOne], [AddressLineTwo], [City], [Country], [Zipcode]) VALUES (@Busin"& _ 
+                "essName, @ContactName, @ContactFirstLastName, @ContactSecondLastName, @BusinessP"& _ 
+                "hone, @ContactPhone, @BusinessEmail, @AddressLineOne, @AddressLineTwo, @City, @C"& _ 
+                "ountry, @Zipcode)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BusinessName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "BusinessName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactFirstLastName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactFirstLastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactSecondLastName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactSecondLastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BusinessPhone", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "BusinessPhone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContactPhone", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "ContactPhone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BusinessEmail", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "BusinessEmail", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AddressLineOne", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AddressLineOne", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AddressLineTwo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AddressLineTwo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Country", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Country", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Zipcode", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Zipcode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13148,6 +13169,88 @@ Namespace JupiterDataSetTableAdapters
                     ByVal Original_Country As String,  _
                     ByVal Original_Zipcode As String) As Integer
             Return Me.Update(Original_Id, BusinessName, ContactName, ContactFirstLastName, ContactSecondLastName, BusinessPhone, ContactPhone, BusinessEmail, AddressLineOne, AddressLineTwo, City, Country, Zipcode, Original_Id, Original_BusinessName, Original_ContactName, Original_ContactFirstLastName, Original_ContactSecondLastName, Original_BusinessPhone, Original_ContactPhone, Original_BusinessEmail, Original_AddressLineOne, Original_AddressLineTwo, Original_City, Original_Country, Original_Zipcode)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertSupplier(ByVal BusinessName As String, ByVal ContactName As String, ByVal ContactFirstLastName As String, ByVal ContactSecondLastName As String, ByVal BusinessPhone As String, ByVal ContactPhone As String, ByVal BusinessEmail As String, ByVal AddressLineOne As String, ByVal AddressLineTwo As String, ByVal City As String, ByVal Country As String, ByVal Zipcode As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            If (BusinessName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("BusinessName")
+            Else
+                command.Parameters(0).Value = CType(BusinessName,String)
+            End If
+            If (ContactName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ContactName")
+            Else
+                command.Parameters(1).Value = CType(ContactName,String)
+            End If
+            If (ContactFirstLastName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ContactFirstLastName")
+            Else
+                command.Parameters(2).Value = CType(ContactFirstLastName,String)
+            End If
+            If (ContactSecondLastName Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(ContactSecondLastName,String)
+            End If
+            If (BusinessPhone Is Nothing) Then
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(4).Value = CType(BusinessPhone,String)
+            End If
+            If (ContactPhone Is Nothing) Then
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(5).Value = CType(ContactPhone,String)
+            End If
+            If (BusinessEmail Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(BusinessEmail,String)
+            End If
+            If (AddressLineOne Is Nothing) Then
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(7).Value = CType(AddressLineOne,String)
+            End If
+            If (AddressLineTwo Is Nothing) Then
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(8).Value = CType(AddressLineTwo,String)
+            End If
+            If (City Is Nothing) Then
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(9).Value = CType(City,String)
+            End If
+            If (Country Is Nothing) Then
+                command.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(10).Value = CType(Country,String)
+            End If
+            If (Zipcode Is Nothing) Then
+                command.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(11).Value = CType(Zipcode,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     

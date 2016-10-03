@@ -1,4 +1,5 @@
-﻿
+﻿Imports ProjectMinerva.JupiterDataSetTableAdapters
+
 Class Supplier
     Private IDValue As Integer
     Private BusinessNameValue As String
@@ -13,6 +14,7 @@ Class Supplier
     Private CityValue As String
     Private CountryValue As String
     Private ZipcodeValue As String
+    Private SavedValue As Boolean
 
     Public ReadOnly Property ID() As Integer
         Get
@@ -127,4 +129,15 @@ Class Supplier
             ZipcodeValue = value
         End Set
     End Property
+
+    Public Sub Create(Table As SuppliersTableAdapter)
+        Dim Result As Integer
+        Result = Table.InsertSupplier(BusinessNameValue, ContactNameValue, ContactFirstLastNameValue, ContactSecondLastNameValue, BusinessPhoneValue, ContactPhoneValue, BusinessEmailValue,
+                                      AddressLineOneValue, AddressLineTwoValue, CityValue, CountryValue, ZipcodeValue)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
 End Class
