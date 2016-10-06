@@ -48,14 +48,14 @@ Partial Class CreateSupplier
         Me.AddressLineOneTextBox = New System.Windows.Forms.TextBox()
         Me.CityTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BusinessPhoneMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ContactPhoneMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
-        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
+        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
-        Me.BusinessPhoneMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         BusinessNameLabel = New System.Windows.Forms.Label()
         ContactSecondLastNameLabel = New System.Windows.Forms.Label()
         BusinessEmailLabel = New System.Windows.Forms.Label()
@@ -71,8 +71,8 @@ Partial Class CreateSupplier
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BusinessNameLabel
@@ -235,7 +235,6 @@ Partial Class CreateSupplier
         Me.ContactSecondLastNameTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ContactSecondLastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "ContactSecondLastName", True))
         Me.ContactSecondLastNameTextBox.Location = New System.Drawing.Point(175, 100)
         Me.ContactSecondLastNameTextBox.Name = "ContactSecondLastNameTextBox"
         Me.ContactSecondLastNameTextBox.Size = New System.Drawing.Size(335, 20)
@@ -257,7 +256,6 @@ Partial Class CreateSupplier
         Me.BusinessEmailTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BusinessEmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "BusinessEmail", True))
         Me.BusinessEmailTextBox.Location = New System.Drawing.Point(104, 99)
         Me.BusinessEmailTextBox.Name = "BusinessEmailTextBox"
         Me.BusinessEmailTextBox.Size = New System.Drawing.Size(277, 20)
@@ -268,7 +266,6 @@ Partial Class CreateSupplier
         Me.ContactFirstLastNameTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ContactFirstLastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "ContactFirstLastName", True))
         Me.ContactFirstLastNameTextBox.Location = New System.Drawing.Point(175, 63)
         Me.ContactFirstLastNameTextBox.Name = "ContactFirstLastNameTextBox"
         Me.ContactFirstLastNameTextBox.Size = New System.Drawing.Size(335, 20)
@@ -279,7 +276,6 @@ Partial Class CreateSupplier
         Me.BusinessNameTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BusinessNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "BusinessName", True))
         Me.BusinessNameTextBox.Location = New System.Drawing.Point(104, 22)
         Me.BusinessNameTextBox.Name = "BusinessNameTextBox"
         Me.BusinessNameTextBox.Size = New System.Drawing.Size(277, 20)
@@ -290,7 +286,6 @@ Partial Class CreateSupplier
         Me.AddressLineTwoTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddressLineTwoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "AddressLineTwo", True))
         Me.AddressLineTwoTextBox.Location = New System.Drawing.Point(103, 59)
         Me.AddressLineTwoTextBox.Name = "AddressLineTwoTextBox"
         Me.AddressLineTwoTextBox.Size = New System.Drawing.Size(240, 20)
@@ -301,7 +296,6 @@ Partial Class CreateSupplier
         Me.ZipcodeTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ZipcodeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "Zipcode", True))
         Me.ZipcodeTextBox.Location = New System.Drawing.Point(103, 160)
         Me.ZipcodeTextBox.Name = "ZipcodeTextBox"
         Me.ZipcodeTextBox.Size = New System.Drawing.Size(240, 20)
@@ -312,7 +306,6 @@ Partial Class CreateSupplier
         Me.ContactNameTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ContactNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "ContactName", True))
         Me.ContactNameTextBox.Location = New System.Drawing.Point(175, 26)
         Me.ContactNameTextBox.Name = "ContactNameTextBox"
         Me.ContactNameTextBox.Size = New System.Drawing.Size(335, 20)
@@ -323,7 +316,6 @@ Partial Class CreateSupplier
         Me.CountryTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CountryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "Country", True))
         Me.CountryTextBox.Location = New System.Drawing.Point(103, 122)
         Me.CountryTextBox.Name = "CountryTextBox"
         Me.CountryTextBox.Size = New System.Drawing.Size(240, 20)
@@ -334,7 +326,6 @@ Partial Class CreateSupplier
         Me.AddressLineOneTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddressLineOneTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "AddressLineOne", True))
         Me.AddressLineOneTextBox.Location = New System.Drawing.Point(103, 23)
         Me.AddressLineOneTextBox.Name = "AddressLineOneTextBox"
         Me.AddressLineOneTextBox.Size = New System.Drawing.Size(240, 20)
@@ -345,7 +336,6 @@ Partial Class CreateSupplier
         Me.CityTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CityTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "City", True))
         Me.CityTextBox.Location = New System.Drawing.Point(103, 89)
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(240, 20)
@@ -364,6 +354,14 @@ Partial Class CreateSupplier
         Me.Panel1.Size = New System.Drawing.Size(402, 418)
         Me.Panel1.TabIndex = 54
         '
+        'BusinessPhoneMaskedTextBox
+        '
+        Me.BusinessPhoneMaskedTextBox.Location = New System.Drawing.Point(104, 62)
+        Me.BusinessPhoneMaskedTextBox.Mask = "(999) 000-0000"
+        Me.BusinessPhoneMaskedTextBox.Name = "BusinessPhoneMaskedTextBox"
+        Me.BusinessPhoneMaskedTextBox.Size = New System.Drawing.Size(277, 20)
+        Me.BusinessPhoneMaskedTextBox.TabIndex = 4
+        '
         'Panel2
         '
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top
@@ -379,6 +377,14 @@ Partial Class CreateSupplier
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(557, 418)
         Me.Panel2.TabIndex = 55
+        '
+        'ContactPhoneMaskedTextBox
+        '
+        Me.ContactPhoneMaskedTextBox.Location = New System.Drawing.Point(175, 133)
+        Me.ContactPhoneMaskedTextBox.Mask = "(999) 000-0000"
+        Me.ContactPhoneMaskedTextBox.Name = "ContactPhoneMaskedTextBox"
+        Me.ContactPhoneMaskedTextBox.Size = New System.Drawing.Size(335, 20)
+        Me.ContactPhoneMaskedTextBox.TabIndex = 14
         '
         'Panel3
         '
@@ -398,20 +404,6 @@ Partial Class CreateSupplier
         Me.Panel3.Size = New System.Drawing.Size(459, 418)
         Me.Panel3.TabIndex = 56
         '
-        'ContactPhoneMaskedTextBox
-        '
-        Me.ContactPhoneMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "ContactPhone", True))
-        Me.ContactPhoneMaskedTextBox.Location = New System.Drawing.Point(175, 133)
-        Me.ContactPhoneMaskedTextBox.Mask = "(999) 000-0000"
-        Me.ContactPhoneMaskedTextBox.Name = "ContactPhoneMaskedTextBox"
-        Me.ContactPhoneMaskedTextBox.Size = New System.Drawing.Size(335, 20)
-        Me.ContactPhoneMaskedTextBox.TabIndex = 14
-        '
-        'SuppliersBindingSource
-        '
-        Me.SuppliersBindingSource.DataMember = "Suppliers"
-        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
-        '
         'JupiterDataSet
         '
         Me.JupiterDataSet.DataSetName = "JupiterDataSet"
@@ -420,6 +412,11 @@ Partial Class CreateSupplier
         'SuppliersTableAdapter
         '
         Me.SuppliersTableAdapter.ClearBeforeFill = True
+        '
+        'SuppliersBindingSource
+        '
+        Me.SuppliersBindingSource.DataMember = "Suppliers"
+        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
         '
         'TableAdapterManager
         '
@@ -437,15 +434,6 @@ Partial Class CreateSupplier
         Me.TableAdapterManager.TiresTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
-        '
-        'BusinessPhoneMaskedTextBox
-        '
-        Me.BusinessPhoneMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SuppliersBindingSource, "BusinessPhone", True))
-        Me.BusinessPhoneMaskedTextBox.Location = New System.Drawing.Point(104, 62)
-        Me.BusinessPhoneMaskedTextBox.Mask = "(999) 000-0000"
-        Me.BusinessPhoneMaskedTextBox.Name = "BusinessPhoneMaskedTextBox"
-        Me.BusinessPhoneMaskedTextBox.Size = New System.Drawing.Size(277, 20)
-        Me.BusinessPhoneMaskedTextBox.TabIndex = 4
         '
         'CreateSupplier
         '
@@ -469,15 +457,11 @@ Partial Class CreateSupplier
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
-    Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents SuppliersTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter
-    Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
     Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents ContactSecondLastNameTextBox As System.Windows.Forms.TextBox
     Friend WithEvents SaveButton As System.Windows.Forms.Button
@@ -495,4 +479,8 @@ Partial Class CreateSupplier
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents ContactPhoneMaskedTextBox As System.Windows.Forms.MaskedTextBox
     Friend WithEvents BusinessPhoneMaskedTextBox As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
+    Friend WithEvents SuppliersTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter
+    Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
 End Class
