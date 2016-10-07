@@ -83,6 +83,7 @@
             NewSupplier.Zipcode = ZipcodeTextBox.Text
             NewSupplier.Create(Me.SuppliersTableAdapter)
             Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)
+            AdministrationPanel.Show()
             Me.Close()
         End If
     End Sub

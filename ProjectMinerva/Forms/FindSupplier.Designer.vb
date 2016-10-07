@@ -23,6 +23,8 @@ Partial Class FindSupplier
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SuppliersDataView = New System.Windows.Forms.DataGridView()
         Me.BusinessNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContactNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +46,8 @@ Partial Class FindSupplier
         Me.ModifyButton = New System.Windows.Forms.Button()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.ClearButton = New System.Windows.Forms.Button()
+        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         CType(Me.SuppliersDataView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,10 +64,30 @@ Partial Class FindSupplier
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SuppliersDataView.AutoGenerateColumns = False
         Me.SuppliersDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.SuppliersDataView.BackgroundColor = System.Drawing.Color.Azure
+        Me.SuppliersDataView.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.SuppliersDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SuppliersDataView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SuppliersDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SuppliersDataView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BusinessNameDataGridViewTextBoxColumn, Me.ContactNameDataGridViewTextBoxColumn, Me.ContactFirstLastNameDataGridViewTextBoxColumn, Me.ContactSecondLastNameDataGridViewTextBoxColumn, Me.BusinessPhoneDataGridViewTextBoxColumn, Me.ContactPhoneDataGridViewTextBoxColumn, Me.BusinessEmailDataGridViewTextBoxColumn, Me.AddressLineOneDataGridViewTextBoxColumn, Me.AddressLineTwoDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.CountryDataGridViewTextBoxColumn, Me.ZipcodeDataGridViewTextBoxColumn})
         Me.SuppliersDataView.DataSource = Me.SuppliersBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.SuppliersDataView.DefaultCellStyle = DataGridViewCellStyle2
         Me.SuppliersDataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.SuppliersDataView.GridColor = System.Drawing.Color.LightSeaGreen
         Me.SuppliersDataView.Location = New System.Drawing.Point(12, 125)
         Me.SuppliersDataView.MultiSelect = False
         Me.SuppliersDataView.Name = "SuppliersDataView"
@@ -195,45 +219,73 @@ Partial Class FindSupplier
         '
         'ModifyButton
         '
-        Me.ModifyButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ModifyButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ModifyButton.BackColor = System.Drawing.Color.PaleTurquoise
         Me.ModifyButton.Location = New System.Drawing.Point(12, 497)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(203, 91)
         Me.ModifyButton.TabIndex = 3
         Me.ModifyButton.Text = "Modify"
-        Me.ModifyButton.UseVisualStyleBackColor = True
+        Me.ModifyButton.UseVisualStyleBackColor = False
         '
         'DeleteButton
         '
-        Me.DeleteButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.DeleteButton.BackColor = System.Drawing.Color.PaleTurquoise
         Me.DeleteButton.Location = New System.Drawing.Point(614, 497)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(203, 91)
         Me.DeleteButton.TabIndex = 4
         Me.DeleteButton.Text = "Delete"
-        Me.DeleteButton.UseVisualStyleBackColor = True
+        Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.BackColor = System.Drawing.Color.PaleTurquoise
         Me.BackButton.Location = New System.Drawing.Point(1234, 497)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(203, 91)
         Me.BackButton.TabIndex = 5
         Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = True
+        Me.BackButton.UseVisualStyleBackColor = False
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ClearButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ClearButton.Enabled = False
+        Me.ClearButton.Location = New System.Drawing.Point(334, 49)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(75, 23)
+        Me.ClearButton.TabIndex = 6
+        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.UseVisualStyleBackColor = False
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AccessesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
+        Me.TableAdapterManager.CustomersTableAdapter = Nothing
+        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
+        Me.TableAdapterManager.NotesTableAdapter = Nothing
+        Me.TableAdapterManager.ProductsTableAdapter = Nothing
+        Me.TableAdapterManager.SalesTableAdapter = Nothing
+        Me.TableAdapterManager.ServicesTableAdapter = Nothing
+        Me.TableAdapterManager.StoresTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Me.SuppliersTableAdapter
+        Me.TableAdapterManager.TiresTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
         'FindSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1449, 611)
+        Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.ModifyButton)
@@ -241,7 +293,9 @@ Partial Class FindSupplier
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SuppliersDataView)
         Me.Name = "FindSupplier"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Supplier"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.SuppliersDataView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -270,4 +324,6 @@ Partial Class FindSupplier
     Friend WithEvents ModifyButton As System.Windows.Forms.Button
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
+    Friend WithEvents ClearButton As System.Windows.Forms.Button
+    Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
 End Class
