@@ -42,15 +42,16 @@ Partial Class FindSupplier
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ModifyButton = New System.Windows.Forms.Button()
         Me.DeleteButton = New System.Windows.Forms.Button()
-        Me.BackButton = New System.Windows.Forms.Button()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
+        Me.BackButton = New System.Windows.Forms.Button()
         CType(Me.SuppliersDataView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuppliersDataView
@@ -199,29 +200,16 @@ Partial Class FindSupplier
         Me.SearchTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SearchTextBox.Location = New System.Drawing.Point(104, 51)
+        Me.SearchTextBox.Location = New System.Drawing.Point(89, 51)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(179, 20)
         Me.SearchTextBox.TabIndex = 1
         '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 45)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 25)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Search:"
-        '
         'ModifyButton
         '
-        Me.ModifyButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ModifyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.ModifyButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ModifyButton.Location = New System.Drawing.Point(12, 497)
+        Me.ModifyButton.Location = New System.Drawing.Point(626, 508)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(203, 91)
         Me.ModifyButton.TabIndex = 3
@@ -230,37 +218,14 @@ Partial Class FindSupplier
         '
         'DeleteButton
         '
-        Me.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DeleteButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.DeleteButton.Location = New System.Drawing.Point(614, 497)
+        Me.DeleteButton.Location = New System.Drawing.Point(1234, 508)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(203, 91)
         Me.DeleteButton.TabIndex = 4
         Me.DeleteButton.Text = "Delete"
         Me.DeleteButton.UseVisualStyleBackColor = False
-        '
-        'BackButton
-        '
-        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.BackButton.Location = New System.Drawing.Point(1234, 497)
-        Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(203, 91)
-        Me.BackButton.TabIndex = 5
-        Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = False
-        '
-        'ClearButton
-        '
-        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ClearButton.Enabled = False
-        Me.ClearButton.Location = New System.Drawing.Point(334, 49)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(75, 23)
-        Me.ClearButton.TabIndex = 6
-        Me.ClearButton.Text = "Clear"
-        Me.ClearButton.UseVisualStyleBackColor = False
         '
         'TableAdapterManager
         '
@@ -279,17 +244,55 @@ Partial Class FindSupplier
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 37)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(62, 50)
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
+        Me.ClearButton.Enabled = False
+        Me.ClearButton.FlatAppearance.BorderSize = 0
+        Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
+        Me.ClearButton.Location = New System.Drawing.Point(294, 37)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(75, 75)
+        Me.ClearButton.TabIndex = 6
+        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ClearButton.UseVisualStyleBackColor = False
+        '
+        'BackButton
+        '
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 508)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(102, 91)
+        Me.BackButton.TabIndex = 5
+        Me.BackButton.UseVisualStyleBackColor = False
+        '
         'FindSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1449, 611)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.ModifyButton)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SuppliersDataView)
         Me.Name = "FindSupplier"
@@ -299,6 +302,7 @@ Partial Class FindSupplier
         CType(Me.SuppliersDataView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -320,10 +324,10 @@ Partial Class FindSupplier
     Friend WithEvents CountryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ZipcodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ModifyButton As System.Windows.Forms.Button
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

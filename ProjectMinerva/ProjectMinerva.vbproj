@@ -311,6 +311,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\back-icon.png" />
+    <None Include="Resources\cancel-icon-small.png" />
+    <None Include="Resources\search-icon-small.png" />
+    <None Include="Resources\search-icon %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

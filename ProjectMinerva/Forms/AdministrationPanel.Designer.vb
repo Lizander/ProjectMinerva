@@ -22,6 +22,7 @@ Partial Class AdministrationPanel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdministrationPanel))
         Me.SupplierButton = New System.Windows.Forms.Button()
         Me.TireButton = New System.Windows.Forms.Button()
         Me.ServiceButton = New System.Windows.Forms.Button()
@@ -38,14 +39,18 @@ Partial Class AdministrationPanel
         '
         Me.SupplierButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SupplierButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.SupplierButton.BackColor = System.Drawing.Color.Transparent
         Me.SupplierButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.SupplierButton.FlatAppearance.BorderSize = 0
+        Me.SupplierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SupplierButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.SupplierButton.Location = New System.Drawing.Point(164, 38)
+        Me.SupplierButton.Image = CType(resources.GetObject("SupplierButton.Image"), System.Drawing.Image)
+        Me.SupplierButton.Location = New System.Drawing.Point(164, 12)
         Me.SupplierButton.Name = "SupplierButton"
-        Me.SupplierButton.Size = New System.Drawing.Size(144, 72)
+        Me.SupplierButton.Size = New System.Drawing.Size(144, 87)
         Me.SupplierButton.TabIndex = 0
         Me.SupplierButton.Text = "Suppliers"
+        Me.SupplierButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.SupplierButton.UseVisualStyleBackColor = False
         '
         'TireButton
@@ -94,14 +99,18 @@ Partial Class AdministrationPanel
         '
         Me.CustomerButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CustomerButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.CustomerButton.BackColor = System.Drawing.Color.Transparent
         Me.CustomerButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.CustomerButton.FlatAppearance.BorderSize = 0
+        Me.CustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CustomerButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CustomerButton.Image = CType(resources.GetObject("CustomerButton.Image"), System.Drawing.Image)
         Me.CustomerButton.Location = New System.Drawing.Point(164, 467)
         Me.CustomerButton.Name = "CustomerButton"
-        Me.CustomerButton.Size = New System.Drawing.Size(144, 72)
+        Me.CustomerButton.Size = New System.Drawing.Size(144, 95)
         Me.CustomerButton.TabIndex = 4
         Me.CustomerButton.Text = "Customers"
+        Me.CustomerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.CustomerButton.UseVisualStyleBackColor = False
         '
         'UserButton
@@ -166,17 +175,18 @@ Partial Class AdministrationPanel
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BackButton.AutoSize = True
-        Me.BackButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
         Me.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BackButton.Location = New System.Drawing.Point(1318, 576)
+        Me.BackButton.Image = CType(resources.GetObject("BackButton.Image"), System.Drawing.Image)
+        Me.BackButton.Location = New System.Drawing.Point(12, 551)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(144, 72)
+        Me.BackButton.Size = New System.Drawing.Size(144, 97)
         Me.BackButton.TabIndex = 9
-        Me.BackButton.Text = "Back"
+        Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BackButton.UseVisualStyleBackColor = False
         '
         'AdministrationPanel

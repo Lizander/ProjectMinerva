@@ -35,6 +35,7 @@ Partial Class CreateSupplier
         Dim ContactPhoneLabel As System.Windows.Forms.Label
         Dim CityLabel As System.Windows.Forms.Label
         Dim AddressLineOneLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateSupplier))
         Me.BackButton = New System.Windows.Forms.Button()
         Me.ContactSecondLastNameTextBox = New System.Windows.Forms.TextBox()
         Me.SaveButton = New System.Windows.Forms.Button()
@@ -221,13 +222,15 @@ Partial Class CreateSupplier
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.BackButton.Location = New System.Drawing.Point(1170, 516)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = CType(resources.GetObject("BackButton.Image"), System.Drawing.Image)
+        Me.BackButton.Location = New System.Drawing.Point(12, 516)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(272, 81)
+        Me.BackButton.Size = New System.Drawing.Size(140, 81)
         Me.BackButton.TabIndex = 26
-        Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = False
         '
         'ContactSecondLastNameTextBox
@@ -242,13 +245,17 @@ Partial Class CreateSupplier
         '
         'SaveButton
         '
-        Me.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.SaveButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.SaveButton.Location = New System.Drawing.Point(518, 516)
+        Me.SaveButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.FlatAppearance.BorderSize = 0
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Image = CType(resources.GetObject("SaveButton.Image"), System.Drawing.Image)
+        Me.SaveButton.Location = New System.Drawing.Point(576, 499)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(228, 81)
+        Me.SaveButton.Size = New System.Drawing.Size(228, 98)
         Me.SaveButton.TabIndex = 25
         Me.SaveButton.Text = "Save"
+        Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.SaveButton.UseVisualStyleBackColor = False
         '
         'BusinessEmailTextBox
@@ -447,6 +454,7 @@ Partial Class CreateSupplier
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SaveButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CreateSupplier"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Create Supplier"

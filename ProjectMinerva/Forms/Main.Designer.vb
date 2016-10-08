@@ -22,6 +22,7 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.SalesHomeButton = New System.Windows.Forms.Button()
         Me.TireSearchButton = New System.Windows.Forms.Button()
         Me.AdministrationButton = New System.Windows.Forms.Button()
@@ -63,15 +64,17 @@ Partial Class Main
         Me.AdministrationButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AdministrationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.AdministrationButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.AdministrationButton.BackColor = System.Drawing.Color.Transparent
         Me.AdministrationButton.FlatAppearance.BorderSize = 0
         Me.AdministrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AdministrationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdministrationButton.Image = CType(resources.GetObject("AdministrationButton.Image"), System.Drawing.Image)
         Me.AdministrationButton.Location = New System.Drawing.Point(1060, 215)
         Me.AdministrationButton.Name = "AdministrationButton"
         Me.AdministrationButton.Size = New System.Drawing.Size(205, 149)
         Me.AdministrationButton.TabIndex = 2
         Me.AdministrationButton.Text = "Adminitration Panel"
+        Me.AdministrationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.AdministrationButton.UseVisualStyleBackColor = False
         '
         'Main
