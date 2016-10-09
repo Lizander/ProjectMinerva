@@ -57,14 +57,18 @@ Partial Class AdministrationPanel
         '
         Me.TireButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TireButton.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TireButton.BackColor = System.Drawing.Color.Transparent
         Me.TireButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.TireButton.FlatAppearance.BorderSize = 0
+        Me.TireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.TireButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.TireButton.Location = New System.Drawing.Point(164, 144)
+        Me.TireButton.Image = Global.ProjectMinerva.My.Resources.Resources._1476067665_carwheel
+        Me.TireButton.Location = New System.Drawing.Point(164, 119)
         Me.TireButton.Name = "TireButton"
-        Me.TireButton.Size = New System.Drawing.Size(144, 72)
+        Me.TireButton.Size = New System.Drawing.Size(144, 101)
         Me.TireButton.TabIndex = 1
         Me.TireButton.Text = "Tires"
+        Me.TireButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.TireButton.UseVisualStyleBackColor = False
         '
         'ServiceButton

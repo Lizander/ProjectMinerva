@@ -12,6 +12,7 @@ Public Class Tire
     Private ConditionValue As String
     Private ReorderPointValue As Integer
     Private SupplierReference As Supplier
+    Private SupplierIDValue As Integer
     Private StateExemptValue As String
     Private MunicipalExemptValue As String
     Private TreadwearValue As String
@@ -19,6 +20,7 @@ Public Class Tire
     Private PriceValue As Double
     Private CostValue As Double
     Private MarkupValue As Double
+    Private SavedValue As Boolean
 
     Public ReadOnly Property ID() As Integer
         Get
@@ -116,6 +118,15 @@ Public Class Tire
         End Set
     End Property
 
+    Public Property SupplierID() As Integer
+        Get
+            Return SupplierIDValue
+        End Get
+        Set(value As Integer)
+            SupplierIDValue = value
+        End Set
+    End Property
+
     Public Property StateExempt() As String
         Get
             Return StateExemptValue
@@ -175,4 +186,19 @@ Public Class Tire
             Return PriceValue - CostValue
         End Get
     End Property
+
+    Public Sub Create(Table As TiresTableAdapter)
+        Dim Result As Integer
+        Result = Table.InsertTire(BrandValue, ModelValue, WidthValue, RazonAvAValue, DiameterValue, TractionValue, TemperatureValue, ConditionValue, ReorderPointValue,
+                                  SupplierIDValue, StateExemptValue, MunicipalExemptValue, TreadwearValue, StockValue, PriceValue, CostValue, Markup)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Public Function Saved()
+        Return SavedValue
+    End Function
 End Class

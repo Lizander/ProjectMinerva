@@ -39,6 +39,7 @@ Partial Class CreateTire
         Dim StateExemptLabel As System.Windows.Forms.Label
         Dim MunicipalExemptLabel As System.Windows.Forms.Label
         Dim ConditionLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateTire))
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.TiresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
@@ -52,6 +53,7 @@ Partial Class CreateTire
         Me.TreadwearTextBox = New System.Windows.Forms.TextBox()
         Me.BrandComboBox = New System.Windows.Forms.ComboBox()
         Me.SupplierIDComboBox = New System.Windows.Forms.ComboBox()
+        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PriceNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.CostNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.StockNumericUpDown = New System.Windows.Forms.NumericUpDown()
@@ -60,10 +62,11 @@ Partial Class CreateTire
         Me.MunicipalExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ConditionComboBox = New System.Windows.Forms.ComboBox()
-        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         ModelLabel = New System.Windows.Forms.Label()
         WidthLabel = New System.Windows.Forms.Label()
         RazonAvALabel = New System.Windows.Forms.Label()
@@ -82,11 +85,14 @@ Partial Class CreateTire
         ConditionLabel = New System.Windows.Forms.Label()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReorderPointNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ModelLabel
@@ -95,10 +101,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ModelLabel.AutoSize = True
-        ModelLabel.Location = New System.Drawing.Point(572, 130)
+        ModelLabel.Location = New System.Drawing.Point(14, 38)
         ModelLabel.Name = "ModelLabel"
         ModelLabel.Size = New System.Drawing.Size(39, 13)
-        ModelLabel.TabIndex = 5
+        ModelLabel.TabIndex = 11
         ModelLabel.Text = "Model:"
         '
         'WidthLabel
@@ -107,10 +113,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         WidthLabel.AutoSize = True
-        WidthLabel.Location = New System.Drawing.Point(366, 170)
+        WidthLabel.Location = New System.Drawing.Point(33, 38)
         WidthLabel.Name = "WidthLabel"
         WidthLabel.Size = New System.Drawing.Size(38, 13)
-        WidthLabel.TabIndex = 7
+        WidthLabel.TabIndex = 1
         WidthLabel.Text = "Width:"
         '
         'RazonAvALabel
@@ -119,11 +125,11 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         RazonAvALabel.AutoSize = True
-        RazonAvALabel.Location = New System.Drawing.Point(594, 174)
+        RazonAvALabel.Location = New System.Drawing.Point(32, 99)
         RazonAvALabel.Name = "RazonAvALabel"
-        RazonAvALabel.Size = New System.Drawing.Size(67, 13)
-        RazonAvALabel.TabIndex = 9
-        RazonAvALabel.Text = "Razon Av A:"
+        RazonAvALabel.Size = New System.Drawing.Size(44, 13)
+        RazonAvALabel.TabIndex = 3
+        RazonAvALabel.Text = "R Av A:"
         '
         'DiameterLabel
         '
@@ -131,10 +137,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         DiameterLabel.AutoSize = True
-        DiameterLabel.Location = New System.Drawing.Point(814, 177)
+        DiameterLabel.Location = New System.Drawing.Point(32, 168)
         DiameterLabel.Name = "DiameterLabel"
         DiameterLabel.Size = New System.Drawing.Size(52, 13)
-        DiameterLabel.TabIndex = 11
+        DiameterLabel.TabIndex = 5
         DiameterLabel.Text = "Diameter:"
         '
         'TractionLabel
@@ -143,7 +149,7 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TractionLabel.AutoSize = True
-        TractionLabel.Location = New System.Drawing.Point(366, 217)
+        TractionLabel.Location = New System.Drawing.Point(14, 99)
         TractionLabel.Name = "TractionLabel"
         TractionLabel.Size = New System.Drawing.Size(49, 13)
         TractionLabel.TabIndex = 13
@@ -155,7 +161,7 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TemperatureLabel.AutoSize = True
-        TemperatureLabel.Location = New System.Drawing.Point(591, 217)
+        TemperatureLabel.Location = New System.Drawing.Point(14, 168)
         TemperatureLabel.Name = "TemperatureLabel"
         TemperatureLabel.Size = New System.Drawing.Size(70, 13)
         TemperatureLabel.TabIndex = 15
@@ -167,10 +173,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TreadwearLabel.AutoSize = True
-        TreadwearLabel.Location = New System.Drawing.Point(814, 221)
+        TreadwearLabel.Location = New System.Drawing.Point(14, 225)
         TreadwearLabel.Name = "TreadwearLabel"
         TreadwearLabel.Size = New System.Drawing.Size(61, 13)
-        TreadwearLabel.TabIndex = 27
+        TreadwearLabel.TabIndex = 17
         TreadwearLabel.Text = "Treadwear:"
         '
         'BrandLabel
@@ -179,11 +185,107 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         BrandLabel.AutoSize = True
-        BrandLabel.Location = New System.Drawing.Point(366, 130)
+        BrandLabel.Location = New System.Drawing.Point(32, 225)
         BrandLabel.Name = "BrandLabel"
         BrandLabel.Size = New System.Drawing.Size(38, 13)
-        BrandLabel.TabIndex = 36
+        BrandLabel.TabIndex = 7
         BrandLabel.Text = "Brand:"
+        '
+        'SupplierIDLabel
+        '
+        SupplierIDLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        SupplierIDLabel.AutoSize = True
+        SupplierIDLabel.Location = New System.Drawing.Point(14, 291)
+        SupplierIDLabel.Name = "SupplierIDLabel"
+        SupplierIDLabel.Size = New System.Drawing.Size(48, 13)
+        SupplierIDLabel.TabIndex = 19
+        SupplierIDLabel.Text = "Supplier:"
+        '
+        'PriceLabel
+        '
+        PriceLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        PriceLabel.AutoSize = True
+        PriceLabel.Location = New System.Drawing.Point(22, 38)
+        PriceLabel.Name = "PriceLabel"
+        PriceLabel.Size = New System.Drawing.Size(34, 13)
+        PriceLabel.TabIndex = 21
+        PriceLabel.Text = "Price:"
+        '
+        'CostLabel
+        '
+        CostLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        CostLabel.AutoSize = True
+        CostLabel.Location = New System.Drawing.Point(22, 99)
+        CostLabel.Name = "CostLabel"
+        CostLabel.Size = New System.Drawing.Size(31, 13)
+        CostLabel.TabIndex = 23
+        CostLabel.Text = "Cost:"
+        '
+        'StockLabel
+        '
+        StockLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        StockLabel.AutoSize = True
+        StockLabel.Location = New System.Drawing.Point(22, 225)
+        StockLabel.Name = "StockLabel"
+        StockLabel.Size = New System.Drawing.Size(38, 13)
+        StockLabel.TabIndex = 27
+        StockLabel.Text = "Stock:"
+        '
+        'ReorderPointLabel
+        '
+        ReorderPointLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReorderPointLabel.AutoSize = True
+        ReorderPointLabel.Location = New System.Drawing.Point(22, 168)
+        ReorderPointLabel.Name = "ReorderPointLabel"
+        ReorderPointLabel.Size = New System.Drawing.Size(75, 13)
+        ReorderPointLabel.TabIndex = 25
+        ReorderPointLabel.Text = "Reorder Point:"
+        '
+        'StateExemptLabel
+        '
+        StateExemptLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        StateExemptLabel.AutoSize = True
+        StateExemptLabel.Location = New System.Drawing.Point(22, 343)
+        StateExemptLabel.Name = "StateExemptLabel"
+        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
+        StateExemptLabel.TabIndex = 31
+        StateExemptLabel.Text = "State Exempt:"
+        '
+        'MunicipalExemptLabel
+        '
+        MunicipalExemptLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        MunicipalExemptLabel.AutoSize = True
+        MunicipalExemptLabel.Location = New System.Drawing.Point(22, 291)
+        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
+        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
+        MunicipalExemptLabel.TabIndex = 29
+        MunicipalExemptLabel.Text = "Municipal Exempt:"
+        '
+        'ConditionLabel
+        '
+        ConditionLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ConditionLabel.AutoSize = True
+        ConditionLabel.Location = New System.Drawing.Point(33, 291)
+        ConditionLabel.Name = "ConditionLabel"
+        ConditionLabel.Size = New System.Drawing.Size(54, 13)
+        ConditionLabel.TabIndex = 9
+        ConditionLabel.Text = "Condition:"
         '
         'JupiterDataSet
         '
@@ -222,10 +324,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ModelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Model", True))
-        Me.ModelTextBox.Location = New System.Drawing.Point(671, 127)
+        Me.ModelTextBox.Location = New System.Drawing.Point(113, 35)
         Me.ModelTextBox.Name = "ModelTextBox"
-        Me.ModelTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.ModelTextBox.TabIndex = 6
+        Me.ModelTextBox.Size = New System.Drawing.Size(225, 20)
+        Me.ModelTextBox.TabIndex = 12
         '
         'WidthTextBox
         '
@@ -233,10 +335,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.WidthTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Width", True))
-        Me.WidthTextBox.Location = New System.Drawing.Point(465, 167)
+        Me.WidthTextBox.Location = New System.Drawing.Point(132, 35)
         Me.WidthTextBox.Name = "WidthTextBox"
-        Me.WidthTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.WidthTextBox.TabIndex = 8
+        Me.WidthTextBox.Size = New System.Drawing.Size(198, 20)
+        Me.WidthTextBox.TabIndex = 2
         '
         'RazonAvATextBox
         '
@@ -244,10 +346,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RazonAvATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "RazonAvA", True))
-        Me.RazonAvATextBox.Location = New System.Drawing.Point(693, 171)
+        Me.RazonAvATextBox.Location = New System.Drawing.Point(131, 96)
         Me.RazonAvATextBox.Name = "RazonAvATextBox"
-        Me.RazonAvATextBox.Size = New System.Drawing.Size(100, 20)
-        Me.RazonAvATextBox.TabIndex = 10
+        Me.RazonAvATextBox.Size = New System.Drawing.Size(198, 20)
+        Me.RazonAvATextBox.TabIndex = 4
         '
         'DiameterTextBox
         '
@@ -255,10 +357,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DiameterTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Diameter", True))
-        Me.DiameterTextBox.Location = New System.Drawing.Point(913, 174)
+        Me.DiameterTextBox.Location = New System.Drawing.Point(131, 165)
         Me.DiameterTextBox.Name = "DiameterTextBox"
-        Me.DiameterTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.DiameterTextBox.TabIndex = 12
+        Me.DiameterTextBox.Size = New System.Drawing.Size(198, 20)
+        Me.DiameterTextBox.TabIndex = 6
         '
         'TractionTextBox
         '
@@ -266,9 +368,9 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TractionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Traction", True))
-        Me.TractionTextBox.Location = New System.Drawing.Point(465, 214)
+        Me.TractionTextBox.Location = New System.Drawing.Point(112, 96)
         Me.TractionTextBox.Name = "TractionTextBox"
-        Me.TractionTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.TractionTextBox.Size = New System.Drawing.Size(225, 20)
         Me.TractionTextBox.TabIndex = 14
         '
         'TemperatureTextBox
@@ -277,9 +379,9 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TemperatureTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Temperature", True))
-        Me.TemperatureTextBox.Location = New System.Drawing.Point(690, 214)
+        Me.TemperatureTextBox.Location = New System.Drawing.Point(112, 165)
         Me.TemperatureTextBox.Name = "TemperatureTextBox"
-        Me.TemperatureTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.TemperatureTextBox.Size = New System.Drawing.Size(225, 20)
         Me.TemperatureTextBox.TabIndex = 16
         '
         'TreadwearTextBox
@@ -288,10 +390,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TreadwearTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Treadwear", True))
-        Me.TreadwearTextBox.Location = New System.Drawing.Point(913, 218)
+        Me.TreadwearTextBox.Location = New System.Drawing.Point(112, 225)
         Me.TreadwearTextBox.Name = "TreadwearTextBox"
-        Me.TreadwearTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.TreadwearTextBox.TabIndex = 28
+        Me.TreadwearTextBox.Size = New System.Drawing.Size(225, 20)
+        Me.TreadwearTextBox.TabIndex = 18
         '
         'BrandComboBox
         '
@@ -300,22 +402,11 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BrandComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Brand", True))
         Me.BrandComboBox.FormattingEnabled = True
-        Me.BrandComboBox.Location = New System.Drawing.Point(410, 127)
+        Me.BrandComboBox.Items.AddRange(New Object() {"N/A"})
+        Me.BrandComboBox.Location = New System.Drawing.Point(131, 225)
         Me.BrandComboBox.Name = "BrandComboBox"
-        Me.BrandComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.BrandComboBox.TabIndex = 37
-        '
-        'SupplierIDLabel
-        '
-        SupplierIDLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        SupplierIDLabel.AutoSize = True
-        SupplierIDLabel.Location = New System.Drawing.Point(814, 265)
-        SupplierIDLabel.Name = "SupplierIDLabel"
-        SupplierIDLabel.Size = New System.Drawing.Size(48, 13)
-        SupplierIDLabel.TabIndex = 37
-        SupplierIDLabel.Text = "Supplier:"
+        Me.BrandComboBox.Size = New System.Drawing.Size(198, 21)
+        Me.BrandComboBox.TabIndex = 8
         '
         'SupplierIDComboBox
         '
@@ -325,24 +416,18 @@ Partial Class CreateTire
         Me.SupplierIDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "SupplierID", True))
         Me.SupplierIDComboBox.DataSource = Me.SuppliersBindingSource
         Me.SupplierIDComboBox.DisplayMember = "BusinessName"
+        Me.SupplierIDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SupplierIDComboBox.FormattingEnabled = True
-        Me.SupplierIDComboBox.Location = New System.Drawing.Point(882, 262)
+        Me.SupplierIDComboBox.Location = New System.Drawing.Point(111, 288)
         Me.SupplierIDComboBox.Name = "SupplierIDComboBox"
-        Me.SupplierIDComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.SupplierIDComboBox.TabIndex = 38
-        Me.SupplierIDComboBox.ValueMember = "BusinessName"
+        Me.SupplierIDComboBox.Size = New System.Drawing.Size(226, 21)
+        Me.SupplierIDComboBox.TabIndex = 20
+        Me.SupplierIDComboBox.ValueMember = "Id"
         '
-        'PriceLabel
+        'SuppliersBindingSource
         '
-        PriceLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        PriceLabel.AutoSize = True
-        PriceLabel.Location = New System.Drawing.Point(370, 262)
-        PriceLabel.Name = "PriceLabel"
-        PriceLabel.Size = New System.Drawing.Size(34, 13)
-        PriceLabel.TabIndex = 38
-        PriceLabel.Text = "Price:"
+        Me.SuppliersBindingSource.DataMember = "Suppliers"
+        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
         '
         'PriceNumericUpDown
         '
@@ -350,22 +435,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PriceNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Price", True))
-        Me.PriceNumericUpDown.Location = New System.Drawing.Point(410, 262)
+        Me.PriceNumericUpDown.Location = New System.Drawing.Point(117, 36)
         Me.PriceNumericUpDown.Name = "PriceNumericUpDown"
-        Me.PriceNumericUpDown.Size = New System.Drawing.Size(131, 20)
-        Me.PriceNumericUpDown.TabIndex = 39
-        '
-        'CostLabel
-        '
-        CostLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        CostLabel.AutoSize = True
-        CostLabel.Location = New System.Drawing.Point(594, 262)
-        CostLabel.Name = "CostLabel"
-        CostLabel.Size = New System.Drawing.Size(31, 13)
-        CostLabel.TabIndex = 39
-        CostLabel.Text = "Cost:"
+        Me.PriceNumericUpDown.Size = New System.Drawing.Size(179, 20)
+        Me.PriceNumericUpDown.TabIndex = 22
         '
         'CostNumericUpDown
         '
@@ -373,22 +446,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Cost", True))
-        Me.CostNumericUpDown.Location = New System.Drawing.Point(631, 262)
+        Me.CostNumericUpDown.Location = New System.Drawing.Point(117, 97)
         Me.CostNumericUpDown.Name = "CostNumericUpDown"
-        Me.CostNumericUpDown.Size = New System.Drawing.Size(140, 20)
-        Me.CostNumericUpDown.TabIndex = 40
-        '
-        'StockLabel
-        '
-        StockLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        StockLabel.AutoSize = True
-        StockLabel.Location = New System.Drawing.Point(370, 311)
-        StockLabel.Name = "StockLabel"
-        StockLabel.Size = New System.Drawing.Size(38, 13)
-        StockLabel.TabIndex = 40
-        StockLabel.Text = "Stock:"
+        Me.CostNumericUpDown.Size = New System.Drawing.Size(179, 20)
+        Me.CostNumericUpDown.TabIndex = 24
         '
         'StockNumericUpDown
         '
@@ -396,22 +457,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StockNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Stock", True))
-        Me.StockNumericUpDown.Location = New System.Drawing.Point(414, 311)
+        Me.StockNumericUpDown.Location = New System.Drawing.Point(117, 223)
         Me.StockNumericUpDown.Name = "StockNumericUpDown"
-        Me.StockNumericUpDown.Size = New System.Drawing.Size(120, 20)
-        Me.StockNumericUpDown.TabIndex = 41
-        '
-        'ReorderPointLabel
-        '
-        ReorderPointLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReorderPointLabel.AutoSize = True
-        ReorderPointLabel.Location = New System.Drawing.Point(591, 311)
-        ReorderPointLabel.Name = "ReorderPointLabel"
-        ReorderPointLabel.Size = New System.Drawing.Size(75, 13)
-        ReorderPointLabel.TabIndex = 41
-        ReorderPointLabel.Text = "Reorder Point:"
+        Me.StockNumericUpDown.Size = New System.Drawing.Size(180, 20)
+        Me.StockNumericUpDown.TabIndex = 28
         '
         'ReorderPointNumericUpDown
         '
@@ -419,22 +468,10 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReorderPointNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "ReorderPoint", True))
-        Me.ReorderPointNumericUpDown.Location = New System.Drawing.Point(672, 311)
+        Me.ReorderPointNumericUpDown.Location = New System.Drawing.Point(117, 165)
         Me.ReorderPointNumericUpDown.Name = "ReorderPointNumericUpDown"
-        Me.ReorderPointNumericUpDown.Size = New System.Drawing.Size(120, 20)
-        Me.ReorderPointNumericUpDown.TabIndex = 42
-        '
-        'StateExemptLabel
-        '
-        StateExemptLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        StateExemptLabel.AutoSize = True
-        StateExemptLabel.Location = New System.Drawing.Point(366, 369)
-        StateExemptLabel.Name = "StateExemptLabel"
-        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
-        StateExemptLabel.TabIndex = 42
-        StateExemptLabel.Text = "State Exempt:"
+        Me.ReorderPointNumericUpDown.Size = New System.Drawing.Size(179, 20)
+        Me.ReorderPointNumericUpDown.TabIndex = 26
         '
         'StateExemptComboBox
         '
@@ -442,24 +479,13 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "StateExempt", True))
+        Me.StateExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StateExemptComboBox.FormattingEnabled = True
         Me.StateExemptComboBox.Items.AddRange(New Object() {"Yes", "No"})
-        Me.StateExemptComboBox.Location = New System.Drawing.Point(445, 366)
+        Me.StateExemptComboBox.Location = New System.Drawing.Point(117, 340)
         Me.StateExemptComboBox.Name = "StateExemptComboBox"
-        Me.StateExemptComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.StateExemptComboBox.TabIndex = 43
-        '
-        'MunicipalExemptLabel
-        '
-        MunicipalExemptLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        MunicipalExemptLabel.AutoSize = True
-        MunicipalExemptLabel.Location = New System.Drawing.Point(594, 369)
-        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
-        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
-        MunicipalExemptLabel.TabIndex = 43
-        MunicipalExemptLabel.Text = "Municipal Exempt:"
+        Me.StateExemptComboBox.Size = New System.Drawing.Size(179, 21)
+        Me.StateExemptComboBox.TabIndex = 32
         '
         'MunicipalExemptComboBox
         '
@@ -467,61 +493,43 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "MunicipalExempt", True))
+        Me.MunicipalExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MunicipalExemptComboBox.FormattingEnabled = True
         Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"Yes", "No"})
-        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(693, 366)
+        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(116, 288)
         Me.MunicipalExemptComboBox.Name = "MunicipalExemptComboBox"
-        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.MunicipalExemptComboBox.TabIndex = 44
+        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(180, 21)
+        Me.MunicipalExemptComboBox.TabIndex = 30
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.Location = New System.Drawing.Point(904, 482)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 589)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(176, 82)
         Me.BackButton.TabIndex = 46
-        Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = True
+        Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BackButton.UseVisualStyleBackColor = False
         '
         'SaveButton
         '
-        Me.SaveButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.SaveButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveButton.Location = New System.Drawing.Point(315, 482)
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.FlatAppearance.BorderSize = 0
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
+        Me.SaveButton.Location = New System.Drawing.Point(649, 503)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(176, 82)
+        Me.SaveButton.Size = New System.Drawing.Size(176, 107)
         Me.SaveButton.TabIndex = 47
         Me.SaveButton.Text = "Save"
-        Me.SaveButton.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(587, 42)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(190, 39)
-        Me.Label1.TabIndex = 48
-        Me.Label1.Text = "Create Tire"
-        '
-        'ConditionLabel
-        '
-        ConditionLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ConditionLabel.AutoSize = True
-        ConditionLabel.Location = New System.Drawing.Point(814, 127)
-        ConditionLabel.Name = "ConditionLabel"
-        ConditionLabel.Size = New System.Drawing.Size(54, 13)
-        ConditionLabel.TabIndex = 48
-        ConditionLabel.Text = "Condition:"
+        Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.SaveButton.UseVisualStyleBackColor = False
         '
         'ConditionComboBox
         '
@@ -529,73 +537,103 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ConditionComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TiresBindingSource, "Condition", True))
+        Me.ConditionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ConditionComboBox.FormattingEnabled = True
         Me.ConditionComboBox.Items.AddRange(New Object() {"New", "Used"})
-        Me.ConditionComboBox.Location = New System.Drawing.Point(874, 124)
+        Me.ConditionComboBox.Location = New System.Drawing.Point(131, 288)
         Me.ConditionComboBox.Name = "ConditionComboBox"
-        Me.ConditionComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.ConditionComboBox.TabIndex = 49
-        '
-        'SuppliersBindingSource
-        '
-        Me.SuppliersBindingSource.DataMember = "Suppliers"
-        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
+        Me.ConditionComboBox.Size = New System.Drawing.Size(199, 21)
+        Me.ConditionComboBox.TabIndex = 10
         '
         'SuppliersTableAdapter
         '
         Me.SuppliersTableAdapter.ClearBeforeFill = True
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.WidthTextBox)
+        Me.Panel1.Controls.Add(WidthLabel)
+        Me.Panel1.Controls.Add(ConditionLabel)
+        Me.Panel1.Controls.Add(Me.BrandComboBox)
+        Me.Panel1.Controls.Add(Me.ConditionComboBox)
+        Me.Panel1.Controls.Add(BrandLabel)
+        Me.Panel1.Controls.Add(RazonAvALabel)
+        Me.Panel1.Controls.Add(Me.RazonAvATextBox)
+        Me.Panel1.Controls.Add(Me.DiameterTextBox)
+        Me.Panel1.Controls.Add(DiameterLabel)
+        Me.Panel1.Location = New System.Drawing.Point(27, 25)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(388, 419)
+        Me.Panel1.TabIndex = 50
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Panel2.Controls.Add(Me.TractionTextBox)
+        Me.Panel2.Controls.Add(TractionLabel)
+        Me.Panel2.Controls.Add(Me.ModelTextBox)
+        Me.Panel2.Controls.Add(ModelLabel)
+        Me.Panel2.Controls.Add(Me.TemperatureTextBox)
+        Me.Panel2.Controls.Add(TemperatureLabel)
+        Me.Panel2.Controls.Add(Me.TreadwearTextBox)
+        Me.Panel2.Controls.Add(TreadwearLabel)
+        Me.Panel2.Controls.Add(SupplierIDLabel)
+        Me.Panel2.Controls.Add(Me.SupplierIDComboBox)
+        Me.Panel2.Location = New System.Drawing.Point(536, 25)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(388, 419)
+        Me.Panel2.TabIndex = 51
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Controls.Add(PriceLabel)
+        Me.Panel3.Controls.Add(Me.CostNumericUpDown)
+        Me.Panel3.Controls.Add(CostLabel)
+        Me.Panel3.Controls.Add(Me.PriceNumericUpDown)
+        Me.Panel3.Controls.Add(Me.ReorderPointNumericUpDown)
+        Me.Panel3.Controls.Add(StateExemptLabel)
+        Me.Panel3.Controls.Add(Me.StateExemptComboBox)
+        Me.Panel3.Controls.Add(ReorderPointLabel)
+        Me.Panel3.Controls.Add(StockLabel)
+        Me.Panel3.Controls.Add(Me.MunicipalExemptComboBox)
+        Me.Panel3.Controls.Add(Me.StockNumericUpDown)
+        Me.Panel3.Controls.Add(MunicipalExemptLabel)
+        Me.Panel3.Location = New System.Drawing.Point(1031, 25)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(388, 419)
+        Me.Panel3.TabIndex = 52
+        '
         'CreateTire
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1447, 683)
-        Me.Controls.Add(ConditionLabel)
-        Me.Controls.Add(Me.ConditionComboBox)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.BackButton)
-        Me.Controls.Add(MunicipalExemptLabel)
-        Me.Controls.Add(Me.MunicipalExemptComboBox)
-        Me.Controls.Add(StateExemptLabel)
-        Me.Controls.Add(Me.StateExemptComboBox)
-        Me.Controls.Add(ReorderPointLabel)
-        Me.Controls.Add(Me.ReorderPointNumericUpDown)
-        Me.Controls.Add(StockLabel)
-        Me.Controls.Add(Me.StockNumericUpDown)
-        Me.Controls.Add(CostLabel)
-        Me.Controls.Add(Me.CostNumericUpDown)
-        Me.Controls.Add(PriceLabel)
-        Me.Controls.Add(Me.PriceNumericUpDown)
-        Me.Controls.Add(SupplierIDLabel)
-        Me.Controls.Add(Me.SupplierIDComboBox)
-        Me.Controls.Add(BrandLabel)
-        Me.Controls.Add(Me.BrandComboBox)
-        Me.Controls.Add(ModelLabel)
-        Me.Controls.Add(Me.ModelTextBox)
-        Me.Controls.Add(WidthLabel)
-        Me.Controls.Add(Me.WidthTextBox)
-        Me.Controls.Add(RazonAvALabel)
-        Me.Controls.Add(Me.RazonAvATextBox)
-        Me.Controls.Add(DiameterLabel)
-        Me.Controls.Add(Me.DiameterTextBox)
-        Me.Controls.Add(TractionLabel)
-        Me.Controls.Add(Me.TractionTextBox)
-        Me.Controls.Add(TemperatureLabel)
-        Me.Controls.Add(Me.TemperatureTextBox)
-        Me.Controls.Add(TreadwearLabel)
-        Me.Controls.Add(Me.TreadwearTextBox)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CreateTire"
-        Me.Text = "CreateTire"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Create Tire"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReorderPointNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
@@ -619,8 +657,10 @@ Partial Class CreateTire
     Friend WithEvents MunicipalExemptComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents SaveButton As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ConditionComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SuppliersTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
 End Class

@@ -23,6 +23,9 @@ Partial Class FindTire
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FindTire))
         Me.BackButton = New System.Windows.Forms.Button()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.ModifyButton = New System.Windows.Forms.Button()
@@ -60,36 +63,45 @@ Partial Class FindTire
         Me.BackButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.Location = New System.Drawing.Point(1173, 450)
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 506)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(262, 130)
+        Me.BackButton.Size = New System.Drawing.Size(174, 103)
         Me.BackButton.TabIndex = 8
-        Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = True
+        Me.BackButton.UseVisualStyleBackColor = False
         '
         'DeleteButton
         '
-        Me.DeleteButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DeleteButton.Location = New System.Drawing.Point(643, 450)
+        Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DeleteButton.BackColor = System.Drawing.Color.Transparent
+        Me.DeleteButton.FlatAppearance.BorderSize = 0
+        Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteButton.Image = Global.ProjectMinerva.My.Resources.Resources.delete_1_icon
+        Me.DeleteButton.Location = New System.Drawing.Point(1209, 479)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(262, 130)
         Me.DeleteButton.TabIndex = 7
         Me.DeleteButton.Text = "Delete"
-        Me.DeleteButton.UseVisualStyleBackColor = True
+        Me.DeleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'ModifyButton
         '
-        Me.ModifyButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ModifyButton.Location = New System.Drawing.Point(12, 450)
+        Me.ModifyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ModifyButton.BackColor = System.Drawing.Color.Transparent
+        Me.ModifyButton.FlatAppearance.BorderSize = 0
+        Me.ModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ModifyButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
+        Me.ModifyButton.Location = New System.Drawing.Point(669, 479)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(262, 130)
         Me.ModifyButton.TabIndex = 6
         Me.ModifyButton.Text = "Modify"
-        Me.ModifyButton.UseVisualStyleBackColor = True
+        Me.ModifyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ModifyButton.UseVisualStyleBackColor = False
         '
         'JupiterDataSet
         '
@@ -134,9 +146,27 @@ Partial Class FindTire
         Me.TiresDataGridView.AutoGenerateColumns = False
         Me.TiresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.TiresDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders
+        Me.TiresDataGridView.BackgroundColor = System.Drawing.Color.Azure
+        Me.TiresDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TiresDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.TiresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.TiresDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18})
         Me.TiresDataGridView.DataSource = Me.TiresBindingSource
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TiresDataGridView.DefaultCellStyle = DataGridViewCellStyle2
         Me.TiresDataGridView.Location = New System.Drawing.Point(12, 94)
         Me.TiresDataGridView.Name = "TiresDataGridView"
         Me.TiresDataGridView.ReadOnly = True
@@ -268,13 +298,12 @@ Partial Class FindTire
         Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(7, 33)
+        Me.Label1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
+        Me.Label1.Location = New System.Drawing.Point(7, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 25)
+        Me.Label1.Size = New System.Drawing.Size(84, 50)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Search:"
         '
         'SearchTextBox
         '
@@ -290,6 +319,7 @@ Partial Class FindTire
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1483, 621)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SearchTextBox)
@@ -297,6 +327,7 @@ Partial Class FindTire
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.ModifyButton)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FindTire"
         Me.Text = "Find Tire"
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
