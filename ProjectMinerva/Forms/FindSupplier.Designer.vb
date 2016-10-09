@@ -25,6 +25,7 @@ Partial Class FindSupplier
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FindSupplier))
         Me.SuppliersDataView = New System.Windows.Forms.DataGridView()
         Me.BusinessNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContactNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,16 +39,17 @@ Partial Class FindSupplier
         Me.CityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CountryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ZipcodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.ModifyButton = New System.Windows.Forms.Button()
-        Me.DeleteButton = New System.Windows.Forms.Button()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.DeleteButton = New System.Windows.Forms.Button()
+        Me.ModifyButton = New System.Windows.Forms.Button()
         CType(Me.SuppliersDataView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +79,7 @@ Partial Class FindSupplier
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.SuppliersDataView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SuppliersDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SuppliersDataView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BusinessNameDataGridViewTextBoxColumn, Me.ContactNameDataGridViewTextBoxColumn, Me.ContactFirstLastNameDataGridViewTextBoxColumn, Me.ContactSecondLastNameDataGridViewTextBoxColumn, Me.BusinessPhoneDataGridViewTextBoxColumn, Me.ContactPhoneDataGridViewTextBoxColumn, Me.BusinessEmailDataGridViewTextBoxColumn, Me.AddressLineOneDataGridViewTextBoxColumn, Me.AddressLineTwoDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.CountryDataGridViewTextBoxColumn, Me.ZipcodeDataGridViewTextBoxColumn})
+        Me.SuppliersDataView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BusinessNameDataGridViewTextBoxColumn, Me.ContactNameDataGridViewTextBoxColumn, Me.ContactFirstLastNameDataGridViewTextBoxColumn, Me.ContactSecondLastNameDataGridViewTextBoxColumn, Me.BusinessPhoneDataGridViewTextBoxColumn, Me.ContactPhoneDataGridViewTextBoxColumn, Me.BusinessEmailDataGridViewTextBoxColumn, Me.AddressLineOneDataGridViewTextBoxColumn, Me.AddressLineTwoDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.CountryDataGridViewTextBoxColumn, Me.ZipcodeDataGridViewTextBoxColumn, Me.Id})
         Me.SuppliersDataView.DataSource = Me.SuppliersBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
@@ -181,6 +183,14 @@ Partial Class FindSupplier
         Me.ZipcodeDataGridViewTextBoxColumn.Name = "ZipcodeDataGridViewTextBoxColumn"
         Me.ZipcodeDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'Id
+        '
+        Me.Id.DataPropertyName = "Id"
+        Me.Id.HeaderText = "Id"
+        Me.Id.Name = "Id"
+        Me.Id.ReadOnly = True
+        Me.Id.Visible = False
+        '
         'SuppliersBindingSource
         '
         Me.SuppliersBindingSource.DataMember = "Suppliers"
@@ -204,28 +214,6 @@ Partial Class FindSupplier
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(179, 20)
         Me.SearchTextBox.TabIndex = 1
-        '
-        'ModifyButton
-        '
-        Me.ModifyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ModifyButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ModifyButton.Location = New System.Drawing.Point(626, 508)
-        Me.ModifyButton.Name = "ModifyButton"
-        Me.ModifyButton.Size = New System.Drawing.Size(203, 91)
-        Me.ModifyButton.TabIndex = 3
-        Me.ModifyButton.Text = "Modify"
-        Me.ModifyButton.UseVisualStyleBackColor = False
-        '
-        'DeleteButton
-        '
-        Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DeleteButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.DeleteButton.Location = New System.Drawing.Point(1234, 508)
-        Me.DeleteButton.Name = "DeleteButton"
-        Me.DeleteButton.Size = New System.Drawing.Size(203, 91)
-        Me.DeleteButton.TabIndex = 4
-        Me.DeleteButton.Text = "Delete"
-        Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'TableAdapterManager
         '
@@ -282,6 +270,36 @@ Partial Class FindSupplier
         Me.BackButton.TabIndex = 5
         Me.BackButton.UseVisualStyleBackColor = False
         '
+        'DeleteButton
+        '
+        Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DeleteButton.BackColor = System.Drawing.Color.Transparent
+        Me.DeleteButton.FlatAppearance.BorderSize = 0
+        Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteButton.Image = Global.ProjectMinerva.My.Resources.Resources.delete_1_icon
+        Me.DeleteButton.Location = New System.Drawing.Point(1234, 503)
+        Me.DeleteButton.Name = "DeleteButton"
+        Me.DeleteButton.Size = New System.Drawing.Size(203, 96)
+        Me.DeleteButton.TabIndex = 4
+        Me.DeleteButton.Text = "Delete"
+        Me.DeleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.DeleteButton.UseVisualStyleBackColor = False
+        '
+        'ModifyButton
+        '
+        Me.ModifyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ModifyButton.BackColor = System.Drawing.Color.Transparent
+        Me.ModifyButton.FlatAppearance.BorderSize = 0
+        Me.ModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ModifyButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
+        Me.ModifyButton.Location = New System.Drawing.Point(626, 503)
+        Me.ModifyButton.Name = "ModifyButton"
+        Me.ModifyButton.Size = New System.Drawing.Size(203, 96)
+        Me.ModifyButton.TabIndex = 3
+        Me.ModifyButton.Text = "Edit"
+        Me.ModifyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ModifyButton.UseVisualStyleBackColor = False
+        '
         'FindSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -295,6 +313,7 @@ Partial Class FindSupplier
         Me.Controls.Add(Me.ModifyButton)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.SuppliersDataView)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FindSupplier"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Supplier"
@@ -311,6 +330,13 @@ Partial Class FindSupplier
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
     Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SuppliersTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter
+    Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ModifyButton As System.Windows.Forms.Button
+    Friend WithEvents DeleteButton As System.Windows.Forms.Button
+    Friend WithEvents BackButton As System.Windows.Forms.Button
+    Friend WithEvents ClearButton As System.Windows.Forms.Button
+    Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents BusinessNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ContactNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ContactFirstLastNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -323,11 +349,5 @@ Partial Class FindSupplier
     Friend WithEvents CityDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CountryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ZipcodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents ModifyButton As System.Windows.Forms.Button
-    Friend WithEvents DeleteButton As System.Windows.Forms.Button
-    Friend WithEvents BackButton As System.Windows.Forms.Button
-    Friend WithEvents ClearButton As System.Windows.Forms.Button
-    Friend WithEvents TableAdapterManager As ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Id As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

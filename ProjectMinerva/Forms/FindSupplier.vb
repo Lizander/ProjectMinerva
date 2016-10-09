@@ -27,4 +27,12 @@
         ClearButton.Enabled = False
         SearchTextBox.Focus()
     End Sub
+
+    Private Sub ModifyButton_Click(sender As Object, e As EventArgs) Handles ModifyButton.Click
+        Dim SupplierToEdit As New Supplier
+        SupplierToEdit.SetSupplierFromRow(SuppliersDataView.CurrentRow)
+        EditSupplier.OriginalSupplier = SupplierToEdit
+        EditSupplier.Show()
+        Me.Close()
+    End Sub
 End Class

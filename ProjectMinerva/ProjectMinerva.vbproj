@@ -138,6 +138,12 @@
     <Compile Include="Forms\CustomersHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\EditSupplier.Designer.vb">
+      <DependentUpon>EditSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FindProduct.Designer.vb">
       <DependentUpon>FindProduct.vb</DependentUpon>
     </Compile>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="Forms\CustomersHome.resx">
       <DependentUpon>CustomersHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSupplier.resx">
+      <DependentUpon>EditSupplier.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FindProduct.resx">
       <DependentUpon>FindProduct.vb</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +320,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\delete-1-icon.png" />
+    <None Include="Resources\edit-icon.png" />
     <None Include="Resources\back-icon.png" />
     <None Include="Resources\cancel-icon-small.png" />
     <None Include="Resources\search-icon-small.png" />

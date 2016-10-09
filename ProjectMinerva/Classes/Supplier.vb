@@ -16,10 +16,13 @@ Class Supplier
     Private ZipcodeValue As String
     Private SavedValue As Boolean
 
-    Public ReadOnly Property ID() As Integer
+    Public Property ID() As Integer
         Get
             Return IDValue
         End Get
+        Set(value As Integer)
+            IDValue = value
+        End Set
     End Property
 
     Public Property BusinessName() As String
@@ -27,7 +30,7 @@ Class Supplier
             Return BusinessNameValue
         End Get
         Set(value As String)
-            BusinessNameValue = value
+            BusinessNameValue = Trim(value)
         End Set
     End Property
 
@@ -36,7 +39,7 @@ Class Supplier
             Return ContactNameValue
         End Get
         Set(value As String)
-            ContactNameValue = value
+            ContactNameValue = Trim(value)
         End Set
     End Property
 
@@ -45,7 +48,7 @@ Class Supplier
             Return ContactFirstLastNameValue
         End Get
         Set(value As String)
-            ContactFirstLastNameValue = value
+            ContactFirstLastNameValue = Trim(value)
         End Set
     End Property
 
@@ -54,7 +57,7 @@ Class Supplier
             Return ContactSecondLastNameValue
         End Get
         Set(value As String)
-            ContactSecondLastNameValue = value
+            ContactSecondLastNameValue = Trim(value)
         End Set
     End Property
 
@@ -63,7 +66,7 @@ Class Supplier
             Return BusinessPhoneValue
         End Get
         Set(value As String)
-            BusinessPhoneValue = value
+            BusinessPhoneValue = Trim(value)
         End Set
     End Property
 
@@ -72,7 +75,7 @@ Class Supplier
             Return ContactPhoneValue
         End Get
         Set(value As String)
-            ContactPhoneValue = value
+            ContactPhoneValue = Trim(value)
         End Set
     End Property
 
@@ -81,7 +84,7 @@ Class Supplier
             Return BusinessEmailValue
         End Get
         Set(value As String)
-            BusinessEmailValue = value
+            BusinessEmailValue = Trim(value)
         End Set
     End Property
 
@@ -90,7 +93,7 @@ Class Supplier
             Return AddressLineOneValue
         End Get
         Set(value As String)
-            AddressLineOneValue = value
+            AddressLineOneValue = Trim(value)
         End Set
     End Property
 
@@ -99,7 +102,7 @@ Class Supplier
             Return AddressLineTwoValue
         End Get
         Set(value As String)
-            AddressLineTwoValue = value
+            AddressLineTwoValue = Trim(value)
         End Set
     End Property
 
@@ -108,7 +111,7 @@ Class Supplier
             Return CityValue
         End Get
         Set(value As String)
-            CityValue = value
+            CityValue = Trim(value)
         End Set
     End Property
 
@@ -117,7 +120,7 @@ Class Supplier
             Return CountryValue
         End Get
         Set(value As String)
-            CountryValue = value
+            CountryValue = Trim(value)
         End Set
     End Property
 
@@ -126,7 +129,7 @@ Class Supplier
             Return ZipcodeValue
         End Get
         Set(value As String)
-            ZipcodeValue = value
+            ZipcodeValue = Trim(value)
         End Set
     End Property
 
@@ -140,4 +143,70 @@ Class Supplier
             SavedValue = False
         End If
     End Sub
+
+    Public Sub SetSupplierFromRow(Row As DataGridViewRow)
+        Dim Cells = Row.Cells
+        BusinessNameValue = Cells(0).Value
+        BusinessPhoneValue = Cells(4).Value
+        BusinessEmailValue = Cells(6).Value
+        ContactNameValue = Cells(1).Value
+        ContactFirstLastNameValue = Cells(2).Value
+        ContactSecondLastNameValue = Cells(3).Value
+        ContactPhoneValue = Cells(5).Value
+        AddressLineOneValue = Cells(7).Value
+        AddressLineTwoValue = Cells(8).Value
+        CityValue = Cells(9).Value
+        CountryValue = Cells(10).Value
+        ZipcodeValue = Cells(11).Value
+        IDValue = Cells(12).Value
+    End Sub
+
+    Public Sub Update(Table As SuppliersTableAdapter)
+        Dim Result As Integer
+        Result = Table.UpdateSupplier(BusinessNameValue, ContactNameValue, ContactFirstLastNameValue, ContactSecondLastNameValue, BusinessPhoneValue, ContactPhoneValue, BusinessEmailValue,
+                                      AddressLineOneValue, AddressLineTwoValue, CityValue, CountryValue, ZipcodeValue, IDValue)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Public Function IsSame(SupplierTwo As Supplier)
+        Dim SupplierOneArray = Me.ToArray()
+        Dim SupplierTwoArray = SupplierTwo.ToArray()
+        Dim Same As Boolean
+
+        For index = 0 To SupplierOneArray.GetUpperBound(0)
+            If SupplierOneArray(index).Equals(SupplierTwoArray(index)) Then
+                Same = True
+            Else
+                Same = False
+                Exit For
+            End If
+        Next
+        Return Same
+    End Function
+
+    Public Function ToArray()
+        Dim Attributes = {
+            Trim(Me.BusinessName.ToString),
+            Trim(Me.BusinessPhone.ToString),
+            Trim(Me.BusinessEmail.ToString),
+            Trim(Me.ContactName.ToString),
+            Trim(Me.ContactFirstLastName.ToString),
+            Trim(Me.ContactSecondLastName.ToString),
+            Trim(Me.ContactPhone.ToString),
+            Trim(Me.AddressLineOne.ToString),
+            Trim(Me.AddressLineTwo.ToString),
+            Trim(Me.City.ToString),
+            Trim(Me.Country.ToString),
+            Trim(Me.Zipcode.ToString)
+            }
+        Return Attributes
+    End Function
+
+    Public Function Saved()
+        Return SavedValue
+    End Function
 End Class
