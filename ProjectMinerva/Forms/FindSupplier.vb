@@ -30,7 +30,7 @@
 
     Private Sub ModifyButton_Click(sender As Object, e As EventArgs) Handles ModifyButton.Click
         Dim SupplierToEdit As New Supplier
-        SupplierToEdit.SetSupplierFromRow(SuppliersDataView.CurrentRow)
+        SupplierToEdit.SetFromRow(SuppliersDataView.CurrentRow)
         EditSupplier.OriginalSupplier = SupplierToEdit
         EditSupplier.Show()
         Me.Close()

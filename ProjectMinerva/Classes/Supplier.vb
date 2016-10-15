@@ -144,7 +144,7 @@ Class Supplier
         End If
     End Sub
 
-    Public Sub SetSupplierFromRow(Row As DataGridViewRow)
+    Public Sub SetFromRow(Row As DataGridViewRow)
         Dim Cells = Row.Cells
         BusinessNameValue = Cells(0).Value
         BusinessPhoneValue = Cells(4).Value
