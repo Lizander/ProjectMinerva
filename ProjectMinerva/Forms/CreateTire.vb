@@ -28,7 +28,7 @@
             NewTire.Width = WidthTextBox.Text
             NewTire.Razon = RazonAvATextBox.Text
             NewTire.Diameter = DiameterTextBox.Text
-            NewTire.Brand = BrandComboBox.SelectedValue
+            NewTire.Brand = BrandComboBox.Text
             NewTire.Condition = ConditionComboBox.SelectedItem
             NewTire.Model = ModelTextBox.Text
             NewTire.Traction = TractionTextBox.Text
@@ -37,11 +37,15 @@
             NewTire.SupplierID = SupplierIDComboBox.SelectedValue
             NewTire.StateExempt = StateExemptComboBox.SelectedItem
             NewTire.MunicipalExempt = MunicipalExemptComboBox.SelectedItem
+            NewTire.Price = PriceNumericUpDown.Value
+            NewTire.Cost = CostNumericUpDown.Value
+            NewTire.ReorderPoint = ReorderPointNumericUpDown.Value
+            NewTire.Stock = StockNumericUpDown.Value
             NewTire.Create(Me.TiresTableAdapter)
             If NewTire.Saved() Then
                 MessageBox.Show("The tire was saved.", "Create Tire - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)
-                AdministrationPanel.Show()
+                TiresHome.Show()
                 Me.Close()
             Else
                 MessageBox.Show("Something went wrong.", "Create Tire - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -79,5 +83,10 @@
         BrandComboBox.SelectedIndex = 0
         MunicipalExemptComboBox.SelectedIndex = 1
         StateExemptComboBox.SelectedIndex = 1
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        TiresHome.Show()
+        Me.Close()
     End Sub
 End Class

@@ -435,6 +435,7 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PriceNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Price", True))
+        Me.PriceNumericUpDown.DecimalPlaces = 2
         Me.PriceNumericUpDown.Location = New System.Drawing.Point(117, 36)
         Me.PriceNumericUpDown.Name = "PriceNumericUpDown"
         Me.PriceNumericUpDown.Size = New System.Drawing.Size(179, 20)
@@ -446,6 +447,7 @@ Partial Class CreateTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Cost", True))
+        Me.CostNumericUpDown.DecimalPlaces = 2
         Me.CostNumericUpDown.Location = New System.Drawing.Point(117, 97)
         Me.CostNumericUpDown.Name = "CostNumericUpDown"
         Me.CostNumericUpDown.Size = New System.Drawing.Size(179, 20)

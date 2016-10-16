@@ -41,6 +41,8 @@ Partial Class EditTire
         Dim MunicipalExemptLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EditTire))
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
+        Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
+        Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.SupplierIDComboBox = New System.Windows.Forms.ComboBox()
         Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -57,7 +59,6 @@ Partial Class EditTire
         Me.MunicipalExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.WidthTextBox = New System.Windows.Forms.TextBox()
         Me.BrandComboBox = New System.Windows.Forms.ComboBox()
@@ -66,7 +67,6 @@ Partial Class EditTire
         Me.DiameterTextBox = New System.Windows.Forms.TextBox()
         Me.StockNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
         TractionLabel = New System.Windows.Forms.Label()
         ModelLabel = New System.Windows.Forms.Label()
         TemperatureLabel = New System.Windows.Forms.Label()
@@ -304,6 +304,14 @@ Partial Class EditTire
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
+        'SuppliersTableAdapter
+        '
+        Me.SuppliersTableAdapter.ClearBeforeFill = True
+        '
+        'TiresTableAdapter
+        '
+        Me.TiresTableAdapter.ClearBeforeFill = True
+        '
         'Panel2
         '
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top
@@ -401,6 +409,7 @@ Partial Class EditTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Cost", True))
+        Me.CostNumericUpDown.DecimalPlaces = 2
         Me.CostNumericUpDown.Location = New System.Drawing.Point(117, 97)
         Me.CostNumericUpDown.Name = "CostNumericUpDown"
         Me.CostNumericUpDown.Size = New System.Drawing.Size(179, 20)
@@ -412,6 +421,7 @@ Partial Class EditTire
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PriceNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Price", True))
+        Me.PriceNumericUpDown.DecimalPlaces = 2
         Me.PriceNumericUpDown.Location = New System.Drawing.Point(117, 36)
         Me.PriceNumericUpDown.Name = "PriceNumericUpDown"
         Me.PriceNumericUpDown.Size = New System.Drawing.Size(179, 20)
@@ -485,10 +495,6 @@ Partial Class EditTire
         Me.BackButton.TabIndex = 53
         Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BackButton.UseVisualStyleBackColor = False
-        '
-        'SuppliersTableAdapter
-        '
-        Me.SuppliersTableAdapter.ClearBeforeFill = True
         '
         'Panel1
         '
@@ -597,10 +603,6 @@ Partial Class EditTire
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(388, 419)
         Me.Panel3.TabIndex = 57
-        '
-        'TiresTableAdapter
-        '
-        Me.TiresTableAdapter.ClearBeforeFill = True
         '
         'EditTire
         '

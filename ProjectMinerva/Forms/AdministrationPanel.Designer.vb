@@ -23,67 +23,17 @@ Partial Class AdministrationPanel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdministrationPanel))
-        Me.SupplierButton = New System.Windows.Forms.Button()
-        Me.TireButton = New System.Windows.Forms.Button()
-        Me.ServiceButton = New System.Windows.Forms.Button()
         Me.ProductButton = New System.Windows.Forms.Button()
-        Me.CustomerButton = New System.Windows.Forms.Button()
         Me.UserButton = New System.Windows.Forms.Button()
         Me.OptionButton = New System.Windows.Forms.Button()
         Me.SaleButton = New System.Windows.Forms.Button()
         Me.ReportButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.CustomerButton = New System.Windows.Forms.Button()
+        Me.ServiceButton = New System.Windows.Forms.Button()
+        Me.TireButton = New System.Windows.Forms.Button()
+        Me.SupplierButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'SupplierButton
-        '
-        Me.SupplierButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SupplierButton.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.SupplierButton.FlatAppearance.BorderSize = 0
-        Me.SupplierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SupplierButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.SupplierButton.Image = CType(resources.GetObject("SupplierButton.Image"), System.Drawing.Image)
-        Me.SupplierButton.Location = New System.Drawing.Point(164, 12)
-        Me.SupplierButton.Name = "SupplierButton"
-        Me.SupplierButton.Size = New System.Drawing.Size(144, 87)
-        Me.SupplierButton.TabIndex = 0
-        Me.SupplierButton.Text = "Suppliers"
-        Me.SupplierButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.SupplierButton.UseVisualStyleBackColor = False
-        '
-        'TireButton
-        '
-        Me.TireButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TireButton.BackColor = System.Drawing.Color.Transparent
-        Me.TireButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.TireButton.FlatAppearance.BorderSize = 0
-        Me.TireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TireButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.TireButton.Image = Global.ProjectMinerva.My.Resources.Resources._1476067665_carwheel
-        Me.TireButton.Location = New System.Drawing.Point(164, 119)
-        Me.TireButton.Name = "TireButton"
-        Me.TireButton.Size = New System.Drawing.Size(144, 101)
-        Me.TireButton.TabIndex = 1
-        Me.TireButton.Text = "Tires"
-        Me.TireButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.TireButton.UseVisualStyleBackColor = False
-        '
-        'ServiceButton
-        '
-        Me.ServiceButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ServiceButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ServiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.ServiceButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ServiceButton.Location = New System.Drawing.Point(164, 248)
-        Me.ServiceButton.Name = "ServiceButton"
-        Me.ServiceButton.Size = New System.Drawing.Size(144, 72)
-        Me.ServiceButton.TabIndex = 2
-        Me.ServiceButton.Text = "Services"
-        Me.ServiceButton.UseVisualStyleBackColor = False
         '
         'ProductButton
         '
@@ -98,24 +48,6 @@ Partial Class AdministrationPanel
         Me.ProductButton.TabIndex = 3
         Me.ProductButton.Text = "Products"
         Me.ProductButton.UseVisualStyleBackColor = False
-        '
-        'CustomerButton
-        '
-        Me.CustomerButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CustomerButton.BackColor = System.Drawing.Color.Transparent
-        Me.CustomerButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.CustomerButton.FlatAppearance.BorderSize = 0
-        Me.CustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CustomerButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CustomerButton.Image = CType(resources.GetObject("CustomerButton.Image"), System.Drawing.Image)
-        Me.CustomerButton.Location = New System.Drawing.Point(164, 467)
-        Me.CustomerButton.Name = "CustomerButton"
-        Me.CustomerButton.Size = New System.Drawing.Size(144, 95)
-        Me.CustomerButton.TabIndex = 4
-        Me.CustomerButton.Text = "Customers"
-        Me.CustomerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.CustomerButton.UseVisualStyleBackColor = False
         '
         'UserButton
         '
@@ -192,6 +124,78 @@ Partial Class AdministrationPanel
         Me.BackButton.TabIndex = 9
         Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BackButton.UseVisualStyleBackColor = False
+        '
+        'CustomerButton
+        '
+        Me.CustomerButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CustomerButton.BackColor = System.Drawing.Color.Transparent
+        Me.CustomerButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.CustomerButton.FlatAppearance.BorderSize = 0
+        Me.CustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CustomerButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CustomerButton.Image = CType(resources.GetObject("CustomerButton.Image"), System.Drawing.Image)
+        Me.CustomerButton.Location = New System.Drawing.Point(164, 467)
+        Me.CustomerButton.Name = "CustomerButton"
+        Me.CustomerButton.Size = New System.Drawing.Size(144, 95)
+        Me.CustomerButton.TabIndex = 4
+        Me.CustomerButton.Text = "Customers"
+        Me.CustomerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.CustomerButton.UseVisualStyleBackColor = False
+        '
+        'ServiceButton
+        '
+        Me.ServiceButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceButton.BackColor = System.Drawing.Color.Transparent
+        Me.ServiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.ServiceButton.FlatAppearance.BorderSize = 0
+        Me.ServiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ServiceButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ServiceButton.Image = Global.ProjectMinerva.My.Resources.Resources.configure_icon
+        Me.ServiceButton.Location = New System.Drawing.Point(164, 248)
+        Me.ServiceButton.Name = "ServiceButton"
+        Me.ServiceButton.Size = New System.Drawing.Size(144, 90)
+        Me.ServiceButton.TabIndex = 2
+        Me.ServiceButton.Text = "Services"
+        Me.ServiceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ServiceButton.UseVisualStyleBackColor = False
+        '
+        'TireButton
+        '
+        Me.TireButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TireButton.BackColor = System.Drawing.Color.Transparent
+        Me.TireButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.TireButton.FlatAppearance.BorderSize = 0
+        Me.TireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.TireButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TireButton.Image = Global.ProjectMinerva.My.Resources.Resources._1476067665_carwheel
+        Me.TireButton.Location = New System.Drawing.Point(164, 119)
+        Me.TireButton.Name = "TireButton"
+        Me.TireButton.Size = New System.Drawing.Size(144, 101)
+        Me.TireButton.TabIndex = 1
+        Me.TireButton.Text = "Tires"
+        Me.TireButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.TireButton.UseVisualStyleBackColor = False
+        '
+        'SupplierButton
+        '
+        Me.SupplierButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SupplierButton.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.SupplierButton.FlatAppearance.BorderSize = 0
+        Me.SupplierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SupplierButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.SupplierButton.Image = CType(resources.GetObject("SupplierButton.Image"), System.Drawing.Image)
+        Me.SupplierButton.Location = New System.Drawing.Point(164, 12)
+        Me.SupplierButton.Name = "SupplierButton"
+        Me.SupplierButton.Size = New System.Drawing.Size(144, 87)
+        Me.SupplierButton.TabIndex = 0
+        Me.SupplierButton.Text = "Suppliers"
+        Me.SupplierButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.SupplierButton.UseVisualStyleBackColor = False
         '
         'AdministrationPanel
         '

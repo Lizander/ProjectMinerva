@@ -48,6 +48,10 @@
             EditedTire.SupplierID = SupplierIDComboBox.SelectedValue
             EditedTire.StateExempt = StateExemptComboBox.SelectedItem
             EditedTire.MunicipalExempt = MunicipalExemptComboBox.SelectedItem
+            EditedTire.Price = PriceNumericUpDown.Value
+            EditedTire.Cost = CostNumericUpDown.Value
+            EditedTire.Stock = StockNumericUpDown.Value
+            EditedTire.ReorderPoint = ReorderPointNumericUpDown.Value
             If EditedTire.IsSame(OriginalTire) Then
                 MessageBox.Show("No changes were necessary.", "Edit Tire - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 FindTire.Show()
@@ -63,5 +67,10 @@
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        FindTire.Show()
+        Me.Close()
     End Sub
 End Class

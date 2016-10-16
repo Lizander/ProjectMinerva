@@ -329,6 +329,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\configure-icon.png" />
     <None Include="Resources\Save-as-icon.png" />
     <None Include="Resources\New-file-icon.png" />
     <None Include="Resources\1476067665_carwheel.png" />

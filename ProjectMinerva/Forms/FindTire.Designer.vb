@@ -34,9 +34,6 @@ Partial Class FindTire
         Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.TiresDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,6 +52,9 @@ Partial Class FindTire
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,9 +62,7 @@ Partial Class FindTire
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BackButton.BackColor = System.Drawing.Color.Transparent
         Me.BackButton.FlatAppearance.BorderSize = 0
         Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -175,44 +173,6 @@ Partial Class FindTire
         Me.TiresDataGridView.RowHeadersVisible = False
         Me.TiresDataGridView.Size = New System.Drawing.Size(1459, 220)
         Me.TiresDataGridView.TabIndex = 9
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
-        Me.Label1.Location = New System.Drawing.Point(7, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 50)
-        Me.Label1.TabIndex = 11
-        '
-        'SearchTextBox
-        '
-        Me.SearchTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SearchTextBox.Location = New System.Drawing.Point(99, 39)
-        Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(179, 20)
-        Me.SearchTextBox.TabIndex = 10
-        '
-        'ClearButton
-        '
-        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
-        Me.ClearButton.Enabled = False
-        Me.ClearButton.FlatAppearance.BorderSize = 0
-        Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
-        Me.ClearButton.Location = New System.Drawing.Point(306, 11)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(75, 75)
-        Me.ClearButton.TabIndex = 12
-        Me.ClearButton.Text = "Clear"
-        Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.ClearButton.UseVisualStyleBackColor = False
         '
         'Id
         '
@@ -341,6 +301,41 @@ Partial Class FindTire
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
         '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
+        Me.Label1.Location = New System.Drawing.Point(7, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(84, 50)
+        Me.Label1.TabIndex = 11
+        '
+        'SearchTextBox
+        '
+        Me.SearchTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SearchTextBox.Location = New System.Drawing.Point(99, 39)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.Size = New System.Drawing.Size(179, 20)
+        Me.SearchTextBox.TabIndex = 10
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
+        Me.ClearButton.Enabled = False
+        Me.ClearButton.FlatAppearance.BorderSize = 0
+        Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
+        Me.ClearButton.Location = New System.Drawing.Point(306, 11)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(75, 75)
+        Me.ClearButton.TabIndex = 12
+        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ClearButton.UseVisualStyleBackColor = False
+        '
         'FindTire
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -356,7 +351,9 @@ Partial Class FindTire
         Me.Controls.Add(Me.ModifyButton)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FindTire"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Find Tire"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()

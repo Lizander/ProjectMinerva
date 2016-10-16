@@ -30,6 +30,7 @@ Partial Class CreateService
         Dim CostLabel As System.Windows.Forms.Label
         Dim StateExemptLabel As System.Windows.Forms.Label
         Dim MunicipalExemptLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateService))
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.ServicesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ServicesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ServicesTableAdapter()
@@ -43,7 +44,8 @@ Partial Class CreateService
         Me.MunicipalExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         NameLabel = New System.Windows.Forms.Label()
         DescriptionLabel = New System.Windows.Forms.Label()
         CategoryLabel = New System.Windows.Forms.Label()
@@ -55,7 +57,72 @@ Partial Class CreateService
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'NameLabel
+        '
+        NameLabel.AutoSize = True
+        NameLabel.Location = New System.Drawing.Point(24, 35)
+        NameLabel.Name = "NameLabel"
+        NameLabel.Size = New System.Drawing.Size(38, 13)
+        NameLabel.TabIndex = 3
+        NameLabel.Text = "Name:"
+        '
+        'DescriptionLabel
+        '
+        DescriptionLabel.AutoSize = True
+        DescriptionLabel.Location = New System.Drawing.Point(24, 80)
+        DescriptionLabel.Name = "DescriptionLabel"
+        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
+        DescriptionLabel.TabIndex = 5
+        DescriptionLabel.Text = "Description:"
+        '
+        'CategoryLabel
+        '
+        CategoryLabel.AutoSize = True
+        CategoryLabel.Location = New System.Drawing.Point(24, 133)
+        CategoryLabel.Name = "CategoryLabel"
+        CategoryLabel.Size = New System.Drawing.Size(52, 13)
+        CategoryLabel.TabIndex = 7
+        CategoryLabel.Text = "Category:"
+        '
+        'PriceLabel
+        '
+        PriceLabel.AutoSize = True
+        PriceLabel.Location = New System.Drawing.Point(30, 35)
+        PriceLabel.Name = "PriceLabel"
+        PriceLabel.Size = New System.Drawing.Size(34, 13)
+        PriceLabel.TabIndex = 9
+        PriceLabel.Text = "Price:"
+        '
+        'CostLabel
+        '
+        CostLabel.AutoSize = True
+        CostLabel.Location = New System.Drawing.Point(30, 80)
+        CostLabel.Name = "CostLabel"
+        CostLabel.Size = New System.Drawing.Size(31, 13)
+        CostLabel.TabIndex = 11
+        CostLabel.Text = "Cost:"
+        '
+        'StateExemptLabel
+        '
+        StateExemptLabel.AutoSize = True
+        StateExemptLabel.Location = New System.Drawing.Point(30, 138)
+        StateExemptLabel.Name = "StateExemptLabel"
+        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
+        StateExemptLabel.TabIndex = 15
+        StateExemptLabel.Text = "State Exempt:"
+        '
+        'MunicipalExemptLabel
+        '
+        MunicipalExemptLabel.AutoSize = True
+        MunicipalExemptLabel.Location = New System.Drawing.Point(30, 201)
+        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
+        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
+        MunicipalExemptLabel.TabIndex = 17
+        MunicipalExemptLabel.Text = "Municipal Exempt:"
         '
         'JupiterDataSet
         '
@@ -88,186 +155,150 @@ Partial Class CreateService
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
-        'NameLabel
-        '
-        NameLabel.AutoSize = True
-        NameLabel.Location = New System.Drawing.Point(346, 108)
-        NameLabel.Name = "NameLabel"
-        NameLabel.Size = New System.Drawing.Size(38, 13)
-        NameLabel.TabIndex = 3
-        NameLabel.Text = "Name:"
-        '
         'NameTextBox
         '
         Me.NameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Name", True))
-        Me.NameTextBox.Location = New System.Drawing.Point(445, 105)
+        Me.NameTextBox.Location = New System.Drawing.Point(123, 32)
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(121, 20)
         Me.NameTextBox.TabIndex = 4
         '
-        'DescriptionLabel
-        '
-        DescriptionLabel.AutoSize = True
-        DescriptionLabel.Location = New System.Drawing.Point(617, 112)
-        DescriptionLabel.Name = "DescriptionLabel"
-        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
-        DescriptionLabel.TabIndex = 5
-        DescriptionLabel.Text = "Description:"
-        '
         'DescriptionTextBox
         '
         Me.DescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Description", True))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(716, 109)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(123, 77)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.Size = New System.Drawing.Size(121, 20)
         Me.DescriptionTextBox.TabIndex = 6
-        '
-        'CategoryLabel
-        '
-        CategoryLabel.AutoSize = True
-        CategoryLabel.Location = New System.Drawing.Point(856, 112)
-        CategoryLabel.Name = "CategoryLabel"
-        CategoryLabel.Size = New System.Drawing.Size(52, 13)
-        CategoryLabel.TabIndex = 7
-        CategoryLabel.Text = "Category:"
         '
         'CategoryComboBox
         '
         Me.CategoryComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Category", True))
         Me.CategoryComboBox.FormattingEnabled = True
-        Me.CategoryComboBox.Location = New System.Drawing.Point(955, 109)
+        Me.CategoryComboBox.Location = New System.Drawing.Point(123, 130)
         Me.CategoryComboBox.Name = "CategoryComboBox"
         Me.CategoryComboBox.Size = New System.Drawing.Size(121, 21)
         Me.CategoryComboBox.TabIndex = 8
         '
-        'PriceLabel
-        '
-        PriceLabel.AutoSize = True
-        PriceLabel.Location = New System.Drawing.Point(346, 156)
-        PriceLabel.Name = "PriceLabel"
-        PriceLabel.Size = New System.Drawing.Size(34, 13)
-        PriceLabel.TabIndex = 9
-        PriceLabel.Text = "Price:"
-        '
         'PriceNumericUpDown
         '
         Me.PriceNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ServicesBindingSource, "Price", True))
-        Me.PriceNumericUpDown.Location = New System.Drawing.Point(445, 156)
+        Me.PriceNumericUpDown.DecimalPlaces = 2
+        Me.PriceNumericUpDown.Location = New System.Drawing.Point(129, 35)
         Me.PriceNumericUpDown.Name = "PriceNumericUpDown"
         Me.PriceNumericUpDown.Size = New System.Drawing.Size(121, 20)
         Me.PriceNumericUpDown.TabIndex = 10
         '
-        'CostLabel
-        '
-        CostLabel.AutoSize = True
-        CostLabel.Location = New System.Drawing.Point(586, 156)
-        CostLabel.Name = "CostLabel"
-        CostLabel.Size = New System.Drawing.Size(31, 13)
-        CostLabel.TabIndex = 11
-        CostLabel.Text = "Cost:"
-        '
         'CostNumericUpDown
         '
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ServicesBindingSource, "Cost", True))
-        Me.CostNumericUpDown.Location = New System.Drawing.Point(685, 156)
+        Me.CostNumericUpDown.DecimalPlaces = 2
+        Me.CostNumericUpDown.Location = New System.Drawing.Point(129, 80)
         Me.CostNumericUpDown.Name = "CostNumericUpDown"
         Me.CostNumericUpDown.Size = New System.Drawing.Size(121, 20)
         Me.CostNumericUpDown.TabIndex = 12
-        '
-        'StateExemptLabel
-        '
-        StateExemptLabel.AutoSize = True
-        StateExemptLabel.Location = New System.Drawing.Point(346, 226)
-        StateExemptLabel.Name = "StateExemptLabel"
-        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
-        StateExemptLabel.TabIndex = 15
-        StateExemptLabel.Text = "State Exempt:"
         '
         'StateExemptComboBox
         '
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "StateExempt", True))
         Me.StateExemptComboBox.FormattingEnabled = True
-        Me.StateExemptComboBox.Location = New System.Drawing.Point(445, 223)
+        Me.StateExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
+        Me.StateExemptComboBox.Location = New System.Drawing.Point(129, 135)
         Me.StateExemptComboBox.Name = "StateExemptComboBox"
         Me.StateExemptComboBox.Size = New System.Drawing.Size(121, 21)
         Me.StateExemptComboBox.TabIndex = 16
-        '
-        'MunicipalExemptLabel
-        '
-        MunicipalExemptLabel.AutoSize = True
-        MunicipalExemptLabel.Location = New System.Drawing.Point(586, 226)
-        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
-        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
-        MunicipalExemptLabel.TabIndex = 17
-        MunicipalExemptLabel.Text = "Municipal Exempt:"
         '
         'MunicipalExemptComboBox
         '
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "MunicipalExempt", True))
         Me.MunicipalExemptComboBox.FormattingEnabled = True
-        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(685, 223)
+        Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
+        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(129, 198)
         Me.MunicipalExemptComboBox.Name = "MunicipalExemptComboBox"
         Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(121, 21)
         Me.MunicipalExemptComboBox.TabIndex = 18
         '
         'SaveButton
         '
-        Me.SaveButton.Location = New System.Drawing.Point(349, 369)
+        Me.SaveButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.FlatAppearance.BorderSize = 0
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
+        Me.SaveButton.Location = New System.Drawing.Point(652, 394)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(188, 122)
         Me.SaveButton.TabIndex = 19
         Me.SaveButton.Text = "Save"
-        Me.SaveButton.UseVisualStyleBackColor = True
+        Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.SaveButton.UseVisualStyleBackColor = False
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(888, 369)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 424)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(188, 122)
         Me.BackButton.TabIndex = 20
-        Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = True
         '
-        'Label1
+        'Panel1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(571, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(247, 39)
-        Me.Label1.TabIndex = 21
-        Me.Label1.Text = "Create Service"
+        Me.Panel1.Controls.Add(Me.NameTextBox)
+        Me.Panel1.Controls.Add(NameLabel)
+        Me.Panel1.Controls.Add(Me.DescriptionTextBox)
+        Me.Panel1.Controls.Add(CategoryLabel)
+        Me.Panel1.Controls.Add(DescriptionLabel)
+        Me.Panel1.Controls.Add(Me.CategoryComboBox)
+        Me.Panel1.Location = New System.Drawing.Point(230, 21)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(374, 338)
+        Me.Panel1.TabIndex = 21
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.PriceNumericUpDown)
+        Me.Panel2.Controls.Add(PriceLabel)
+        Me.Panel2.Controls.Add(Me.CostNumericUpDown)
+        Me.Panel2.Controls.Add(CostLabel)
+        Me.Panel2.Controls.Add(MunicipalExemptLabel)
+        Me.Panel2.Controls.Add(StateExemptLabel)
+        Me.Panel2.Controls.Add(Me.MunicipalExemptComboBox)
+        Me.Panel2.Controls.Add(Me.StateExemptComboBox)
+        Me.Panel2.Location = New System.Drawing.Point(846, 21)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(376, 328)
+        Me.Panel2.TabIndex = 22
         '
         'CreateService
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1401, 558)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SaveButton)
-        Me.Controls.Add(NameLabel)
-        Me.Controls.Add(Me.NameTextBox)
-        Me.Controls.Add(DescriptionLabel)
-        Me.Controls.Add(Me.DescriptionTextBox)
-        Me.Controls.Add(CategoryLabel)
-        Me.Controls.Add(Me.CategoryComboBox)
-        Me.Controls.Add(PriceLabel)
-        Me.Controls.Add(Me.PriceNumericUpDown)
-        Me.Controls.Add(CostLabel)
-        Me.Controls.Add(Me.CostNumericUpDown)
-        Me.Controls.Add(StateExemptLabel)
-        Me.Controls.Add(Me.StateExemptComboBox)
-        Me.Controls.Add(MunicipalExemptLabel)
-        Me.Controls.Add(Me.MunicipalExemptComboBox)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CreateService"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create Service"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
@@ -283,5 +314,6 @@ Partial Class CreateService
     Friend WithEvents MunicipalExemptComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents SaveButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class
