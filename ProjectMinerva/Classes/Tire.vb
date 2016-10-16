@@ -282,7 +282,7 @@ Public Class Tire
 
     Public Sub Update(Table As TiresTableAdapter)
         Dim Result As Integer
-        Result = Table.UpdateTire(BrandValue, ModelValue, WidthValue, RazonAvAValue, DiameterValue, TractionValue, TemperatureValue, ConditionValue, ReorderPointValue, SupplierIDValue,
+        Result = Table.UpdateQuery(BrandValue, ModelValue, WidthValue, RazonAvAValue, DiameterValue, TractionValue, TemperatureValue, ConditionValue, ReorderPointValue, SupplierIDValue,
                                   StateExemptValue, MunicipalExemptValue, TreadwearValue, StockValue, PriceValue, CostValue, Markup, IDValue)
         If Result = 1 Then
             SavedValue = True

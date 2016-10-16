@@ -299,7 +299,8 @@ Partial Class EditTire
         Me.TableAdapterManager.SalesTableAdapter = Nothing
         Me.TableAdapterManager.ServicesTableAdapter = Nothing
         Me.TableAdapterManager.StoresTableAdapter = Nothing
-        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Me.SuppliersTableAdapter
+        Me.TableAdapterManager.TiresTableAdapter = Me.TiresTableAdapter
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '

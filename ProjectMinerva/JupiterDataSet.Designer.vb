@@ -4502,9 +4502,7 @@ Partial Public Class JupiterDataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AllowDBNull = false
             Me.columnId.Unique = true
-            Me.columnBrand.DefaultValue = CType("'N/A'",String)
             Me.columnBrand.MaxLength = 50
-            Me.columnModel.DefaultValue = CType("'N/A'",String)
             Me.columnModel.MaxLength = 50
             Me.columnWidth.AllowDBNull = false
             Me.columnWidth.MaxLength = 10
@@ -4513,7 +4511,6 @@ Partial Public Class JupiterDataSet
             Me.columnDiameter.AllowDBNull = false
             Me.columnDiameter.MaxLength = 10
             Me.columnTraction.MaxLength = 10
-            Me.columnTemperature.DefaultValue = CType("'N/A'",String)
             Me.columnTemperature.MaxLength = 10
             Me.columnCondition.AllowDBNull = false
             Me.columnCondition.MaxLength = 10
@@ -4523,7 +4520,6 @@ Partial Public Class JupiterDataSet
             Me.columnStateExempt.MaxLength = 10
             Me.columnMunicipalExempt.AllowDBNull = false
             Me.columnMunicipalExempt.MaxLength = 10
-            Me.columnTreadwear.DefaultValue = CType("'N/A'",String)
             Me.columnTreadwear.MaxLength = 10
             Me.columnStock.AllowDBNull = false
             Me.columnPrice.AllowDBNull = false
@@ -12605,16 +12601,17 @@ Namespace JupiterDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Markup", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tires] ([Brand], [Model], [Width], [RazonAvA], [Diameter], [Tr"& _ 
-                "action], [Temperature], [Condition], [ReorderPoint], [SupplierID], [StateExempt]"& _ 
-                ", [MunicipalExempt], [Treadwear], [Stock], [Price], [Cost], [Markup]) VALUES (@B"& _ 
-                "rand, @Model, @Width, @RazonAvA, @Diameter, @Traction, @Temperature, @Condition,"& _ 
-                " @ReorderPoint, @SupplierID, @StateExempt, @MunicipalExempt, @Treadwear, @Stock,"& _ 
-                " @Price, @Cost, @Markup);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Brand, Model, Width, RazonAvA, Diameter, T"& _ 
-                "raction, Temperature, Condition, ReorderPoint, SupplierID, StateExempt, Municipa"& _ 
-                "lExempt, Treadwear, Stock, Price, Cost, Markup FROM Tires WHERE (Id = SCOPE_IDEN"& _ 
-                "TITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tires] ([Id], [Brand], [Model], [Width], [RazonAvA], [Diameter"& _ 
+                "], [Traction], [Temperature], [Condition], [ReorderPoint], [SupplierID], [StateE"& _ 
+                "xempt], [MunicipalExempt], [Treadwear], [Stock], [Price], [Cost], [Markup]) VALU"& _ 
+                "ES (@Id, @Brand, @Model, @Width, @RazonAvA, @Diameter, @Traction, @Temperature, "& _ 
+                "@Condition, @ReorderPoint, @SupplierID, @StateExempt, @MunicipalExempt, @Treadwe"& _ 
+                "ar, @Stock, @Price, @Cost, @Markup);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Brand, Model, Width, RazonAvA, "& _ 
+                "Diameter, Traction, Temperature, Condition, ReorderPoint, SupplierID, StateExemp"& _ 
+                "t, MunicipalExempt, Treadwear, Stock, Price, Cost, Markup FROM Tires WHERE (Id ="& _ 
+                " @Id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12634,27 +12631,28 @@ Namespace JupiterDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Markup", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Tires] SET [Brand] = @Brand, [Model] = @Model, [Width] = @Width, [R"& _ 
-                "azonAvA] = @RazonAvA, [Diameter] = @Diameter, [Traction] = @Traction, [Temperatu"& _ 
-                "re] = @Temperature, [Condition] = @Condition, [ReorderPoint] = @ReorderPoint, [S"& _ 
-                "upplierID] = @SupplierID, [StateExempt] = @StateExempt, [MunicipalExempt] = @Mun"& _ 
-                "icipalExempt, [Treadwear] = @Treadwear, [Stock] = @Stock, [Price] = @Price, [Cos"& _ 
-                "t] = @Cost, [Markup] = @Markup WHERE (([Id] = @Original_Id) AND ((@IsNull_Brand "& _ 
-                "= 1 AND [Brand] IS NULL) OR ([Brand] = @Original_Brand)) AND ((@IsNull_Model = 1"& _ 
-                " AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ([Width] = @Original_W"& _ 
-                "idth) AND ([RazonAvA] = @Original_RazonAvA) AND ([Diameter] = @Original_Diameter"& _ 
-                ") AND ((@IsNull_Traction = 1 AND [Traction] IS NULL) OR ([Traction] = @Original_"& _ 
-                "Traction)) AND ((@IsNull_Temperature = 1 AND [Temperature] IS NULL) OR ([Tempera"& _ 
-                "ture] = @Original_Temperature)) AND ([Condition] = @Original_Condition) AND ([Re"& _ 
-                "orderPoint] = @Original_ReorderPoint) AND ([SupplierID] = @Original_SupplierID) "& _ 
-                "AND ([StateExempt] = @Original_StateExempt) AND ([MunicipalExempt] = @Original_M"& _ 
-                "unicipalExempt) AND ((@IsNull_Treadwear = 1 AND [Treadwear] IS NULL) OR ([Treadw"& _ 
-                "ear] = @Original_Treadwear)) AND ([Stock] = @Original_Stock) AND ([Price] = @Ori"& _ 
-                "ginal_Price) AND ([Cost] = @Original_Cost) AND ([Markup] = @Original_Markup));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT Id, Brand, Model, Width, RazonAvA, Diameter, Traction, Temperature, Condi"& _ 
-                "tion, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadwear, Stock, "& _ 
-                "Price, Cost, Markup FROM Tires WHERE (Id = @Id)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Tires] SET [Id] = @Id, [Brand] = @Brand, [Model] = @Model, [Width] "& _ 
+                "= @Width, [RazonAvA] = @RazonAvA, [Diameter] = @Diameter, [Traction] = @Traction"& _ 
+                ", [Temperature] = @Temperature, [Condition] = @Condition, [ReorderPoint] = @Reor"& _ 
+                "derPoint, [SupplierID] = @SupplierID, [StateExempt] = @StateExempt, [MunicipalEx"& _ 
+                "empt] = @MunicipalExempt, [Treadwear] = @Treadwear, [Stock] = @Stock, [Price] = "& _ 
+                "@Price, [Cost] = @Cost, [Markup] = @Markup WHERE (([Id] = @Original_Id) AND ((@I"& _ 
+                "sNull_Brand = 1 AND [Brand] IS NULL) OR ([Brand] = @Original_Brand)) AND ((@IsNu"& _ 
+                "ll_Model = 1 AND [Model] IS NULL) OR ([Model] = @Original_Model)) AND ([Width] ="& _ 
+                " @Original_Width) AND ([RazonAvA] = @Original_RazonAvA) AND ([Diameter] = @Origi"& _ 
+                "nal_Diameter) AND ((@IsNull_Traction = 1 AND [Traction] IS NULL) OR ([Traction] "& _ 
+                "= @Original_Traction)) AND ((@IsNull_Temperature = 1 AND [Temperature] IS NULL) "& _ 
+                "OR ([Temperature] = @Original_Temperature)) AND ([Condition] = @Original_Conditi"& _ 
+                "on) AND ([ReorderPoint] = @Original_ReorderPoint) AND ([SupplierID] = @Original_"& _ 
+                "SupplierID) AND ([StateExempt] = @Original_StateExempt) AND ([MunicipalExempt] ="& _ 
+                " @Original_MunicipalExempt) AND ((@IsNull_Treadwear = 1 AND [Treadwear] IS NULL)"& _ 
+                " OR ([Treadwear] = @Original_Treadwear)) AND ([Stock] = @Original_Stock) AND ([P"& _ 
+                "rice] = @Original_Price) AND ([Cost] = @Original_Cost) AND ([Markup] = @Original"& _ 
+                "_Markup));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Brand, Model, Width, RazonAvA, Diameter, Traction, Temper"& _ 
+                "ature, Condition, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadw"& _ 
+                "ear, Stock, Price, Cost, Markup FROM Tires WHERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12695,7 +12693,6 @@ Namespace JupiterDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cost", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Markup", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12711,933 +12708,800 @@ Namespace JupiterDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Id, Brand, Model, Width, RazonAvA, Diameter, Traction, Temperature, Condit"& _ 
-                "ion, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadwear, Stock, P"& _ 
+            Me._commandCollection(0).CommandText = "SELECT Id, Brand, Model, Width, RazonAvA, Diameter, Traction, Temperature, Condit" & _
+                "ion, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadwear, Stock, P" & _
                 "rice, Cost, Markup FROM dbo.Tires"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Brand, Condition, Cost, Diameter, Id, Markup, Model, MunicipalExempt, Pric"& _ 
-                "e, RazonAvA, ReorderPoint, StateExempt, Stock, SupplierID, Temperature, Traction"& _ 
-                ", Treadwear, Width FROM Tires WHERE (Brand LIKE '%' + @SearchParam + '%') OR (Mo"& _ 
-                "del LIKE '%' + @SearchParam + '%') OR (Width LIKE '%' + @SearchParam + '%') OR ("& _ 
-                "RazonAvA LIKE '%' + @SearchParam + '%') OR (Diameter LIKE '%' + @SearchParam + '"& _ 
-                "%') OR (Condition LIKE '%' + @SearchParam + '%') OR (Treadwear LIKE '%' + @Searc"& _ 
-                "hParam + '%') OR (Temperature LIKE '%' + @SearchParam + '%')"
+            Me._commandCollection(1).CommandText = "SELECT * " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM Tires " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE (Brand LIKE '%' + @SearchParam + '%') OR (Model LIK" & _
+                "E '%' + @SearchParam + '%') OR (Width LIKE '%' + @SearchParam + '%') OR (RazonAv" & _
+                "A LIKE '%' + @SearchParam + '%') OR (Diameter LIKE '%' + @SearchParam + '%') OR " & _
+                "(Condition LIKE '%' + @SearchParam + '%') OR (Treadwear LIKE '%' + @SearchParam " & _
+                "+ '%') OR (Temperature LIKE '%' + @SearchParam + '%')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SearchParam", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SearchParam", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[Tires] ([Brand], [Model], [Width], [RazonAvA], [Diameter], [Tr"& _ 
-                "action], [Temperature], [Condition], [ReorderPoint], [SupplierID], [StateExempt]"& _ 
-                ", [MunicipalExempt], [Treadwear], [Stock], [Price], [Cost], [Markup]) VALUES (@B"& _ 
-                "rand, @Model, @Width, @RazonAvA, @Diameter, @Traction, @Temperature, @Condition,"& _ 
-                " @ReorderPoint, @SupplierID, @StateExempt, @MunicipalExempt, @Treadwear, @Stock,"& _ 
+            Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[Tires] ([Brand], [Model], [Width], [RazonAvA], [Diameter], [Tr" & _
+                "action], [Temperature], [Condition], [ReorderPoint], [SupplierID], [StateExempt]" & _
+                ", [MunicipalExempt], [Treadwear], [Stock], [Price], [Cost], [Markup]) VALUES (@B" & _
+                "rand, @Model, @Width, @RazonAvA, @Diameter, @Traction, @Temperature, @Condition," & _
+                " @ReorderPoint, @SupplierID, @StateExempt, @MunicipalExempt, @Treadwear, @Stock," & _
                 " @Price, @Cost, @Markup)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazonAvA", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "RazonAvA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diameter", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Diameter", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Traction", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Temperature", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Condition", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Condition", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReorderPoint", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ReorderPoint", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SupplierID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SupplierID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "StateExempt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalExempt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Treadwear", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cost", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Markup", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazonAvA", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "RazonAvA", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diameter", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Diameter", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Traction", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Temperature", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Condition", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Condition", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReorderPoint", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ReorderPoint", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SupplierID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SupplierID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "StateExempt", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalExempt", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Treadwear", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cost", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Markup", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "UPDATE [dbo].[Tires] SET [Brand] = @Brand, [Model] = @Model, [Width] = @Width, [R"& _ 
-                "azonAvA] = @RazonAvA, [Diameter] = @Diameter, [Traction] = @Traction, [Temperatu"& _ 
-                "re] = @Temperature, [Condition] = @Condition, [ReorderPoint] = @ReorderPoint, [S"& _ 
-                "upplierID] = @SupplierID, [StateExempt] = @StateExempt, [MunicipalExempt] = @Mun"& _ 
-                "icipalExempt, [Treadwear] = @Treadwear, [Stock] = @Stock, [Price] = @Price, [Cos"& _ 
-                "t] = @Cost, [Markup] = @Markup WHERE (([Id] = @Original_Id)"
+            Me._commandCollection(3).CommandText = "UPDATE [dbo].[Tires] SET [Brand] = @Brand, [Model] = @Model, [Width] = @Width, [R" & _
+                "azonAvA] = @RazonAvA, [Diameter] = @Diameter, [Traction] = @Traction, [Temperatu" & _
+                "re] = @Temperature, [Condition] = @Condition, [ReorderPoint] = @ReorderPoint, [S" & _
+                "upplierID] = @SupplierID, [StateExempt] = @StateExempt, [MunicipalExempt] = @Mun" & _
+                "icipalExempt, [Treadwear] = @Treadwear, [Stock] = @Stock, [Price] = @Price, [Cos" & _
+                "t] = @Cost, [Markup] = @Markup WHERE (([Id] = @Original_Id));"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazonAvA", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazonAvA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diameter", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diameter", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Traction", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Temperature", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Condition", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Condition", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReorderPoint", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReorderPoint", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SupplierID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SupplierID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateExempt", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateExempt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalExempt", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalExempt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Treadwear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cost", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Markup", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Brand", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Brand", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Model", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Width", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RazonAvA", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RazonAvA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Diameter", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Diameter", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Traction", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Traction", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Temperature", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Temperature", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Condition", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Condition", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReorderPoint", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReorderPoint", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SupplierID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SupplierID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StateExempt", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateExempt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MunicipalExempt", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalExempt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Treadwear", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Treadwear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stock", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cost", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Markup", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Brand", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Brand", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Width", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Width", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RazonAvA", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "RazonAvA", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Diameter", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Diameter", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Traction", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Traction", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Temperature", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Temperature", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Condition", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Condition", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReorderPoint", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ReorderPoint", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SupplierID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SupplierID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "StateExempt", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalExempt", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalExempt", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Treadwear", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Treadwear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cost", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Cost", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Markup", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Markup", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As JupiterDataSet.TiresDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As JupiterDataSet.TiresDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As JupiterDataSet.TiresDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As JupiterDataSet.TiresDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As JupiterDataSet.TiresDataTable = New JupiterDataSet.TiresDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySearch(ByVal dataTable As JupiterDataSet.TiresDataTable, ByVal SearchParam As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBySearch(ByVal dataTable As JupiterDataSet.TiresDataTable, ByVal SearchParam As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (SearchParam Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(SearchParam,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(SearchParam, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBySearch(ByVal SearchParam As String) As JupiterDataSet.TiresDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataBySearch(ByVal SearchParam As String) As JupiterDataSet.TiresDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (SearchParam Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(SearchParam,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(SearchParam, String)
             End If
             Dim dataTable As JupiterDataSet.TiresDataTable = New JupiterDataSet.TiresDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As JupiterDataSet.TiresDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As JupiterDataSet.TiresDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As JupiterDataSet) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As JupiterDataSet) As Integer
             Return Me.Adapter.Update(dataSet, "Tires")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_Id As Integer,  _
-                    ByVal Original_Brand As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Width As String,  _
-                    ByVal Original_RazonAvA As String,  _
-                    ByVal Original_Diameter As String,  _
-                    ByVal Original_Traction As String,  _
-                    ByVal Original_Temperature As String,  _
-                    ByVal Original_Condition As String,  _
-                    ByVal Original_ReorderPoint As Integer,  _
-                    ByVal Original_SupplierID As Integer,  _
-                    ByVal Original_StateExempt As String,  _
-                    ByVal Original_MunicipalExempt As String,  _
-                    ByVal Original_Treadwear As String,  _
-                    ByVal Original_Stock As Integer,  _
-                    ByVal Original_Price As Double,  _
-                    ByVal Original_Cost As Double,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete( _
+                    ByVal Original_Id As Integer, _
+                    ByVal Original_Brand As String, _
+                    ByVal Original_Model As String, _
+                    ByVal Original_Width As String, _
+                    ByVal Original_RazonAvA As String, _
+                    ByVal Original_Diameter As String, _
+                    ByVal Original_Traction As String, _
+                    ByVal Original_Temperature As String, _
+                    ByVal Original_Condition As String, _
+                    ByVal Original_ReorderPoint As Integer, _
+                    ByVal Original_SupplierID As Integer, _
+                    ByVal Original_StateExempt As String, _
+                    ByVal Original_MunicipalExempt As String, _
+                    ByVal Original_Treadwear As String, _
+                    ByVal Original_Stock As Integer, _
+                    ByVal Original_Price As Double, _
+                    ByVal Original_Cost As Double, _
                     ByVal Original_Markup As Double) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id, Integer)
             If (Original_Brand Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Brand,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Brand, String)
             End If
             If (Original_Model Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Model,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Model, String)
             End If
             If (Original_Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Width")
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Width,String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Width, String)
             End If
             If (Original_RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_RazonAvA")
             Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_RazonAvA,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_RazonAvA, String)
             End If
             If (Original_Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Diameter")
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Diameter,String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Diameter, String)
             End If
             If (Original_Traction Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Traction,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Traction, String)
             End If
             If (Original_Temperature Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_Temperature,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_Temperature, String)
             End If
             If (Original_Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Condition")
             Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Condition,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Condition, String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_ReorderPoint,Integer)
-            Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_SupplierID,Integer)
+            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_ReorderPoint, Integer)
+            Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_SupplierID, Integer)
             If (Original_StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_StateExempt")
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_StateExempt,String)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_StateExempt, String)
             End If
             If (Original_MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_MunicipalExempt")
             Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_MunicipalExempt,String)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_MunicipalExempt, String)
             End If
             If (Original_Treadwear Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Treadwear,String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Treadwear, String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_Stock,Integer)
-            Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Price,Double)
-            Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Cost,Double)
-            Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Markup,Double)
+            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_Stock, Integer)
+            Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Price, Double)
+            Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Cost, Double)
+            Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Markup, Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal Brand As String,  _
-                    ByVal Model As String,  _
-                    ByVal Width As String,  _
-                    ByVal RazonAvA As String,  _
-                    ByVal Diameter As String,  _
-                    ByVal Traction As String,  _
-                    ByVal Temperature As String,  _
-                    ByVal Condition As String,  _
-                    ByVal ReorderPoint As Integer,  _
-                    ByVal SupplierID As Integer,  _
-                    ByVal StateExempt As String,  _
-                    ByVal MunicipalExempt As String,  _
-                    ByVal Treadwear As String,  _
-                    ByVal Stock As Integer,  _
-                    ByVal Price As Double,  _
-                    ByVal Cost As Double,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert( _
+                    ByVal Id As Integer, _
+                    ByVal Brand As String, _
+                    ByVal Model As String, _
+                    ByVal Width As String, _
+                    ByVal RazonAvA As String, _
+                    ByVal Diameter As String, _
+                    ByVal Traction As String, _
+                    ByVal Temperature As String, _
+                    ByVal Condition As String, _
+                    ByVal ReorderPoint As Integer, _
+                    ByVal SupplierID As Integer, _
+                    ByVal StateExempt As String, _
+                    ByVal MunicipalExempt As String, _
+                    ByVal Treadwear As String, _
+                    ByVal Stock As Integer, _
+                    ByVal Price As Double, _
+                    ByVal Cost As Double, _
                     ByVal Markup As Double) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(Id, Integer)
             If (Brand Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Brand,String)
-            End If
-            If (Model Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Model,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Brand, String)
+            End If
+            If (Model Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Model, String)
             End If
             If (Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Width")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Width,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Width, String)
             End If
             If (RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("RazonAvA")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(RazonAvA,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(RazonAvA, String)
             End If
             If (Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diameter")
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Diameter,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Diameter, String)
             End If
             If (Traction Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Traction,String)
-            End If
-            If (Temperature Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Temperature,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Traction, String)
+            End If
+            If (Temperature Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Temperature, String)
             End If
             If (Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Condition")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Condition,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Condition, String)
             End If
-            Me.Adapter.InsertCommand.Parameters(8).Value = CType(ReorderPoint,Integer)
-            Me.Adapter.InsertCommand.Parameters(9).Value = CType(SupplierID,Integer)
+            Me.Adapter.InsertCommand.Parameters(9).Value = CType(ReorderPoint, Integer)
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(SupplierID, Integer)
             If (StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("StateExempt")
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(StateExempt,String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(StateExempt, String)
             End If
             If (MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("MunicipalExempt")
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(MunicipalExempt,String)
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(MunicipalExempt, String)
             End If
             If (Treadwear Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Treadwear,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Treadwear, String)
             End If
-            Me.Adapter.InsertCommand.Parameters(13).Value = CType(Stock,Integer)
-            Me.Adapter.InsertCommand.Parameters(14).Value = CType(Price,Double)
-            Me.Adapter.InsertCommand.Parameters(15).Value = CType(Cost,Double)
-            Me.Adapter.InsertCommand.Parameters(16).Value = CType(Markup,Double)
+            Me.Adapter.InsertCommand.Parameters(14).Value = CType(Stock, Integer)
+            Me.Adapter.InsertCommand.Parameters(15).Value = CType(Price, Double)
+            Me.Adapter.InsertCommand.Parameters(16).Value = CType(Cost, Double)
+            Me.Adapter.InsertCommand.Parameters(17).Value = CType(Markup, Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Brand As String,  _
-                    ByVal Model As String,  _
-                    ByVal Width As String,  _
-                    ByVal RazonAvA As String,  _
-                    ByVal Diameter As String,  _
-                    ByVal Traction As String,  _
-                    ByVal Temperature As String,  _
-                    ByVal Condition As String,  _
-                    ByVal ReorderPoint As Integer,  _
-                    ByVal SupplierID As Integer,  _
-                    ByVal StateExempt As String,  _
-                    ByVal MunicipalExempt As String,  _
-                    ByVal Treadwear As String,  _
-                    ByVal Stock As Integer,  _
-                    ByVal Price As Double,  _
-                    ByVal Cost As Double,  _
-                    ByVal Markup As Double,  _
-                    ByVal Original_Id As Integer,  _
-                    ByVal Original_Brand As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Width As String,  _
-                    ByVal Original_RazonAvA As String,  _
-                    ByVal Original_Diameter As String,  _
-                    ByVal Original_Traction As String,  _
-                    ByVal Original_Temperature As String,  _
-                    ByVal Original_Condition As String,  _
-                    ByVal Original_ReorderPoint As Integer,  _
-                    ByVal Original_SupplierID As Integer,  _
-                    ByVal Original_StateExempt As String,  _
-                    ByVal Original_MunicipalExempt As String,  _
-                    ByVal Original_Treadwear As String,  _
-                    ByVal Original_Stock As Integer,  _
-                    ByVal Original_Price As Double,  _
-                    ByVal Original_Cost As Double,  _
-                    ByVal Original_Markup As Double,  _
-                    ByVal Id As Integer) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal Id As Integer, _
+                    ByVal Brand As String, _
+                    ByVal Model As String, _
+                    ByVal Width As String, _
+                    ByVal RazonAvA As String, _
+                    ByVal Diameter As String, _
+                    ByVal Traction As String, _
+                    ByVal Temperature As String, _
+                    ByVal Condition As String, _
+                    ByVal ReorderPoint As Integer, _
+                    ByVal SupplierID As Integer, _
+                    ByVal StateExempt As String, _
+                    ByVal MunicipalExempt As String, _
+                    ByVal Treadwear As String, _
+                    ByVal Stock As Integer, _
+                    ByVal Price As Double, _
+                    ByVal Cost As Double, _
+                    ByVal Markup As Double, _
+                    ByVal Original_Id As Integer, _
+                    ByVal Original_Brand As String, _
+                    ByVal Original_Model As String, _
+                    ByVal Original_Width As String, _
+                    ByVal Original_RazonAvA As String, _
+                    ByVal Original_Diameter As String, _
+                    ByVal Original_Traction As String, _
+                    ByVal Original_Temperature As String, _
+                    ByVal Original_Condition As String, _
+                    ByVal Original_ReorderPoint As Integer, _
+                    ByVal Original_SupplierID As Integer, _
+                    ByVal Original_StateExempt As String, _
+                    ByVal Original_MunicipalExempt As String, _
+                    ByVal Original_Treadwear As String, _
+                    ByVal Original_Stock As Integer, _
+                    ByVal Original_Price As Double, _
+                    ByVal Original_Cost As Double, _
+                    ByVal Original_Markup As Double) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Id, Integer)
             If (Brand Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Brand,String)
-            End If
-            If (Model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Model,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Brand, String)
+            End If
+            If (Model Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Model, String)
             End If
             If (Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Width")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Width,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Width, String)
             End If
             If (RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("RazonAvA")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(RazonAvA,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(RazonAvA, String)
             End If
             If (Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diameter")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Diameter,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Diameter, String)
             End If
             If (Traction Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Traction,String)
-            End If
-            If (Temperature Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Temperature,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Traction, String)
+            End If
+            If (Temperature Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Temperature, String)
             End If
             If (Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Condition")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Condition, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ReorderPoint,Integer)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(SupplierID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ReorderPoint, Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(SupplierID, Integer)
             If (StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("StateExempt")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(StateExempt,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(StateExempt, String)
             End If
             If (MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("MunicipalExempt")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(MunicipalExempt,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(MunicipalExempt, String)
             End If
             If (Treadwear Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Treadwear,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Treadwear, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Stock,Integer)
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Price,Double)
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Cost,Double)
-            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Markup,Double)
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Stock, Integer)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Price, Double)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Cost, Double)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Markup, Double)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Id, Integer)
             If (Original_Brand Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Brand,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Brand, String)
             End If
             If (Original_Model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Model,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Model, String)
             End If
             If (Original_Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Width")
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Width,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Width, String)
             End If
             If (Original_RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_RazonAvA")
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_RazonAvA,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_RazonAvA, String)
             End If
             If (Original_Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Diameter")
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Diameter,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Diameter, String)
             End If
             If (Original_Traction Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Traction,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Traction, String)
             End If
             If (Original_Temperature Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Temperature,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Temperature, String)
             End If
             If (Original_Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Condition")
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_Condition, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ReorderPoint,Integer)
-            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_SupplierID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_ReorderPoint, Integer)
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_SupplierID, Integer)
             If (Original_StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_StateExempt")
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_StateExempt,String)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_StateExempt, String)
             End If
             If (Original_MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_MunicipalExempt")
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_MunicipalExempt,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_MunicipalExempt, String)
             End If
             If (Original_Treadwear Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Treadwear,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Treadwear, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Stock,Integer)
-            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Price,Double)
-            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_Cost,Double)
-            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Markup,Double)
-            Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Stock, Integer)
+            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_Price, Double)
+            Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Cost, Double)
+            Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_Markup, Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Brand As String,  _
-                    ByVal Model As String,  _
-                    ByVal Width As String,  _
-                    ByVal RazonAvA As String,  _
-                    ByVal Diameter As String,  _
-                    ByVal Traction As String,  _
-                    ByVal Temperature As String,  _
-                    ByVal Condition As String,  _
-                    ByVal ReorderPoint As Integer,  _
-                    ByVal SupplierID As Integer,  _
-                    ByVal StateExempt As String,  _
-                    ByVal MunicipalExempt As String,  _
-                    ByVal Treadwear As String,  _
-                    ByVal Stock As Integer,  _
-                    ByVal Price As Double,  _
-                    ByVal Cost As Double,  _
-                    ByVal Markup As Double,  _
-                    ByVal Original_Id As Integer,  _
-                    ByVal Original_Brand As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Width As String,  _
-                    ByVal Original_RazonAvA As String,  _
-                    ByVal Original_Diameter As String,  _
-                    ByVal Original_Traction As String,  _
-                    ByVal Original_Temperature As String,  _
-                    ByVal Original_Condition As String,  _
-                    ByVal Original_ReorderPoint As Integer,  _
-                    ByVal Original_SupplierID As Integer,  _
-                    ByVal Original_StateExempt As String,  _
-                    ByVal Original_MunicipalExempt As String,  _
-                    ByVal Original_Treadwear As String,  _
-                    ByVal Original_Stock As Integer,  _
-                    ByVal Original_Price As Double,  _
-                    ByVal Original_Cost As Double,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal Brand As String, _
+                    ByVal Model As String, _
+                    ByVal Width As String, _
+                    ByVal RazonAvA As String, _
+                    ByVal Diameter As String, _
+                    ByVal Traction As String, _
+                    ByVal Temperature As String, _
+                    ByVal Condition As String, _
+                    ByVal ReorderPoint As Integer, _
+                    ByVal SupplierID As Integer, _
+                    ByVal StateExempt As String, _
+                    ByVal MunicipalExempt As String, _
+                    ByVal Treadwear As String, _
+                    ByVal Stock As Integer, _
+                    ByVal Price As Double, _
+                    ByVal Cost As Double, _
+                    ByVal Markup As Double, _
+                    ByVal Original_Id As Integer, _
+                    ByVal Original_Brand As String, _
+                    ByVal Original_Model As String, _
+                    ByVal Original_Width As String, _
+                    ByVal Original_RazonAvA As String, _
+                    ByVal Original_Diameter As String, _
+                    ByVal Original_Traction As String, _
+                    ByVal Original_Temperature As String, _
+                    ByVal Original_Condition As String, _
+                    ByVal Original_ReorderPoint As Integer, _
+                    ByVal Original_SupplierID As Integer, _
+                    ByVal Original_StateExempt As String, _
+                    ByVal Original_MunicipalExempt As String, _
+                    ByVal Original_Treadwear As String, _
+                    ByVal Original_Stock As Integer, _
+                    ByVal Original_Price As Double, _
+                    ByVal Original_Cost As Double, _
                     ByVal Original_Markup As Double) As Integer
-            Return Me.Update(Brand, Model, Width, RazonAvA, Diameter, Traction, Temperature, Condition, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadwear, Stock, Price, Cost, Markup, Original_Id, Original_Brand, Original_Model, Original_Width, Original_RazonAvA, Original_Diameter, Original_Traction, Original_Temperature, Original_Condition, Original_ReorderPoint, Original_SupplierID, Original_StateExempt, Original_MunicipalExempt, Original_Treadwear, Original_Stock, Original_Price, Original_Cost, Original_Markup, Original_Id)
+            Return Me.Update(Original_Id, Brand, Model, Width, RazonAvA, Diameter, Traction, Temperature, Condition, ReorderPoint, SupplierID, StateExempt, MunicipalExempt, Treadwear, Stock, Price, Cost, Markup, Original_Id, Original_Brand, Original_Model, Original_Width, Original_RazonAvA, Original_Diameter, Original_Traction, Original_Temperature, Original_Condition, Original_ReorderPoint, Original_SupplierID, Original_StateExempt, Original_MunicipalExempt, Original_Treadwear, Original_Stock, Original_Price, Original_Cost, Original_Markup)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function InsertTire( _
-                    ByVal Brand As String,  _
-                    ByVal Model As String,  _
-                    ByVal Width As String,  _
-                    ByVal RazonAvA As String,  _
-                    ByVal Diameter As String,  _
-                    ByVal Traction As String,  _
-                    ByVal Temperature As String,  _
-                    ByVal Condition As String,  _
-                    ByVal ReorderPoint As Integer,  _
-                    ByVal SupplierID As Integer,  _
-                    ByVal StateExempt As String,  _
-                    ByVal MunicipalExempt As String,  _
-                    ByVal Treadwear As String,  _
-                    ByVal Stock As Integer,  _
-                    ByVal Price As Double,  _
-                    ByVal Cost As Double,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
+        Public Overridable Overloads Function InsertTire( _
+                    ByVal Brand As String, _
+                    ByVal Model As String, _
+                    ByVal Width As String, _
+                    ByVal RazonAvA As String, _
+                    ByVal Diameter As String, _
+                    ByVal Traction As String, _
+                    ByVal Temperature As String, _
+                    ByVal Condition As String, _
+                    ByVal ReorderPoint As Integer, _
+                    ByVal SupplierID As Integer, _
+                    ByVal StateExempt As String, _
+                    ByVal MunicipalExempt As String, _
+                    ByVal Treadwear As String, _
+                    ByVal Stock As Integer, _
+                    ByVal Price As Double, _
+                    ByVal Cost As Double, _
                     ByVal Markup As Double) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             If (Brand Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(Brand,String)
+                command.Parameters(0).Value = CType(Brand, String)
             End If
             If (Model Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(Model,String)
+                command.Parameters(1).Value = CType(Model, String)
             End If
             If (Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Width")
             Else
-                command.Parameters(2).Value = CType(Width,String)
+                command.Parameters(2).Value = CType(Width, String)
             End If
             If (RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("RazonAvA")
             Else
-                command.Parameters(3).Value = CType(RazonAvA,String)
+                command.Parameters(3).Value = CType(RazonAvA, String)
             End If
             If (Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diameter")
             Else
-                command.Parameters(4).Value = CType(Diameter,String)
+                command.Parameters(4).Value = CType(Diameter, String)
             End If
             If (Traction Is Nothing) Then
                 command.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(5).Value = CType(Traction,String)
+                command.Parameters(5).Value = CType(Traction, String)
             End If
             If (Temperature Is Nothing) Then
                 command.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(6).Value = CType(Temperature,String)
+                command.Parameters(6).Value = CType(Temperature, String)
             End If
             If (Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Condition")
             Else
-                command.Parameters(7).Value = CType(Condition,String)
+                command.Parameters(7).Value = CType(Condition, String)
             End If
-            command.Parameters(8).Value = CType(ReorderPoint,Integer)
-            command.Parameters(9).Value = CType(SupplierID,Integer)
+            command.Parameters(8).Value = CType(ReorderPoint, Integer)
+            command.Parameters(9).Value = CType(SupplierID, Integer)
             If (StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("StateExempt")
             Else
-                command.Parameters(10).Value = CType(StateExempt,String)
+                command.Parameters(10).Value = CType(StateExempt, String)
             End If
             If (MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("MunicipalExempt")
             Else
-                command.Parameters(11).Value = CType(MunicipalExempt,String)
+                command.Parameters(11).Value = CType(MunicipalExempt, String)
             End If
             If (Treadwear Is Nothing) Then
                 command.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(12).Value = CType(Treadwear,String)
+                command.Parameters(12).Value = CType(Treadwear, String)
             End If
-            command.Parameters(13).Value = CType(Stock,Integer)
-            command.Parameters(14).Value = CType(Price,Double)
-            command.Parameters(15).Value = CType(Cost,Double)
-            command.Parameters(16).Value = CType(Markup,Double)
+            command.Parameters(13).Value = CType(Stock, Integer)
+            command.Parameters(14).Value = CType(Price, Double)
+            command.Parameters(15).Value = CType(Cost, Double)
+            command.Parameters(16).Value = CType(Markup, Double)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateTire( _
-                    ByVal Brand As String,  _
-                    ByVal Model As String,  _
-                    ByVal Width As String,  _
-                    ByVal RazonAvA As String,  _
-                    ByVal Diameter As String,  _
-                    ByVal Traction As String,  _
-                    ByVal Temperature As String,  _
-                    ByVal Condition As String,  _
-                    ByVal ReorderPoint As Integer,  _
-                    ByVal SupplierID As Integer,  _
-                    ByVal StateExempt As String,  _
-                    ByVal MunicipalExempt As String,  _
-                    ByVal Treadwear As String,  _
-                    ByVal Stock As Integer,  _
-                    ByVal Price As Double,  _
-                    ByVal Cost As Double,  _
-                    ByVal Markup As Double,  _
-                    ByVal Original_Id As Integer,  _
-                    ByVal IsNull_Brand As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Brand As String,  _
-                    ByVal IsNull_Model As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Width As String,  _
-                    ByVal Original_RazonAvA As String,  _
-                    ByVal Original_Diameter As String,  _
-                    ByVal IsNull_Traction As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Traction As String,  _
-                    ByVal IsNull_Temperature As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Temperature As String,  _
-                    ByVal Original_Condition As String,  _
-                    ByVal Original_ReorderPoint As Integer,  _
-                    ByVal Original_SupplierID As Integer,  _
-                    ByVal Original_StateExempt As String,  _
-                    ByVal Original_MunicipalExempt As String,  _
-                    ByVal IsNull_Treadwear As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Treadwear As String,  _
-                    ByVal Original_Stock As Integer,  _
-                    ByVal Original_Price As Double,  _
-                    ByVal Original_Cost As Double,  _
-                    ByVal Original_Markup As Double,  _
-                    ByVal Id As Integer) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)> _
+        Public Overridable Overloads Function UpdateQuery( _
+                    ByVal Brand As String, _
+                    ByVal Model As String, _
+                    ByVal Width As String, _
+                    ByVal RazonAvA As String, _
+                    ByVal Diameter As String, _
+                    ByVal Traction As String, _
+                    ByVal Temperature As String, _
+                    ByVal Condition As String, _
+                    ByVal ReorderPoint As Integer, _
+                    ByVal SupplierID As Integer, _
+                    ByVal StateExempt As String, _
+                    ByVal MunicipalExempt As String, _
+                    ByVal Treadwear As String, _
+                    ByVal Stock As Integer, _
+                    ByVal Price As Double, _
+                    ByVal Cost As Double, _
+                    ByVal Markup As Double, _
+                    ByVal Original_Id As Integer) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             If (Brand Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(Brand,String)
+                command.Parameters(0).Value = CType(Brand, String)
             End If
             If (Model Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(Model,String)
+                command.Parameters(1).Value = CType(Model, String)
             End If
             If (Width Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Width")
             Else
-                command.Parameters(2).Value = CType(Width,String)
+                command.Parameters(2).Value = CType(Width, String)
             End If
             If (RazonAvA Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("RazonAvA")
             Else
-                command.Parameters(3).Value = CType(RazonAvA,String)
+                command.Parameters(3).Value = CType(RazonAvA, String)
             End If
             If (Diameter Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Diameter")
             Else
-                command.Parameters(4).Value = CType(Diameter,String)
+                command.Parameters(4).Value = CType(Diameter, String)
             End If
             If (Traction Is Nothing) Then
                 command.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(5).Value = CType(Traction,String)
+                command.Parameters(5).Value = CType(Traction, String)
             End If
             If (Temperature Is Nothing) Then
                 command.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(6).Value = CType(Temperature,String)
+                command.Parameters(6).Value = CType(Temperature, String)
             End If
             If (Condition Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Condition")
             Else
-                command.Parameters(7).Value = CType(Condition,String)
+                command.Parameters(7).Value = CType(Condition, String)
             End If
-            command.Parameters(8).Value = CType(ReorderPoint,Integer)
-            command.Parameters(9).Value = CType(SupplierID,Integer)
+            command.Parameters(8).Value = CType(ReorderPoint, Integer)
+            command.Parameters(9).Value = CType(SupplierID, Integer)
             If (StateExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("StateExempt")
             Else
-                command.Parameters(10).Value = CType(StateExempt,String)
+                command.Parameters(10).Value = CType(StateExempt, String)
             End If
             If (MunicipalExempt Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("MunicipalExempt")
             Else
-                command.Parameters(11).Value = CType(MunicipalExempt,String)
+                command.Parameters(11).Value = CType(MunicipalExempt, String)
             End If
             If (Treadwear Is Nothing) Then
                 command.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(12).Value = CType(Treadwear,String)
+                command.Parameters(12).Value = CType(Treadwear, String)
             End If
-            command.Parameters(13).Value = CType(Stock,Integer)
-            command.Parameters(14).Value = CType(Price,Double)
-            command.Parameters(15).Value = CType(Cost,Double)
-            command.Parameters(16).Value = CType(Markup,Double)
-            command.Parameters(17).Value = CType(Original_Id,Integer)
-            If (IsNull_Brand.HasValue = true) Then
-                command.Parameters(18).Value = CType(IsNull_Brand.Value,Integer)
-            Else
-                command.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Brand Is Nothing) Then
-                command.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(19).Value = CType(Original_Brand,String)
-            End If
-            If (IsNull_Model.HasValue = true) Then
-                command.Parameters(20).Value = CType(IsNull_Model.Value,Integer)
-            Else
-                command.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Model Is Nothing) Then
-                command.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(21).Value = CType(Original_Model,String)
-            End If
-            If (Original_Width Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Width")
-            Else
-                command.Parameters(22).Value = CType(Original_Width,String)
-            End If
-            If (Original_RazonAvA Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_RazonAvA")
-            Else
-                command.Parameters(23).Value = CType(Original_RazonAvA,String)
-            End If
-            If (Original_Diameter Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Diameter")
-            Else
-                command.Parameters(24).Value = CType(Original_Diameter,String)
-            End If
-            If (IsNull_Traction.HasValue = true) Then
-                command.Parameters(25).Value = CType(IsNull_Traction.Value,Integer)
-            Else
-                command.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Traction Is Nothing) Then
-                command.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(26).Value = CType(Original_Traction,String)
-            End If
-            If (IsNull_Temperature.HasValue = true) Then
-                command.Parameters(27).Value = CType(IsNull_Temperature.Value,Integer)
-            Else
-                command.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Temperature Is Nothing) Then
-                command.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(28).Value = CType(Original_Temperature,String)
-            End If
-            If (Original_Condition Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Condition")
-            Else
-                command.Parameters(29).Value = CType(Original_Condition,String)
-            End If
-            command.Parameters(30).Value = CType(Original_ReorderPoint,Integer)
-            command.Parameters(31).Value = CType(Original_SupplierID,Integer)
-            If (Original_StateExempt Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_StateExempt")
-            Else
-                command.Parameters(32).Value = CType(Original_StateExempt,String)
-            End If
-            If (Original_MunicipalExempt Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_MunicipalExempt")
-            Else
-                command.Parameters(33).Value = CType(Original_MunicipalExempt,String)
-            End If
-            If (IsNull_Treadwear.HasValue = true) Then
-                command.Parameters(34).Value = CType(IsNull_Treadwear.Value,Integer)
-            Else
-                command.Parameters(34).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Treadwear Is Nothing) Then
-                command.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(35).Value = CType(Original_Treadwear,String)
-            End If
-            command.Parameters(36).Value = CType(Original_Stock,Integer)
-            command.Parameters(37).Value = CType(Original_Price,Double)
-            command.Parameters(38).Value = CType(Original_Cost,Double)
-            command.Parameters(39).Value = CType(Original_Markup,Double)
-            command.Parameters(40).Value = CType(Id,Integer)
+            command.Parameters(13).Value = CType(Stock, Integer)
+            command.Parameters(14).Value = CType(Price, Double)
+            command.Parameters(15).Value = CType(Cost, Double)
+            command.Parameters(16).Value = CType(Markup, Double)
+            command.Parameters(17).Value = CType(Original_Id, Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue

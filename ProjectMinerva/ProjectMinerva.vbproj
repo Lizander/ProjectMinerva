@@ -216,14 +216,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JupiterDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="JupiterDataSet.vb">
-      <DependentUpon>JupiterDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JupiterDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JupiterDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -312,8 +304,8 @@
     </None>
     <None Include="JupiterDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JupiterDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
-      <LastGenOutput>JupiterDataSet1.Designer.vb</LastGenOutput>
     </None>
     <None Include="JupiterDataSet.xss">
       <DependentUpon>JupiterDataSet.xsd</DependentUpon>
