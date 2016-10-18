@@ -32,6 +32,7 @@ Partial Class ServicesHome
         '
         'CreateServiceButton
         '
+        Me.CreateServiceButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CreateServiceButton.BackColor = System.Drawing.Color.Transparent
         Me.CreateServiceButton.FlatAppearance.BorderSize = 0
         Me.CreateServiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -46,6 +47,8 @@ Partial Class ServicesHome
         '
         'FindServiceButton
         '
+        Me.FindServiceButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FindServiceButton.BackColor = System.Drawing.Color.Transparent
         Me.FindServiceButton.FlatAppearance.BorderSize = 0
         Me.FindServiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -66,9 +69,9 @@ Partial Class ServicesHome
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.CreateServiceButton)
         Me.Panel1.Controls.Add(Me.FindServiceButton)
-        Me.Panel1.Location = New System.Drawing.Point(528, 12)
+        Me.Panel1.Location = New System.Drawing.Point(512, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(395, 541)
+        Me.Panel1.Size = New System.Drawing.Size(433, 541)
         Me.Panel1.TabIndex = 2
         '
         'Label1

@@ -31,11 +31,9 @@ Partial Class CreateService
         Dim StateExemptLabel As System.Windows.Forms.Label
         Dim MunicipalExemptLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateService))
-        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
-        Me.ServicesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ServicesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ServicesTableAdapter()
-        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.NameTextBox = New System.Windows.Forms.TextBox()
+        Me.ServicesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.DescriptionTextBox = New System.Windows.Forms.TextBox()
         Me.CategoryComboBox = New System.Windows.Forms.ComboBox()
         Me.PriceNumericUpDown = New System.Windows.Forms.NumericUpDown()
@@ -46,6 +44,8 @@ Partial Class CreateService
         Me.BackButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ServicesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ServicesTableAdapter()
+        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         NameLabel = New System.Windows.Forms.Label()
         DescriptionLabel = New System.Windows.Forms.Label()
         CategoryLabel = New System.Windows.Forms.Label()
@@ -53,8 +53,8 @@ Partial Class CreateService
         CostLabel = New System.Windows.Forms.Label()
         StateExemptLabel = New System.Windows.Forms.Label()
         MunicipalExemptLabel = New System.Windows.Forms.Label()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -124,37 +124,6 @@ Partial Class CreateService
         MunicipalExemptLabel.TabIndex = 17
         MunicipalExemptLabel.Text = "Municipal Exempt:"
         '
-        'JupiterDataSet
-        '
-        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
-        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ServicesBindingSource
-        '
-        Me.ServicesBindingSource.DataMember = "Services"
-        Me.ServicesBindingSource.DataSource = Me.JupiterDataSet
-        '
-        'ServicesTableAdapter
-        '
-        Me.ServicesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AccessesTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
-        Me.TableAdapterManager.CustomersTableAdapter = Nothing
-        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
-        Me.TableAdapterManager.NotesTableAdapter = Nothing
-        Me.TableAdapterManager.ProductsTableAdapter = Nothing
-        Me.TableAdapterManager.SalesTableAdapter = Nothing
-        Me.TableAdapterManager.ServicesTableAdapter = Me.ServicesTableAdapter
-        Me.TableAdapterManager.StoresTableAdapter = Nothing
-        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
-        Me.TableAdapterManager.TiresTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.UsersTableAdapter = Nothing
-        '
         'NameTextBox
         '
         Me.NameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Name", True))
@@ -162,6 +131,16 @@ Partial Class CreateService
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(121, 20)
         Me.NameTextBox.TabIndex = 4
+        '
+        'ServicesBindingSource
+        '
+        Me.ServicesBindingSource.DataMember = "Services"
+        Me.ServicesBindingSource.DataSource = Me.JupiterDataSet
+        '
+        'JupiterDataSet
+        '
+        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
+        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DescriptionTextBox
         '
@@ -275,6 +254,27 @@ Partial Class CreateService
         Me.Panel2.Size = New System.Drawing.Size(376, 328)
         Me.Panel2.TabIndex = 22
         '
+        'ServicesTableAdapter
+        '
+        Me.ServicesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AccessesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
+        Me.TableAdapterManager.CustomersTableAdapter = Nothing
+        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
+        Me.TableAdapterManager.NotesTableAdapter = Nothing
+        Me.TableAdapterManager.ProductsTableAdapter = Nothing
+        Me.TableAdapterManager.SalesTableAdapter = Nothing
+        Me.TableAdapterManager.ServicesTableAdapter = Me.ServicesTableAdapter
+        Me.TableAdapterManager.StoresTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
+        Me.TableAdapterManager.TiresTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
+        '
         'CreateService
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -290,8 +290,8 @@ Partial Class CreateService
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create Service"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
