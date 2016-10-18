@@ -34,6 +34,7 @@ Partial Class CreateProduct
         Dim StockLabel As System.Windows.Forms.Label
         Dim _PriceLabel As System.Windows.Forms.Label
         Dim CostLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateProduct))
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.ProductsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProductsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ProductsTableAdapter()
@@ -51,7 +52,11 @@ Partial Class CreateProduct
         Me.CostNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
         NameLabel = New System.Windows.Forms.Label()
         CategoryLabel = New System.Windows.Forms.Label()
         DescriptionLabel = New System.Windows.Forms.Label()
@@ -69,7 +74,121 @@ Partial Class CreateProduct
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'NameLabel
+        '
+        NameLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        NameLabel.AutoSize = True
+        NameLabel.Location = New System.Drawing.Point(4, 48)
+        NameLabel.Name = "NameLabel"
+        NameLabel.Size = New System.Drawing.Size(38, 13)
+        NameLabel.TabIndex = 1
+        NameLabel.Text = "Name:"
+        '
+        'CategoryLabel
+        '
+        CategoryLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        CategoryLabel.AutoSize = True
+        CategoryLabel.Location = New System.Drawing.Point(4, 103)
+        CategoryLabel.Name = "CategoryLabel"
+        CategoryLabel.Size = New System.Drawing.Size(52, 13)
+        CategoryLabel.TabIndex = 3
+        CategoryLabel.Text = "Category:"
+        '
+        'DescriptionLabel
+        '
+        DescriptionLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DescriptionLabel.AutoSize = True
+        DescriptionLabel.Location = New System.Drawing.Point(4, 158)
+        DescriptionLabel.Name = "DescriptionLabel"
+        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
+        DescriptionLabel.TabIndex = 5
+        DescriptionLabel.Text = "Description:"
+        '
+        'ReorderPointLabel
+        '
+        ReorderPointLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ReorderPointLabel.AutoSize = True
+        ReorderPointLabel.Location = New System.Drawing.Point(11, 43)
+        ReorderPointLabel.Name = "ReorderPointLabel"
+        ReorderPointLabel.Size = New System.Drawing.Size(75, 13)
+        ReorderPointLabel.TabIndex = 17
+        ReorderPointLabel.Text = "Reorder Point:"
+        '
+        'SupplierIDLabel
+        '
+        SupplierIDLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        SupplierIDLabel.AutoSize = True
+        SupplierIDLabel.Location = New System.Drawing.Point(11, 149)
+        SupplierIDLabel.Name = "SupplierIDLabel"
+        SupplierIDLabel.Size = New System.Drawing.Size(62, 13)
+        SupplierIDLabel.TabIndex = 21
+        SupplierIDLabel.Text = "Supplier ID:"
+        '
+        'StateExemptLabel
+        '
+        StateExemptLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        StateExemptLabel.AutoSize = True
+        StateExemptLabel.Location = New System.Drawing.Point(23, 151)
+        StateExemptLabel.Name = "StateExemptLabel"
+        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
+        StateExemptLabel.TabIndex = 13
+        StateExemptLabel.Text = "State Exempt:"
+        '
+        'MunicipalExemptLabel
+        '
+        MunicipalExemptLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        MunicipalExemptLabel.AutoSize = True
+        MunicipalExemptLabel.Location = New System.Drawing.Point(23, 195)
+        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
+        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
+        MunicipalExemptLabel.TabIndex = 15
+        MunicipalExemptLabel.Text = "Municipal Exempt:"
+        '
+        'WarrantyLabel
+        '
+        WarrantyLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        WarrantyLabel.AutoSize = True
+        WarrantyLabel.Location = New System.Drawing.Point(4, 215)
+        WarrantyLabel.Name = "WarrantyLabel"
+        WarrantyLabel.Size = New System.Drawing.Size(53, 13)
+        WarrantyLabel.TabIndex = 7
+        WarrantyLabel.Text = "Warranty:"
+        '
+        'StockLabel
+        '
+        StockLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        StockLabel.AutoSize = True
+        StockLabel.Location = New System.Drawing.Point(11, 91)
+        StockLabel.Name = "StockLabel"
+        StockLabel.Size = New System.Drawing.Size(38, 13)
+        StockLabel.TabIndex = 19
+        StockLabel.Text = "Stock:"
+        '
+        '_PriceLabel
+        '
+        _PriceLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        _PriceLabel.AutoSize = True
+        _PriceLabel.Location = New System.Drawing.Point(23, 45)
+        _PriceLabel.Name = "_PriceLabel"
+        _PriceLabel.Size = New System.Drawing.Size(37, 13)
+        _PriceLabel.TabIndex = 9
+        _PriceLabel.Text = " Price:"
+        '
+        'CostLabel
+        '
+        CostLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        CostLabel.AutoSize = True
+        CostLabel.Location = New System.Drawing.Point(23, 90)
+        CostLabel.Name = "CostLabel"
+        CostLabel.Size = New System.Drawing.Size(31, 13)
+        CostLabel.TabIndex = 11
+        CostLabel.Text = "Cost:"
         '
         'JupiterDataSet
         '
@@ -102,265 +221,229 @@ Partial Class CreateProduct
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
-        'NameLabel
-        '
-        NameLabel.AutoSize = True
-        NameLabel.Location = New System.Drawing.Point(295, 141)
-        NameLabel.Name = "NameLabel"
-        NameLabel.Size = New System.Drawing.Size(38, 13)
-        NameLabel.TabIndex = 3
-        NameLabel.Text = "Name:"
-        '
         'NameTextBox
         '
+        Me.NameTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "Name", True))
-        Me.NameTextBox.Location = New System.Drawing.Point(394, 138)
+        Me.NameTextBox.Location = New System.Drawing.Point(103, 45)
         Me.NameTextBox.Name = "NameTextBox"
-        Me.NameTextBox.Size = New System.Drawing.Size(121, 20)
-        Me.NameTextBox.TabIndex = 4
-        '
-        'CategoryLabel
-        '
-        CategoryLabel.AutoSize = True
-        CategoryLabel.Location = New System.Drawing.Point(538, 141)
-        CategoryLabel.Name = "CategoryLabel"
-        CategoryLabel.Size = New System.Drawing.Size(52, 13)
-        CategoryLabel.TabIndex = 5
-        CategoryLabel.Text = "Category:"
+        Me.NameTextBox.Size = New System.Drawing.Size(201, 20)
+        Me.NameTextBox.TabIndex = 2
         '
         'CategoryComboBox
         '
+        Me.CategoryComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CategoryComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "Category", True))
         Me.CategoryComboBox.FormattingEnabled = True
-        Me.CategoryComboBox.Location = New System.Drawing.Point(637, 138)
+        Me.CategoryComboBox.Location = New System.Drawing.Point(103, 100)
         Me.CategoryComboBox.Name = "CategoryComboBox"
-        Me.CategoryComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.CategoryComboBox.TabIndex = 6
-        '
-        'DescriptionLabel
-        '
-        DescriptionLabel.AutoSize = True
-        DescriptionLabel.Location = New System.Drawing.Point(865, 141)
-        DescriptionLabel.Name = "DescriptionLabel"
-        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
-        DescriptionLabel.TabIndex = 7
-        DescriptionLabel.Text = "Description:"
+        Me.CategoryComboBox.Size = New System.Drawing.Size(201, 21)
+        Me.CategoryComboBox.TabIndex = 4
         '
         'DescriptionTextBox
         '
+        Me.DescriptionTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "Description", True))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(964, 138)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(103, 155)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(121, 20)
-        Me.DescriptionTextBox.TabIndex = 8
-        '
-        'ReorderPointLabel
-        '
-        ReorderPointLabel.AutoSize = True
-        ReorderPointLabel.Location = New System.Drawing.Point(295, 195)
-        ReorderPointLabel.Name = "ReorderPointLabel"
-        ReorderPointLabel.Size = New System.Drawing.Size(75, 13)
-        ReorderPointLabel.TabIndex = 9
-        ReorderPointLabel.Text = "Reorder Point:"
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(201, 20)
+        Me.DescriptionTextBox.TabIndex = 6
         '
         'ReorderPointNumericUpDown
         '
+        Me.ReorderPointNumericUpDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReorderPointNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductsBindingSource, "ReorderPoint", True))
-        Me.ReorderPointNumericUpDown.Location = New System.Drawing.Point(394, 195)
+        Me.ReorderPointNumericUpDown.Location = New System.Drawing.Point(110, 43)
         Me.ReorderPointNumericUpDown.Name = "ReorderPointNumericUpDown"
-        Me.ReorderPointNumericUpDown.Size = New System.Drawing.Size(121, 20)
-        Me.ReorderPointNumericUpDown.TabIndex = 10
-        '
-        'SupplierIDLabel
-        '
-        SupplierIDLabel.AutoSize = True
-        SupplierIDLabel.Location = New System.Drawing.Point(792, 202)
-        SupplierIDLabel.Name = "SupplierIDLabel"
-        SupplierIDLabel.Size = New System.Drawing.Size(62, 13)
-        SupplierIDLabel.TabIndex = 11
-        SupplierIDLabel.Text = "Supplier ID:"
+        Me.ReorderPointNumericUpDown.Size = New System.Drawing.Size(243, 20)
+        Me.ReorderPointNumericUpDown.TabIndex = 18
         '
         'SupplierIDComboBox
         '
+        Me.SupplierIDComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SupplierIDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "SupplierID", True))
+        Me.SupplierIDComboBox.DataSource = Me.SuppliersBindingSource
+        Me.SupplierIDComboBox.DisplayMember = "BusinessName"
         Me.SupplierIDComboBox.FormattingEnabled = True
-        Me.SupplierIDComboBox.Location = New System.Drawing.Point(891, 199)
+        Me.SupplierIDComboBox.Location = New System.Drawing.Point(110, 146)
         Me.SupplierIDComboBox.Name = "SupplierIDComboBox"
-        Me.SupplierIDComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.SupplierIDComboBox.TabIndex = 12
-        '
-        'StateExemptLabel
-        '
-        StateExemptLabel.AutoSize = True
-        StateExemptLabel.Location = New System.Drawing.Point(297, 296)
-        StateExemptLabel.Name = "StateExemptLabel"
-        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
-        StateExemptLabel.TabIndex = 13
-        StateExemptLabel.Text = "State Exempt:"
+        Me.SupplierIDComboBox.Size = New System.Drawing.Size(243, 21)
+        Me.SupplierIDComboBox.TabIndex = 22
+        Me.SupplierIDComboBox.ValueMember = "Id"
         '
         'StateExemptComboBox
         '
+        Me.StateExemptComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "StateExempt", True))
         Me.StateExemptComboBox.FormattingEnabled = True
-        Me.StateExemptComboBox.Location = New System.Drawing.Point(396, 293)
+        Me.StateExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
+        Me.StateExemptComboBox.Location = New System.Drawing.Point(122, 148)
         Me.StateExemptComboBox.Name = "StateExemptComboBox"
-        Me.StateExemptComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.StateExemptComboBox.Size = New System.Drawing.Size(223, 21)
         Me.StateExemptComboBox.TabIndex = 14
-        '
-        'MunicipalExemptLabel
-        '
-        MunicipalExemptLabel.AutoSize = True
-        MunicipalExemptLabel.Location = New System.Drawing.Point(532, 296)
-        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
-        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
-        MunicipalExemptLabel.TabIndex = 15
-        MunicipalExemptLabel.Text = "Municipal Exempt:"
         '
         'MunicipalExemptComboBox
         '
+        Me.MunicipalExemptComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "MunicipalExempt", True))
         Me.MunicipalExemptComboBox.FormattingEnabled = True
-        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(631, 296)
+        Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
+        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(122, 195)
         Me.MunicipalExemptComboBox.Name = "MunicipalExemptComboBox"
-        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(223, 21)
         Me.MunicipalExemptComboBox.TabIndex = 16
-        '
-        'WarrantyLabel
-        '
-        WarrantyLabel.AutoSize = True
-        WarrantyLabel.Location = New System.Drawing.Point(801, 254)
-        WarrantyLabel.Name = "WarrantyLabel"
-        WarrantyLabel.Size = New System.Drawing.Size(53, 13)
-        WarrantyLabel.TabIndex = 17
-        WarrantyLabel.Text = "Warranty:"
         '
         'WarrantyTextBox
         '
+        Me.WarrantyTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.WarrantyTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "Warranty", True))
-        Me.WarrantyTextBox.Location = New System.Drawing.Point(900, 251)
+        Me.WarrantyTextBox.Location = New System.Drawing.Point(103, 212)
         Me.WarrantyTextBox.Name = "WarrantyTextBox"
-        Me.WarrantyTextBox.Size = New System.Drawing.Size(121, 20)
-        Me.WarrantyTextBox.TabIndex = 18
-        '
-        'StockLabel
-        '
-        StockLabel.AutoSize = True
-        StockLabel.Location = New System.Drawing.Point(532, 197)
-        StockLabel.Name = "StockLabel"
-        StockLabel.Size = New System.Drawing.Size(38, 13)
-        StockLabel.TabIndex = 19
-        StockLabel.Text = "Stock:"
+        Me.WarrantyTextBox.Size = New System.Drawing.Size(201, 20)
+        Me.WarrantyTextBox.TabIndex = 8
         '
         'StockNumericUpDown
         '
+        Me.StockNumericUpDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StockNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductsBindingSource, "Stock", True))
-        Me.StockNumericUpDown.Location = New System.Drawing.Point(631, 197)
+        Me.StockNumericUpDown.Location = New System.Drawing.Point(110, 91)
         Me.StockNumericUpDown.Name = "StockNumericUpDown"
-        Me.StockNumericUpDown.Size = New System.Drawing.Size(121, 20)
+        Me.StockNumericUpDown.Size = New System.Drawing.Size(243, 20)
         Me.StockNumericUpDown.TabIndex = 20
-        '
-        '_PriceLabel
-        '
-        _PriceLabel.AutoSize = True
-        _PriceLabel.Location = New System.Drawing.Point(296, 252)
-        _PriceLabel.Name = "_PriceLabel"
-        _PriceLabel.Size = New System.Drawing.Size(37, 13)
-        _PriceLabel.TabIndex = 21
-        _PriceLabel.Text = " Price:"
         '
         '_PriceNumericUpDown
         '
+        Me._PriceNumericUpDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me._PriceNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductsBindingSource, " Price", True))
-        Me._PriceNumericUpDown.Location = New System.Drawing.Point(395, 252)
+        Me._PriceNumericUpDown.DecimalPlaces = 2
+        Me._PriceNumericUpDown.Location = New System.Drawing.Point(122, 45)
         Me._PriceNumericUpDown.Name = "_PriceNumericUpDown"
-        Me._PriceNumericUpDown.Size = New System.Drawing.Size(121, 20)
-        Me._PriceNumericUpDown.TabIndex = 22
-        '
-        'CostLabel
-        '
-        CostLabel.AutoSize = True
-        CostLabel.Location = New System.Drawing.Point(559, 254)
-        CostLabel.Name = "CostLabel"
-        CostLabel.Size = New System.Drawing.Size(31, 13)
-        CostLabel.TabIndex = 23
-        CostLabel.Text = "Cost:"
+        Me._PriceNumericUpDown.Size = New System.Drawing.Size(223, 20)
+        Me._PriceNumericUpDown.TabIndex = 10
         '
         'CostNumericUpDown
         '
+        Me.CostNumericUpDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductsBindingSource, "Cost", True))
-        Me.CostNumericUpDown.Location = New System.Drawing.Point(658, 254)
+        Me.CostNumericUpDown.DecimalPlaces = 2
+        Me.CostNumericUpDown.Location = New System.Drawing.Point(122, 90)
         Me.CostNumericUpDown.Name = "CostNumericUpDown"
-        Me.CostNumericUpDown.Size = New System.Drawing.Size(121, 20)
-        Me.CostNumericUpDown.TabIndex = 24
+        Me.CostNumericUpDown.Size = New System.Drawing.Size(223, 20)
+        Me.CostNumericUpDown.TabIndex = 12
         '
         'SaveButton
         '
-        Me.SaveButton.Location = New System.Drawing.Point(298, 347)
+        Me.SaveButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.FlatAppearance.BorderSize = 0
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
+        Me.SaveButton.Location = New System.Drawing.Point(646, 483)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(160, 93)
         Me.SaveButton.TabIndex = 25
         Me.SaveButton.Text = "Save"
-        Me.SaveButton.UseVisualStyleBackColor = True
+        Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.SaveButton.UseVisualStyleBackColor = False
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(911, 347)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 483)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(160, 93)
         Me.BackButton.TabIndex = 26
-        Me.BackButton.Text = "Back"
-        Me.BackButton.UseVisualStyleBackColor = True
+        Me.BackButton.UseVisualStyleBackColor = False
         '
-        'Label1
+        'Panel1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(569, 44)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(210, 33)
-        Me.Label1.TabIndex = 27
-        Me.Label1.Text = "Create Product"
+        Me.Panel1.Controls.Add(Me.NameTextBox)
+        Me.Panel1.Controls.Add(NameLabel)
+        Me.Panel1.Controls.Add(Me.CategoryComboBox)
+        Me.Panel1.Controls.Add(DescriptionLabel)
+        Me.Panel1.Controls.Add(CategoryLabel)
+        Me.Panel1.Controls.Add(Me.DescriptionTextBox)
+        Me.Panel1.Controls.Add(Me.WarrantyTextBox)
+        Me.Panel1.Controls.Add(WarrantyLabel)
+        Me.Panel1.Location = New System.Drawing.Point(46, 33)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(343, 372)
+        Me.Panel1.TabIndex = 27
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Panel2.Controls.Add(_PriceLabel)
+        Me.Panel2.Controls.Add(Me.CostNumericUpDown)
+        Me.Panel2.Controls.Add(CostLabel)
+        Me.Panel2.Controls.Add(Me._PriceNumericUpDown)
+        Me.Panel2.Controls.Add(Me.MunicipalExemptComboBox)
+        Me.Panel2.Controls.Add(MunicipalExemptLabel)
+        Me.Panel2.Controls.Add(Me.StateExemptComboBox)
+        Me.Panel2.Controls.Add(StateExemptLabel)
+        Me.Panel2.Location = New System.Drawing.Point(455, 33)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(365, 372)
+        Me.Panel2.TabIndex = 28
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Controls.Add(Me.ReorderPointNumericUpDown)
+        Me.Panel3.Controls.Add(Me.StockNumericUpDown)
+        Me.Panel3.Controls.Add(StockLabel)
+        Me.Panel3.Controls.Add(Me.SupplierIDComboBox)
+        Me.Panel3.Controls.Add(SupplierIDLabel)
+        Me.Panel3.Controls.Add(ReorderPointLabel)
+        Me.Panel3.Location = New System.Drawing.Point(894, 33)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(391, 372)
+        Me.Panel3.TabIndex = 29
+        '
+        'SuppliersBindingSource
+        '
+        Me.SuppliersBindingSource.DataMember = "Suppliers"
+        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
+        '
+        'SuppliersTableAdapter
+        '
+        Me.SuppliersTableAdapter.ClearBeforeFill = True
         '
         'CreateProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1349, 588)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SaveButton)
-        Me.Controls.Add(NameLabel)
-        Me.Controls.Add(Me.NameTextBox)
-        Me.Controls.Add(CategoryLabel)
-        Me.Controls.Add(Me.CategoryComboBox)
-        Me.Controls.Add(DescriptionLabel)
-        Me.Controls.Add(Me.DescriptionTextBox)
-        Me.Controls.Add(ReorderPointLabel)
-        Me.Controls.Add(Me.ReorderPointNumericUpDown)
-        Me.Controls.Add(SupplierIDLabel)
-        Me.Controls.Add(Me.SupplierIDComboBox)
-        Me.Controls.Add(StateExemptLabel)
-        Me.Controls.Add(Me.StateExemptComboBox)
-        Me.Controls.Add(MunicipalExemptLabel)
-        Me.Controls.Add(Me.MunicipalExemptComboBox)
-        Me.Controls.Add(WarrantyLabel)
-        Me.Controls.Add(Me.WarrantyTextBox)
-        Me.Controls.Add(StockLabel)
-        Me.Controls.Add(Me.StockNumericUpDown)
-        Me.Controls.Add(_PriceLabel)
-        Me.Controls.Add(Me._PriceNumericUpDown)
-        Me.Controls.Add(CostLabel)
-        Me.Controls.Add(Me.CostNumericUpDown)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CreateProduct"
-        Me.Text = "CreateProduct"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Create Product"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReorderPointNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
@@ -380,5 +463,9 @@ Partial Class CreateProduct
     Friend WithEvents CostNumericUpDown As System.Windows.Forms.NumericUpDown
     Friend WithEvents SaveButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents SuppliersBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents SuppliersTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter
 End Class

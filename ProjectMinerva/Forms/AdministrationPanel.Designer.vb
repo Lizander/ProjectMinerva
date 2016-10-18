@@ -23,31 +23,17 @@ Partial Class AdministrationPanel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdministrationPanel))
-        Me.ProductButton = New System.Windows.Forms.Button()
         Me.UserButton = New System.Windows.Forms.Button()
         Me.OptionButton = New System.Windows.Forms.Button()
         Me.SaleButton = New System.Windows.Forms.Button()
         Me.ReportButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.CustomerButton = New System.Windows.Forms.Button()
+        Me.ProductButton = New System.Windows.Forms.Button()
         Me.ServiceButton = New System.Windows.Forms.Button()
         Me.TireButton = New System.Windows.Forms.Button()
         Me.SupplierButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'ProductButton
-        '
-        Me.ProductButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProductButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ProductButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.ProductButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ProductButton.Location = New System.Drawing.Point(164, 355)
-        Me.ProductButton.Name = "ProductButton"
-        Me.ProductButton.Size = New System.Drawing.Size(144, 72)
-        Me.ProductButton.TabIndex = 3
-        Me.ProductButton.Text = "Products"
-        Me.ProductButton.UseVisualStyleBackColor = False
         '
         'UserButton
         '
@@ -142,6 +128,24 @@ Partial Class AdministrationPanel
         Me.CustomerButton.Text = "Customers"
         Me.CustomerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.CustomerButton.UseVisualStyleBackColor = False
+        '
+        'ProductButton
+        '
+        Me.ProductButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.ProductButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.ProductButton.FlatAppearance.BorderSize = 0
+        Me.ProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ProductButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ProductButton.Image = Global.ProjectMinerva.My.Resources.Resources.product_icon
+        Me.ProductButton.Location = New System.Drawing.Point(164, 355)
+        Me.ProductButton.Name = "ProductButton"
+        Me.ProductButton.Size = New System.Drawing.Size(144, 94)
+        Me.ProductButton.TabIndex = 3
+        Me.ProductButton.Text = "Products"
+        Me.ProductButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ProductButton.UseVisualStyleBackColor = False
         '
         'ServiceButton
         '
