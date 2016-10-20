@@ -1,4 +1,5 @@
 ﻿Public Class CreateProduct
+    Dim NewProduct As New Product
 
     Private Sub ProductsBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -18,6 +19,7 @@
     Private Sub CreateProduct_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         StateExemptComboBox.SelectedIndex = 0
         MunicipalExemptComboBox.SelectedIndex = 0
+        SupplierIDComboBox.SelectedIndex = 0
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
@@ -43,5 +45,36 @@
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
 
+    End Sub
+
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        If NameTextBox.Text.Length <= 0 Then
+            NameTextBox.BackColor = Color.Red
+            NameTextBox.Focus()
+        ElseIf CategoryComboBox.Text.Length <= 0 Then
+            CategoryComboBox.BackColor = Color.Red
+            CategoryComboBox.Focus()
+        Else
+            NewProduct.Name = NameTextBox.Text
+            NewProduct.Category = CategoryComboBox.Text
+            NewProduct.Description = DescriptionTextBox.Text
+            NewProduct.Warranty = WarrantyTextBox.Text
+            NewProduct.Price = _PriceNumericUpDown.Value
+            NewProduct.Cost = CostNumericUpDown.Value
+            NewProduct.Stock = StockNumericUpDown.Value
+            NewProduct.ReorderPoint = ReorderPointNumericUpDown.Value
+            NewProduct.SupplierID = SupplierIDComboBox.SelectedValue
+            NewProduct.StateExempt = StateExemptComboBox.SelectedItem
+            NewProduct.MunicipalExempt = MunicipalExemptComboBox.SelectedItem
+            NewProduct.Create(Me.ProductsTableAdapter)
+            If NewProduct.Saved() Then
+                MessageBox.Show("The product was saved.", "Create Product - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)
+                ProductsHome.Show()
+                Me.Close()
+            Else
+                MessageBox.Show("Something went wrong.", "Create Product - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
     End Sub
 End Class

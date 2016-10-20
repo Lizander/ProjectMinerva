@@ -1,4 +1,6 @@
-﻿Public Class Product
+﻿Imports ProjectMinerva.JupiterDataSetTableAdapters
+
+Public Class Product
     Private IDValue As Integer
     Private NameValue As String
     Private CategoryValue As String
@@ -12,11 +14,16 @@
     Private PriceValue As Double
     Private CostValue As Double
     Private MarkupValue As Double
+    Private SupplierIDValue As Integer
+    Private SavedValue As Boolean
 
-    Public ReadOnly Property ID() As Integer
+    Public Property ID() As Integer
         Get
             Return IDValue
         End Get
+        Set(value As Integer)
+            IDValue = value
+        End Set
     End Property
 
     Public Property Name() As String
@@ -24,7 +31,7 @@
             Return NameValue
         End Get
         Set(value As String)
-            NameValue = value
+            NameValue = Trim(value)
         End Set
     End Property
 
@@ -33,7 +40,7 @@
             Return CategoryValue
         End Get
         Set(value As String)
-            CategoryValue = value
+            CategoryValue = Trim(value)
         End Set
     End Property
 
@@ -42,7 +49,10 @@
             Return DescriptionValue
         End Get
         Set(value As String)
-            DescriptionValue = value
+            If value = Nothing Then
+                value = "N/A"
+            End If
+            DescriptionValue = Trim(value)
         End Set
     End Property
 
@@ -61,6 +71,15 @@
         End Get
         Set(value As Supplier)
             SupplierReference = value
+        End Set
+    End Property
+
+    Public Property SupplierID() As Integer
+        Get
+            Return SupplierIDValue
+        End Get
+        Set(value As Integer)
+            SupplierIDValue = value
         End Set
     End Property
 
@@ -87,7 +106,10 @@
             Return WarrantyValue
         End Get
         Set(value As String)
-            WarrantyValue = value
+            If value = Nothing Then
+                value = "N/A"
+            End If
+            WarrantyValue = Trim(value)
         End Set
     End Property
 
@@ -123,4 +145,79 @@
             Return PriceValue - CostValue
         End Get
     End Property
+
+    Public Sub Create(Table As ProductsTableAdapter)
+        Dim Result As Integer
+        Result = Table.InsertProduct(NameValue, CategoryValue, DescriptionValue, ReorderPointValue, SupplierIDValue, StateExemptValue, MunicipalExemptValue, WarrantyValue, StockValue,
+                                     PriceValue, CostValue, Markup)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Public Function Saved()
+        Return SavedValue
+    End Function
+
+    Public Sub SetFromRow(Row As DataGridViewRow)
+        Dim Cells = Row.Cells
+        IDValue = Cells.Item(0).Value
+        NameValue = Trim(Cells.Item(1).Value)
+        CategoryValue = Trim(Cells.Item(2).Value)
+        DescriptionValue = Trim(Cells.Item(3).Value)
+        ReorderPointValue = Cells.Item(4).Value
+        SupplierIDValue = Cells.Item(5).Value
+        StateExemptValue = Trim(Cells.Item(6).Value)
+        MunicipalExemptValue = Trim(Cells.Item(7).Value)
+        WarrantyValue = Trim(Cells.Item(8).Value)
+        StockValue = Cells.Item(9).Value
+        PriceValue = Cells.Item(10).Value
+        CostValue = Cells.Item(11).Value
+        MarkupValue = Cells.Item(12).Value
+    End Sub
+
+    Public Function IsSame(ProductTwo As Product)
+        Dim ProductOneArray = Me.ToArray()
+        Dim ProductTwoArray = ProductTwo.ToArray()
+        Dim Same As Boolean
+
+        For index = 0 To ProductOneArray.GetUpperBound(0)
+            If ProductOneArray(index).Equals(ProductTwoArray(index)) Then
+                Same = True
+            Else
+                Same = False
+                Exit For
+            End If
+        Next
+        Return Same
+    End Function
+
+    Public Function ToArray()
+        Dim Attributes = {
+            Trim(Me.Name.ToString),
+            Trim(Me.Category.ToString),
+            Trim(Me.Description.ToString),
+            Trim(Me.ReorderPoint.ToString),
+            Trim(Me.SupplierID.ToString),
+            Trim(Me.StateExempt.ToString),
+            Trim(Me.MunicipalExempt.ToString),
+            Trim(Me.Stock.ToString),
+            Trim(Me.Price.ToString),
+            Trim(Me.Cost.ToString)
+            }
+        Return Attributes
+    End Function
+
+    Public Sub Update(Table As ProductsTableAdapter)
+        Dim Result As Integer
+        Result = Table.UpdateProduct(NameValue, CategoryValue, DescriptionValue, ReorderPointValue, SupplierIDValue, StateExemptValue, MunicipalExemptValue, WarrantyValue, StockValue,
+                                     PriceValue, CostValue, Markup, IDValue)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
 End Class

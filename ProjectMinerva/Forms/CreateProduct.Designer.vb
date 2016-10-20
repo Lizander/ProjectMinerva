@@ -44,6 +44,7 @@ Partial Class CreateProduct
         Me.DescriptionTextBox = New System.Windows.Forms.TextBox()
         Me.ReorderPointNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.SupplierIDComboBox = New System.Windows.Forms.ComboBox()
+        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.StateExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.MunicipalExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.WarrantyTextBox = New System.Windows.Forms.TextBox()
@@ -55,7 +56,6 @@ Partial Class CreateProduct
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.SuppliersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SuppliersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SuppliersTableAdapter()
         NameLabel = New System.Windows.Forms.Label()
         CategoryLabel = New System.Windows.Forms.Label()
@@ -71,13 +71,13 @@ Partial Class CreateProduct
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReorderPointNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._PriceNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NameLabel
@@ -271,6 +271,11 @@ Partial Class CreateProduct
         Me.SupplierIDComboBox.TabIndex = 22
         Me.SupplierIDComboBox.ValueMember = "Id"
         '
+        'SuppliersBindingSource
+        '
+        Me.SuppliersBindingSource.DataMember = "Suppliers"
+        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
+        '
         'StateExemptComboBox
         '
         Me.StateExemptComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -405,11 +410,6 @@ Partial Class CreateProduct
         Me.Panel3.Size = New System.Drawing.Size(391, 372)
         Me.Panel3.TabIndex = 29
         '
-        'SuppliersBindingSource
-        '
-        Me.SuppliersBindingSource.DataMember = "Suppliers"
-        Me.SuppliersBindingSource.DataSource = Me.JupiterDataSet
-        '
         'SuppliersTableAdapter
         '
         Me.SuppliersTableAdapter.ClearBeforeFill = True
@@ -433,6 +433,7 @@ Partial Class CreateProduct
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReorderPointNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._PriceNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
@@ -442,7 +443,6 @@ Partial Class CreateProduct
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.SuppliersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
