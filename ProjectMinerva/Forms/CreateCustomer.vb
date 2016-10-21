@@ -45,11 +45,13 @@ Public Class CreateCustomer
             NewCustomer.LatestVisit = Date.Today
             NewCustomer.Create(Me.CustomersTableAdapter)
             Me.TableAdapterManager.UpdateAll(Me.JupiterDataSet)
+            CustomersHome.Show()
             Me.Close()
         End If
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        CustomersHome.Show()
         Me.Close()
     End Sub
 

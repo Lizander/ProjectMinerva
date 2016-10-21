@@ -120,7 +120,7 @@ Partial Class AdministrationPanel
         Me.CustomerButton.FlatAppearance.BorderSize = 0
         Me.CustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CustomerButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CustomerButton.Image = CType(resources.GetObject("CustomerButton.Image"), System.Drawing.Image)
+        Me.CustomerButton.Image = Global.ProjectMinerva.My.Resources.Resources.Male_icon
         Me.CustomerButton.Location = New System.Drawing.Point(164, 467)
         Me.CustomerButton.Name = "CustomerButton"
         Me.CustomerButton.Size = New System.Drawing.Size(144, 95)

@@ -33,6 +33,7 @@ Partial Class CreateCustomer
         Dim GenderLabel As System.Windows.Forms.Label
         Dim DiscountLabel As System.Windows.Forms.Label
         Dim PhoneNumberLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CreateCustomer))
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.CustomersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
@@ -44,12 +45,13 @@ Partial Class CreateCustomer
         Me.MunicipalExemptComboBox = New System.Windows.Forms.ComboBox()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GenderComboBox = New System.Windows.Forms.ComboBox()
         Me.DiscountNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.CustomersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.CustomersTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.PhoneNumberMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         FirstNameLabel = New System.Windows.Forms.Label()
         FirstLastNameLabel = New System.Windows.Forms.Label()
         SecondLastNameLabel = New System.Windows.Forms.Label()
@@ -63,15 +65,16 @@ Partial Class CreateCustomer
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DiscountNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'FirstNameLabel
         '
-        FirstNameLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        FirstNameLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         FirstNameLabel.AutoSize = True
-        FirstNameLabel.Location = New System.Drawing.Point(415, 104)
+        FirstNameLabel.Location = New System.Drawing.Point(25, 35)
         FirstNameLabel.Name = "FirstNameLabel"
         FirstNameLabel.Size = New System.Drawing.Size(60, 13)
         FirstNameLabel.TabIndex = 0
@@ -83,7 +86,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         FirstLastNameLabel.AutoSize = True
-        FirstLastNameLabel.Location = New System.Drawing.Point(608, 104)
+        FirstLastNameLabel.Location = New System.Drawing.Point(25, 84)
         FirstLastNameLabel.Name = "FirstLastNameLabel"
         FirstLastNameLabel.Size = New System.Drawing.Size(83, 13)
         FirstLastNameLabel.TabIndex = 2
@@ -95,7 +98,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         SecondLastNameLabel.AutoSize = True
-        SecondLastNameLabel.Location = New System.Drawing.Point(817, 104)
+        SecondLastNameLabel.Location = New System.Drawing.Point(25, 144)
         SecondLastNameLabel.Name = "SecondLastNameLabel"
         SecondLastNameLabel.Size = New System.Drawing.Size(101, 13)
         SecondLastNameLabel.TabIndex = 4
@@ -107,7 +110,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         EmailAddressLabel.AutoSize = True
-        EmailAddressLabel.Location = New System.Drawing.Point(608, 222)
+        EmailAddressLabel.Location = New System.Drawing.Point(25, 248)
         EmailAddressLabel.Name = "EmailAddressLabel"
         EmailAddressLabel.Size = New System.Drawing.Size(76, 13)
         EmailAddressLabel.TabIndex = 8
@@ -119,7 +122,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         CityLabel.AutoSize = True
-        CityLabel.Location = New System.Drawing.Point(817, 219)
+        CityLabel.Location = New System.Drawing.Point(35, 22)
         CityLabel.Name = "CityLabel"
         CityLabel.Size = New System.Drawing.Size(27, 13)
         CityLabel.TabIndex = 10
@@ -131,7 +134,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         StateExemptLabel.AutoSize = True
-        StateExemptLabel.Location = New System.Drawing.Point(415, 359)
+        StateExemptLabel.Location = New System.Drawing.Point(35, 67)
         StateExemptLabel.Name = "StateExemptLabel"
         StateExemptLabel.Size = New System.Drawing.Size(73, 13)
         StateExemptLabel.TabIndex = 12
@@ -143,7 +146,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         MunicipalExemptLabel.AutoSize = True
-        MunicipalExemptLabel.Location = New System.Drawing.Point(608, 359)
+        MunicipalExemptLabel.Location = New System.Drawing.Point(35, 122)
         MunicipalExemptLabel.Name = "MunicipalExemptLabel"
         MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
         MunicipalExemptLabel.TabIndex = 14
@@ -155,7 +158,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         GenderLabel.AutoSize = True
-        GenderLabel.Location = New System.Drawing.Point(415, 389)
+        GenderLabel.Location = New System.Drawing.Point(35, 248)
         GenderLabel.Name = "GenderLabel"
         GenderLabel.Size = New System.Drawing.Size(45, 13)
         GenderLabel.TabIndex = 18
@@ -167,7 +170,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         DiscountLabel.AutoSize = True
-        DiscountLabel.Location = New System.Drawing.Point(817, 359)
+        DiscountLabel.Location = New System.Drawing.Point(35, 179)
         DiscountLabel.Name = "DiscountLabel"
         DiscountLabel.Size = New System.Drawing.Size(52, 13)
         DiscountLabel.TabIndex = 16
@@ -179,7 +182,7 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         PhoneNumberLabel.AutoSize = True
-        PhoneNumberLabel.Location = New System.Drawing.Point(415, 223)
+        PhoneNumberLabel.Location = New System.Drawing.Point(25, 198)
         PhoneNumberLabel.Name = "PhoneNumberLabel"
         PhoneNumberLabel.Size = New System.Drawing.Size(81, 13)
         PhoneNumberLabel.TabIndex = 6
@@ -187,13 +190,12 @@ Partial Class CreateCustomer
         '
         'FirstNameTextBox
         '
-        Me.FirstNameTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.FirstNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FirstNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "FirstName", True))
-        Me.FirstNameTextBox.Location = New System.Drawing.Point(502, 101)
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(132, 28)
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
-        Me.FirstNameTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(119, 20)
         Me.FirstNameTextBox.TabIndex = 1
         '
         'CustomersBindingSource
@@ -212,9 +214,9 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FirstLastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "FirstLastName", True))
-        Me.FirstLastNameTextBox.Location = New System.Drawing.Point(702, 100)
+        Me.FirstLastNameTextBox.Location = New System.Drawing.Point(132, 81)
         Me.FirstLastNameTextBox.Name = "FirstLastNameTextBox"
-        Me.FirstLastNameTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.FirstLastNameTextBox.Size = New System.Drawing.Size(119, 20)
         Me.FirstLastNameTextBox.TabIndex = 3
         '
         'SecondLastNameTextBox
@@ -223,9 +225,9 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SecondLastNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "SecondLastName", True))
-        Me.SecondLastNameTextBox.Location = New System.Drawing.Point(924, 101)
+        Me.SecondLastNameTextBox.Location = New System.Drawing.Point(132, 141)
         Me.SecondLastNameTextBox.Name = "SecondLastNameTextBox"
-        Me.SecondLastNameTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.SecondLastNameTextBox.Size = New System.Drawing.Size(119, 20)
         Me.SecondLastNameTextBox.TabIndex = 5
         '
         'EmailAddressTextBox
@@ -234,9 +236,9 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmailAddressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "EmailAddress", True))
-        Me.EmailAddressTextBox.Location = New System.Drawing.Point(702, 219)
+        Me.EmailAddressTextBox.Location = New System.Drawing.Point(132, 245)
         Me.EmailAddressTextBox.Name = "EmailAddressTextBox"
-        Me.EmailAddressTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EmailAddressTextBox.Size = New System.Drawing.Size(119, 20)
         Me.EmailAddressTextBox.TabIndex = 9
         '
         'CityTextBox
@@ -245,9 +247,9 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CityTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "City", True))
-        Me.CityTextBox.Location = New System.Drawing.Point(924, 216)
+        Me.CityTextBox.Location = New System.Drawing.Point(142, 19)
         Me.CityTextBox.Name = "CityTextBox"
-        Me.CityTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CityTextBox.Size = New System.Drawing.Size(123, 20)
         Me.CityTextBox.TabIndex = 11
         '
         'StateExemptComboBox
@@ -261,9 +263,9 @@ Partial Class CreateCustomer
         Me.StateExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StateExemptComboBox.FormattingEnabled = True
         Me.StateExemptComboBox.Items.AddRange(New Object() {"YES", "NO"})
-        Me.StateExemptComboBox.Location = New System.Drawing.Point(502, 356)
+        Me.StateExemptComboBox.Location = New System.Drawing.Point(142, 64)
         Me.StateExemptComboBox.Name = "StateExemptComboBox"
-        Me.StateExemptComboBox.Size = New System.Drawing.Size(100, 21)
+        Me.StateExemptComboBox.Size = New System.Drawing.Size(123, 21)
         Me.StateExemptComboBox.TabIndex = 13
         '
         'MunicipalExemptComboBox
@@ -275,47 +277,40 @@ Partial Class CreateCustomer
         Me.MunicipalExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MunicipalExemptComboBox.FormattingEnabled = True
         Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"YES", "NO"})
-        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(702, 355)
+        Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(142, 119)
         Me.MunicipalExemptComboBox.Name = "MunicipalExemptComboBox"
-        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(100, 21)
+        Me.MunicipalExemptComboBox.Size = New System.Drawing.Size(123, 21)
         Me.MunicipalExemptComboBox.TabIndex = 15
         '
         'SaveButton
         '
-        Me.SaveButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.SaveButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveButton.Location = New System.Drawing.Point(418, 500)
+        Me.SaveButton.AutoSize = True
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.FlatAppearance.BorderSize = 0
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
+        Me.SaveButton.Location = New System.Drawing.Point(730, 472)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(75, 23)
+        Me.SaveButton.Size = New System.Drawing.Size(114, 95)
         Me.SaveButton.TabIndex = 20
         Me.SaveButton.Text = "Save"
-        Me.SaveButton.UseVisualStyleBackColor = True
+        Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.SaveButton.UseVisualStyleBackColor = False
         '
         'BackButton
         '
-        Me.BackButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.Location = New System.Drawing.Point(949, 500)
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 489)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(75, 23)
+        Me.BackButton.Size = New System.Drawing.Size(78, 78)
         Me.BackButton.TabIndex = 21
-        Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(637, 23)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 25)
-        Me.Label1.TabIndex = 20
-        Me.Label1.Text = "Create Customer"
         '
         'GenderComboBox
         '
@@ -326,9 +321,9 @@ Partial Class CreateCustomer
         Me.GenderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.GenderComboBox.FormattingEnabled = True
         Me.GenderComboBox.Items.AddRange(New Object() {"Male", "Female", "Other"})
-        Me.GenderComboBox.Location = New System.Drawing.Point(502, 386)
+        Me.GenderComboBox.Location = New System.Drawing.Point(142, 243)
         Me.GenderComboBox.Name = "GenderComboBox"
-        Me.GenderComboBox.Size = New System.Drawing.Size(100, 21)
+        Me.GenderComboBox.Size = New System.Drawing.Size(123, 21)
         Me.GenderComboBox.TabIndex = 19
         '
         'DiscountNumericUpDown
@@ -337,9 +332,10 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DiscountNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CustomersBindingSource, "Discount", True))
-        Me.DiscountNumericUpDown.Location = New System.Drawing.Point(924, 355)
+        Me.DiscountNumericUpDown.DecimalPlaces = 2
+        Me.DiscountNumericUpDown.Location = New System.Drawing.Point(142, 175)
         Me.DiscountNumericUpDown.Name = "DiscountNumericUpDown"
-        Me.DiscountNumericUpDown.Size = New System.Drawing.Size(100, 20)
+        Me.DiscountNumericUpDown.Size = New System.Drawing.Size(123, 20)
         Me.DiscountNumericUpDown.TabIndex = 17
         '
         'CustomersTableAdapter
@@ -348,9 +344,20 @@ Partial Class CreateCustomer
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.AccessesTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
         Me.TableAdapterManager.CustomersTableAdapter = Me.CustomersTableAdapter
+        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
+        Me.TableAdapterManager.NotesTableAdapter = Nothing
+        Me.TableAdapterManager.ProductsTableAdapter = Nothing
+        Me.TableAdapterManager.SalesTableAdapter = Nothing
+        Me.TableAdapterManager.ServicesTableAdapter = Nothing
+        Me.TableAdapterManager.StoresTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
+        Me.TableAdapterManager.TiresTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
         'PhoneNumberMaskedTextBox
         '
@@ -358,49 +365,70 @@ Partial Class CreateCustomer
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PhoneNumberMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomersBindingSource, "PhoneNumber", True))
-        Me.PhoneNumberMaskedTextBox.Location = New System.Drawing.Point(502, 220)
+        Me.PhoneNumberMaskedTextBox.Location = New System.Drawing.Point(132, 195)
         Me.PhoneNumberMaskedTextBox.Mask = "(999)-000-0000"
         Me.PhoneNumberMaskedTextBox.Name = "PhoneNumberMaskedTextBox"
         Me.PhoneNumberMaskedTextBox.RejectInputOnFirstFailure = True
-        Me.PhoneNumberMaskedTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.PhoneNumberMaskedTextBox.Size = New System.Drawing.Size(119, 20)
         Me.PhoneNumberMaskedTextBox.TabIndex = 7
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.FirstNameTextBox)
+        Me.Panel1.Controls.Add(PhoneNumberLabel)
+        Me.Panel1.Controls.Add(FirstNameLabel)
+        Me.Panel1.Controls.Add(Me.PhoneNumberMaskedTextBox)
+        Me.Panel1.Controls.Add(Me.FirstLastNameTextBox)
+        Me.Panel1.Controls.Add(FirstLastNameLabel)
+        Me.Panel1.Controls.Add(Me.SecondLastNameTextBox)
+        Me.Panel1.Controls.Add(SecondLastNameLabel)
+        Me.Panel1.Controls.Add(Me.EmailAddressTextBox)
+        Me.Panel1.Controls.Add(EmailAddressLabel)
+        Me.Panel1.Location = New System.Drawing.Point(364, 42)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(317, 365)
+        Me.Panel1.TabIndex = 22
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.CityTextBox)
+        Me.Panel2.Controls.Add(CityLabel)
+        Me.Panel2.Controls.Add(GenderLabel)
+        Me.Panel2.Controls.Add(DiscountLabel)
+        Me.Panel2.Controls.Add(Me.GenderComboBox)
+        Me.Panel2.Controls.Add(Me.StateExemptComboBox)
+        Me.Panel2.Controls.Add(Me.DiscountNumericUpDown)
+        Me.Panel2.Controls.Add(StateExemptLabel)
+        Me.Panel2.Controls.Add(Me.MunicipalExemptComboBox)
+        Me.Panel2.Controls.Add(MunicipalExemptLabel)
+        Me.Panel2.Location = New System.Drawing.Point(915, 42)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(318, 363)
+        Me.Panel2.TabIndex = 23
         '
         'CreateCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1484, 579)
-        Me.ControlBox = False
-        Me.Controls.Add(PhoneNumberLabel)
-        Me.Controls.Add(Me.PhoneNumberMaskedTextBox)
-        Me.Controls.Add(DiscountLabel)
-        Me.Controls.Add(Me.DiscountNumericUpDown)
-        Me.Controls.Add(GenderLabel)
-        Me.Controls.Add(Me.GenderComboBox)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.SaveButton)
-        Me.Controls.Add(MunicipalExemptLabel)
-        Me.Controls.Add(Me.MunicipalExemptComboBox)
-        Me.Controls.Add(StateExemptLabel)
-        Me.Controls.Add(Me.StateExemptComboBox)
-        Me.Controls.Add(CityLabel)
-        Me.Controls.Add(Me.CityTextBox)
-        Me.Controls.Add(EmailAddressLabel)
-        Me.Controls.Add(Me.EmailAddressTextBox)
-        Me.Controls.Add(SecondLastNameLabel)
-        Me.Controls.Add(Me.SecondLastNameTextBox)
-        Me.Controls.Add(FirstLastNameLabel)
-        Me.Controls.Add(Me.FirstLastNameTextBox)
-        Me.Controls.Add(FirstNameLabel)
-        Me.Controls.Add(Me.FirstNameTextBox)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CreateCustomer"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create Customer"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DiscountNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -418,8 +446,9 @@ Partial Class CreateCustomer
     Friend WithEvents MunicipalExemptComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents SaveButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GenderComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents DiscountNumericUpDown As System.Windows.Forms.NumericUpDown
     Friend WithEvents PhoneNumberMaskedTextBox As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class

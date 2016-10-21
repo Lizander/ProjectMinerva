@@ -15,10 +15,13 @@ Public Class Customer
     Private LatestVisitValue As String
     Private SavedValue As Boolean
 
-    Public ReadOnly Property ID() As Integer
+    Public Property ID() As Integer
         Get
             Return IDValue
         End Get
+        Set(value As Integer)
+            IDValue = value
+        End Set
     End Property
 
     Public Property FirstName() As String
@@ -26,7 +29,7 @@ Public Class Customer
             Return FirstNameValue
         End Get
         Set(value As String)
-            FirstNameValue = value
+            FirstNameValue = Trim(value)
         End Set
     End Property
 
@@ -35,7 +38,7 @@ Public Class Customer
             Return FirstLastNameValue
         End Get
         Set(value As String)
-            FirstLastNameValue = value
+            FirstLastNameValue = Trim(value)
         End Set
     End Property
 
@@ -44,7 +47,10 @@ Public Class Customer
             Return SecondLastNameValue
         End Get
         Set(value As String)
-            SecondLastNameValue = value
+            If value = Nothing Then
+                value = "N/A"
+            End If
+            SecondLastNameValue = Trim(value)
         End Set
     End Property
 
@@ -53,7 +59,7 @@ Public Class Customer
             Return PhoneNumberValue
         End Get
         Set(value As String)
-            PhoneNumberValue = value
+            PhoneNumberValue = Trim(value)
         End Set
     End Property
 
@@ -62,7 +68,10 @@ Public Class Customer
             Return EmailAddressValue
         End Get
         Set(value As String)
-            EmailAddressValue = value
+            If value = Nothing Then
+                value = "N/A"
+            End If
+            EmailAddressValue = Trim(value)
         End Set
     End Property
 
@@ -71,7 +80,7 @@ Public Class Customer
             Return GenderValue
         End Get
         Set(value As String)
-            GenderValue = value
+            GenderValue = Trim(value)
         End Set
     End Property
 
@@ -80,7 +89,10 @@ Public Class Customer
             Return CityValue
         End Get
         Set(value As String)
-            CityValue = value
+            If value = Nothing Then
+                value = "N/A"
+            End If
+            CityValue = Trim(value)
         End Set
     End Property
 
@@ -126,29 +138,69 @@ Public Class Customer
         End Get
     End Property
 
-    Public Sub Find(Table As CustomersTableAdapter, ID As Integer)
-        'TODO finish method or refactor it
-        Dim Result = Table.GetDataBySearchingID(ID)
-        If Result.Count = 1 Then
-            Dim Row = Result.Rows(0)
-            IDValue = Row.Item(0)
-            FirstNameValue = Row.Item(1)
-            FirstLastNameValue = Row.Item(2)
-            SecondLastNameValue = Row.Item(3)
-            PhoneNumberValue = Row.Item(4)
-            EmailAddressValue = Row.Item(5)
-            GenderValue = Row.Item(6)
-            CityValue = Row.Item(7)
-            StateExemptValue = Row.Item(8)
-            MunicipalExemptValue = Row.Item(9)
-            DiscountValue = Row.Item(10)
-            LatestVisitValue = Row.Item(11)
-        End If
-    End Sub
     Public Sub Create(Table As CustomersTableAdapter)
         Dim Result As Integer
         Result = Table.InsertCustomer(FirstNameValue, FirstLastNameValue, SecondLastNameValue, PhoneNumberValue, EmailAddressValue, GenderValue, CityValue, StateExemptValue, MunicipalExemptValue,
                              DiscountValue, LatestVisitValue)
+        If Result = 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Public Sub SetFromRow(Row As DataGridViewRow)
+        Dim Cells = Row.Cells
+        IDValue = Cells.Item(0).Value
+        FirstNameValue = Trim(Cells.Item(1).Value)
+        FirstLastNameValue = Trim(Cells.Item(2).Value)
+        SecondLastNameValue = Trim(Cells.Item(3).Value)
+        PhoneNumberValue = Trim(Cells.Item(4).Value)
+        EmailAddressValue = Trim(Cells.Item(5).Value)
+        GenderValue = Trim(Cells.Item(6).Value)
+        CityValue = Trim(Cells.Item(7).Value)
+        StateExemptValue = Trim(Cells.Item(8).Value)
+        MunicipalExemptValue = Trim(Cells.Item(9).Value)
+        DiscountValue = Cells.Item(10).Value
+        LatestVisitValue = Trim(Cells.Item(11).Value)
+    End Sub
+
+    Public Function IsSame(CustomerTwo As Customer)
+        Dim CustomerOneArray = Me.ToArray()
+        Dim CustomerTwoArray = CustomerTwo.ToArray()
+        Dim Same As Boolean
+
+        For index = 0 To CustomerOneArray.GetUpperBound(0)
+            If CustomerOneArray(index).Equals(CustomerTwoArray(index)) Then
+                Same = True
+            Else
+                Same = False
+                Exit For
+            End If
+        Next
+        Return Same
+    End Function
+
+    Public Function ToArray()
+        Dim Attributes = {
+            Trim(Me.FirstName.ToString),
+            Trim(Me.FirstLastName.ToString),
+            Trim(Me.SecondLastName.ToString),
+            Trim(Me.PhoneNumber.ToString),
+            Trim(Me.EmailAddress.ToString),
+            Trim(Me.Gender.ToString),
+            Trim(Me.City.ToString),
+            Trim(Me.StateExempt.ToString),
+            Trim(Me.MunicipalExempt.ToString),
+            Trim(Me.Discount.ToString)
+            }
+        Return Attributes
+    End Function
+
+    Public Sub Update(Table As CustomersTableAdapter)
+        Dim Result As Integer
+        Result = Table.UpdateCustomer(FirstNameValue, FirstLastNameValue, SecondLastNameValue, PhoneNumberValue, EmailAddressValue, GenderValue, CityValue, StateExemptValue, MunicipalExemptValue,
+                             DiscountValue, LatestVisitValue, IDValue)
         If Result = 1 Then
             SavedValue = True
         Else

@@ -23,21 +23,47 @@ Partial Class CustomersHome
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomersHome))
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.CreateCustomerButton = New System.Windows.Forms.Button()
         Me.FindCustomerButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.CreateCustomerButton)
+        Me.Panel1.Controls.Add(Me.FindCustomerButton)
+        Me.Panel1.Location = New System.Drawing.Point(482, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(382, 528)
+        Me.Panel1.TabIndex = 11
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Image = Global.ProjectMinerva.My.Resources.Resources.Male_icon
+        Me.Label1.Location = New System.Drawing.Point(97, 10)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(179, 107)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Customers"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'CreateCustomerButton
         '
-        Me.CreateCustomerButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CreateCustomerButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CreateCustomerButton.BackColor = System.Drawing.Color.Transparent
         Me.CreateCustomerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CreateCustomerButton.FlatAppearance.BorderSize = 0
         Me.CreateCustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CreateCustomerButton.Image = CType(resources.GetObject("CreateCustomerButton.Image"), System.Drawing.Image)
-        Me.CreateCustomerButton.Location = New System.Drawing.Point(563, 64)
+        Me.CreateCustomerButton.Image = Global.ProjectMinerva.My.Resources.Resources.New_file_icon
+        Me.CreateCustomerButton.Location = New System.Drawing.Point(97, 180)
         Me.CreateCustomerButton.Name = "CreateCustomerButton"
         Me.CreateCustomerButton.Size = New System.Drawing.Size(179, 141)
         Me.CreateCustomerButton.TabIndex = 0
@@ -52,8 +78,8 @@ Partial Class CustomersHome
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FindCustomerButton.FlatAppearance.BorderSize = 0
         Me.FindCustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.FindCustomerButton.Image = CType(resources.GetObject("FindCustomerButton.Image"), System.Drawing.Image)
-        Me.FindCustomerButton.Location = New System.Drawing.Point(563, 287)
+        Me.FindCustomerButton.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon__1_
+        Me.FindCustomerButton.Location = New System.Drawing.Point(97, 373)
         Me.FindCustomerButton.Name = "FindCustomerButton"
         Me.FindCustomerButton.Size = New System.Drawing.Size(179, 141)
         Me.FindCustomerButton.TabIndex = 1
@@ -83,11 +109,14 @@ Partial Class CustomersHome
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1330, 574)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BackButton)
-        Me.Controls.Add(Me.FindCustomerButton)
-        Me.Controls.Add(Me.CreateCustomerButton)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CustomersHome"
-        Me.Text = "CustomersHome"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Customers Home"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -95,4 +124,6 @@ Partial Class CustomersHome
     Friend WithEvents CreateCustomerButton As System.Windows.Forms.Button
     Friend WithEvents FindCustomerButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

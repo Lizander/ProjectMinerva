@@ -34,9 +34,6 @@ Partial Class FindProduct
         Me.ProductsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ProductsTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.ProductsDataGridView = New System.Windows.Forms.DataGridView()
-        Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,6 +47,9 @@ Partial Class FindProduct
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,38 +170,6 @@ Partial Class FindProduct
         Me.ProductsDataGridView.Size = New System.Drawing.Size(1419, 333)
         Me.ProductsDataGridView.TabIndex = 15
         '
-        'SearchTextBox
-        '
-        Me.SearchTextBox.Location = New System.Drawing.Point(80, 40)
-        Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(217, 20)
-        Me.SearchTextBox.TabIndex = 17
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(62, 50)
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
-        'ClearButton
-        '
-        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
-        Me.ClearButton.Enabled = False
-        Me.ClearButton.FlatAppearance.BorderSize = 0
-        Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
-        Me.ClearButton.Location = New System.Drawing.Point(327, 12)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(75, 75)
-        Me.ClearButton.TabIndex = 19
-        Me.ClearButton.Text = "Clear"
-        Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.ClearButton.UseVisualStyleBackColor = False
-        '
         'Id
         '
         Me.Id.DataPropertyName = "Id"
@@ -293,6 +261,38 @@ Partial Class FindProduct
         Me.DataGridViewTextBoxColumn13.HeaderText = "Markup"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        '
+        'SearchTextBox
+        '
+        Me.SearchTextBox.Location = New System.Drawing.Point(80, 40)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.Size = New System.Drawing.Size(217, 20)
+        Me.SearchTextBox.TabIndex = 17
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ProjectMinerva.My.Resources.Resources.search_icon_small
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(62, 50)
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ClearButton.BackColor = System.Drawing.Color.Transparent
+        Me.ClearButton.Enabled = False
+        Me.ClearButton.FlatAppearance.BorderSize = 0
+        Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
+        Me.ClearButton.Location = New System.Drawing.Point(327, 12)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(75, 75)
+        Me.ClearButton.TabIndex = 19
+        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ClearButton.UseVisualStyleBackColor = False
         '
         'FindProduct
         '
