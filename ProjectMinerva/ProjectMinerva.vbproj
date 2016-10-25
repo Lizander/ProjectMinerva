@@ -229,6 +229,12 @@
     <Compile Include="Forms\TiresHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\UserManagement.Designer.vb">
+      <DependentUpon>UserManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="JupiterDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -318,6 +324,9 @@
     <EmbeddedResource Include="Forms\TiresHome.resx">
       <DependentUpon>TiresHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserManagement.resx">
+      <DependentUpon>UserManagement.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -331,8 +340,8 @@
     </None>
     <None Include="JupiterDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JupiterDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>JupiterDataSet2.Designer.vb</LastGenOutput>
     </None>
     <None Include="JupiterDataSet.xss">
       <DependentUpon>JupiterDataSet.xsd</DependentUpon>
@@ -356,6 +365,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Users-icon %281%29.png" />
     <None Include="Resources\Male-icon.png" />
     <None Include="Resources\product-icon.png" />
     <None Include="Resources\configure-icon.png" />

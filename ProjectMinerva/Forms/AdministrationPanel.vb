@@ -32,4 +32,9 @@
 
     Private Sub AdministrationPanel_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
     End Sub
+
+    Private Sub UserButton_Click(sender As Object, e As EventArgs) Handles UserButton.Click
+        UserManagement.Show()
+        Me.Close()
+    End Sub
 End Class

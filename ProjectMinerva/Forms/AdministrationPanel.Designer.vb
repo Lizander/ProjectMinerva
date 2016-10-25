@@ -23,32 +23,17 @@ Partial Class AdministrationPanel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdministrationPanel))
-        Me.UserButton = New System.Windows.Forms.Button()
         Me.OptionButton = New System.Windows.Forms.Button()
         Me.SaleButton = New System.Windows.Forms.Button()
         Me.ReportButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.UserButton = New System.Windows.Forms.Button()
         Me.CustomerButton = New System.Windows.Forms.Button()
         Me.ProductButton = New System.Windows.Forms.Button()
         Me.ServiceButton = New System.Windows.Forms.Button()
         Me.TireButton = New System.Windows.Forms.Button()
         Me.SupplierButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'UserButton
-        '
-        Me.UserButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UserButton.AutoSize = True
-        Me.UserButton.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.UserButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.UserButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.UserButton.Location = New System.Drawing.Point(1018, 161)
-        Me.UserButton.Name = "UserButton"
-        Me.UserButton.Size = New System.Drawing.Size(144, 72)
-        Me.UserButton.TabIndex = 6
-        Me.UserButton.Text = "Users"
-        Me.UserButton.UseVisualStyleBackColor = False
         '
         'OptionButton
         '
@@ -110,6 +95,25 @@ Partial Class AdministrationPanel
         Me.BackButton.TabIndex = 9
         Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.BackButton.UseVisualStyleBackColor = False
+        '
+        'UserButton
+        '
+        Me.UserButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.UserButton.AutoSize = True
+        Me.UserButton.BackColor = System.Drawing.Color.Transparent
+        Me.UserButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.UserButton.FlatAppearance.BorderSize = 0
+        Me.UserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UserButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.UserButton.Image = Global.ProjectMinerva.My.Resources.Resources.Users_icon__1_
+        Me.UserButton.Location = New System.Drawing.Point(1018, 161)
+        Me.UserButton.Name = "UserButton"
+        Me.UserButton.Size = New System.Drawing.Size(144, 97)
+        Me.UserButton.TabIndex = 6
+        Me.UserButton.Text = "Users"
+        Me.UserButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.UserButton.UseVisualStyleBackColor = False
         '
         'CustomerButton
         '
