@@ -73,7 +73,7 @@ Public Class User
         UsernameValue = Trim(Cells.Item(1).Value)
         PasswordValue = Trim(Cells.Item(2).Value)
         PositionValue = Trim(Cells.Item(3).Value)
-        AvatarValue = Cells.Item(4).Value
+        'AvatarValue = Cells.Item(4).Value
     End Sub
 
     Public Function IsSame(UserTwo As User)
