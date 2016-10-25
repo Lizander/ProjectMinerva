@@ -14,6 +14,9 @@
     End Sub
 
     Private Sub UsersDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles UsersDataGridView.CellClick
-
+        Dim SelectedUser As New User
+        SelectedUser.SetFromRow(UsersDataGridView.CurrentRow)
+        UsernameTextBox.Text = SelectedUser.Username
+        PositionTextBox.Text = SelectedUser.Position
     End Sub
 End Class

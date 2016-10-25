@@ -104,7 +104,7 @@ Public Class User
 
     Public Sub Update(Table As UsersTableAdapter)
         Dim Result As Integer
-        Result = Table.UpdateUser(UsernameValue, PasswordValue, PositionValue, AvatarValue, IDValue)
+        Result = Table.UpdateUser(UsernameValue, PasswordValue, PositionValue, IDValue)
         If Result = 1 Then
             SavedValue = True
         Else
