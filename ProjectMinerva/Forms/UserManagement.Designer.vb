@@ -42,20 +42,26 @@ Partial Class UserManagement
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.UsernameTextBox = New System.Windows.Forms.TextBox()
+        Me.UsersBindingSourceOwl = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OwlsDataSet = New ProjectMinerva.OwlsDataSet()
         Me.PositionTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.ConfirmationTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordLabel = New System.Windows.Forms.Label()
         Me.ConfirmationLabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.EditButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
+        Me.EditButton = New System.Windows.Forms.Button()
+        Me.UsersTableAdapterOwl = New ProjectMinerva.OwlsDataSetTableAdapters.UsersTableAdapter()
+        Me.CreateButton = New System.Windows.Forms.Button()
         UsernameLabel = New System.Windows.Forms.Label()
         PositionLabel = New System.Windows.Forms.Label()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsersBindingSourceOwl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OwlsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -141,18 +147,26 @@ Partial Class UserManagement
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.UsersDataGridView.DefaultCellStyle = DataGridViewCellStyle2
+        Me.UsersDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.UsersDataGridView.GridColor = System.Drawing.Color.PaleTurquoise
         Me.UsersDataGridView.Location = New System.Drawing.Point(16, 92)
+        Me.UsersDataGridView.MultiSelect = False
         Me.UsersDataGridView.Name = "UsersDataGridView"
+        Me.UsersDataGridView.ReadOnly = True
         Me.UsersDataGridView.RowHeadersVisible = False
+        Me.UsersDataGridView.ShowCellToolTips = False
+        Me.UsersDataGridView.ShowEditingIcon = False
+        Me.UsersDataGridView.ShowRowErrors = False
         Me.UsersDataGridView.Size = New System.Drawing.Size(103, 220)
         Me.UsersDataGridView.TabIndex = 1
+        Me.UsersDataGridView.VirtualMode = True
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "Id"
         Me.DataGridViewTextBoxColumn1.HeaderText = "Id"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Visible = False
         '
         'DataGridViewTextBoxColumn2
@@ -160,12 +174,14 @@ Partial Class UserManagement
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "Username"
         Me.DataGridViewTextBoxColumn2.HeaderText = "Username"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "Password"
         Me.DataGridViewTextBoxColumn3.HeaderText = "Password"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Visible = False
         '
         'DataGridViewTextBoxColumn4
@@ -173,6 +189,7 @@ Partial Class UserManagement
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "Position"
         Me.DataGridViewTextBoxColumn4.HeaderText = "Position"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.Visible = False
         '
         'DataGridViewImageColumn1
@@ -180,6 +197,7 @@ Partial Class UserManagement
         Me.DataGridViewImageColumn1.DataPropertyName = "Avatar"
         Me.DataGridViewImageColumn1.HeaderText = "Avatar"
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Visible = False
         '
         'PictureBox1
@@ -219,27 +237,38 @@ Partial Class UserManagement
         '
         'UsernameTextBox
         '
-        Me.UsernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersBindingSource, "Username", True))
+        Me.UsernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersBindingSourceOwl, "Username", True))
         Me.UsernameTextBox.Enabled = False
         Me.UsernameTextBox.Location = New System.Drawing.Point(129, 18)
         Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.UsernameTextBox.Size = New System.Drawing.Size(176, 20)
         Me.UsernameTextBox.TabIndex = 11
+        '
+        'UsersBindingSourceOwl
+        '
+        Me.UsersBindingSourceOwl.DataMember = "Users"
+        Me.UsersBindingSourceOwl.DataSource = Me.OwlsDataSet
+        '
+        'OwlsDataSet
+        '
+        Me.OwlsDataSet.DataSetName = "OwlsDataSet"
+        Me.OwlsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'PositionTextBox
         '
-        Me.PositionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersBindingSource, "Position", True))
+        Me.PositionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersBindingSourceOwl, "Position", True))
         Me.PositionTextBox.Enabled = False
         Me.PositionTextBox.Location = New System.Drawing.Point(129, 49)
         Me.PositionTextBox.Name = "PositionTextBox"
-        Me.PositionTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.PositionTextBox.Size = New System.Drawing.Size(176, 20)
         Me.PositionTextBox.TabIndex = 12
         '
         'PasswordTextBox
         '
         Me.PasswordTextBox.Location = New System.Drawing.Point(129, 93)
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(176, 20)
         Me.PasswordTextBox.TabIndex = 13
         Me.PasswordTextBox.Visible = False
         '
@@ -247,7 +276,8 @@ Partial Class UserManagement
         '
         Me.ConfirmationTextBox.Location = New System.Drawing.Point(129, 128)
         Me.ConfirmationTextBox.Name = "ConfirmationTextBox"
-        Me.ConfirmationTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.ConfirmationTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.ConfirmationTextBox.Size = New System.Drawing.Size(176, 20)
         Me.ConfirmationTextBox.TabIndex = 14
         Me.ConfirmationTextBox.Visible = False
         '
@@ -274,6 +304,7 @@ Partial Class UserManagement
         'Panel1
         '
         Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.CreateButton)
         Me.Panel1.Controls.Add(Me.SaveButton)
         Me.Panel1.Controls.Add(Me.EditButton)
         Me.Panel1.Controls.Add(Me.UsernameTextBox)
@@ -286,25 +317,8 @@ Partial Class UserManagement
         Me.Panel1.Controls.Add(Me.PasswordTextBox)
         Me.Panel1.Location = New System.Drawing.Point(809, 40)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(237, 319)
+        Me.Panel1.Size = New System.Drawing.Size(365, 319)
         Me.Panel1.TabIndex = 17
-        '
-        'EditButton
-        '
-        Me.EditButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.EditButton.AutoSize = True
-        Me.EditButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.EditButton.BackColor = System.Drawing.Color.Transparent
-        Me.EditButton.FlatAppearance.BorderSize = 0
-        Me.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
-        Me.EditButton.Location = New System.Drawing.Point(12, 201)
-        Me.EditButton.Name = "EditButton"
-        Me.EditButton.Size = New System.Drawing.Size(78, 95)
-        Me.EditButton.TabIndex = 18
-        Me.EditButton.Text = "Edit"
-        Me.EditButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.EditButton.UseVisualStyleBackColor = False
         '
         'SaveButton
         '
@@ -316,13 +330,51 @@ Partial Class UserManagement
         Me.SaveButton.FlatAppearance.BorderSize = 0
         Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
-        Me.SaveButton.Location = New System.Drawing.Point(141, 201)
+        Me.SaveButton.Location = New System.Drawing.Point(269, 201)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(78, 95)
         Me.SaveButton.TabIndex = 19
         Me.SaveButton.Text = "Save"
         Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.SaveButton.UseVisualStyleBackColor = False
+        '
+        'EditButton
+        '
+        Me.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.EditButton.AutoSize = True
+        Me.EditButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.EditButton.BackColor = System.Drawing.Color.Transparent
+        Me.EditButton.FlatAppearance.BorderSize = 0
+        Me.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
+        Me.EditButton.Location = New System.Drawing.Point(129, 201)
+        Me.EditButton.Name = "EditButton"
+        Me.EditButton.Size = New System.Drawing.Size(78, 95)
+        Me.EditButton.TabIndex = 18
+        Me.EditButton.Text = "Edit"
+        Me.EditButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.EditButton.UseVisualStyleBackColor = False
+        '
+        'UsersTableAdapterOwl
+        '
+        Me.UsersTableAdapterOwl.ClearBeforeFill = True
+        '
+        'CreateButton
+        '
+        Me.CreateButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.CreateButton.AutoSize = True
+        Me.CreateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.CreateButton.BackColor = System.Drawing.Color.Transparent
+        Me.CreateButton.FlatAppearance.BorderSize = 0
+        Me.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CreateButton.Image = Global.ProjectMinerva.My.Resources.Resources.New_file_icon
+        Me.CreateButton.Location = New System.Drawing.Point(9, 201)
+        Me.CreateButton.Name = "CreateButton"
+        Me.CreateButton.Size = New System.Drawing.Size(78, 95)
+        Me.CreateButton.TabIndex = 20
+        Me.CreateButton.Text = "New"
+        Me.CreateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.CreateButton.UseVisualStyleBackColor = False
         '
         'UserManagement
         '
@@ -344,6 +396,8 @@ Partial Class UserManagement
         CType(Me.UsersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsersBindingSourceOwl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OwlsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -372,4 +426,8 @@ Partial Class UserManagement
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents SaveButton As System.Windows.Forms.Button
     Friend WithEvents EditButton As System.Windows.Forms.Button
+    Friend WithEvents UsersBindingSourceOwl As System.Windows.Forms.BindingSource
+    Friend WithEvents OwlsDataSet As ProjectMinerva.OwlsDataSet
+    Friend WithEvents UsersTableAdapterOwl As ProjectMinerva.OwlsDataSetTableAdapters.UsersTableAdapter
+    Friend WithEvents CreateButton As System.Windows.Forms.Button
 End Class

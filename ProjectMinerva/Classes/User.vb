@@ -96,8 +96,7 @@ Public Class User
         Dim Attributes = {
             Trim(Me.Username.ToString),
             Trim(Me.Password.ToString),
-            Trim(Me.Position.ToString),
-            Trim(Me.Avatar.ToString)
+            Trim(Me.Position.ToString)
             }
         Return Attributes
     End Function
