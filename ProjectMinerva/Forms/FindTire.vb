@@ -42,4 +42,26 @@
         AdministrationPanel.Show()
         Me.Close()
     End Sub
+
+    Private Sub ModifyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyToolStripMenuItem.Click
+        Dim TireToEdit As New Tire
+        TireToEdit.SetFromRow(TiresDataGridView.CurrentRow)
+        EditTire.OriginalTire = TireToEdit
+        EditTire.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub TiresDataGridView_MouseDown(sender As Object, e As MouseEventArgs) Handles TiresDataGridView.MouseDown
+        If e.Button = MouseButtons.Right Then
+            TiresDataGridView.ClearSelection()
+            Dim NewRow = TiresDataGridView.HitTest(e.X, e.Y)
+            If NewRow.RowIndex > -1 Then
+                TiresDataGridView.CurrentCell = TiresDataGridView.Rows(NewRow.RowIndex).Cells(1)
+                TiresDataGridView.CurrentRow.Selected = True
+                Application.DoEvents()
+                TiresContextMenu.Show(Cursor.Position)
+            End If
+            NewRow = Nothing
+        End If
+    End Sub
 End Class

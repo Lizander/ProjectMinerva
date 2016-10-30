@@ -52,12 +52,16 @@ Partial Class FindTire
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TiresContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddToSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.ClearButton = New System.Windows.Forms.Button()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TiresContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackButton
@@ -80,7 +84,7 @@ Partial Class FindTire
         Me.DeleteButton.FlatAppearance.BorderSize = 0
         Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DeleteButton.Image = Global.ProjectMinerva.My.Resources.Resources.delete_1_icon
-        Me.DeleteButton.Location = New System.Drawing.Point(1209, 479)
+        Me.DeleteButton.Location = New System.Drawing.Point(1088, 479)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(262, 130)
         Me.DeleteButton.TabIndex = 7
@@ -95,7 +99,7 @@ Partial Class FindTire
         Me.ModifyButton.FlatAppearance.BorderSize = 0
         Me.ModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ModifyButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
-        Me.ModifyButton.Location = New System.Drawing.Point(669, 479)
+        Me.ModifyButton.Location = New System.Drawing.Point(609, 479)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(262, 130)
         Me.ModifyButton.TabIndex = 6
@@ -167,11 +171,16 @@ Partial Class FindTire
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.TiresDataGridView.DefaultCellStyle = DataGridViewCellStyle2
+        Me.TiresDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.TiresDataGridView.GridColor = System.Drawing.Color.PaleTurquoise
         Me.TiresDataGridView.Location = New System.Drawing.Point(12, 94)
+        Me.TiresDataGridView.MultiSelect = False
         Me.TiresDataGridView.Name = "TiresDataGridView"
         Me.TiresDataGridView.ReadOnly = True
         Me.TiresDataGridView.RowHeadersVisible = False
-        Me.TiresDataGridView.Size = New System.Drawing.Size(1459, 220)
+        Me.TiresDataGridView.RowTemplate.ContextMenuStrip = Me.TiresContextMenu
+        Me.TiresDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.TiresDataGridView.Size = New System.Drawing.Size(1338, 220)
         Me.TiresDataGridView.TabIndex = 9
         '
         'Id
@@ -301,6 +310,24 @@ Partial Class FindTire
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
         '
+        'TiresContextMenu
+        '
+        Me.TiresContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
+        Me.TiresContextMenu.Name = "TiresContextMenu"
+        Me.TiresContextMenu.Size = New System.Drawing.Size(135, 48)
+        '
+        'AddToSaleToolStripMenuItem
+        '
+        Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
+        '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -317,7 +344,7 @@ Partial Class FindTire
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SearchTextBox.Location = New System.Drawing.Point(99, 39)
         Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(179, 20)
+        Me.SearchTextBox.Size = New System.Drawing.Size(58, 20)
         Me.SearchTextBox.TabIndex = 10
         '
         'ClearButton
@@ -328,7 +355,7 @@ Partial Class FindTire
         Me.ClearButton.FlatAppearance.BorderSize = 0
         Me.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ClearButton.Image = Global.ProjectMinerva.My.Resources.Resources.cancel_icon_small
-        Me.ClearButton.Location = New System.Drawing.Point(306, 11)
+        Me.ClearButton.Location = New System.Drawing.Point(185, 11)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(75, 75)
         Me.ClearButton.TabIndex = 12
@@ -341,7 +368,7 @@ Partial Class FindTire
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
-        Me.ClientSize = New System.Drawing.Size(1483, 621)
+        Me.ClientSize = New System.Drawing.Size(1362, 621)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SearchTextBox)
@@ -357,6 +384,7 @@ Partial Class FindTire
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiresDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TiresContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -390,4 +418,7 @@ Partial Class FindTire
     Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TiresContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AddToSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

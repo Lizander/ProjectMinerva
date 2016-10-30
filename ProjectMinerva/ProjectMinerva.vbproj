@@ -379,6 +379,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\US-dollar-icon.png" />
     <None Include="OwlsDataSet.xsc">
       <DependentUpon>OwlsDataSet.xsd</DependentUpon>
     </None>

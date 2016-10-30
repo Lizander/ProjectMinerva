@@ -46,9 +46,15 @@ Partial Class SalesHome
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddTiresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddServicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'JupiterDataSet
@@ -239,6 +245,40 @@ Partial Class SalesHome
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
         Me.DataGridViewTextBoxColumn15.Visible = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddItemToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1355, 24)
+        Me.MenuStrip1.TabIndex = 2
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'AddItemToolStripMenuItem
+        '
+        Me.AddItemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddTiresToolStripMenuItem, Me.AddServicesToolStripMenuItem, Me.AddProductsToolStripMenuItem})
+        Me.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem"
+        Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.AddItemToolStripMenuItem.Text = "Add Item"
+        '
+        'AddTiresToolStripMenuItem
+        '
+        Me.AddTiresToolStripMenuItem.Name = "AddTiresToolStripMenuItem"
+        Me.AddTiresToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.AddTiresToolStripMenuItem.Text = "Add Tires"
+        '
+        'AddServicesToolStripMenuItem
+        '
+        Me.AddServicesToolStripMenuItem.Name = "AddServicesToolStripMenuItem"
+        Me.AddServicesToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.AddServicesToolStripMenuItem.Text = "Add Services"
+        '
+        'AddProductsToolStripMenuItem
+        '
+        Me.AddProductsToolStripMenuItem.Name = "AddProductsToolStripMenuItem"
+        Me.AddProductsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.AddProductsToolStripMenuItem.Text = "Add Products"
+        '
         'SalesHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -246,15 +286,20 @@ Partial Class SalesHome
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1355, 575)
         Me.Controls.Add(Me.LineItemsDataGridView)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "SalesHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sales Home"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet
@@ -277,4 +322,9 @@ Partial Class SalesHome
     Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents AddItemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddTiresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddServicesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddProductsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -1,6 +1,7 @@
 ﻿Public Class Sale
     Private IDValue As Integer
     Private CustomerReference As Customer
+    Private CustomerIDValue As Integer
     Private SubtotalValue As Double
     Private TotalValue As Double
     Private DiscountValue As Double
@@ -11,12 +12,16 @@
     Private UserReference As User
     Private WarrantyValue As String
     Private PaymentTypeValue As String
+    Private ActiveValue As String
 
 
-    Public ReadOnly Property ID() As Integer
+    Public Property ID() As Integer
         Get
             Return IDValue
         End Get
+        Set(value As Integer)
+            IDValue = value
+        End Set
     End Property
 
     Friend Property Customer() As Customer
@@ -28,6 +33,14 @@
         End Set
     End Property
 
+    Public Property CustomerID() As Integer
+        Get
+            Return CustomerIDValue
+        End Get
+        Set(value As Integer)
+            CustomerIDValue = value
+        End Set
+    End Property
     Public ReadOnly Property Subotal() As Double
         Get
             Return SubtotalValue
@@ -97,6 +110,18 @@
         End Get
         Set(value As String)
             PaymentTypeValue = value
+        End Set
+    End Property
+
+    Public Property Active() As String
+        Get
+            Return ActiveValue
+        End Get
+        Set(value As String)
+            If value = Nothing Then
+                value = "YES"
+            End If
+            ActiveValue = Trim(value)
         End Set
     End Property
 End Class

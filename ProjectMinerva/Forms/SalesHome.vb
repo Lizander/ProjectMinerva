@@ -12,4 +12,8 @@
         Me.LineItemsTableAdapter.Fill(Me.JupiterDataSet.LineItems)
 
     End Sub
+
+    Private Sub AddTiresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddTiresToolStripMenuItem.Click
+        FindTire.Show()
+    End Sub
 End Class
