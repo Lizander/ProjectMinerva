@@ -1,4 +1,5 @@
-﻿Public Class Sale
+﻿Imports ProjectMinerva.JupiterDataSetTableAdapters
+Public Class Sale
     Private IDValue As Integer
     Private CustomerReference As Customer
     Private CustomerIDValue As Integer
@@ -13,6 +14,8 @@
     Private WarrantyValue As String
     Private PaymentTypeValue As String
     Private ActiveValue As String
+    Private DataSourceValue As SalesTableAdapter
+    Private UserIDValue As Integer
 
 
     Public Property ID() As Integer
@@ -98,6 +101,15 @@
         End Set
     End Property
 
+    Public Property UserID() As Integer
+        Get
+            Return UserIDValue
+        End Get
+        Set(value As Integer)
+            UserIDValue = value
+        End Set
+    End Property
+
     Public ReadOnly Property Warranty() As String
         Get
             Return WarrantyValue
@@ -124,4 +136,46 @@
             ActiveValue = Trim(value)
         End Set
     End Property
+
+    Public Property DataSource() As SalesTableAdapter
+        Get
+            Return DataSourceValue
+        End Get
+        Set(value As SalesTableAdapter)
+            DataSourceValue = value
+        End Set
+    End Property
+
+    Private Function CountActiveSales()
+        Return DataSourceValue.ActiveSalesCount()
+    End Function
+
+    Private Function GetActiveSale()
+        Return DataSourceValue.GetDataWithActive.Rows(0)
+    End Function
+
+    Private Sub MakeActive()
+        If CountActiveSales() = 0 Then
+            ActiveValue = "YES"
+        Else
+            DataSourceValue.DeactivateSales()
+            ActiveValue = "YES"
+        End If
+    End Sub
+
+    Public Sub SetFromRow(Row As DataRow)
+        IDValue = Row.Item("Id")
+        CustomerIDValue = Row.Item("CustomerID")
+        SubtotalValue = Row.Item("Subtotal")
+        TotalValue = Row.Item("Total")
+        DiscountValue = Row.Item("Discount")
+        StateTaxValue = Row.Item("StateTax")
+        MunicipalTaxValue = Row.Item("MunicipalTax")
+        DateValue = Row.Item("Date")
+        TimeValue = Row.Item("Time")
+        UserIDValue = Row.Item("UserID")
+        WarrantyValue = Row.Item("Warranty")
+        PaymentTypeValue = Row.Item("PaymentType")
+        ActiveValue = Row.Item("Active")
+    End Sub
 End Class
