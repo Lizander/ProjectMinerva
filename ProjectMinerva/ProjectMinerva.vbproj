@@ -205,6 +205,12 @@
     <Compile Include="Forms\ProductsHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\SalesHome.Designer.vb">
+      <DependentUpon>SalesHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ServicesHome.Designer.vb">
       <DependentUpon>ServicesHome.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsHome.resx">
       <DependentUpon>ProductsHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalesHome.resx">
+      <DependentUpon>SalesHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServicesHome.resx">
       <DependentUpon>ServicesHome.vb</DependentUpon>
