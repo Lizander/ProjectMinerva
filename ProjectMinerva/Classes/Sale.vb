@@ -178,4 +178,19 @@ Public Class Sale
         PaymentTypeValue = Row.Item("PaymentType")
         ActiveValue = Row.Item("Active")
     End Sub
+
+    Public Function ValidLineItem(ChosenTire As Tire, Quantity As Integer)
+        'TODO check for duplicates, add string for error messages to show the user
+        Dim NewLineItem As New LineItem
+        Return NewLineItem.ValidQuantity(ChosenTire, Quantity)
+    End Function
+
+    Public Sub AddLineItem(ChosenTire As Tire, Quantity As Integer, LineItemTable As LineItemsTableAdapter)
+        If Me.ValidLineItem(ChosenTire, Quantity) Then
+            Dim NewLineItem As New LineItem
+            NewLineItem.AddTire(ChosenTire, Quantity, LineItemTable)
+        Else
+            'Add Error Handling, Perhaps MessageBox?
+        End If
+    End Sub
 End Class

@@ -1,10 +1,13 @@
-﻿Public Class LineItem
+﻿Imports ProjectMinerva.JupiterDataSetTableAdapters
+
+Public Class LineItem
     Private IDValue As Integer
     Private ItemIDValue As Integer
     Private ItemTypeValue As String
     Private PriceValue As Double
     Private QuantityValue As Integer
     Private SaleReference As Sale
+    Private SaleIDValue As Integer
     Private DescriptionValue As String
     Private CategoryValue As String
     Private ExtendedPriceValue As Double
@@ -14,11 +17,16 @@
     Private StateTaxValue As Double
     Private MunicipalTaxValue As Double
     Private CostValue As Double
+    Private SavedValue As Double
+    Private OriginalVAlue As Boolean
 
-    Public ReadOnly Property ID() As Integer
+    Public Property ID() As Integer
         Get
             Return IDValue
         End Get
+        Set(value As Integer)
+            IDValue = value
+        End Set
     End Property
 
     Public Property ItemID() As Integer
@@ -63,6 +71,15 @@
         End Get
         Set(value As Sale)
             SaleReference = value
+        End Set
+    End Property
+
+    Public Property SaleID() As Integer
+        Get
+            Return SaleIDValue
+        End Get
+        Set(value As Integer)
+            SaleIDValue = value
         End Set
     End Property
 
@@ -134,4 +151,43 @@
             CostValue = value
         End Set
     End Property
+
+    Public Property Original() As Boolean
+        Get
+            Return OriginalValue
+        End Get
+        Set(value As Boolean)
+            OriginalValue = value
+        End Set
+    End Property
+
+    Public Sub AddTire(ChosenTire As Tire, Quantity As Integer, Table As LineItemsTableAdapter)
+        Me.Description = ChosenTire.Brand + " " + ChosenTire.Width + "-" +
+          ChosenTire.Razon + "-" + ChosenTire.Diameter + " " + ChosenTire.Condition
+        Me.Category = ChosenTire.Condition + " Tire"
+        Me.ItemID = ChosenTire.ID
+        Me.ItemType = "Tire"
+        Me.Price = ChosenTire.Price
+        Me.Cost = ChosenTire.Cost
+        ChosenTire.RemoveStock(Quantity)
+        Me.Quantity = Quantity
+        Me.SaveChanges(Table)
+    End Sub
+
+    Public Function ValidQuantity(ChosenTire As Tire, Quantity As Integer)
+        Return ChosenTire.Stock >= Quantity
+    End Function
+
+    Public Sub SaveChanges(Table As LineItemsTableAdapter)
+        Dim Result As Integer
+        If Me.Original Then
+            Result = Table.AddLineItem(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
+                              StateTax, MunicipalTax, Cost)
+            If Result >= 1 Then
+                SavedValue = True
+            Else
+                SavedValue = False
+            End If
+        End If
+    End Sub
 End Class
