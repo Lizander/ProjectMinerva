@@ -26,11 +26,12 @@ Partial Class SalesHome
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SalesHome))
-        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
-        Me.LineItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
-        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.LineItemsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddTiresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddServicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,47 +47,15 @@ Partial Class SalesHome
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddTiresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddServicesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LineItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
+        Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
+        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'JupiterDataSet
-        '
-        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
-        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LineItemsBindingSource
-        '
-        Me.LineItemsBindingSource.DataMember = "LineItems"
-        Me.LineItemsBindingSource.DataSource = Me.JupiterDataSet
-        '
-        'LineItemsTableAdapter
-        '
-        Me.LineItemsTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AccessesTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
-        Me.TableAdapterManager.CustomersTableAdapter = Nothing
-        Me.TableAdapterManager.LineItemsTableAdapter = Me.LineItemsTableAdapter
-        Me.TableAdapterManager.NotesTableAdapter = Nothing
-        Me.TableAdapterManager.ProductsTableAdapter = Nothing
-        Me.TableAdapterManager.SalesTableAdapter = Nothing
-        Me.TableAdapterManager.ServicesTableAdapter = Nothing
-        Me.TableAdapterManager.StoresTableAdapter = Nothing
-        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
-        Me.TableAdapterManager.TiresTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
         'LineItemsDataGridView
         '
@@ -127,6 +96,40 @@ Partial Class SalesHome
         Me.LineItemsDataGridView.ShowEditingIcon = False
         Me.LineItemsDataGridView.Size = New System.Drawing.Size(305, 220)
         Me.LineItemsDataGridView.TabIndex = 1
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddItemToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1355, 24)
+        Me.MenuStrip1.TabIndex = 2
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'AddItemToolStripMenuItem
+        '
+        Me.AddItemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddTiresToolStripMenuItem, Me.AddServicesToolStripMenuItem, Me.AddProductsToolStripMenuItem})
+        Me.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem"
+        Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.AddItemToolStripMenuItem.Text = "Add Item"
+        '
+        'AddTiresToolStripMenuItem
+        '
+        Me.AddTiresToolStripMenuItem.Name = "AddTiresToolStripMenuItem"
+        Me.AddTiresToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AddTiresToolStripMenuItem.Text = "Add Tires"
+        '
+        'AddServicesToolStripMenuItem
+        '
+        Me.AddServicesToolStripMenuItem.Name = "AddServicesToolStripMenuItem"
+        Me.AddServicesToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AddServicesToolStripMenuItem.Text = "Add Services"
+        '
+        'AddProductsToolStripMenuItem
+        '
+        Me.AddProductsToolStripMenuItem.Name = "AddProductsToolStripMenuItem"
+        Me.AddProductsToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.AddProductsToolStripMenuItem.Text = "Add Products"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -245,39 +248,36 @@ Partial Class SalesHome
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
         Me.DataGridViewTextBoxColumn15.Visible = False
         '
-        'MenuStrip1
+        'LineItemsBindingSource
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddItemToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1355, 24)
-        Me.MenuStrip1.TabIndex = 2
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.LineItemsBindingSource.DataMember = "LineItems"
+        Me.LineItemsBindingSource.DataSource = Me.JupiterDataSet
         '
-        'AddItemToolStripMenuItem
+        'JupiterDataSet
         '
-        Me.AddItemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddTiresToolStripMenuItem, Me.AddServicesToolStripMenuItem, Me.AddProductsToolStripMenuItem})
-        Me.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem"
-        Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.AddItemToolStripMenuItem.Text = "Add Item"
+        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
+        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'AddTiresToolStripMenuItem
+        'LineItemsTableAdapter
         '
-        Me.AddTiresToolStripMenuItem.Name = "AddTiresToolStripMenuItem"
-        Me.AddTiresToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.AddTiresToolStripMenuItem.Text = "Add Tires"
+        Me.LineItemsTableAdapter.ClearBeforeFill = True
         '
-        'AddServicesToolStripMenuItem
+        'TableAdapterManager
         '
-        Me.AddServicesToolStripMenuItem.Name = "AddServicesToolStripMenuItem"
-        Me.AddServicesToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.AddServicesToolStripMenuItem.Text = "Add Services"
-        '
-        'AddProductsToolStripMenuItem
-        '
-        Me.AddProductsToolStripMenuItem.Name = "AddProductsToolStripMenuItem"
-        Me.AddProductsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.AddProductsToolStripMenuItem.Text = "Add Products"
+        Me.TableAdapterManager.AccessesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
+        Me.TableAdapterManager.CustomersTableAdapter = Nothing
+        Me.TableAdapterManager.LineItemsTableAdapter = Me.LineItemsTableAdapter
+        Me.TableAdapterManager.NotesTableAdapter = Nothing
+        Me.TableAdapterManager.ProductsTableAdapter = Nothing
+        Me.TableAdapterManager.SalesTableAdapter = Nothing
+        Me.TableAdapterManager.ServicesTableAdapter = Nothing
+        Me.TableAdapterManager.StoresTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
+        Me.TableAdapterManager.TiresTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
         'SalesHome
         '
@@ -293,11 +293,11 @@ Partial Class SalesHome
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sales Home"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

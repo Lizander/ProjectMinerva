@@ -1,4 +1,5 @@
 ﻿Public Class FindTire
+    Friend ReturnTo As String
 
     Private Sub TiresBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -10,7 +11,7 @@
     Private Sub FindTire_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'JupiterDataSet.Tires' table. You can move, or remove it, as needed.
         Me.TiresTableAdapter.Fill(Me.JupiterDataSet.Tires)
-
+        Me.SalesTableAdapter.Fill(Me.JupiterDataSet.Sales)
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
@@ -34,21 +35,17 @@
         Dim TireToEdit As New Tire
         TireToEdit.SetFromRow(TiresDataGridView.CurrentRow)
         EditTire.OriginalTire = TireToEdit
-        EditTire.Show()
+        ReturnTo = "EditTire"
         Me.Close()
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
-        AdministrationPanel.Show()
+        ReturnTo = "Home"
         Me.Close()
     End Sub
 
     Private Sub ModifyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyToolStripMenuItem.Click
-        Dim TireToEdit As New Tire
-        TireToEdit.SetFromRow(TiresDataGridView.CurrentRow)
-        EditTire.OriginalTire = TireToEdit
-        EditTire.Show()
-        Me.Close()
+        Call ModifyButton_Click(sender, e)
     End Sub
 
     Private Sub TiresDataGridView_MouseDown(sender As Object, e As MouseEventArgs) Handles TiresDataGridView.MouseDown
@@ -63,5 +60,38 @@
             End If
             NewRow = Nothing
         End If
+    End Sub
+
+    Private Sub AddToSaleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddToSaleToolStripMenuItem.Click
+        Dim QuantityForm As New QuantityModal
+        Dim ChosenTire As New Tire
+        ChosenTire.SetFromRow(TiresDataGridView.CurrentRow)
+        QuantityForm.MaxQuantity = ChosenTire.Stock
+        If QuantityForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            Dim QuantityToAdd As New Integer
+            QuantityToAdd = QuantityForm.QuantityToAddNumeric.Value
+            Dim ActiveSale As New Sale
+            ActiveSale.SetFromRow(Sale.GetActiveSale(Me.SalesTableAdapter))
+            ActiveSale.AddLineItem(ChosenTire, QuantityToAdd, Me.LineItemsTableAdapter, Me.TiresTableAdapter)
+        Else
+            MessageBox.Show("Item addition was canceled.", "Find Tire - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub FindTire_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim Go = ReturnTo
+        ReturnTo = Nothing
+        Select Case Go
+            Case "SaleHome"
+                SalesHome.Show()
+            Case "EditTire"
+                EditTire.Show()
+            Case "AdminPanel"
+                AdministrationPanel.Show()
+            Case "Home"
+                TiresHome.Show()
+            Case Else
+                Main.Show()
+        End Select
     End Sub
 End Class

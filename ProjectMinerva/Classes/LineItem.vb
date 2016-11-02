@@ -161,7 +161,7 @@ Public Class LineItem
         End Set
     End Property
 
-    Public Sub AddTire(ChosenTire As Tire, Quantity As Integer, Table As LineItemsTableAdapter)
+    Public Sub AddTire(ChosenTire As Tire, Quantity As Integer, LITable As LineItemsTableAdapter, TireTable As TiresTableAdapter)
         Me.Description = ChosenTire.Brand + " " + ChosenTire.Width + "-" +
           ChosenTire.Razon + "-" + ChosenTire.Diameter + " " + ChosenTire.Condition
         Me.Category = ChosenTire.Condition + " Tire"
@@ -169,9 +169,9 @@ Public Class LineItem
         Me.ItemType = "Tire"
         Me.Price = ChosenTire.Price
         Me.Cost = ChosenTire.Cost
-        ChosenTire.RemoveStock(Quantity)
+        ChosenTire.RemoveStock(Quantity, TireTable)
         Me.Quantity = Quantity
-        Me.SaveChanges(Table)
+        Me.SaveChanges(LITable)
     End Sub
 
     Public Function ValidQuantity(ChosenTire As Tire, Quantity As Integer)

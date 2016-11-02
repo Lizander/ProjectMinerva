@@ -150,9 +150,10 @@ Public Class Sale
         Return DataSourceValue.ActiveSalesCount()
     End Function
 
-    Private Function GetActiveSale()
-        Return DataSourceValue.GetDataWithActive.Rows(0)
-    End Function
+    'Private Function GetActiveSale()
+    '    'Modify?  Maybe delete?
+    '    Return DataSourceValue.GetDataWithActive.Rows(0)
+    'End Function
 
     Private Sub MakeActive()
         If CountActiveSales() = 0 Then
@@ -185,12 +186,19 @@ Public Class Sale
         Return NewLineItem.ValidQuantity(ChosenTire, Quantity)
     End Function
 
-    Public Sub AddLineItem(ChosenTire As Tire, Quantity As Integer, LineItemTable As LineItemsTableAdapter)
+    Public Sub AddLineItem(ChosenTire As Tire, Quantity As Integer, LineItemTable As LineItemsTableAdapter, TireTable As TiresTableAdapter)
         If Me.ValidLineItem(ChosenTire, Quantity) Then
             Dim NewLineItem As New LineItem
-            NewLineItem.AddTire(ChosenTire, Quantity, LineItemTable)
+            NewLineItem.SaleID = IDValue
+            'Provisional value, must be turned into a method for finding duplicates
+            NewLineItem.Original = True
+            NewLineItem.AddTire(ChosenTire, Quantity, LineItemTable, TireTable)
         Else
             'Add Error Handling, Perhaps MessageBox?
         End If
     End Sub
+
+    Shared Function GetActiveSale(Table As SalesTableAdapter)
+        Return Table.GetDataWithActive.Rows(0)
+    End Function
 End Class

@@ -58,6 +58,8 @@ Partial Class FindTire
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.ClearButton = New System.Windows.Forms.Button()
+        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
+        Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiresDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -314,18 +316,18 @@ Partial Class FindTire
         '
         Me.TiresContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
         Me.TiresContextMenu.Name = "TiresContextMenu"
-        Me.TiresContextMenu.Size = New System.Drawing.Size(135, 48)
+        Me.TiresContextMenu.Size = New System.Drawing.Size(130, 48)
         '
         'AddToSaleToolStripMenuItem
         '
         Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
-        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
         '
         'ModifyToolStripMenuItem
         '
         Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ModifyToolStripMenuItem.Text = "Modify"
         '
         'Label1
@@ -362,6 +364,14 @@ Partial Class FindTire
         Me.ClearButton.Text = "Clear"
         Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ClearButton.UseVisualStyleBackColor = False
+        '
+        'SalesTableAdapter
+        '
+        Me.SalesTableAdapter.ClearBeforeFill = True
+        '
+        'LineItemsTableAdapter
+        '
+        Me.LineItemsTableAdapter.ClearBeforeFill = True
         '
         'FindTire
         '
@@ -421,4 +431,6 @@ Partial Class FindTire
     Friend WithEvents TiresContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents AddToSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter
+    Friend WithEvents LineItemsTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter
 End Class
