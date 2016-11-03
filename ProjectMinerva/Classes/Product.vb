@@ -220,4 +220,14 @@ Public Class Product
             SavedValue = False
         End If
     End Sub
+
+    Public Function RemoveStock(Quantity As Integer, Table As ProductsTableAdapter)
+        If Quantity <= Me.Stock Then
+            Me.Stock -= Quantity
+            Me.Update(Table)
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class

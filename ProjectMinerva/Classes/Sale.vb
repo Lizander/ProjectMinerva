@@ -180,19 +180,48 @@ Public Class Sale
         ActiveValue = Row.Item("Active")
     End Sub
 
-    Public Function ValidLineItem(ChosenTire As Tire, Quantity As Integer)
+    Public Overloads Function ValidLineItem(ChosenTire As Tire, Quantity As Integer)
         'TODO check for duplicates, add string for error messages to show the user
         Dim NewLineItem As New LineItem
         Return NewLineItem.ValidQuantity(ChosenTire, Quantity)
     End Function
 
-    Public Sub AddLineItem(ChosenTire As Tire, Quantity As Integer, LineItemTable As LineItemsTableAdapter, TireTable As TiresTableAdapter)
+    Public Overloads Function ValidLineItem(ChosenProduct As Product, Quantity As Integer)
+        Dim NewLineItem As New LineItem
+        Return NewLineItem.ValidQuantity(ChosenProduct, Quantity)
+    End Function
+
+    Public Overloads Sub AddLineItem(ChosenTire As Tire, Quantity As Integer, LineItemTable As LineItemsTableAdapter, TireTable As TiresTableAdapter)
         If Me.ValidLineItem(ChosenTire, Quantity) Then
-            Dim NewLineItem As New LineItem
-            NewLineItem.SaleID = IDValue
-            'Provisional value, must be turned into a method for finding duplicates
-            NewLineItem.Original = True
-            NewLineItem.AddTire(ChosenTire, Quantity, LineItemTable, TireTable)
+            If Me.IsLineItemDuplicate(ChosenTire, LineItemTable) Then
+                Dim DuplicateLineItem As New LineItem
+                DuplicateLineItem.SetFromRow(LineItemTable.GetDataByDuplicates(ChosenTire.ID, "Tire", Me.ID).Rows(0))
+                DuplicateLineItem.AddQuantity(ChosenTire, Quantity, TireTable)
+                DuplicateLineItem.Update(LineItemTable)
+            Else
+                Dim NewLineItem As New LineItem
+                NewLineItem.SaleID = IDValue
+                NewLineItem.Original = True
+                NewLineItem.AddTire(ChosenTire, Quantity, LineItemTable, TireTable)
+            End If
+        Else
+            'Add Error Handling, Perhaps MessageBox?
+        End If
+    End Sub
+
+    Public Overloads Sub AddLineITem(ChosenProduct As Product, Quantity As Integer, LineItemTable As LineItemsTableAdapter, ProductTable As ProductsTableAdapter)
+        If Me.ValidLineItem(ChosenProduct, Quantity) Then
+            If Me.IsLineItemDuplicate(ChosenProduct, LineItemTable) Then
+                Dim DuplicateLineItem As New LineItem
+                DuplicateLineItem.SetFromRow(LineItemTable.GetDataByDuplicates(ChosenProduct.ID, "Product", Me.ID).Rows(0))
+                DuplicateLineItem.AddQuantity(ChosenProduct, Quantity, ProductTable)
+                DuplicateLineItem.Update(LineItemTable)
+            Else
+                Dim NewLineItem As New LineItem
+                NewLineItem.SaleID = IDValue
+                NewLineItem.Original = True
+                NewLineItem.AddProduct(ChosenProduct, Quantity, LineItemTable, ProductTable)
+            End If
         Else
             'Add Error Handling, Perhaps MessageBox?
         End If
@@ -200,5 +229,25 @@ Public Class Sale
 
     Shared Function GetActiveSale(Table As SalesTableAdapter)
         Return Table.GetDataWithActive.Rows(0)
+    End Function
+
+    Public Overloads Function IsLineItemDuplicate(Tire As Tire, Table As LineItemsTableAdapter)
+        Dim Result As Integer
+        Result = Table.CountDuplicates(Tire.ID, "Tire", Me.ID)
+        If Result > 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Overloads Function IsLineItemDuplicate(Product As Product, Table As LineItemsTableAdapter)
+        Dim Result As Integer
+        Result = Table.CountDuplicates(Product.ID, "Product", Me.ID)
+        If Result > 0 Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
 End Class

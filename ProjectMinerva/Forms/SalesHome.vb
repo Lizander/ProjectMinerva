@@ -23,4 +23,10 @@
         Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
         Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
     End Sub
+
+    Private Sub AddProductsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddProductsToolStripMenuItem.Click
+        FindProduct.ReturnTo = "SaleHome"
+        FindProduct.Show()
+        Me.Close()
+    End Sub
 End Class

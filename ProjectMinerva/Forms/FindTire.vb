@@ -40,7 +40,6 @@
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
-        ReturnTo = "Home"
         Me.Close()
     End Sub
 
@@ -73,6 +72,7 @@
             Dim ActiveSale As New Sale
             ActiveSale.SetFromRow(Sale.GetActiveSale(Me.SalesTableAdapter))
             ActiveSale.AddLineItem(ChosenTire, QuantityToAdd, Me.LineItemsTableAdapter, Me.TiresTableAdapter)
+            Me.TiresTableAdapter.Fill(Me.JupiterDataSet.Tires)
         Else
             MessageBox.Show("Item addition was canceled.", "Find Tire - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If

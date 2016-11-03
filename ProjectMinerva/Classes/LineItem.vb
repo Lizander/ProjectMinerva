@@ -169,18 +169,33 @@ Public Class LineItem
         Me.ItemType = "Tire"
         Me.Price = ChosenTire.Price
         Me.Cost = ChosenTire.Cost
-        ChosenTire.RemoveStock(Quantity, TireTable)
-        Me.Quantity = Quantity
+        Me.AddQuantity(ChosenTire, Quantity, TireTable)
         Me.SaveChanges(LITable)
     End Sub
 
-    Public Function ValidQuantity(ChosenTire As Tire, Quantity As Integer)
+    Public Sub AddProduct(ChosenProduct As Product, Quantity As Integer, LITable As LineItemsTableAdapter, ProductTable As ProductsTableAdapter)
+        Me.Description = ChosenProduct.Name
+        Me.Category = ChosenProduct.Category
+        Me.ItemID = ChosenProduct.ID
+        Me.ItemType = "Product"
+        Me.Price = ChosenProduct.Price
+        Me.Cost = ChosenProduct.Cost
+        Me.AddQuantity(ChosenProduct, Quantity, ProductTable)
+        Me.SaveChanges(LITable)
+    End Sub
+
+    Public Overloads Function ValidQuantity(ChosenTire As Tire, Quantity As Integer)
         Return ChosenTire.Stock >= Quantity
+    End Function
+
+    Public Overloads Function ValidQuantity(ChosenProduct As Product, Quantity As Integer)
+        Return ChosenProduct.Stock >= Quantity
     End Function
 
     Public Sub SaveChanges(Table As LineItemsTableAdapter)
         Dim Result As Integer
         If Me.Original Then
+            Me.Calculations()
             Result = Table.AddLineItem(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
                               StateTax, MunicipalTax, Cost)
             If Result >= 1 Then
@@ -190,4 +205,77 @@ Public Class LineItem
             End If
         End If
     End Sub
+
+    Public Sub SetFromRow(Row As DataRow)
+        Me.ID = Integer.Parse(Row.Item("ID"))
+        Me.ItemID = Integer.Parse(Row.Item("ItemID"))
+        Me.ItemType = Row.Item("ItemType")
+        Me.Price = Double.Parse(Row.Item("Price"))
+        Me.Quantity = Integer.Parse(Row.Item("Quantity"))
+        Me.SaleID = Integer.Parse(Row.Item("SaleID"))
+        Me.Description = Row.Item("Description")
+        Me.Category = Row.Item("Category")
+        Me.Cost = Double.Parse(Row.Item("Cost"))
+        Me.Calculations()
+    End Sub
+
+    Public Overloads Sub AddQuantity(ChosenTire As Tire, Quantity As Integer, TireTable As TiresTableAdapter)
+        ChosenTire.RemoveStock(Quantity, TireTable)
+        Me.Quantity += Quantity
+    End Sub
+
+    Public Overloads Sub AddQuantity(ChosenProduct As Product, Quantity As Integer, ProductTable As ProductsTableAdapter)
+        ChosenProduct.RemoveStock(Quantity, ProductTable)
+        Me.Quantity += Quantity
+    End Sub
+
+    Public Sub Update(Table As LineItemsTableAdapter)
+        Dim Result As Integer
+        Me.Calculations()
+        Result = Table.UpdateEverything(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
+                          StateTax, MunicipalTax, Cost, Me.ID)
+        If Result >= 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Private Sub Calculations()
+        SubtotalOneValue = CalculateSubtotalOne()
+        SubtotalTwoValue = CalculateSubtotalTwo()
+        StateTaxValue = CalculateStateTax(GetStateTaxRate())
+        MunicipalTaxValue = CalculateMunicipalTax(GetMunicipalTaxRate())
+        ExtendedPriceValue = CalculateExtendedPrice()
+    End Sub
+
+    Private Function CalculateSubtotalOne()
+        Return PriceValue - DiscountPriceValue
+    End Function
+
+    Private Function CalculateSubtotalTwo()
+        Return SubtotalOneValue * QuantityValue
+    End Function
+
+    Private Function CalculateStateTax(StateTaxRate As Double)
+        Return SubtotalTwoValue * StateTaxRate
+    End Function
+
+    Private Function CalculateMunicipalTax(MunicipalTaxRate As Double)
+        Return SubtotalTwoValue * MunicipalTaxRate
+    End Function
+
+    Private Function CalculateExtendedPrice()
+        Return SubtotalTwoValue + StateTaxValue + MunicipalTaxValue
+    End Function
+
+    Private Function GetStateTaxRate()
+        Dim Table As New StoresTableAdapter
+        Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+    End Function
+
+    Private Function GetMunicipalTaxRate()
+        Dim Table As New StoresTableAdapter
+        Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+    End Function
 End Class

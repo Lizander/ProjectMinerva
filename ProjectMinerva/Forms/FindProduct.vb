@@ -1,4 +1,5 @@
 ﻿Public Class FindProduct
+    Friend ReturnTo As String
 
     Private Sub ProductsBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -17,12 +18,11 @@
         Dim ProductToEdit As New Product
         ProductToEdit.SetFromRow(ProductsDataGridView.CurrentRow)
         EditProduct.OriginalProduct = ProductToEdit
-        EditProduct.Show()
+        ReturnTo = "EditProduct"
         Me.Close()
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
-        AdministrationPanel.Show()
         Me.Close()
     End Sub
 
@@ -46,4 +46,57 @@
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub FindProduct_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim Go = ReturnTo
+        ReturnTo = Nothing
+        Select Case Go
+            Case "SaleHome"
+                SalesHome.Show()
+            Case "EditProduct"
+                EditProduct.Show()
+            Case "AdminPanel"
+                AdministrationPanel.Show()
+            Case "Home"
+                ProductsHome.Show()
+            Case Else
+                Main.Show()
+        End Select
+    End Sub
+
+    Private Sub AddToSaleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddToSaleToolStripMenuItem.Click
+        Dim QuantityForm As New QuantityModal
+        Dim ChosenProduct As New Product
+        ChosenProduct.SetFromRow(ProductsDataGridView.CurrentRow)
+        QuantityForm.MaxQuantity = ChosenProduct.Stock
+        If QuantityForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            Dim QuantityToAdd As New Integer
+            QuantityToAdd = QuantityForm.QuantityToAddNumeric.Value
+            Dim ActiveSale As New Sale
+            ActiveSale.SetFromRow(Sale.GetActiveSale(Me.SalesTableAdapter))
+            ActiveSale.AddLineItem(ChosenProduct, QuantityToAdd, Me.LineItemsTableAdapter, Me.ProductsTableAdapter)
+            Me.ProductsTableAdapter.Fill(Me.JupiterDataSet.Products)
+        Else
+            MessageBox.Show("Item addition was canceled.", "Find Product - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub ProductsDataGridView_MouseDown(sender As Object, e As MouseEventArgs) Handles ProductsDataGridView.MouseDown
+        If e.Button = MouseButtons.Right Then
+            ProductsDataGridView.ClearSelection()
+            Dim NewRow = ProductsDataGridView.HitTest(e.X, e.Y)
+            If NewRow.RowIndex > -1 Then
+                ProductsDataGridView.CurrentCell = ProductsDataGridView.Rows(NewRow.RowIndex).Cells(1)
+                ProductsDataGridView.CurrentRow.Selected = True
+                Application.DoEvents()
+                ProductsContextMenu.Show(Cursor.Position)
+            End If
+            NewRow = Nothing
+        End If
+    End Sub
+
+    Private Sub ModifyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModifyToolStripMenuItem.Click
+        Call ModifyButton_Click(sender, e)
+    End Sub
+
 End Class
