@@ -2,14 +2,19 @@
     Friend MaxQuantity As String
     Private Sub QuantityToAddNumeric_ValueChanged(sender As Object, e As EventArgs) Handles QuantityToAddNumeric.ValueChanged
         If QuantityAvailableBox.Text.Length > 0 Then
-            Dim QuantityAvailable As Integer
-            QuantityAvailable = Integer.Parse(QuantityAvailableBox.Text)
-            If QuantityAvailable < QuantityToAddNumeric.Value Then
-                QuantityToAddNumeric.BackColor = Color.Red
-                SaveButton.Enabled = False
-            Else
+            If QuantityAvailableBox.Text = "N/A" Then
                 QuantityToAddNumeric.BackColor = Color.White
                 SaveButton.Enabled = True
+            Else
+                Dim QuantityAvailable As Integer
+                QuantityAvailable = Integer.Parse(QuantityAvailableBox.Text)
+                If QuantityAvailable < QuantityToAddNumeric.Value Then
+                    QuantityToAddNumeric.BackColor = Color.Red
+                    SaveButton.Enabled = False
+                Else
+                    QuantityToAddNumeric.BackColor = Color.White
+                    SaveButton.Enabled = True
+                End If
             End If
         End If
     End Sub
@@ -21,5 +26,9 @@
 
     Private Sub QuantityModal_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         QuantityAvailableBox.Text = MaxQuantity
+    End Sub
+
+    Private Sub QuantityModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

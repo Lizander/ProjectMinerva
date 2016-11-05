@@ -29,4 +29,10 @@
         FindProduct.Show()
         Me.Close()
     End Sub
+
+    Private Sub AddServicesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddServicesToolStripMenuItem.Click
+        FindService.ReturnTo = "SaleHome"
+        FindService.Show()
+        Me.Close()
+    End Sub
 End Class

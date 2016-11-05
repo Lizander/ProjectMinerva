@@ -209,7 +209,7 @@ Public Class Sale
         End If
     End Sub
 
-    Public Overloads Sub AddLineITem(ChosenProduct As Product, Quantity As Integer, LineItemTable As LineItemsTableAdapter, ProductTable As ProductsTableAdapter)
+    Public Overloads Sub AddLineItem(ChosenProduct As Product, Quantity As Integer, LineItemTable As LineItemsTableAdapter, ProductTable As ProductsTableAdapter)
         If Me.ValidLineItem(ChosenProduct, Quantity) Then
             If Me.IsLineItemDuplicate(ChosenProduct, LineItemTable) Then
                 Dim DuplicateLineItem As New LineItem
@@ -224,6 +224,20 @@ Public Class Sale
             End If
         Else
             'Add Error Handling, Perhaps MessageBox?
+        End If
+    End Sub
+
+    Public Overloads Sub AddLineItem(ChosenService As Service, Quantity As Integer, LineItemTable As LineItemsTableAdapter, ServiceTable As ServicesTableAdapter)
+        If Me.IsLineItemDuplicate(ChosenService, LineItemTable) Then
+            Dim DuplicateLineItem As New LineItem
+            DuplicateLineItem.SetFromRow(LineItemTable.GetDataByDuplicates(ChosenService.ID, "Service", Me.ID).Rows(0))
+            DuplicateLineItem.AddQuantity(ChosenService, Quantity)
+            DuplicateLineItem.Update(LineItemTable)
+        Else
+            Dim NewLineItem As New LineItem
+            NewLineItem.SaleID = IDValue
+            NewLineItem.Original = True
+            NewLineItem.AddService(ChosenService, Quantity, LineItemTable, ServiceTable)
         End If
     End Sub
 
@@ -244,6 +258,16 @@ Public Class Sale
     Public Overloads Function IsLineItemDuplicate(Product As Product, Table As LineItemsTableAdapter)
         Dim Result As Integer
         Result = Table.CountDuplicates(Product.ID, "Product", Me.ID)
+        If Result > 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Overloads Function IsLineItemDuplicate(Service As Service, Table As LineItemsTableAdapter)
+        Dim Result As Integer
+        Result = Table.CountDuplicates(Service.ID, "Service", Me.ID)
         If Result > 0 Then
             Return True
         Else

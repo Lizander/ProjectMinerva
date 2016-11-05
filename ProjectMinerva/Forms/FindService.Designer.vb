@@ -42,14 +42,20 @@ Partial Class FindService
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ServicesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
+        Me.ServicesContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddToSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ServicesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ServicesTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
+        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
+        Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ServicesContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackButton
@@ -59,9 +65,9 @@ Partial Class FindService
         Me.BackButton.FlatAppearance.BorderSize = 0
         Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
-        Me.BackButton.Location = New System.Drawing.Point(12, 404)
+        Me.BackButton.Location = New System.Drawing.Point(12, 442)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(287, 138)
+        Me.BackButton.Size = New System.Drawing.Size(167, 103)
         Me.BackButton.TabIndex = 11
         Me.BackButton.UseVisualStyleBackColor = False
         '
@@ -72,10 +78,12 @@ Partial Class FindService
         Me.DeleteButton.FlatAppearance.BorderSize = 0
         Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DeleteButton.Image = Global.ProjectMinerva.My.Resources.Resources.delete_1_icon
-        Me.DeleteButton.Location = New System.Drawing.Point(1160, 404)
+        Me.DeleteButton.Location = New System.Drawing.Point(1248, 442)
         Me.DeleteButton.Name = "DeleteButton"
-        Me.DeleteButton.Size = New System.Drawing.Size(287, 138)
+        Me.DeleteButton.Size = New System.Drawing.Size(167, 103)
         Me.DeleteButton.TabIndex = 10
+        Me.DeleteButton.Text = "Delete"
+        Me.DeleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'ModifyButton
@@ -85,10 +93,12 @@ Partial Class FindService
         Me.ModifyButton.FlatAppearance.BorderSize = 0
         Me.ModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ModifyButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
-        Me.ModifyButton.Location = New System.Drawing.Point(603, 404)
+        Me.ModifyButton.Location = New System.Drawing.Point(618, 442)
         Me.ModifyButton.Name = "ModifyButton"
-        Me.ModifyButton.Size = New System.Drawing.Size(287, 138)
+        Me.ModifyButton.Size = New System.Drawing.Size(167, 103)
         Me.ModifyButton.TabIndex = 9
+        Me.ModifyButton.Text = "Modify"
+        Me.ModifyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ModifyButton.UseVisualStyleBackColor = False
         '
         'ServicesDataGridView
@@ -106,7 +116,7 @@ Partial Class FindService
         Me.ServicesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ServicesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
@@ -131,7 +141,8 @@ Partial Class FindService
         Me.ServicesDataGridView.RowHeadersVisible = False
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.Azure
         Me.ServicesDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.ServicesDataGridView.Size = New System.Drawing.Size(1435, 220)
+        Me.ServicesDataGridView.RowTemplate.ContextMenuStrip = Me.ServicesContextMenu
+        Me.ServicesDataGridView.Size = New System.Drawing.Size(1435, 253)
         Me.ServicesDataGridView.TabIndex = 12
         '
         'Id
@@ -208,6 +219,24 @@ Partial Class FindService
         Me.JupiterDataSet.DataSetName = "JupiterDataSet"
         Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'ServicesContextMenu
+        '
+        Me.ServicesContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
+        Me.ServicesContextMenu.Name = "ServicesContextMenu"
+        Me.ServicesContextMenu.Size = New System.Drawing.Size(130, 48)
+        '
+        'AddToSaleToolStripMenuItem
+        '
+        Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
+        '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.Transparent
@@ -229,7 +258,6 @@ Partial Class FindService
         '
         'ClearButton
         '
-        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ClearButton.BackColor = System.Drawing.Color.Transparent
         Me.ClearButton.Enabled = False
         Me.ClearButton.FlatAppearance.BorderSize = 0
@@ -264,12 +292,20 @@ Partial Class FindService
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
+        'SalesTableAdapter
+        '
+        Me.SalesTableAdapter.ClearBeforeFill = True
+        '
+        'LineItemsTableAdapter
+        '
+        Me.LineItemsTableAdapter.ClearBeforeFill = True
+        '
         'FindService
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
-        Me.ClientSize = New System.Drawing.Size(1459, 554)
+        Me.ClientSize = New System.Drawing.Size(1459, 587)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.Label1)
@@ -280,11 +316,12 @@ Partial Class FindService
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FindService"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FindService"
+        Me.Text = "Find Service"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ServicesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServicesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ServicesContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -309,4 +346,9 @@ Partial Class FindService
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServicesContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AddToSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter
+    Friend WithEvents LineItemsTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter
 End Class

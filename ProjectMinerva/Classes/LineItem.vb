@@ -184,6 +184,17 @@ Public Class LineItem
         Me.SaveChanges(LITable)
     End Sub
 
+    Public Sub AddService(ChosenService As Service, Quantity As Integer, LITable As LineItemsTableAdapter, ServiceTable As ServicesTableAdapter)
+        Me.Description = ChosenService.Name
+        Me.Category = ChosenService.Category
+        Me.ItemID = ChosenService.ID
+        Me.ItemType = "Service"
+        Me.Price = ChosenService.Price
+        Me.Cost = ChosenService.Cost
+        Me.AddQuantity(ChosenService, Quantity)
+        Me.SaveChanges(LITable)
+    End Sub
+
     Public Overloads Function ValidQuantity(ChosenTire As Tire, Quantity As Integer)
         Return ChosenTire.Stock >= Quantity
     End Function
@@ -226,6 +237,10 @@ Public Class LineItem
 
     Public Overloads Sub AddQuantity(ChosenProduct As Product, Quantity As Integer, ProductTable As ProductsTableAdapter)
         ChosenProduct.RemoveStock(Quantity, ProductTable)
+        Me.Quantity += Quantity
+    End Sub
+
+    Public Overloads Sub AddQuantity(ChosenService As Service, Quantity As Integer)
         Me.Quantity += Quantity
     End Sub
 
