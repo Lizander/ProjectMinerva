@@ -65,7 +65,7 @@ Partial Class FindService
         Me.BackButton.FlatAppearance.BorderSize = 0
         Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
-        Me.BackButton.Location = New System.Drawing.Point(12, 442)
+        Me.BackButton.Location = New System.Drawing.Point(12, 472)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(167, 103)
         Me.BackButton.TabIndex = 11
@@ -78,7 +78,7 @@ Partial Class FindService
         Me.DeleteButton.FlatAppearance.BorderSize = 0
         Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DeleteButton.Image = Global.ProjectMinerva.My.Resources.Resources.delete_1_icon
-        Me.DeleteButton.Location = New System.Drawing.Point(1248, 442)
+        Me.DeleteButton.Location = New System.Drawing.Point(1280, 472)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(167, 103)
         Me.DeleteButton.TabIndex = 10
@@ -93,7 +93,7 @@ Partial Class FindService
         Me.ModifyButton.FlatAppearance.BorderSize = 0
         Me.ModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ModifyButton.Image = Global.ProjectMinerva.My.Resources.Resources.edit_icon
-        Me.ModifyButton.Location = New System.Drawing.Point(618, 442)
+        Me.ModifyButton.Location = New System.Drawing.Point(634, 472)
         Me.ModifyButton.Name = "ModifyButton"
         Me.ModifyButton.Size = New System.Drawing.Size(167, 103)
         Me.ModifyButton.TabIndex = 9

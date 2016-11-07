@@ -1,4 +1,5 @@
 ﻿Public Class SalesHome
+    Dim CurrentSale As New Sale
 
     Private Sub LineItemsBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -13,15 +14,19 @@
 
     End Sub
 
+    Private Sub SalesHome_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
+        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
+        CurrentSale.SetFromRow(Sale.GetActiveSale(SalesTableAdapter))
+        If CurrentSale.CustomerID > 0 Then
+            AddCustomerToolStripMenuItem.Text = "Change Customer"
+        End If
+    End Sub
+
     Private Sub AddTiresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddTiresToolStripMenuItem.Click
         FindTire.ReturnTo = "SaleHome"
         FindTire.Show()
         Me.Close()
-    End Sub
-
-    Private Sub SalesHome_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
-        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
     End Sub
 
     Private Sub AddProductsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddProductsToolStripMenuItem.Click
@@ -33,6 +38,12 @@
     Private Sub AddServicesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddServicesToolStripMenuItem.Click
         FindService.ReturnTo = "SaleHome"
         FindService.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub AddCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddCustomerToolStripMenuItem.Click
+        FindCustomers.ReturnTo = "SaleHome"
+        FindCustomers.Show()
         Me.Close()
     End Sub
 End Class

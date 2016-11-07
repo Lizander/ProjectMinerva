@@ -16,6 +16,7 @@ Public Class Sale
     Private ActiveValue As String
     Private DataSourceValue As SalesTableAdapter
     Private UserIDValue As Integer
+    Private SavedValue As Boolean
 
 
     Public Property ID() As Integer
@@ -146,6 +147,15 @@ Public Class Sale
         End Set
     End Property
 
+    Public Property Saved() As Boolean
+        Get
+            Return SavedValue
+        End Get
+        Set(value As Boolean)
+            SavedValue = value
+        End Set
+    End Property
+
     Private Function CountActiveSales()
         Return DataSourceValue.ActiveSalesCount()
     End Function
@@ -241,6 +251,12 @@ Public Class Sale
         End If
     End Sub
 
+    Public Sub AddCustomer(ChosenCustomer As Customer, Table As SalesTableAdapter)
+        Me.CustomerID = ChosenCustomer.ID
+        Me.Customer = ChosenCustomer
+        Me.Update(Table)
+    End Sub
+
     Shared Function GetActiveSale(Table As SalesTableAdapter)
         Return Table.GetDataWithActive.Rows(0)
     End Function
@@ -274,4 +290,20 @@ Public Class Sale
             Return False
         End If
     End Function
+
+    Public Sub Update(Table As SalesTableAdapter)
+        Dim Result As Integer
+        Me.Calculations()
+        Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
+                                        WarrantyValue, PaymentTypeValue, ActiveValue, Me.ID)
+        If Result >= 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Private Sub Calculations()
+
+    End Sub
 End Class
