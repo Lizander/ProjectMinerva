@@ -15,12 +15,18 @@
     End Sub
 
     Private Sub SalesHome_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
-        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
-        CurrentSale.SetFromRow(Sale.GetActiveSale(SalesTableAdapter))
+        If SalesTableAdapter.GetDataWithActive.Count > 0 Then
+            CurrentSale.SetFromRow(Sale.GetActiveSale(SalesTableAdapter))
+        Else
+            CurrentSale.DataSource = SalesTableAdapter
+            CurrentSale.MakeActive()
+            CurrentSale.SaveChanges(SalesTableAdapter)
+        End If
         If CurrentSale.CustomerID > 0 Then
             AddCustomerToolStripMenuItem.Text = "Change Customer"
         End If
+        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
+        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
     End Sub
 
     Private Sub AddTiresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddTiresToolStripMenuItem.Click

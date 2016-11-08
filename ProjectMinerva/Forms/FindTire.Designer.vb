@@ -314,20 +314,21 @@ Partial Class FindTire
         '
         'TiresContextMenu
         '
+        Me.TiresContextMenu.BackColor = System.Drawing.Color.PaleTurquoise
         Me.TiresContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
         Me.TiresContextMenu.Name = "TiresContextMenu"
-        Me.TiresContextMenu.Size = New System.Drawing.Size(130, 48)
+        Me.TiresContextMenu.Size = New System.Drawing.Size(153, 70)
         '
         'AddToSaleToolStripMenuItem
         '
         Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
-        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
         '
         'ModifyToolStripMenuItem
         '
         Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ModifyToolStripMenuItem.Text = "Modify"
         '
         'Label1

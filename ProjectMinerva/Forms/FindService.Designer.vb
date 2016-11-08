@@ -221,20 +221,21 @@ Partial Class FindService
         '
         'ServicesContextMenu
         '
+        Me.ServicesContextMenu.BackColor = System.Drawing.Color.PaleTurquoise
         Me.ServicesContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
         Me.ServicesContextMenu.Name = "ServicesContextMenu"
-        Me.ServicesContextMenu.Size = New System.Drawing.Size(130, 48)
+        Me.ServicesContextMenu.Size = New System.Drawing.Size(153, 70)
         '
         'AddToSaleToolStripMenuItem
         '
         Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
-        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
         '
         'ModifyToolStripMenuItem
         '
         Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ModifyToolStripMenuItem.Text = "Modify"
         '
         'Label1

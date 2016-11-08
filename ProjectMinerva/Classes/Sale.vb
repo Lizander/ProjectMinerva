@@ -165,7 +165,7 @@ Public Class Sale
     '    Return DataSourceValue.GetDataWithActive.Rows(0)
     'End Function
 
-    Private Sub MakeActive()
+    Public Sub MakeActive()
         If CountActiveSales() = 0 Then
             ActiveValue = "YES"
         Else
@@ -176,7 +176,11 @@ Public Class Sale
 
     Public Sub SetFromRow(Row As DataRow)
         IDValue = Row.Item("Id")
-        CustomerIDValue = Row.Item("CustomerID")
+        If IsDBNull(Row.Item("CustomerID")) Then
+            CustomerIDValue = 0
+        Else
+            CustomerIDValue = Row.Item("CustomerID")
+        End If
         SubtotalValue = Row.Item("Subtotal")
         TotalValue = Row.Item("Total")
         DiscountValue = Row.Item("Discount")
@@ -185,8 +189,16 @@ Public Class Sale
         DateValue = Row.Item("Date")
         TimeValue = Row.Item("Time")
         UserIDValue = Row.Item("UserID")
-        WarrantyValue = Row.Item("Warranty")
-        PaymentTypeValue = Row.Item("PaymentType")
+        If IsDBNull(Row.Item("Warranty")) Then
+            WarrantyValue = ""
+        Else
+            WarrantyValue = Row.Item("Warranty")
+        End If
+        If IsDBNull(Row.Item("PaymentType")) Then
+            PaymentTypeValue = ""
+        Else
+            PaymentTypeValue = Row.Item("PaymentType")
+        End If
         ActiveValue = Row.Item("Active")
     End Sub
 
@@ -304,6 +316,30 @@ Public Class Sale
     End Sub
 
     Private Sub Calculations()
+        Me.UserID = 1
+    End Sub
 
+    Public Overloads Sub SaveChanges(Table As SalesTableAdapter, HasCustomer As Boolean)
+        Dim Result As Integer
+        Me.Calculations()
+        Result = Table.AddSale(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
+                                        WarrantyValue, PaymentTypeValue, ActiveValue)
+        If Result >= 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
+    End Sub
+
+    Public Overloads Sub SaveChanges(Table As SalesTableAdapter)
+        Dim Result As Integer
+        Me.Calculations()
+        Result = Table.AddSaleWithoutCustomer(SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
+                                        WarrantyValue, PaymentTypeValue, ActiveValue)
+        If Result >= 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
+        End If
     End Sub
 End Class

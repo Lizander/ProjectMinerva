@@ -47,19 +47,19 @@ Partial Class FindProduct
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.ProductsContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddToSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductsContextMenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BackButton
@@ -269,6 +269,25 @@ Partial Class FindProduct
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
         '
+        'ProductsContextMenu
+        '
+        Me.ProductsContextMenu.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.ProductsContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
+        Me.ProductsContextMenu.Name = "ProductsContextMenu"
+        Me.ProductsContextMenu.Size = New System.Drawing.Size(153, 70)
+        '
+        'AddToSaleToolStripMenuItem
+        '
+        Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
+        '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
         'SearchTextBox
         '
         Me.SearchTextBox.Location = New System.Drawing.Point(80, 40)
@@ -301,24 +320,6 @@ Partial Class FindProduct
         Me.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.ClearButton.UseVisualStyleBackColor = False
         '
-        'ProductsContextMenu
-        '
-        Me.ProductsContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
-        Me.ProductsContextMenu.Name = "ProductsContextMenu"
-        Me.ProductsContextMenu.Size = New System.Drawing.Size(130, 48)
-        '
-        'AddToSaleToolStripMenuItem
-        '
-        Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
-        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
-        '
-        'ModifyToolStripMenuItem
-        '
-        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.ModifyToolStripMenuItem.Text = "Modify"
-        '
         'SalesTableAdapter
         '
         Me.SalesTableAdapter.ClearBeforeFill = True
@@ -348,8 +349,8 @@ Partial Class FindProduct
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProductsContextMenu.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
