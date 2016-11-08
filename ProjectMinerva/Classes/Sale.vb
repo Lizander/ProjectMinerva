@@ -200,6 +200,10 @@ Public Class Sale
             PaymentTypeValue = Row.Item("PaymentType")
         End If
         ActiveValue = Row.Item("Active")
+        If IsNothing(DataSource) Then
+        Else
+            Me.Calculations()
+        End If
     End Sub
 
     Public Overloads Function ValidLineItem(ChosenTire As Tire, Quantity As Integer)
@@ -305,6 +309,7 @@ Public Class Sale
 
     Public Sub Update(Table As SalesTableAdapter)
         Dim Result As Integer
+        DataSource = Table
         Me.Calculations()
         Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
                                         WarrantyValue, PaymentTypeValue, ActiveValue, Me.ID)
@@ -317,10 +322,16 @@ Public Class Sale
 
     Private Sub Calculations()
         Me.UserID = 1
+        SubtotalValue = CalculateSubtotal()
+        DiscountValue = CalculateDiscount()
+        StateTaxValue = CalculateStateTax()
+        MunicipalTaxValue = CalculateMunicipalTax()
+        TotalValue = CalculateTotal()
     End Sub
 
     Public Overloads Sub SaveChanges(Table As SalesTableAdapter, HasCustomer As Boolean)
         Dim Result As Integer
+        Me.DataSourceValue = Table
         Me.Calculations()
         Result = Table.AddSale(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
                                         WarrantyValue, PaymentTypeValue, ActiveValue)
@@ -333,6 +344,7 @@ Public Class Sale
 
     Public Overloads Sub SaveChanges(Table As SalesTableAdapter)
         Dim Result As Integer
+        Me.DataSourceValue = Table
         Me.Calculations()
         Result = Table.AddSaleWithoutCustomer(SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
                                         WarrantyValue, PaymentTypeValue, ActiveValue)
@@ -342,4 +354,36 @@ Public Class Sale
             SavedValue = False
         End If
     End Sub
+
+    Private Function CalculateSubtotal()
+        Return DataSource.CalculateSubtotal(IDValue)
+    End Function
+
+    Private Function CalculateTotal()
+        Return SubtotalValue + StateTaxValue + MunicipalTaxValue
+    End Function
+
+    Private Function CalculateDiscount()
+        'TODO Fix Constraint Exception when LI count > 1
+        Dim DiscountTotal = 0
+        Dim LineItems = DataSource.GetDataByLineItemList(Me.ID).Rows
+        For Each Row As DataRow In LineItems
+            DiscountTotal += (Row.Item("DiscountPrice") * Row.Item("Quantity"))
+        Next Row
+        Return DiscountTotal
+    End Function
+
+    Private Function CalculateStateTax()
+        Return DataSource.CalculateStateTax(IDValue)
+    End Function
+
+    Private Function CalculateMunicipalTax()
+        Return DataSource.CalculateMunicipalTax(IDValue)
+    End Function
+
+    Public Function GetCustomerName(Table As CustomersTableAdapter)
+        Dim SaleCustomer As New Customer
+        SaleCustomer.SetFromRow(Table.GetDataByID(Me.CustomerID).Rows(0))
+        Return SaleCustomer.FirstName + " " + SaleCustomer.FirstLastName
+    End Function
 End Class

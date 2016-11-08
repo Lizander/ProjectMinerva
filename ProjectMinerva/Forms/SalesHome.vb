@@ -16,7 +16,18 @@
 
     Private Sub SalesHome_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         If SalesTableAdapter.GetDataWithActive.Count > 0 Then
+            Me.JupiterDataSet.EnforceConstraints = False
+            JupiterDataSet.Clear()
+            CurrentSale.DataSource = SalesTableAdapter
             CurrentSale.SetFromRow(Sale.GetActiveSale(SalesTableAdapter))
+            DiscountBox.Text = CurrentSale.Discount.ToString("C")
+            SubtotalBox.Text = CurrentSale.Subotal.ToString("C")
+            StateTaxBox.Text = CurrentSale.StateTax.ToString("C")
+            MunicipalTaxBox.Text = CurrentSale.MunicipalTax.ToString("C")
+            TotalBox.Text = CurrentSale.Total.ToString("C")
+            If CurrentSale.CustomerID > 0 Then
+                CustomerBox.Text = CurrentSale.GetCustomerName(CustomersTableAdapter)
+            End If
         Else
             CurrentSale.DataSource = SalesTableAdapter
             CurrentSale.MakeActive()

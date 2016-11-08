@@ -205,15 +205,13 @@ Public Class LineItem
 
     Public Sub SaveChanges(Table As LineItemsTableAdapter)
         Dim Result As Integer
-        If Me.Original Then
-            Me.Calculations()
-            Result = Table.AddLineItem(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
-                              StateTax, MunicipalTax, Cost)
-            If Result >= 1 Then
-                SavedValue = True
-            Else
-                SavedValue = False
-            End If
+        Me.Calculations()
+        Result = Table.AddLineItem(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
+                          StateTax, MunicipalTax, Cost)
+        If Result >= 1 Then
+            SavedValue = True
+        Else
+            SavedValue = False
         End If
     End Sub
 
@@ -262,6 +260,7 @@ Public Class LineItem
         StateTaxValue = CalculateStateTax(GetStateTaxRate())
         MunicipalTaxValue = CalculateMunicipalTax(GetMunicipalTaxRate())
         ExtendedPriceValue = CalculateExtendedPrice()
+        DiscountPriceValue = 0
     End Sub
 
     Private Function CalculateSubtotalOne()
