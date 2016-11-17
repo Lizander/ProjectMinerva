@@ -325,7 +325,7 @@ Partial Class EditTire
         Me.Panel2.Controls.Add(Me.TreadwearTextBox)
         Me.Panel2.Controls.Add(TreadwearLabel)
         Me.Panel2.Controls.Add(SupplierIDLabel)
-        Me.Panel2.Location = New System.Drawing.Point(563, 12)
+        Me.Panel2.Location = New System.Drawing.Point(501, 12)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(391, 419)
         Me.Panel2.TabIndex = 56
@@ -434,6 +434,7 @@ Partial Class EditTire
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReorderPointNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "ReorderPoint", True))
         Me.ReorderPointNumericUpDown.Location = New System.Drawing.Point(117, 165)
+        Me.ReorderPointNumericUpDown.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.ReorderPointNumericUpDown.Name = "ReorderPointNumericUpDown"
         Me.ReorderPointNumericUpDown.Size = New System.Drawing.Size(179, 20)
         Me.ReorderPointNumericUpDown.TabIndex = 26
@@ -476,7 +477,7 @@ Partial Class EditTire
         Me.SaveButton.Image = Global.ProjectMinerva.My.Resources.Resources.Save_as_icon
         Me.SaveButton.Location = New System.Drawing.Point(677, 446)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(176, 107)
+        Me.SaveButton.Size = New System.Drawing.Size(51, 107)
         Me.SaveButton.TabIndex = 54
         Me.SaveButton.Text = "Save"
         Me.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -580,6 +581,7 @@ Partial Class EditTire
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StockNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Stock", True))
         Me.StockNumericUpDown.Location = New System.Drawing.Point(117, 223)
+        Me.StockNumericUpDown.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
         Me.StockNumericUpDown.Name = "StockNumericUpDown"
         Me.StockNumericUpDown.Size = New System.Drawing.Size(180, 20)
         Me.StockNumericUpDown.TabIndex = 28
@@ -599,7 +601,7 @@ Partial Class EditTire
         Me.Panel3.Controls.Add(Me.MunicipalExemptComboBox)
         Me.Panel3.Controls.Add(Me.StockNumericUpDown)
         Me.Panel3.Controls.Add(MunicipalExemptLabel)
-        Me.Panel3.Location = New System.Drawing.Point(1058, 12)
+        Me.Panel3.Location = New System.Drawing.Point(933, 12)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(388, 419)
         Me.Panel3.TabIndex = 57
@@ -609,7 +611,7 @@ Partial Class EditTire
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
-        Me.ClientSize = New System.Drawing.Size(1487, 583)
+        Me.ClientSize = New System.Drawing.Size(1362, 583)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.BackButton)

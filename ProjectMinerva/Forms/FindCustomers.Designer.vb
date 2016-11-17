@@ -49,10 +49,15 @@ Partial Class FindCustomers
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
+        Me.CustomersContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddToSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CustomersContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'CustomersBindingSource
@@ -99,6 +104,7 @@ Partial Class FindCustomers
         Me.CustomersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.CustomersDataGridView.BackgroundColor = System.Drawing.Color.Azure
         Me.CustomersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.CustomersDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -292,6 +298,29 @@ Partial Class FindCustomers
         Me.SearchTextBox.Size = New System.Drawing.Size(217, 20)
         Me.SearchTextBox.TabIndex = 20
         '
+        'SalesTableAdapter
+        '
+        Me.SalesTableAdapter.ClearBeforeFill = True
+        '
+        'CustomersContextMenu
+        '
+        Me.CustomersContextMenu.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.CustomersContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToSaleToolStripMenuItem, Me.ModifyToolStripMenuItem})
+        Me.CustomersContextMenu.Name = "ProductsContextMenu"
+        Me.CustomersContextMenu.Size = New System.Drawing.Size(130, 48)
+        '
+        'AddToSaleToolStripMenuItem
+        '
+        Me.AddToSaleToolStripMenuItem.Name = "AddToSaleToolStripMenuItem"
+        Me.AddToSaleToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.AddToSaleToolStripMenuItem.Text = "Add to Sale"
+        '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
         'FindCustomers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -314,6 +343,7 @@ Partial Class FindCustomers
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CustomersContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -341,4 +371,8 @@ Partial Class FindCustomers
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents SalesTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter
+    Friend WithEvents CustomersContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AddToSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

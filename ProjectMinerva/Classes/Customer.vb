@@ -149,7 +149,7 @@ Public Class Customer
         End If
     End Sub
 
-    Public Sub SetFromRow(Row As DataGridViewRow)
+    Public Overloads Sub SetFromRow(Row As DataGridViewRow)
         Dim Cells = Row.Cells
         IDValue = Cells.Item(0).Value
         FirstNameValue = Trim(Cells.Item(1).Value)
@@ -163,6 +163,22 @@ Public Class Customer
         MunicipalExemptValue = Trim(Cells.Item(9).Value)
         DiscountValue = Cells.Item(10).Value
         LatestVisitValue = Trim(Cells.Item(11).Value)
+    End Sub
+
+    Public Overloads Sub SetFromRow(Row As DataRow)
+        Dim Cells = Row
+        IDValue = Cells.Item("Id")
+        FirstNameValue = Trim(Cells.Item("FirstName"))
+        FirstLastNameValue = Trim(Cells.Item("FirstLastName"))
+        SecondLastNameValue = Trim(Cells.Item("SecondLastName"))
+        PhoneNumberValue = Trim(Cells.Item("PhoneNumber"))
+        EmailAddressValue = Trim(Cells.Item("EmailAddress"))
+        GenderValue = Trim(Cells.Item("Gender"))
+        CityValue = Trim(Cells.Item("City"))
+        StateExemptValue = Trim(Cells.Item("StateExempt"))
+        MunicipalExemptValue = Trim(Cells.Item("MunicipalExempt"))
+        DiscountValue = Cells.Item("Discount")
+        LatestVisitValue = Trim(Cells.Item("LatestVisit"))
     End Sub
 
     Public Function IsSame(CustomerTwo As Customer)

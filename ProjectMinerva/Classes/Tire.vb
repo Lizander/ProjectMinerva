@@ -290,4 +290,14 @@ Public Class Tire
             SavedValue = False
         End If
     End Sub
+
+    Public Function RemoveStock(Quantity As Integer, Table As TiresTableAdapter)
+        If Quantity <= Me.Stock Then
+            Me.Stock -= Quantity
+            Me.Update(Table)
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class

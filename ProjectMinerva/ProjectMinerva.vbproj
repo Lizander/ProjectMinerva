@@ -205,6 +205,12 @@
     <Compile Include="Forms\ProductsHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\QuantityModal.Designer.vb">
+      <DependentUpon>QuantityModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuantityModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\SalesHome.Designer.vb">
       <DependentUpon>SalesHome.vb</DependentUpon>
     </Compile>
@@ -323,6 +329,9 @@
     <EmbeddedResource Include="Forms\ProductsHome.resx">
       <DependentUpon>ProductsHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuantityModal.resx">
+      <DependentUpon>QuantityModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalesHome.resx">
       <DependentUpon>SalesHome.vb</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +388,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\success-icon.png" />
+    <None Include="Resources\US-dollar-icon.png" />
     <None Include="OwlsDataSet.xsc">
       <DependentUpon>OwlsDataSet.xsd</DependentUpon>
     </None>
