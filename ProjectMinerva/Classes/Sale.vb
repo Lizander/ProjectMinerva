@@ -17,6 +17,7 @@ Public Class Sale
     Private DataSourceValue As SalesTableAdapter
     Private UserIDValue As Integer
     Private SavedValue As Boolean
+    Private LineItemSourceValue As LineItemsTableAdapter
 
 
     Public Property ID() As Integer
@@ -144,6 +145,15 @@ Public Class Sale
         End Get
         Set(value As SalesTableAdapter)
             DataSourceValue = value
+        End Set
+    End Property
+
+    Public Property LineItemSource As LineItemsTableAdapter
+        Get
+            Return LineItemSourceValue
+        End Get
+        Set(value As LineItemsTableAdapter)
+            LineItemSourceValue = value
         End Set
     End Property
 
@@ -364,12 +374,14 @@ Public Class Sale
     End Function
 
     Private Function CalculateDiscount()
-        'TODO Fix Constraint Exception when LI count > 1
         Dim DiscountTotal = 0
-        Dim LineItems = DataSource.GetDataByLineItemList(Me.ID).Rows
-        For Each Row As DataRow In LineItems
-            DiscountTotal += (Row.Item("DiscountPrice") * Row.Item("Quantity"))
-        Next Row
+        If IsNothing(LineItemSourceValue) Then
+        Else
+            Dim LineItems = LineItemSourceValue.GetDataByActiveSale().Rows
+            For Each Row As DataRow In LineItems
+                DiscountTotal += (Row.Item("DiscountPrice") * Row.Item("Quantity"))
+            Next Row
+        End If
         Return DiscountTotal
     End Function
 

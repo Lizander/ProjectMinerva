@@ -14375,16 +14375,9 @@ Namespace JupiterDataSetTableAdapters
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "SELECT     Sales.Id, Sales.CustomerID, Sales.Subtotal, Sales.Total, Sales.Discoun" & _
-                "t, Sales.StateTax, Sales.MunicipalTax, Sales.Date, Sales.Time, Sales.UserID, Sal" & _
-                "es.Warranty, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      Sales.PaymentType, Sales.Active, LineItems." & _
-                "Id AS Expr1, LineItems.ItemID, LineItems.ItemType, LineItems.Price, LineItems.Qu" & _
-                "antity, LineItems.SaleID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems.Description, LineIte" & _
-                "ms.Category, LineItems.ExtendedPrice, LineItems.SubtotalOne, LineItems.SubtotalT" & _
-                "wo, LineItems.DiscountPrice, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems.StateTax AS Expr2" & _
-                ", LineItems.MunicipalTax AS Expr3, LineItems.Cost" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         Sales INNER JOIN" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sales.Id = LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (Sal" & _
-                "es.Id = @SaleID)"
+            Me._commandCollection(8).CommandText = "SELECT    *" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         Sales INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sa" & _
+                "les.Id = LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (Sales.Id = @SaleID AND Sales.Active = 'Yes" & _
+                "')"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand()

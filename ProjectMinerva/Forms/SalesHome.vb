@@ -19,6 +19,7 @@
             Me.JupiterDataSet.EnforceConstraints = False
             JupiterDataSet.Clear()
             CurrentSale.DataSource = SalesTableAdapter
+            CurrentSale.LineItemSource = LineItemsTableAdapter
             CurrentSale.SetFromRow(Sale.GetActiveSale(SalesTableAdapter))
             DiscountBox.Text = CurrentSale.Discount.ToString("C")
             SubtotalBox.Text = CurrentSale.Subotal.ToString("C")
@@ -29,6 +30,7 @@
                 CustomerBox.Text = CurrentSale.GetCustomerName(CustomersTableAdapter)
             End If
         Else
+            CurrentSale.LineItemSource = LineItemsTableAdapter
             CurrentSale.DataSource = SalesTableAdapter
             CurrentSale.MakeActive()
             CurrentSale.SaveChanges(SalesTableAdapter)
