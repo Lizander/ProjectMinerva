@@ -330,7 +330,7 @@ Public Class Sale
         End If
     End Sub
 
-    Private Sub Calculations()
+    Public Sub Calculations()
         Me.UserID = 1
         SubtotalValue = CalculateSubtotal()
         DiscountValue = CalculateDiscount()

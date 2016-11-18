@@ -220,7 +220,7 @@ Public Class Tire
         Return SavedValue
     End Function
 
-    Public Sub SetFromRow(Row As DataGridViewRow)
+    Public Overloads Sub SetFromRow(Row As DataGridViewRow)
         Dim Cells = Row.Cells
         IDValue = Cells.Item(0).Value
         BrandValue = Trim(Cells.Item(1).Value)
@@ -240,6 +240,28 @@ Public Class Tire
         PriceValue = Cells.Item(15).Value
         CostValue = Cells.Item(16).Value
         MarkupValue = Cells.Item(17).Value
+    End Sub
+
+    Public Overloads Sub SetFromRow(Row As DataRow)
+        Dim Cells = Row
+        IDValue = Cells.Item(0)
+        BrandValue = Trim(Cells.Item(1))
+        ModelValue = Trim(Cells.Item(2))
+        WidthValue = Trim(Cells.Item(3))
+        RazonAvAValue = Trim(Cells.Item(4))
+        DiameterValue = Trim(Cells.Item(5))
+        TractionValue = Trim(Cells.Item(6))
+        TemperatureValue = Trim(Cells.Item(7))
+        ConditionValue = Trim(Cells.Item(8))
+        ReorderPointValue = Cells.Item(9)
+        SupplierIDValue = Cells.Item(10)
+        StateExemptValue = Trim(Cells.Item(11))
+        MunicipalExemptValue = Trim(Cells.Item(12))
+        TreadwearValue = Trim(Cells.Item(13))
+        StockValue = Cells.Item(14)
+        PriceValue = Cells.Item(15)
+        CostValue = Cells.Item(16)
+        MarkupValue = Cells.Item(17)
     End Sub
 
     Public Function IsSame(TireTwo As Tire)

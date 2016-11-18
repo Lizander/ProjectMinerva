@@ -138,6 +138,12 @@
     <Compile Include="Forms\CustomersHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\DiscountModal.Designer.vb">
+      <DependentUpon>DiscountModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DiscountModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\EditCustomer.Designer.vb">
       <DependentUpon>EditCustomer.vb</DependentUpon>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersHome.resx">
       <DependentUpon>CustomersHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DiscountModal.resx">
+      <DependentUpon>DiscountModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditCustomer.resx">
       <DependentUpon>EditCustomer.vb</DependentUpon>

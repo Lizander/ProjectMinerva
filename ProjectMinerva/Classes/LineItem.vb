@@ -19,6 +19,8 @@ Public Class LineItem
     Private CostValue As Double
     Private SavedValue As Double
     Private OriginalVAlue As Boolean
+    Private DiscountAmountValue As Double
+    Private DiscountTypeValue As String
 
     Public Property ID() As Integer
         Get
@@ -122,11 +124,14 @@ Public Class LineItem
         End Get
     End Property
 
-    Public ReadOnly Property DiscountPrice() As Double
+    Public Property DiscountPrice() As Double
         'TODO introduce method that calculates this
         Get
             Return DiscountPriceValue
         End Get
+        Set(value As Double)
+            DiscountPriceValue = value
+        End Set
     End Property
 
     Public ReadOnly Property StateTax() As Double
@@ -160,6 +165,25 @@ Public Class LineItem
             OriginalValue = value
         End Set
     End Property
+
+    Public Property DiscountAmount() As Double
+        Get
+            Return DiscountAmountValue
+        End Get
+        Set(value As Double)
+            DiscountAmountValue = value
+        End Set
+    End Property
+
+    Public Property DiscountType() As String
+        Get
+            Return DiscountTypeValue
+        End Get
+        Set(value As String)
+            DiscountTypeValue = value
+        End Set
+    End Property
+
 
     Public Sub AddTire(ChosenTire As Tire, Quantity As Integer, LITable As LineItemsTableAdapter, TireTable As TiresTableAdapter)
         Me.Description = ChosenTire.Brand + " " + ChosenTire.Width + "-" +
@@ -207,7 +231,7 @@ Public Class LineItem
         Dim Result As Integer
         Me.Calculations()
         Result = Table.AddLineItem(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
-                          StateTax, MunicipalTax, Cost)
+                          StateTax, MunicipalTax, Cost, DiscountAmount, DiscountType)
         If Result >= 1 Then
             SavedValue = True
         Else
@@ -215,7 +239,7 @@ Public Class LineItem
         End If
     End Sub
 
-    Public Sub SetFromRow(Row As DataRow)
+    Public Overloads Sub SetFromRow(Row As DataRow)
         Me.ID = Integer.Parse(Row.Item("ID"))
         Me.ItemID = Integer.Parse(Row.Item("ItemID"))
         Me.ItemType = Row.Item("ItemType")
@@ -225,6 +249,32 @@ Public Class LineItem
         Me.Description = Row.Item("Description")
         Me.Category = Row.Item("Category")
         Me.Cost = Double.Parse(Row.Item("Cost"))
+        Me.DiscountAmount = Double.Parse(Row.Item("DiscountAmount"))
+        Me.DiscountType = Row.Item("DiscountType")
+        Me.Calculations()
+    End Sub
+
+    Public Overloads Sub SetFromRow(Row As DataGridViewRow)
+        Dim Cells = Row.Cells
+        Me.ID = Integer.Parse(Cells.Item(0).Value)
+        Me.ItemID = Integer.Parse(Cells.Item(1).Value)
+        Me.ItemType = Trim(Cells.Item(2).Value)
+        Me.Price = Double.Parse(Cells.Item(3).Value)
+        Me.SaleID = Integer.Parse(Cells.Item(4).Value)
+        Me.Description = Trim(Cells.Item(5).Value)
+        Me.Quantity = Integer.Parse(Cells.Item(6).Value)
+        Me.Category = Trim(Cells.Item(7).Value)
+        Me.Cost = Double.Parse(Cells.Item(14).Value)
+        If IsDBNull(Cells.Item(15).Value) Then
+            DiscountAmount = 0
+        Else
+            Me.DiscountAmount = Double.Parse(Cells.Item(15).Value)
+        End If
+        If IsDBNull(Cells.Item(16).Value) Then
+            Me.DiscountType = "Dollars"
+        Else
+            Me.DiscountType = Cells.Item(16).Value
+        End If
         Me.Calculations()
     End Sub
 
@@ -246,7 +296,7 @@ Public Class LineItem
         Dim Result As Integer
         Me.Calculations()
         Result = Table.UpdateEverything(ItemID, ItemType, Price, Quantity, SaleID, Description, Category, ExtendedPrice, SubtotalOne, SubtotalTwo, DiscountPrice,
-                          StateTax, MunicipalTax, Cost, Me.ID)
+                          StateTax, MunicipalTax, Cost, DiscountAmount, DiscountType, Me.ID)
         If Result >= 1 Then
             SavedValue = True
         Else
@@ -255,13 +305,23 @@ Public Class LineItem
     End Sub
 
     Private Sub Calculations()
+        DiscountPriceValue = CalculateDiscount()
         SubtotalOneValue = CalculateSubtotalOne()
         SubtotalTwoValue = CalculateSubtotalTwo()
         StateTaxValue = CalculateStateTax(GetStateTaxRate())
         MunicipalTaxValue = CalculateMunicipalTax(GetMunicipalTaxRate())
         ExtendedPriceValue = CalculateExtendedPrice()
-        DiscountPriceValue = 0
     End Sub
+
+    Private Function CalculateDiscount()
+        If DiscountType = "Dollars" Then
+            Return DiscountAmount
+        ElseIf DiscountType = "Percentage" Then
+            Return PriceValue * (DiscountAmount / 100)
+        Else
+            Return 0
+        End If
+    End Function
 
     Private Function CalculateSubtotalOne()
         Return PriceValue - DiscountPriceValue
@@ -292,4 +352,14 @@ Public Class LineItem
         Dim Table As New StoresTableAdapter
         Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
     End Function
+
+    Public Overloads Sub ReturnStock(ChosenTire As Tire, TireTable As TiresTableAdapter)
+        ChosenTire.Stock += Me.Quantity
+        ChosenTire.Update(TireTable)
+    End Sub
+
+    Public Overloads Sub ReturnStock(ChosenProduct As Product, ProductTable As ProductsTableAdapter)
+        ChosenProduct.Stock += Me.Quantity
+        ChosenProduct.Update(ProductTable)
+    End Sub
 End Class
