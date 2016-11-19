@@ -321,7 +321,7 @@ Public Class Sale
         Dim Result As Integer
         DataSource = Table
         Me.Calculations()
-        Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
+        Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, Date.Now.ToShortTimeString, UserIDValue,
                                         WarrantyValue, PaymentTypeValue, ActiveValue, Me.ID)
         If Result >= 1 Then
             SavedValue = True

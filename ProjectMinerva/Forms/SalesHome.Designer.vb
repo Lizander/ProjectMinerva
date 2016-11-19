@@ -23,14 +23,34 @@ Partial Class SalesHome
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SalesHome))
         Me.LineItemsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DiscountAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DiscountType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LineItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.ManageLineItemsMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditQuantityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddDiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddTiresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,26 +71,6 @@ Partial Class SalesHome
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.OwlsDataSet = New ProjectMinerva.OwlsDataSet()
-        Me.AddDiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiscountAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DiscountType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LineItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
@@ -78,13 +78,16 @@ Partial Class SalesHome
         Me.SalesTableAdapterOwl = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
         Me.ProductsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.ProductsTableAdapter()
+        Me.SaleTooltip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BackButton = New System.Windows.Forms.Button()
+        Me.FinishSaleButton = New System.Windows.Forms.Button()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ManageLineItemsMenu.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.OwlsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LineItemsDataGridView
@@ -96,25 +99,25 @@ Partial Class SalesHome
         Me.LineItemsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.LineItemsDataGridView.BackgroundColor = System.Drawing.Color.PaleTurquoise
         Me.LineItemsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.MediumTurquoise
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.LineItemsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumTurquoise
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.LineItemsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.LineItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LineItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DiscountAmount, Me.DiscountType})
         Me.LineItemsDataGridView.DataSource = Me.LineItemsBindingSource
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.LineItemsDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.LineItemsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.LineItemsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.LineItemsDataGridView.GridColor = System.Drawing.Color.MediumTurquoise
         Me.LineItemsDataGridView.Location = New System.Drawing.Point(12, 67)
@@ -127,6 +130,152 @@ Partial Class SalesHome
         Me.LineItemsDataGridView.ShowEditingIcon = False
         Me.LineItemsDataGridView.Size = New System.Drawing.Size(305, 220)
         Me.LineItemsDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Id"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Id"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "ItemID"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "ItemID"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "ItemType"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "ItemType"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Visible = False
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Price"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Price"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "SaleID"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "SaleID"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Description"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Quantity"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Quantity"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Category"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Category"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Visible = False
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "ExtendedPrice"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "ExtendedPrice"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Visible = False
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "SubtotalOne"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "SubtotalOne"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Visible = False
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "SubtotalTwo"
+        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "DiscountPrice"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "DiscountPrice"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Visible = False
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "StateTax"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "StateTax"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Visible = False
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "MunicipalTax"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "MunicipalTax"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Visible = False
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "Cost"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "Cost"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Visible = False
+        '
+        'DiscountAmount
+        '
+        Me.DiscountAmount.DataPropertyName = "DiscountAmount"
+        Me.DiscountAmount.HeaderText = "DiscountAmount"
+        Me.DiscountAmount.Name = "DiscountAmount"
+        Me.DiscountAmount.ReadOnly = True
+        Me.DiscountAmount.Visible = False
+        '
+        'DiscountType
+        '
+        Me.DiscountType.DataPropertyName = "DiscountType"
+        Me.DiscountType.HeaderText = "DiscountType"
+        Me.DiscountType.Name = "DiscountType"
+        Me.DiscountType.ReadOnly = True
+        Me.DiscountType.Visible = False
+        '
+        'LineItemsBindingSource
+        '
+        Me.LineItemsBindingSource.DataMember = "LineItems"
+        Me.LineItemsBindingSource.DataSource = Me.JupiterDataSet
+        '
+        'JupiterDataSet
+        '
+        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
+        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ManageLineItemsMenu
         '
@@ -146,6 +295,12 @@ Partial Class SalesHome
         Me.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem"
         Me.RemoveToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.RemoveToolStripMenuItem.Text = "Remove"
+        '
+        'AddDiscountToolStripMenuItem
+        '
+        Me.AddDiscountToolStripMenuItem.Name = "AddDiscountToolStripMenuItem"
+        Me.AddDiscountToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.AddDiscountToolStripMenuItem.Text = "Add Discount"
         '
         'MenuStrip1
         '
@@ -338,158 +493,6 @@ Partial Class SalesHome
         Me.OwlsDataSet.DataSetName = "OwlsDataSet"
         Me.OwlsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'AddDiscountToolStripMenuItem
-        '
-        Me.AddDiscountToolStripMenuItem.Name = "AddDiscountToolStripMenuItem"
-        Me.AddDiscountToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
-        Me.AddDiscountToolStripMenuItem.Text = "Add Discount"
-        '
-        'DiscountAmount
-        '
-        Me.DiscountAmount.DataPropertyName = "DiscountAmount"
-        Me.DiscountAmount.HeaderText = "DiscountAmount"
-        Me.DiscountAmount.Name = "DiscountAmount"
-        Me.DiscountAmount.ReadOnly = True
-        Me.DiscountAmount.Visible = False
-        '
-        'DiscountType
-        '
-        Me.DiscountType.DataPropertyName = "DiscountType"
-        Me.DiscountType.HeaderText = "DiscountType"
-        Me.DiscountType.Name = "DiscountType"
-        Me.DiscountType.ReadOnly = True
-        Me.DiscountType.Visible = False
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "ItemID"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "ItemID"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "ItemType"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "ItemType"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Visible = False
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Price"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Price"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "SaleID"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "SaleID"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Description"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Description"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Quantity"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Quantity"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Category"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Category"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Visible = False
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "ExtendedPrice"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "ExtendedPrice"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Visible = False
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "SubtotalOne"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "SubtotalOne"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Visible = False
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "SubtotalTwo"
-        DataGridViewCellStyle5.Format = "C2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "DiscountPrice"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "DiscountPrice"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Visible = False
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "StateTax"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "StateTax"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Visible = False
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "MunicipalTax"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "MunicipalTax"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Visible = False
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "Cost"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Cost"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        Me.DataGridViewTextBoxColumn15.Visible = False
-        '
-        'LineItemsBindingSource
-        '
-        Me.LineItemsBindingSource.DataMember = "LineItems"
-        Me.LineItemsBindingSource.DataSource = Me.JupiterDataSet
-        '
-        'JupiterDataSet
-        '
-        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
-        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'LineItemsTableAdapter
         '
         Me.LineItemsTableAdapter.ClearBeforeFill = True
@@ -531,12 +534,46 @@ Partial Class SalesHome
         '
         Me.ProductsTableAdapter.ClearBeforeFill = True
         '
+        'BackButton
+        '
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 485)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(78, 78)
+        Me.BackButton.TabIndex = 17
+        Me.BackButton.UseVisualStyleBackColor = False
+        '
+        'FinishSaleButton
+        '
+        Me.FinishSaleButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FinishSaleButton.AutoSize = True
+        Me.FinishSaleButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FinishSaleButton.BackColor = System.Drawing.Color.Transparent
+        Me.FinishSaleButton.FlatAppearance.BorderSize = 0
+        Me.FinishSaleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.FinishSaleButton.Image = Global.ProjectMinerva.My.Resources.Resources.Shopping_cart_accept_icon
+        Me.FinishSaleButton.Location = New System.Drawing.Point(1148, 373)
+        Me.FinishSaleButton.Name = "FinishSaleButton"
+        Me.FinishSaleButton.Size = New System.Drawing.Size(78, 95)
+        Me.FinishSaleButton.TabIndex = 16
+        Me.FinishSaleButton.Text = "Finish Sale"
+        Me.FinishSaleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.FinishSaleButton.UseVisualStyleBackColor = False
+        '
         'SalesHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1355, 575)
+        Me.Controls.Add(Me.BackButton)
+        Me.Controls.Add(Me.FinishSaleButton)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LineItemsDataGridView)
         Me.Controls.Add(Me.MenuStrip1)
@@ -546,14 +583,14 @@ Partial Class SalesHome
         Me.Text = "Sales Home"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ManageLineItemsMenu.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.OwlsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -609,4 +646,7 @@ Partial Class SalesHome
     Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DiscountAmount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DiscountType As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FinishSaleButton As System.Windows.Forms.Button
+    Friend WithEvents BackButton As System.Windows.Forms.Button
+    Friend WithEvents SaleTooltip As System.Windows.Forms.ToolTip
 End Class

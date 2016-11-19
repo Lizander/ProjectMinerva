@@ -1,5 +1,6 @@
 ﻿Public Class SalesHome
     Dim CurrentSale As New Sale
+    Dim TooltipText As String
 
     Private Sub LineItemsBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -161,6 +162,31 @@
             ChosenItem.DiscountAmount = DiscountAmount
             ChosenItem.Update(LineItemsTableAdapter)
             UpdateSaleInfo()
+        End If
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub FinishSaleButton_Click_1(sender As Object, e As EventArgs) Handles FinishSaleButton.Click
+        If CurrentSale.CustomerID > 0 Then
+            If LineItemsDataGridView.RowCount > 0 Then
+                Dim PaymentForm As New AdditionalSaleInfo
+                If PaymentForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                    CurrentSale.PaymentType = PaymentForm.PaymentTypeBox.SelectedItem
+                    CurrentSale.Active = False
+                    CurrentSale.SaveChanges(SalesTableAdapter)
+                    SalesReceipt.ChosenSale = CurrentSale
+                    SalesReceipt.Show()
+                Else
+                    MessageBox.Show("The sale was not completed.", "Sales Home - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            Else
+                MessageBox.Show("There are no items in the sale!", "Sales Home - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
+        Else
+            MessageBox.Show("You need a customer!", "Sales Home - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 End Class

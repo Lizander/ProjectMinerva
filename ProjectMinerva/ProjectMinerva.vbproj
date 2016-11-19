@@ -61,10 +61,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -96,6 +99,12 @@
     <Compile Include="Classes\Store.vb" />
     <Compile Include="Classes\Supplier.vb" />
     <Compile Include="Classes\User.vb" />
+    <Compile Include="Forms\AdditionalSaleInfo.Designer.vb">
+      <DependentUpon>AdditionalSaleInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdditionalSaleInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\AdministrationPanel.Designer.vb">
       <DependentUpon>AdministrationPanel.vb</DependentUpon>
     </Compile>
@@ -223,6 +232,12 @@
     <Compile Include="Forms\SalesHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\SalesReceipt.Designer.vb">
+      <DependentUpon>SalesReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ServicesHome.Designer.vb">
       <DependentUpon>ServicesHome.vb</DependentUpon>
     </Compile>
@@ -281,6 +296,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AdditionalSaleInfo.resx">
+      <DependentUpon>AdditionalSaleInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdministrationPanel.resx">
       <DependentUpon>AdministrationPanel.vb</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +362,9 @@
     <EmbeddedResource Include="Forms\SalesHome.resx">
       <DependentUpon>SalesHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalesReceipt.resx">
+      <DependentUpon>SalesReceipt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServicesHome.resx">
       <DependentUpon>ServicesHome.vb</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +386,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesReceipt.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JupiterDataSet.xsc">
@@ -397,6 +419,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Shopping-cart-accept-icon.png" />
     <None Include="Resources\success-icon.png" />
     <None Include="Resources\US-dollar-icon.png" />
     <None Include="OwlsDataSet.xsc">
