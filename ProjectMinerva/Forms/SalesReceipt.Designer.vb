@@ -80,6 +80,10 @@ Partial Class SalesReceipt
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.AutoSize = True
+        Me.ReportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ReportViewer1.BackColor = System.Drawing.Color.Azure
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "SaleInfo"
         ReportDataSource1.Value = Me.SalesBindingSource
         ReportDataSource2.Name = "StoreInfo"
@@ -96,9 +100,13 @@ Partial Class SalesReceipt
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ProjectMinerva.SalesReceipt.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(495, 549)
+        Me.ReportViewer1.ShowBackButton = False
+        Me.ReportViewer1.ShowCredentialPrompts = False
+        Me.ReportViewer1.ShowDocumentMapButton = False
+        Me.ReportViewer1.ShowFindControls = False
+        Me.ReportViewer1.Size = New System.Drawing.Size(680, 747)
         Me.ReportViewer1.TabIndex = 0
         '
         'SalesTableAdapter
@@ -125,7 +133,7 @@ Partial Class SalesReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(519, 573)
+        Me.ClientSize = New System.Drawing.Size(680, 747)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "SalesReceipt"
         Me.Text = "SalesReceipt"
@@ -136,6 +144,7 @@ Partial Class SalesReceipt
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer

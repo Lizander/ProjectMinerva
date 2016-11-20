@@ -105,6 +105,7 @@
             If QuantityForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                 ChosenItem.Quantity = QuantityForm.QuantityToAddNumeric.Value
                 ChosenItem.Update(LineItemsTableAdapter)
+                Me.SalesTableAdapter.Update(JupiterDataSet)
                 UpdateSaleInfo()
             Else
                 MessageBox.Show("Quantity editing was canceled.", "Sales Home - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -114,6 +115,7 @@
 
     Private Sub UpdateSaleInfo()
         Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
+        Me.SalesTableAdapter.Update(JupiterDataSet.Sales)
         Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
         CurrentSale.DataSource = SalesTableAdapter
         CurrentSale.LineItemSource = LineItemsTableAdapter
@@ -175,8 +177,8 @@
                 Dim PaymentForm As New AdditionalSaleInfo
                 If PaymentForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     CurrentSale.PaymentType = PaymentForm.PaymentTypeBox.SelectedItem
-                    CurrentSale.Active = False
                     CurrentSale.SaveChanges(SalesTableAdapter)
+                    UpdateSaleInfo()
                     SalesReceipt.ChosenSale = CurrentSale
                     SalesReceipt.Show()
                 Else

@@ -17,6 +17,10 @@
     End Sub
 
     Private Sub SalesReceipt_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        'TEST Code
+        Dim TestSale As New Sale
+        TestSale.SetFromRow(SalesTableAdapter.GetDataByID(ChosenSale.ID).Rows(0))
+        Dim TestSomething = TestSale.PaymentType
         Me.SalesTableAdapter.FillByID(Me.JupiterDataSet.Sales, ChosenSale.ID)
         Me.LineItemsTableAdapter.FillBySale(Me.JupiterDataSet.LineItems, ChosenSale.ID)
         Me.CustomersTableAdapter.FillByID(Me.JupiterDataSet.Customers, ChosenSale.CustomerID)

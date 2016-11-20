@@ -73,7 +73,6 @@ Partial Class SalesHome
         Me.OwlsDataSet = New ProjectMinerva.OwlsDataSet()
         Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
-        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.CustomersTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.CustomersTableAdapter()
         Me.SalesTableAdapterOwl = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.TiresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.TiresTableAdapter()
@@ -81,6 +80,7 @@ Partial Class SalesHome
         Me.SaleTooltip = New System.Windows.Forms.ToolTip(Me.components)
         Me.BackButton = New System.Windows.Forms.Button()
         Me.FinishSaleButton = New System.Windows.Forms.Button()
+        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         CType(Me.LineItemsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -514,10 +514,6 @@ Partial Class SalesHome
         Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersTableAdapter = Nothing
         '
-        'SalesTableAdapter
-        '
-        Me.SalesTableAdapter.ClearBeforeFill = True
-        '
         'CustomersTableAdapter
         '
         Me.CustomersTableAdapter.ClearBeforeFill = True
@@ -566,6 +562,10 @@ Partial Class SalesHome
         Me.FinishSaleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.FinishSaleButton.UseVisualStyleBackColor = False
         '
+        'SalesTableAdapter
+        '
+        Me.SalesTableAdapter.ClearBeforeFill = True
+        '
         'SalesHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -606,7 +606,6 @@ Partial Class SalesHome
     Friend WithEvents AddTiresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddProductsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddServicesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SalesTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DiscountBox As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -649,4 +648,5 @@ Partial Class SalesHome
     Friend WithEvents FinishSaleButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents SaleTooltip As System.Windows.Forms.ToolTip
+    Friend WithEvents SalesTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter
 End Class
