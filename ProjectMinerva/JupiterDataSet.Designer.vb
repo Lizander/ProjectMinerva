@@ -55,11 +55,11 @@ Partial Public Class JupiterDataSet
     
     Private relationFK_Tires_ToTable As Global.System.Data.DataRelation
     
-    Private relationFK_Sales_Customers As Global.System.Data.DataRelation
+    Private relationFK_LineItems_Sales As Global.System.Data.DataRelation
     
     Private relationFK_Sales_Users As Global.System.Data.DataRelation
     
-    Private relationFK_LineItems_Sales As Global.System.Data.DataRelation
+    Private relationFK_Sales_Customers As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -473,9 +473,9 @@ Partial Public Class JupiterDataSet
         Me.relationFK_Accesses_ToUsers = Me.Relations("FK_Accesses_ToUsers")
         Me.relationFK_Products_ToTable = Me.Relations("FK_Products_ToTable")
         Me.relationFK_Tires_ToTable = Me.Relations("FK_Tires_ToTable")
-        Me.relationFK_Sales_Customers = Me.Relations("FK_Sales_Customers")
-        Me.relationFK_Sales_Users = Me.Relations("FK_Sales_Users")
         Me.relationFK_LineItems_Sales = Me.Relations("FK_LineItems_Sales")
+        Me.relationFK_Sales_Users = Me.Relations("FK_Sales_Users")
+        Me.relationFK_Sales_Customers = Me.Relations("FK_Sales_Customers")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -516,12 +516,12 @@ Partial Public Class JupiterDataSet
         Me.Relations.Add(Me.relationFK_Products_ToTable)
         Me.relationFK_Tires_ToTable = New Global.System.Data.DataRelation("FK_Tires_ToTable", New Global.System.Data.DataColumn() {Me.tableSuppliers.IdColumn}, New Global.System.Data.DataColumn() {Me.tableTires.SupplierIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Tires_ToTable)
-        Me.relationFK_Sales_Customers = New Global.System.Data.DataRelation("FK_Sales_Customers", New Global.System.Data.DataColumn() {Me.tableCustomers.IdColumn}, New Global.System.Data.DataColumn() {Me.tableSales.CustomerIDColumn}, false)
-        Me.Relations.Add(Me.relationFK_Sales_Customers)
-        Me.relationFK_Sales_Users = New Global.System.Data.DataRelation("FK_Sales_Users", New Global.System.Data.DataColumn() {Me.tableUsers.IdColumn}, New Global.System.Data.DataColumn() {Me.tableSales.UserIDColumn}, false)
-        Me.Relations.Add(Me.relationFK_Sales_Users)
         Me.relationFK_LineItems_Sales = New Global.System.Data.DataRelation("FK_LineItems_Sales", New Global.System.Data.DataColumn() {Me.tableSales.IdColumn}, New Global.System.Data.DataColumn() {Me.tableLineItems.SaleIDColumn}, false)
         Me.Relations.Add(Me.relationFK_LineItems_Sales)
+        Me.relationFK_Sales_Users = New Global.System.Data.DataRelation("FK_Sales_Users", New Global.System.Data.DataColumn() {Me.tableUsers.IdColumn}, New Global.System.Data.DataColumn() {Me.tableSales.UserIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Sales_Users)
+        Me.relationFK_Sales_Customers = New Global.System.Data.DataRelation("FK_Sales_Customers", New Global.System.Data.DataColumn() {Me.tableCustomers.IdColumn}, New Global.System.Data.DataColumn() {Me.tableSales.CustomerIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Sales_Customers)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7138,23 +7138,23 @@ Partial Public Class JupiterDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CustomersRow() As CustomersRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Sales_Customers")),CustomersRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Sales_Customers"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property UsersRow() As UsersRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Sales_Users")),UsersRow)
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_Sales_Users"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CustomersRow() As CustomersRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Sales_Customers")),CustomersRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Sales_Customers"))
             End Set
         End Property
         
@@ -14395,591 +14395,591 @@ Namespace JupiterDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Sales] WHERE (([Id] = @Original_Id) AND ((@IsNull_CustomerID = 1 AND" & _
-                " [CustomerID] IS NULL) OR ([CustomerID] = @Original_CustomerID)) AND ([Subtotal]" & _
-                " = @Original_Subtotal) AND ([Total] = @Original_Total) AND ([Discount] = @Origin" & _
-                "al_Discount) AND ([StateTax] = @Original_StateTax) AND ([MunicipalTax] = @Origin" & _
-                "al_MunicipalTax) AND ([Date] = @Original_Date) AND ([Time] = @Original_Time) AND" & _
-                " ([UserID] = @Original_UserID) AND ((@IsNull_Warranty = 1 AND [Warranty] IS NULL" & _
-                ") OR ([Warranty] = @Original_Warranty)) AND ((@IsNull_PaymentType = 1 AND [Payme" & _
-                "ntType] IS NULL) OR ([PaymentType] = @Original_PaymentType)) AND ([Active] = @Or" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Sales] WHERE (([Id] = @Original_Id) AND ((@IsNull_CustomerID = 1 AND"& _ 
+                " [CustomerID] IS NULL) OR ([CustomerID] = @Original_CustomerID)) AND ([Subtotal]"& _ 
+                " = @Original_Subtotal) AND ([Total] = @Original_Total) AND ([Discount] = @Origin"& _ 
+                "al_Discount) AND ([StateTax] = @Original_StateTax) AND ([MunicipalTax] = @Origin"& _ 
+                "al_MunicipalTax) AND ([Date] = @Original_Date) AND ([Time] = @Original_Time) AND"& _ 
+                " ([UserID] = @Original_UserID) AND ((@IsNull_Warranty = 1 AND [Warranty] IS NULL"& _ 
+                ") OR ([Warranty] = @Original_Warranty)) AND ((@IsNull_PaymentType = 1 AND [Payme"& _ 
+                "ntType] IS NULL) OR ([PaymentType] = @Original_PaymentType)) AND ([Active] = @Or"& _ 
                 "iginal_Active))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Warranty", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PaymentType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Warranty", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PaymentType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Sales] ([CustomerID], [Subtotal], [Total], [Discount], [StateTax], [" & _
-                "MunicipalTax], [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VA" & _
-                "LUES (@CustomerID, @Subtotal, @Total, @Discount, @StateTax, @MunicipalTax, @Date" & _
-                ", @Time, @UserID, @Warranty, @PaymentType, @Active);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, CustomerID, Sub" & _
-                "total, Total, Discount, StateTax, MunicipalTax, Date, Time, UserID, Warranty, Pa" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Sales] ([CustomerID], [Subtotal], [Total], [Discount], [StateTax], ["& _ 
+                "MunicipalTax], [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VA"& _ 
+                "LUES (@CustomerID, @Subtotal, @Total, @Discount, @StateTax, @MunicipalTax, @Date"& _ 
+                ", @Time, @UserID, @Warranty, @PaymentType, @Active);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, CustomerID, Sub"& _ 
+                "total, Total, Discount, StateTax, MunicipalTax, Date, Time, UserID, Warranty, Pa"& _ 
                 "ymentType, Active FROM Sales WHERE (Id = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Sales] SET [CustomerID] = @CustomerID, [Subtotal] = @Subtotal, [Total] = " & _
-                "@Total, [Discount] = @Discount, [StateTax] = @StateTax, [MunicipalTax] = @Munici" & _
-                "palTax, [Date] = @Date, [Time] = @Time, [UserID] = @UserID, [Warranty] = @Warran" & _
-                "ty, [PaymentType] = @PaymentType, [Active] = @Active WHERE (([Id] = @Original_Id" & _
-                ") AND ((@IsNull_CustomerID = 1 AND [CustomerID] IS NULL) OR ([CustomerID] = @Ori" & _
-                "ginal_CustomerID)) AND ([Subtotal] = @Original_Subtotal) AND ([Total] = @Origina" & _
-                "l_Total) AND ([Discount] = @Original_Discount) AND ([StateTax] = @Original_State" & _
-                "Tax) AND ([MunicipalTax] = @Original_MunicipalTax) AND ([Date] = @Original_Date)" & _
-                " AND ([Time] = @Original_Time) AND ([UserID] = @Original_UserID) AND ((@IsNull_W" & _
-                "arranty = 1 AND [Warranty] IS NULL) OR ([Warranty] = @Original_Warranty)) AND ((" & _
-                "@IsNull_PaymentType = 1 AND [PaymentType] IS NULL) OR ([PaymentType] = @Original" & _
-                "_PaymentType)) AND ([Active] = @Original_Active));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, CustomerID, Subto" & _
-                "tal, Total, Discount, StateTax, MunicipalTax, Date, Time, UserID, Warranty, Paym" & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Sales] SET [CustomerID] = @CustomerID, [Subtotal] = @Subtotal, [Total] = "& _ 
+                "@Total, [Discount] = @Discount, [StateTax] = @StateTax, [MunicipalTax] = @Munici"& _ 
+                "palTax, [Date] = @Date, [Time] = @Time, [UserID] = @UserID, [Warranty] = @Warran"& _ 
+                "ty, [PaymentType] = @PaymentType, [Active] = @Active WHERE (([Id] = @Original_Id"& _ 
+                ") AND ((@IsNull_CustomerID = 1 AND [CustomerID] IS NULL) OR ([CustomerID] = @Ori"& _ 
+                "ginal_CustomerID)) AND ([Subtotal] = @Original_Subtotal) AND ([Total] = @Origina"& _ 
+                "l_Total) AND ([Discount] = @Original_Discount) AND ([StateTax] = @Original_State"& _ 
+                "Tax) AND ([MunicipalTax] = @Original_MunicipalTax) AND ([Date] = @Original_Date)"& _ 
+                " AND ([Time] = @Original_Time) AND ([UserID] = @Original_UserID) AND ((@IsNull_W"& _ 
+                "arranty = 1 AND [Warranty] IS NULL) OR ([Warranty] = @Original_Warranty)) AND (("& _ 
+                "@IsNull_PaymentType = 1 AND [PaymentType] IS NULL) OR ([PaymentType] = @Original"& _ 
+                "_PaymentType)) AND ([Active] = @Original_Active));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, CustomerID, Subto"& _ 
+                "tal, Total, Discount, StateTax, MunicipalTax, Date, Time, UserID, Warranty, Paym"& _ 
                 "entType, Active FROM Sales WHERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Warranty", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PaymentType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Subtotal", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Discount", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StateTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MunicipalTax", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Time", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Warranty", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Warranty", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PaymentType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PaymentType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Active", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.ProjectMinerva.My.MySettings.Default.JupiterConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(11) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Sales.*" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Sales"
+            Me._commandCollection(0).CommandText = "SELECT        Sales.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT COUNT(*) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM Sales" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE (Active = 'YES')"
+            Me._commandCollection(1).CommandText = "SELECT COUNT(*) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM Sales"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (Active = 'YES')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO [Sales] ([CustomerID], [Subtotal], [Total], [Discount], [StateTax], [" & _
-                "MunicipalTax], [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VA" & _
-                "LUES (@CustomerID, @Subtotal, @Total, @Discount, @StateTax, @MunicipalTax, @Date" & _
+            Me._commandCollection(2).CommandText = "INSERT INTO [Sales] ([CustomerID], [Subtotal], [Total], [Discount], [StateTax], ["& _ 
+                "MunicipalTax], [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VA"& _ 
+                "LUES (@CustomerID, @Subtotal, @Total, @Discount, @StateTax, @MunicipalTax, @Date"& _ 
                 ", @Time, @UserID, @Warranty, @PaymentType, @Active);"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [Sales] ([Subtotal], [Total], [Discount], [StateTax], [MunicipalTax]," & _
-                " [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VALUES (@Subtota" & _
-                "l, @Total, @Discount, @StateTax, @MunicipalTax, @Date, @Time, @UserID, @Warranty" & _
+            Me._commandCollection(3).CommandText = "INSERT INTO [Sales] ([Subtotal], [Total], [Discount], [StateTax], [MunicipalTax],"& _ 
+                " [Date], [Time], [UserID], [Warranty], [PaymentType], [Active]) VALUES (@Subtota"& _ 
+                "l, @Total, @Discount, @StateTax, @MunicipalTax, @Date, @Time, @UserID, @Warranty"& _ 
                 ", @PaymentType, @Active);"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT     SUM(LineItems.MunicipalTax), Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         " & _
-                "Sales INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sales.Id = LineItems.SaleID" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING      (LineItems.SaleID = @SaleID)"
+            Me._commandCollection(4).CommandText = "SELECT     SUM(LineItems.MunicipalTax), Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
+                "Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      LineItems ON Sales.Id = LineItems.SaleID"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING      (LineItems.SaleID = @SaleID)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT     SUM(LineItems.StateTax), Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         Sale" & _
-                "s INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sales.Id = LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GR" & _
-                "OUP BY Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING      (LineItems.SaleID = @SaleID)"
+            Me._commandCollection(5).CommandText = "SELECT     SUM(LineItems.StateTax), Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Sale"& _ 
+                "s INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      LineItems ON Sales.Id = LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
+                "OUP BY Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING      (LineItems.SaleID = @SaleID)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT     SUM(LineItems.SubtotalTwo), Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         S" & _
-                "ales INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sales.Id = LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Sales.Id, LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING      (LineItems.SaleID = @SaleID)"
+            Me._commandCollection(6).CommandText = "SELECT     SUM(LineItems.SubtotalTwo), Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         S"& _ 
+                "ales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      LineItems ON Sales.Id = LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Sales.Id, LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING      (LineItems.SaleID = @SaleID)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "UPDATE [Sales] SET [Active] = 'NO';" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE (Active = 'YES')"
+            Me._commandCollection(7).CommandText = "UPDATE [Sales] SET [Active] = 'NO';"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (Active = 'YES')"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "SELECT Active, CustomerID, Date, Discount, Id, MunicipalTax, PaymentType, StateTa" & _
+            Me._commandCollection(8).CommandText = "SELECT Active, CustomerID, Date, Discount, Id, MunicipalTax, PaymentType, StateTa"& _ 
                 "x, Subtotal, Time, Total, UserID, Warranty FROM Sales WHERE (Id = @ID)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "SELECT    *" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         Sales INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      LineItems ON Sa" & _
-                "les.Id = LineItems.SaleID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (Sales.Id = @SaleID AND Sales.Active = 'Yes" & _
+            Me._commandCollection(9).CommandText = "SELECT    *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      LineItems ON Sa"& _ 
+                "les.Id = LineItems.SaleID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (Sales.Id = @SaleID AND Sales.Active = 'Yes"& _ 
                 "')"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT Active, CustomerID, Date, Discount, Id, MunicipalTax, PaymentType, StateTa" & _
+            Me._commandCollection(10).CommandText = "SELECT Active, CustomerID, Date, Discount, Id, MunicipalTax, PaymentType, StateTa"& _ 
                 "x, Subtotal, Time, Total, UserID, Warranty FROM Sales WHERE (Active = 'YES')"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "UPDATE [Sales] SET [CustomerID] = @CustomerID, [Subtotal] = @Subtotal, [Total] = " & _
-                "@Total, [Discount] = @Discount, [StateTax] = @StateTax, [MunicipalTax] = @Munici" & _
-                "palTax, [Date] = @Date, [Time] = @Time, [UserID] = @UserID, [Warranty] = @Warran" & _
-                "ty, [PaymentType] = @PaymentType, [Active] = @Active WHERE (([Id] = @Original_Id" & _
+            Me._commandCollection(11).CommandText = "UPDATE [Sales] SET [CustomerID] = @CustomerID, [Subtotal] = @Subtotal, [Total] = "& _ 
+                "@Total, [Discount] = @Discount, [StateTax] = @StateTax, [MunicipalTax] = @Munici"& _ 
+                "palTax, [Date] = @Date, [Time] = @Time, [UserID] = @UserID, [Warranty] = @Warran"& _ 
+                "ty, [PaymentType] = @PaymentType, [Active] = @Active WHERE (([Id] = @Original_Id"& _ 
                 "))"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Subtotal", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Subtotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StateTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "StateTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MunicipalTax", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "MunicipalTax", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Time", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Warranty", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Warranty", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Active", Global.System.Data.SqlDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Active", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As JupiterDataSet.SalesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As JupiterDataSet.SalesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As JupiterDataSet.SalesDataTable = New JupiterDataSet.SalesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByID(ByVal dataTable As JupiterDataSet.SalesDataTable, ByVal ID As Integer) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByID(ByVal dataTable As JupiterDataSet.SalesDataTable, ByVal ID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID, Integer)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function GetDataByID(ByVal ID As Integer) As JupiterDataSet.SalesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByID(ByVal ID As Integer) As JupiterDataSet.SalesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID, Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID,Integer)
             Dim dataTable As JupiterDataSet.SalesDataTable = New JupiterDataSet.SalesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByLineItemList(ByVal dataTable As JupiterDataSet.SalesDataTable, ByVal SaleID As Integer) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByLineItemList(ByVal dataTable As JupiterDataSet.SalesDataTable, ByVal SaleID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(9)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(SaleID, Integer)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(SaleID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function GetDataByLineItemList(ByVal SaleID As Integer) As JupiterDataSet.SalesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByLineItemList(ByVal SaleID As Integer) As JupiterDataSet.SalesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(9)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(SaleID, Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(SaleID,Integer)
             Dim dataTable As JupiterDataSet.SalesDataTable = New JupiterDataSet.SalesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillWithActive(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillWithActive(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(10)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function GetDataWithActive() As JupiterDataSet.SalesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataWithActive() As JupiterDataSet.SalesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(10)
             Dim dataTable As JupiterDataSet.SalesDataTable = New JupiterDataSet.SalesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As JupiterDataSet.SalesDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As JupiterDataSet) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As JupiterDataSet) As Integer
             Return Me.Adapter.Update(dataSet, "Sales")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete(ByVal Original_Id As Integer, ByVal Original_CustomerID As Global.System.Nullable(Of Integer), ByVal Original_Subtotal As Double, ByVal Original_Total As Double, ByVal Original_Discount As Double, ByVal Original_StateTax As Double, ByVal Original_MunicipalTax As Double, ByVal Original_Date As String, ByVal Original_Time As String, ByVal Original_UserID As Integer, ByVal Original_Warranty As String, ByVal Original_PaymentType As String, ByVal Original_Active As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id, Integer)
-            If (Original_CustomerID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CustomerID.Value, Integer)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_CustomerID As Global.System.Nullable(Of Integer), ByVal Original_Subtotal As Double, ByVal Original_Total As Double, ByVal Original_Discount As Double, ByVal Original_StateTax As Double, ByVal Original_MunicipalTax As Double, ByVal Original_Date As String, ByVal Original_Time As String, ByVal Original_UserID As Integer, ByVal Original_Warranty As String, ByVal Original_PaymentType As String, ByVal Original_Active As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
+            If (Original_CustomerID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CustomerID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Subtotal, Double)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Total, Double)
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Discount, Double)
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_StateTax, Double)
-            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_MunicipalTax, Double)
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Subtotal,Double)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Total,Double)
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Discount,Double)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_StateTax,Double)
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_MunicipalTax,Double)
             If (Original_Date Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Date")
             Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Date, String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Date,String)
             End If
             If (Original_Time Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Time")
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Time, String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Time,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_UserID, Integer)
+            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_UserID,Integer)
             If (Original_Warranty Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Warranty, String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Warranty,String)
             End If
             If (Original_PaymentType Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_PaymentType, String)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_PaymentType,String)
             End If
             If (Original_Active Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Active")
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_Active, String)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_Active,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal CustomerID As Global.System.Nullable(Of Integer), ByVal Subtotal As Double, ByVal Total As Double, ByVal Discount As Double, ByVal StateTax As Double, ByVal MunicipalTax As Double, ByVal _Date As String, ByVal Time As String, ByVal UserID As Integer, ByVal Warranty As String, ByVal PaymentType As String, ByVal Active As String) As Integer
-            If (CustomerID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CustomerID.Value, Integer)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal CustomerID As Global.System.Nullable(Of Integer), ByVal Subtotal As Double, ByVal Total As Double, ByVal Discount As Double, ByVal StateTax As Double, ByVal MunicipalTax As Double, ByVal _Date As String, ByVal Time As String, ByVal UserID As Integer, ByVal Warranty As String, ByVal PaymentType As String, ByVal Active As String) As Integer
+            If (CustomerID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CustomerID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(Subtotal, Double)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Total, Double)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(Discount, Double)
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(StateTax, Double)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(MunicipalTax, Double)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(Subtotal,Double)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Total,Double)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(Discount,Double)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(StateTax,Double)
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(MunicipalTax,Double)
             If (_Date Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("_Date")
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(_Date, String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(_Date,String)
             End If
             If (Time Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Time")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Time, String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Time,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(8).Value = CType(UserID, Integer)
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(UserID,Integer)
             If (Warranty Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Warranty, String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Warranty,String)
             End If
             If (PaymentType Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(PaymentType, String)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(PaymentType,String)
             End If
             If (Active Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Active")
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Active, String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Active,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal CustomerID As Global.System.Nullable(Of Integer), _
-                    ByVal Subtotal As Double, _
-                    ByVal Total As Double, _
-                    ByVal Discount As Double, _
-                    ByVal StateTax As Double, _
-                    ByVal MunicipalTax As Double, _
-                    ByVal _Date As String, _
-                    ByVal Time As String, _
-                    ByVal UserID As Integer, _
-                    ByVal Warranty As String, _
-                    ByVal PaymentType As String, _
-                    ByVal Active As String, _
-                    ByVal Original_Id As Integer, _
-                    ByVal Original_CustomerID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_Subtotal As Double, _
-                    ByVal Original_Total As Double, _
-                    ByVal Original_Discount As Double, _
-                    ByVal Original_StateTax As Double, _
-                    ByVal Original_MunicipalTax As Double, _
-                    ByVal Original_Date As String, _
-                    ByVal Original_Time As String, _
-                    ByVal Original_UserID As Integer, _
-                    ByVal Original_Warranty As String, _
-                    ByVal Original_PaymentType As String, _
-                    ByVal Original_Active As String, _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal CustomerID As Global.System.Nullable(Of Integer),  _
+                    ByVal Subtotal As Double,  _
+                    ByVal Total As Double,  _
+                    ByVal Discount As Double,  _
+                    ByVal StateTax As Double,  _
+                    ByVal MunicipalTax As Double,  _
+                    ByVal _Date As String,  _
+                    ByVal Time As String,  _
+                    ByVal UserID As Integer,  _
+                    ByVal Warranty As String,  _
+                    ByVal PaymentType As String,  _
+                    ByVal Active As String,  _
+                    ByVal Original_Id As Integer,  _
+                    ByVal Original_CustomerID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Subtotal As Double,  _
+                    ByVal Original_Total As Double,  _
+                    ByVal Original_Discount As Double,  _
+                    ByVal Original_StateTax As Double,  _
+                    ByVal Original_MunicipalTax As Double,  _
+                    ByVal Original_Date As String,  _
+                    ByVal Original_Time As String,  _
+                    ByVal Original_UserID As Integer,  _
+                    ByVal Original_Warranty As String,  _
+                    ByVal Original_PaymentType As String,  _
+                    ByVal Original_Active As String,  _
                     ByVal Id As Integer) As Integer
-            If (CustomerID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CustomerID.Value, Integer)
+            If (CustomerID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CustomerID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Subtotal, Double)
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Total, Double)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Discount, Double)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(StateTax, Double)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MunicipalTax, Double)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Subtotal,Double)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Total,Double)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Discount,Double)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(StateTax,Double)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MunicipalTax,Double)
             If (_Date Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("_Date")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(_Date, String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(_Date,String)
             End If
             If (Time Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Time")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Time, String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Time,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(UserID, Integer)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(UserID,Integer)
             If (Warranty Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Warranty, String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Warranty,String)
             End If
             If (PaymentType Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(PaymentType, String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(PaymentType,String)
             End If
             If (Active Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Active")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Active, String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Active,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Id, Integer)
-            If (Original_CustomerID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_CustomerID.Value, Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Id,Integer)
+            If (Original_CustomerID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_CustomerID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Subtotal, Double)
-            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Total, Double)
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Discount, Double)
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_StateTax, Double)
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_MunicipalTax, Double)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Subtotal,Double)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Total,Double)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Discount,Double)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_StateTax,Double)
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_MunicipalTax,Double)
             If (Original_Date Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Date")
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Date, String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Date,String)
             End If
             If (Original_Time Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Time")
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Time, String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Time,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_UserID, Integer)
+            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_UserID,Integer)
             If (Original_Warranty Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Warranty, String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Warranty,String)
             End If
             If (Original_PaymentType Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_PaymentType, String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_PaymentType,String)
             End If
             If (Original_Active Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Active")
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Active, String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Active,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Id, Integer)
+            Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function

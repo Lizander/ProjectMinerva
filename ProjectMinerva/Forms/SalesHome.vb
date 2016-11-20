@@ -177,7 +177,7 @@
                 Dim PaymentForm As New AdditionalSaleInfo
                 If PaymentForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     CurrentSale.PaymentType = PaymentForm.PaymentTypeBox.SelectedItem
-                    CurrentSale.SaveChanges(SalesTableAdapter)
+                    CurrentSale.Update(SalesTableAdapter)
                     UpdateSaleInfo()
                     SalesReceipt.ChosenSale = CurrentSale
                     SalesReceipt.Show()

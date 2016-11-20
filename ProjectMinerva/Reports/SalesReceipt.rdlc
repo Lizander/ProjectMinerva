@@ -988,7 +988,9 @@
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PaymentType</rd:DefaultName>
