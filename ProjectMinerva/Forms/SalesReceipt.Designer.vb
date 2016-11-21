@@ -28,6 +28,7 @@ Partial Class SalesReceipt
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SalesReceipt))
         Me.SalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
         Me.StoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -106,7 +107,7 @@ Partial Class SalesReceipt
         Me.ReportViewer1.ShowCredentialPrompts = False
         Me.ReportViewer1.ShowDocumentMapButton = False
         Me.ReportViewer1.ShowFindControls = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(680, 747)
+        Me.ReportViewer1.Size = New System.Drawing.Size(838, 747)
         Me.ReportViewer1.TabIndex = 0
         '
         'SalesTableAdapter
@@ -133,10 +134,12 @@ Partial Class SalesReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(680, 747)
+        Me.ClientSize = New System.Drawing.Size(838, 747)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "SalesReceipt"
-        Me.Text = "SalesReceipt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Sales Receipt"
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

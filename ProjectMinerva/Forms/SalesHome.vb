@@ -177,8 +177,9 @@
                 Dim PaymentForm As New AdditionalSaleInfo
                 If PaymentForm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     CurrentSale.PaymentType = PaymentForm.PaymentTypeBox.SelectedItem
+                    CurrentSale.Active = "NO"
                     CurrentSale.Update(SalesTableAdapter)
-                    UpdateSaleInfo()
+                    ClearSaleInfo()
                     SalesReceipt.ChosenSale = CurrentSale
                     SalesReceipt.Show()
                 Else
@@ -190,5 +191,18 @@
         Else
             MessageBox.Show("You need a customer!", "Sales Home - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub ClearSaleInfo()
+        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
+        Me.SalesTableAdapter.Update(JupiterDataSet.Sales)
+        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
+        DiscountBox.Text = ""
+        SubtotalBox.Text = ""
+        StateTaxBox.Text = ""
+        MunicipalTaxBox.Text = ""
+        TotalBox.Text = ""
+        CustomerBox.Text = ""
+        AddCustomerToolStripMenuItem.Text = "Add Customer"
     End Sub
 End Class
