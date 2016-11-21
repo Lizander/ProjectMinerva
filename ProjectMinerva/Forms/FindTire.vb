@@ -73,6 +73,11 @@
             ActiveSale.SetFromRow(Sale.GetActiveSale(Me.SalesTableAdapter))
             ActiveSale.AddLineItem(ChosenTire, QuantityToAdd, Me.LineItemsTableAdapter, Me.TiresTableAdapter)
             Me.TiresTableAdapter.Fill(Me.JupiterDataSet.Tires)
+            If QuantityToAdd = 1 Then
+                MessageBox.Show("1" + ChosenTire.GetDescription + " was added to the sale.", "Find Tire - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ElseIf QuantityToAdd > 1 Then
+                MessageBox.Show(QuantityToAdd.ToString + " " + ChosenTire.GetDescription + " were added to the sale.", "Find Tire - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Else
             MessageBox.Show("Item addition was canceled.", "Find Tire - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If

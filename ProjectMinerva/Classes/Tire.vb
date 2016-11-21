@@ -322,4 +322,8 @@ Public Class Tire
             Return False
         End If
     End Function
+
+    Public Function GetDescription()
+        Return BrandValue + " " + WidthValue + "-" + RazonAvAValue + "-" + DiameterValue + " " + ConditionValue
+    End Function
 End Class
