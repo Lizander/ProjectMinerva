@@ -238,6 +238,12 @@
     <Compile Include="Forms\SalesReceipt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\SearchSales.Designer.vb">
+      <DependentUpon>SearchSales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchSales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ServicesHome.Designer.vb">
       <DependentUpon>ServicesHome.vb</DependentUpon>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalesReceipt.resx">
       <DependentUpon>SalesReceipt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchSales.resx">
+      <DependentUpon>SearchSales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServicesHome.resx">
       <DependentUpon>ServicesHome.vb</DependentUpon>

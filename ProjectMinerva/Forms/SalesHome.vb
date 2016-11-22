@@ -182,6 +182,7 @@
                     ClearSaleInfo()
                     SalesReceipt.ChosenSale = CurrentSale
                     SalesReceipt.Show()
+                    ClearSaleObject()
                 Else
                     MessageBox.Show("The sale was not completed.", "Sales Home - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
@@ -194,9 +195,6 @@
     End Sub
 
     Private Sub ClearSaleInfo()
-        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
-        Me.SalesTableAdapter.Update(JupiterDataSet.Sales)
-        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
         DiscountBox.Text = ""
         SubtotalBox.Text = ""
         StateTaxBox.Text = ""
@@ -204,5 +202,16 @@
         TotalBox.Text = ""
         CustomerBox.Text = ""
         AddCustomerToolStripMenuItem.Text = "Add Customer"
+    End Sub
+
+    Private Sub ClearSaleObject()
+        CurrentSale = New Sale
+        CurrentSale.LineItemSource = LineItemsTableAdapter
+        CurrentSale.DataSource = SalesTableAdapter
+        CurrentSale.MakeActive()
+        CurrentSale.SaveChanges(SalesTableAdapter)
+        Me.LineItemsTableAdapter.Update(JupiterDataSet.LineItems)
+        Me.SalesTableAdapter.Update(JupiterDataSet.Sales)
+        Me.LineItemsTableAdapter.FillByActiveSale(Me.JupiterDataSet.LineItems)
     End Sub
 End Class

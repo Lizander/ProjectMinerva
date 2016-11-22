@@ -52,7 +52,7 @@
             ActiveSale.AddLineItem(ChosenService, QuantityToAdd, Me.LineItemsTableAdapter, Me.ServicesTableAdapter)
             Me.ServicesTableAdapter.Fill(Me.JupiterDataSet.Services)
             If QuantityToAdd = 1 Then
-                MessageBox.Show("1" + ChosenService.Name + " was added to the sale.", "Find Service - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("1 " + ChosenService.Name + " was added to the sale.", "Find Service - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ElseIf QuantityToAdd > 1 Then
                 MessageBox.Show(QuantityToAdd.ToString + " " + ChosenService.Name + " were added to the sale.", "Find Service - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
