@@ -419,6 +419,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Jupiter.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Reports-icon.png" />
+    <None Include="Resources\setting-icon.png" />
     <None Include="Resources\Shopping-cart-accept-icon.png" />
     <None Include="Resources\success-icon.png" />
     <None Include="Resources\US-dollar-icon.png" />
