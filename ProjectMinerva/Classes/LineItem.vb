@@ -249,8 +249,16 @@ Public Class LineItem
         Me.Description = Row.Item("Description")
         Me.Category = Row.Item("Category")
         Me.Cost = Double.Parse(Row.Item("Cost"))
-        Me.DiscountAmount = Double.Parse(Row.Item("DiscountAmount"))
-        Me.DiscountType = Row.Item("DiscountType")
+        If IsDBNull(Row.Item("DiscountAmount")) Then
+            Me.DiscountAmount = 0
+        Else
+            Me.DiscountAmount = Double.Parse(Row.Item("DiscountAmount"))
+        End If
+        If IsDBNull(Row.Item("DiscountType")) Then
+            Me.DiscountType = "Dollars"
+        Else
+            Me.DiscountType = Row.Item("DiscountType")
+        End If
         Me.Calculations()
     End Sub
 

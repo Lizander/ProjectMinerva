@@ -330,24 +330,24 @@ Partial Class SearchSales
         '
         Me.SalesContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewReceiptToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.DeleteToolStripMenuItem})
         Me.SalesContextMenu.Name = "SalesContextMenu"
-        Me.SalesContextMenu.Size = New System.Drawing.Size(136, 70)
+        Me.SalesContextMenu.Size = New System.Drawing.Size(153, 92)
         '
         'ViewReceiptToolStripMenuItem
         '
         Me.ViewReceiptToolStripMenuItem.Name = "ViewReceiptToolStripMenuItem"
-        Me.ViewReceiptToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ViewReceiptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ViewReceiptToolStripMenuItem.Text = "View Receipt"
         '
         'ModifyToolStripMenuItem
         '
         Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ModifyToolStripMenuItem.Text = "Modify"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'SalesBindingSource
