@@ -37,13 +37,6 @@ Partial Class SearchSales
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SalesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.SalesFullInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JupiterDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
-        Me.SalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
-        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
-        Me.SalesFullInfoTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesFullInfoTableAdapter()
         Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,10 +55,22 @@ Partial Class SearchSales
         Me.FirstLastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalesFullInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JupiterDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
+        Me.SalesContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ViewReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
+        Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
+        Me.SalesFullInfoTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesFullInfoTableAdapter()
         CType(Me.SalesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesFullInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SalesContextMenu.SuspendLayout()
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -150,55 +155,11 @@ Partial Class SearchSales
         Me.SalesDataGridView.Name = "SalesDataGridView"
         Me.SalesDataGridView.ReadOnly = True
         Me.SalesDataGridView.RowHeadersVisible = False
+        Me.SalesDataGridView.RowTemplate.ContextMenuStrip = Me.SalesContextMenu
         Me.SalesDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.SalesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.SalesDataGridView.Size = New System.Drawing.Size(935, 220)
         Me.SalesDataGridView.TabIndex = 19
-        '
-        'SalesFullInfoBindingSource
-        '
-        Me.SalesFullInfoBindingSource.DataMember = "SalesFullInfo"
-        Me.SalesFullInfoBindingSource.DataSource = Me.JupiterDataSetBindingSource
-        '
-        'JupiterDataSetBindingSource
-        '
-        Me.JupiterDataSetBindingSource.DataSource = Me.JupiterDataSet
-        Me.JupiterDataSetBindingSource.Position = 0
-        '
-        'JupiterDataSet
-        '
-        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
-        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SalesBindingSource
-        '
-        Me.SalesBindingSource.DataMember = "Sales"
-        Me.SalesBindingSource.DataSource = Me.JupiterDataSet
-        '
-        'SalesTableAdapter
-        '
-        Me.SalesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AccessesTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
-        Me.TableAdapterManager.CustomersTableAdapter = Nothing
-        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
-        Me.TableAdapterManager.NotesTableAdapter = Nothing
-        Me.TableAdapterManager.ProductsTableAdapter = Nothing
-        Me.TableAdapterManager.SalesTableAdapter = Me.SalesTableAdapter
-        Me.TableAdapterManager.ServicesTableAdapter = Nothing
-        Me.TableAdapterManager.StoresTableAdapter = Nothing
-        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
-        Me.TableAdapterManager.TiresTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.UsersTableAdapter = Nothing
-        '
-        'SalesFullInfoTableAdapter
-        '
-        Me.SalesFullInfoTableAdapter.ClearBeforeFill = True
         '
         'DateDataGridViewTextBoxColumn
         '
@@ -350,6 +311,75 @@ Partial Class SearchSales
         Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
         Me.UsernameDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'SalesFullInfoBindingSource
+        '
+        Me.SalesFullInfoBindingSource.DataMember = "SalesFullInfo"
+        Me.SalesFullInfoBindingSource.DataSource = Me.JupiterDataSetBindingSource
+        '
+        'JupiterDataSetBindingSource
+        '
+        Me.JupiterDataSetBindingSource.DataSource = Me.JupiterDataSet
+        Me.JupiterDataSetBindingSource.Position = 0
+        '
+        'JupiterDataSet
+        '
+        Me.JupiterDataSet.DataSetName = "JupiterDataSet"
+        Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SalesContextMenu
+        '
+        Me.SalesContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewReceiptToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.DeleteToolStripMenuItem})
+        Me.SalesContextMenu.Name = "SalesContextMenu"
+        Me.SalesContextMenu.Size = New System.Drawing.Size(136, 70)
+        '
+        'ViewReceiptToolStripMenuItem
+        '
+        Me.ViewReceiptToolStripMenuItem.Name = "ViewReceiptToolStripMenuItem"
+        Me.ViewReceiptToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ViewReceiptToolStripMenuItem.Text = "View Receipt"
+        '
+        'ModifyToolStripMenuItem
+        '
+        Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ModifyToolStripMenuItem.Text = "Modify"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'SalesBindingSource
+        '
+        Me.SalesBindingSource.DataMember = "Sales"
+        Me.SalesBindingSource.DataSource = Me.JupiterDataSet
+        '
+        'SalesTableAdapter
+        '
+        Me.SalesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AccessesTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CategoriesTableAdapter = Nothing
+        Me.TableAdapterManager.CustomersTableAdapter = Nothing
+        Me.TableAdapterManager.LineItemsTableAdapter = Nothing
+        Me.TableAdapterManager.NotesTableAdapter = Nothing
+        Me.TableAdapterManager.ProductsTableAdapter = Nothing
+        Me.TableAdapterManager.SalesTableAdapter = Me.SalesTableAdapter
+        Me.TableAdapterManager.ServicesTableAdapter = Nothing
+        Me.TableAdapterManager.StoresTableAdapter = Nothing
+        Me.TableAdapterManager.SuppliersTableAdapter = Nothing
+        Me.TableAdapterManager.TiresTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
+        '
+        'SalesFullInfoTableAdapter
+        '
+        Me.SalesFullInfoTableAdapter.ClearBeforeFill = True
+        '
         'SearchSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -370,6 +400,7 @@ Partial Class SearchSales
         CType(Me.SalesFullInfoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SalesContextMenu.ResumeLayout(False)
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -405,4 +436,8 @@ Partial Class SearchSales
     Friend WithEvents FirstLastNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Expr2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents UsernameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SalesContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ViewReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

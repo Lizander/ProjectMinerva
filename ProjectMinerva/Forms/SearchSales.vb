@@ -31,4 +31,25 @@
         ClearButton.Enabled = False
         SearchTextBox.Focus()
     End Sub
+
+    Private Sub ViewReceiptToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReceiptToolStripMenuItem.Click
+        Dim ChosenSale As New Sale
+        ChosenSale.SetFromRow(SalesDataGridView.CurrentRow)
+        SalesReceipt.ChosenSale = ChosenSale
+        SalesReceipt.Show()
+    End Sub
+
+    Private Sub SalesDataGridView_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles SalesDataGridView.CellMouseDown
+        If e.Button = MouseButtons.Right Then
+            SalesDataGridView.ClearSelection()
+            Dim NewRow = SalesDataGridView.HitTest(e.X, e.Y)
+            If NewRow.RowIndex > -1 Then
+                SalesDataGridView.CurrentCell = SalesDataGridView.Rows(NewRow.RowIndex).Cells(18)
+                SalesDataGridView.CurrentRow.Selected = True
+                Application.DoEvents()
+                SalesContextMenu.Show(Cursor.Position)
+            End If
+            NewRow = Nothing
+        End If
+    End Sub
 End Class

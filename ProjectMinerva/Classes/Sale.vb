@@ -184,7 +184,7 @@ Public Class Sale
         End If
     End Sub
 
-    Public Sub SetFromRow(Row As DataRow)
+    Public Overloads Sub SetFromRow(Row As DataRow)
         IDValue = Row.Item("Id")
         If IsDBNull(Row.Item("CustomerID")) Then
             CustomerIDValue = 0
@@ -210,6 +210,40 @@ Public Class Sale
             PaymentTypeValue = Row.Item("PaymentType")
         End If
         ActiveValue = Row.Item("Active")
+        If IsNothing(DataSource) Then
+        Else
+            Me.Calculations()
+        End If
+    End Sub
+
+    Public Overloads Sub SetFromRow(Row As DataGridViewRow)
+        'NOTE this method expects a row from the SalesFullInfo table
+
+        IDValue = Row.Cells.Item(2).Value
+        If IsDBNull(Row.Cells.Item(3).Value) Then
+            CustomerIDValue = 0
+        Else
+            CustomerIDValue = Row.Cells.Item(3).Value
+        End If
+        SubtotalValue = Row.Cells.Item(5).Value
+        TotalValue = Row.Cells.Item(8).Value
+        DiscountValue = Row.Cells.Item(4).Value
+        StateTaxValue = Row.Cells.Item(6).Value
+        MunicipalTaxValue = Row.Cells.Item(7).Value
+        DateValue = Row.Cells.Item(0).Value
+        TimeValue = Row.Cells.Item(1).Value
+        UserIDValue = Row.Cells.Item(9).Value
+        If IsDBNull(Row.Cells.Item(10).Value) Then
+            WarrantyValue = ""
+        Else
+            WarrantyValue = Row.Cells.Item(10).Value
+        End If
+        If IsDBNull(Row.Cells.Item(11).Value) Then
+            PaymentTypeValue = ""
+        Else
+            PaymentTypeValue = Row.Cells.Item(11).Value
+        End If
+        ActiveValue = Row.Cells.Item(12).Value
         If IsNothing(DataSource) Then
         Else
             Me.Calculations()
