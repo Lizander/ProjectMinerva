@@ -34,17 +34,18 @@
 
     Private Sub ViewReceiptToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReceiptToolStripMenuItem.Click
         Dim ChosenSale As New Sale
-        ChosenSale.SetFromRow(SalesDataGridView.CurrentRow)
+        Dim SaleID = SalesDataGridView.CurrentRow.Cells.Item(2).Value
+        ChosenSale.SetFromRow(SalesTableAdapter.GetDataByID(SaleID).Rows(0))
         SalesReceipt.ChosenSale = ChosenSale
         SalesReceipt.Show()
     End Sub
 
-    Private Sub SalesDataGridView_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles SalesDataGridView.CellMouseDown
+    Private Sub SalesDataGridView_MouseDown(sender As Object, e As MouseEventArgs) Handles SalesDataGridView.MouseDown
         If e.Button = MouseButtons.Right Then
             SalesDataGridView.ClearSelection()
             Dim NewRow = SalesDataGridView.HitTest(e.X, e.Y)
             If NewRow.RowIndex > -1 Then
-                SalesDataGridView.CurrentCell = SalesDataGridView.Rows(NewRow.RowIndex).Cells(18)
+                SalesDataGridView.CurrentCell = SalesDataGridView.Rows(NewRow.RowIndex).Cells(0)
                 SalesDataGridView.CurrentRow.Selected = True
                 Application.DoEvents()
                 SalesContextMenu.Show(Cursor.Position)
