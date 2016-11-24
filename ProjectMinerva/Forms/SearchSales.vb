@@ -70,4 +70,26 @@
         Dim SaleID = SalesDataGridView.CurrentRow.Cells.Item(2).Value
         ChosenSale.SetFromRow(SalesTableAdapter.GetDataByID(SaleID).Rows(0))
     End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        Dim Result = MessageBox.Show("This will permanently delete the sale!  This process cannot be reversed, are you sure you want to do this?", "Sale Search - Project Minerva", MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Warning)
+        If Result = Windows.Forms.DialogResult.Yes Then
+            SetSaleFromCurrentRow()
+            ChosenSale.Delete(SalesTableAdapter, LineItemsTableAdapter)
+            Me.SalesFullInfoTableAdapter.Fill(Me.JupiterDataSet.SalesFullInfo)
+        End If
+    End Sub
+
+    Private Sub SearchSales_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        'TODO: This line of code loads data into the 'JupiterDataSet.SalesFullInfo' table. You can move, or remove it, as needed.
+        Me.SalesFullInfoTableAdapter.Fill(Me.JupiterDataSet.SalesFullInfo)
+        'TODO: This line of code loads data into the 'JupiterDataSet.Sales' table. You can move, or remove it, as needed.
+        Me.SalesTableAdapter.Fill(Me.JupiterDataSet.Sales)
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        AdministrationPanel.Show()
+        Me.Close()
+    End Sub
 End Class

@@ -398,4 +398,13 @@ Public Class Sale
         SaleCustomer.SetFromRow(Table.GetDataByID(Me.CustomerID).Rows(0))
         Return SaleCustomer.FirstName + " " + SaleCustomer.FirstLastName
     End Function
+
+    Public Sub Delete(SaleTable As SalesTableAdapter, ItemsTable As LineItemsTableAdapter)
+        DeleteLineItems(ItemsTable)
+        SaleTable.DeleteByID(Me.ID)
+    End Sub
+
+    Private Sub DeleteLineItems(ItemsTable As LineItemsTableAdapter)
+        ItemsTable.DeleteBySale(Me.ID)
+    End Sub
 End Class

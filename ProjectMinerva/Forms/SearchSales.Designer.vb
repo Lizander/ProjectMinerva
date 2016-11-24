@@ -32,7 +32,7 @@ Partial Class SearchSales
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchSales))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -66,6 +66,7 @@ Partial Class SearchSales
         Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.TableAdapterManager = New ProjectMinerva.JupiterDataSetTableAdapters.TableAdapterManager()
         Me.SalesFullInfoTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesFullInfoTableAdapter()
+        Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
         CType(Me.SalesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesFullInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JupiterDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,20 +75,20 @@ Partial Class SearchSales
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'BackButton
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.AutoSize = True
-        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
-        Me.Button1.Location = New System.Drawing.Point(12, 649)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(78, 78)
-        Me.Button1.TabIndex = 0
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderSize = 0
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
+        Me.BackButton.Location = New System.Drawing.Point(12, 649)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(78, 78)
+        Me.BackButton.TabIndex = 0
+        Me.BackButton.UseVisualStyleBackColor = False
         '
         'ClearButton
         '
@@ -330,24 +331,24 @@ Partial Class SearchSales
         '
         Me.SalesContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewReceiptToolStripMenuItem, Me.ModifyToolStripMenuItem, Me.DeleteToolStripMenuItem})
         Me.SalesContextMenu.Name = "SalesContextMenu"
-        Me.SalesContextMenu.Size = New System.Drawing.Size(153, 92)
+        Me.SalesContextMenu.Size = New System.Drawing.Size(136, 70)
         '
         'ViewReceiptToolStripMenuItem
         '
         Me.ViewReceiptToolStripMenuItem.Name = "ViewReceiptToolStripMenuItem"
-        Me.ViewReceiptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ViewReceiptToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.ViewReceiptToolStripMenuItem.Text = "View Receipt"
         '
         'ModifyToolStripMenuItem
         '
         Me.ModifyToolStripMenuItem.Name = "ModifyToolStripMenuItem"
-        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ModifyToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.ModifyToolStripMenuItem.Text = "Modify"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'SalesBindingSource
@@ -380,6 +381,10 @@ Partial Class SearchSales
         '
         Me.SalesFullInfoTableAdapter.ClearBeforeFill = True
         '
+        'LineItemsTableAdapter
+        '
+        Me.LineItemsTableAdapter.ClearBeforeFill = True
+        '
         'SearchSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -390,7 +395,7 @@ Partial Class SearchSales
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BackButton)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "SearchSales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -406,7 +411,7 @@ Partial Class SearchSales
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -440,4 +445,5 @@ Partial Class SearchSales
     Friend WithEvents ViewReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ModifyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LineItemsTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter
 End Class
