@@ -23,8 +23,8 @@ Partial Class AdministrationPanel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdministrationPanel))
-        Me.SaleButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
+        Me.SaleButton = New System.Windows.Forms.Button()
         Me.ReportButton = New System.Windows.Forms.Button()
         Me.UserButton = New System.Windows.Forms.Button()
         Me.OptionButton = New System.Windows.Forms.Button()
@@ -34,6 +34,22 @@ Partial Class AdministrationPanel
         Me.TireButton = New System.Windows.Forms.Button()
         Me.SupplierButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'BackButton
+        '
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.BackButton.Image = CType(resources.GetObject("BackButton.Image"), System.Drawing.Image)
+        Me.BackButton.Location = New System.Drawing.Point(12, 551)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(144, 97)
+        Me.BackButton.TabIndex = 9
+        Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BackButton.UseVisualStyleBackColor = False
         '
         'SaleButton
         '
@@ -54,22 +70,6 @@ Partial Class AdministrationPanel
         Me.SaleButton.Text = "Search Sales"
         Me.SaleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.SaleButton.UseVisualStyleBackColor = False
-        '
-        'BackButton
-        '
-        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BackButton.AutoSize = True
-        Me.BackButton.BackColor = System.Drawing.Color.Transparent
-        Me.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
-        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BackButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BackButton.Image = CType(resources.GetObject("BackButton.Image"), System.Drawing.Image)
-        Me.BackButton.Location = New System.Drawing.Point(12, 551)
-        Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(144, 97)
-        Me.BackButton.TabIndex = 9
-        Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.BackButton.UseVisualStyleBackColor = False
         '
         'ReportButton
         '

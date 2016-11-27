@@ -86,6 +86,7 @@ Partial Class ReportsHome
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(501, 85)
@@ -96,6 +97,7 @@ Partial Class ReportsHome
         '
         'PurchaseListRadio
         '
+        Me.PurchaseListRadio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PurchaseListRadio.AutoSize = True
         Me.PurchaseListRadio.Location = New System.Drawing.Point(504, 113)
         Me.PurchaseListRadio.Name = "PurchaseListRadio"
@@ -107,6 +109,7 @@ Partial Class ReportsHome
         '
         'VisitBreakdownRadio
         '
+        Me.VisitBreakdownRadio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VisitBreakdownRadio.AutoSize = True
         Me.VisitBreakdownRadio.Location = New System.Drawing.Point(504, 136)
         Me.VisitBreakdownRadio.Name = "VisitBreakdownRadio"
@@ -129,6 +132,8 @@ Partial Class ReportsHome
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(208, 245)
@@ -139,6 +144,8 @@ Partial Class ReportsHome
         '
         'TireInventoryRadio
         '
+        Me.TireInventoryRadio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TireInventoryRadio.AutoSize = True
         Me.TireInventoryRadio.Location = New System.Drawing.Point(211, 277)
         Me.TireInventoryRadio.Name = "TireInventoryRadio"
@@ -150,6 +157,8 @@ Partial Class ReportsHome
         '
         'ProductInventoryRadio
         '
+        Me.ProductInventoryRadio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProductInventoryRadio.AutoSize = True
         Me.ProductInventoryRadio.Location = New System.Drawing.Point(211, 301)
         Me.ProductInventoryRadio.Name = "ProductInventoryRadio"
@@ -161,6 +170,8 @@ Partial Class ReportsHome
         '
         'TireReorderRadio
         '
+        Me.TireReorderRadio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TireReorderRadio.AutoSize = True
         Me.TireReorderRadio.Location = New System.Drawing.Point(211, 325)
         Me.TireReorderRadio.Name = "TireReorderRadio"
@@ -172,6 +183,8 @@ Partial Class ReportsHome
         '
         'ProductReorderRadio
         '
+        Me.ProductReorderRadio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProductReorderRadio.AutoSize = True
         Me.ProductReorderRadio.Location = New System.Drawing.Point(211, 349)
         Me.ProductReorderRadio.Name = "ProductReorderRadio"
@@ -183,6 +196,7 @@ Partial Class ReportsHome
         '
         'CustomerSaleRadio
         '
+        Me.CustomerSaleRadio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CustomerSaleRadio.AutoSize = True
         Me.CustomerSaleRadio.Location = New System.Drawing.Point(504, 159)
         Me.CustomerSaleRadio.Name = "CustomerSaleRadio"
@@ -194,13 +208,15 @@ Partial Class ReportsHome
         '
         'GenerateReportButton
         '
+        Me.GenerateReportButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GenerateReportButton.AutoSize = True
         Me.GenerateReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GenerateReportButton.BackColor = System.Drawing.Color.Transparent
         Me.GenerateReportButton.FlatAppearance.BorderSize = 0
         Me.GenerateReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GenerateReportButton.Image = Global.ProjectMinerva.My.Resources.Resources.Autoship_icon
-        Me.GenerateReportButton.Location = New System.Drawing.Point(482, 431)
+        Me.GenerateReportButton.Location = New System.Drawing.Point(487, 431)
         Me.GenerateReportButton.Name = "GenerateReportButton"
         Me.GenerateReportButton.Size = New System.Drawing.Size(96, 95)
         Me.GenerateReportButton.TabIndex = 15
@@ -251,7 +267,6 @@ Partial Class ReportsHome
         Me.Name = "ReportsHome"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reports Home"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
