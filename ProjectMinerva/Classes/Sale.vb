@@ -184,7 +184,7 @@ Public Class Sale
         End If
     End Sub
 
-    Public Sub SetFromRow(Row As DataRow)
+    Public Overloads Sub SetFromRow(Row As DataRow)
         IDValue = Row.Item("Id")
         If IsDBNull(Row.Item("CustomerID")) Then
             CustomerIDValue = 0
@@ -321,7 +321,7 @@ Public Class Sale
         Dim Result As Integer
         DataSource = Table
         Me.Calculations()
-        Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, TimeOfDay.ToString, UserIDValue,
+        Result = Table.UpdateEverything(CustomerIDValue, SubtotalValue, TotalValue, DiscountValue, StateTaxValue, MunicipalTaxValue, Date.Today, Date.Now.ToShortTimeString, UserIDValue,
                                         WarrantyValue, PaymentTypeValue, ActiveValue, Me.ID)
         If Result >= 1 Then
             SavedValue = True
@@ -330,7 +330,7 @@ Public Class Sale
         End If
     End Sub
 
-    Private Sub Calculations()
+    Public Sub Calculations()
         Me.UserID = 1
         SubtotalValue = CalculateSubtotal()
         DiscountValue = CalculateDiscount()
@@ -398,4 +398,13 @@ Public Class Sale
         SaleCustomer.SetFromRow(Table.GetDataByID(Me.CustomerID).Rows(0))
         Return SaleCustomer.FirstName + " " + SaleCustomer.FirstLastName
     End Function
+
+    Public Sub Delete(SaleTable As SalesTableAdapter, ItemsTable As LineItemsTableAdapter)
+        DeleteLineItems(ItemsTable)
+        SaleTable.DeleteByID(Me.ID)
+    End Sub
+
+    Private Sub DeleteLineItems(ItemsTable As LineItemsTableAdapter)
+        ItemsTable.DeleteBySale(Me.ID)
+    End Sub
 End Class

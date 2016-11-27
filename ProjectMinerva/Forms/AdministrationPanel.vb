@@ -37,4 +37,14 @@
         UserManagement.Show()
         Me.Close()
     End Sub
+
+    Private Sub SaleButton_Click(sender As Object, e As EventArgs) Handles SaleButton.Click
+        SearchSales.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub ReportButton_Click(sender As Object, e As EventArgs) Handles ReportButton.Click
+        ReportsHome.Show()
+        Me.Close()
+    End Sub
 End Class

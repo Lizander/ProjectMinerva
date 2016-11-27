@@ -161,7 +161,7 @@ Public Class Product
         Return SavedValue
     End Function
 
-    Public Sub SetFromRow(Row As DataGridViewRow)
+    Public Overloads Sub SetFromRow(Row As DataGridViewRow)
         Dim Cells = Row.Cells
         IDValue = Cells.Item(0).Value
         NameValue = Trim(Cells.Item(1).Value)
@@ -176,6 +176,23 @@ Public Class Product
         PriceValue = Cells.Item(10).Value
         CostValue = Cells.Item(11).Value
         MarkupValue = Cells.Item(12).Value
+    End Sub
+
+    Public Overloads Sub SetFromRow(Row As DataRow)
+        Dim Cells = Row
+        IDValue = Cells.Item(0)
+        NameValue = Trim(Cells.Item(1))
+        CategoryValue = Trim(Cells.Item(2))
+        DescriptionValue = Trim(Cells.Item(3))
+        ReorderPointValue = Cells.Item(4)
+        SupplierIDValue = Cells.Item(5)
+        StateExemptValue = Trim(Cells.Item(6))
+        MunicipalExemptValue = Trim(Cells.Item(7))
+        WarrantyValue = Trim(Cells.Item(8))
+        StockValue = Cells.Item(9)
+        PriceValue = Cells.Item(10)
+        CostValue = Cells.Item(11)
+        MarkupValue = Cells.Item(12)
     End Sub
 
     Public Function IsSame(ProductTwo As Product)

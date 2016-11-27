@@ -18,12 +18,11 @@
         Dim CustomerToEdit As New Customer
         CustomerToEdit.SetFromRow(CustomersDataGridView.CurrentRow)
         EditCustomer.OriginalCustomer = CustomerToEdit
-        EditCustomer.Show()
+        ReturnTo = "EditCustomer"
         Me.Close()
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
-        AdministrationPanel.Show()
         Me.Close()
     End Sub
 

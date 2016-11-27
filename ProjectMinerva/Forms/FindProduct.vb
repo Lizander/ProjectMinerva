@@ -76,6 +76,11 @@
             ActiveSale.SetFromRow(Sale.GetActiveSale(Me.SalesTableAdapter))
             ActiveSale.AddLineItem(ChosenProduct, QuantityToAdd, Me.LineItemsTableAdapter, Me.ProductsTableAdapter)
             Me.ProductsTableAdapter.Fill(Me.JupiterDataSet.Products)
+            If QuantityToAdd = 1 Then
+                MessageBox.Show("1" + ChosenProduct.Name + " was added to the sale.", "Find Product - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ElseIf QuantityToAdd > 1 Then
+                MessageBox.Show(QuantityToAdd.ToString + " " + ChosenProduct.Name + " were added to the sale.", "Find Product - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Else
             MessageBox.Show("Item addition was canceled.", "Find Product - Project Minvera", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
