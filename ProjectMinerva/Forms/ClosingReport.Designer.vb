@@ -24,32 +24,43 @@ Partial Class ClosingReport
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ClosingReport))
-        Me.SalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SalesFullInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JupiterDataSet = New ProjectMinerva.JupiterDataSet()
+        Me.SalesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LineItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.SalesTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesTableAdapter()
         Me.LineItemsTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.LineItemsTableAdapter()
-        Me.SalesFullInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SalesFullInfoTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.SalesFullInfoTableAdapter()
         Me.ReportsDataSet = New ProjectMinerva.ReportsDataSet()
-        CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LineItemsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StoresTableAdapter = New ProjectMinerva.JupiterDataSetTableAdapters.StoresTableAdapter()
         CType(Me.SalesFullInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReportsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LineItemsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'SalesBindingSource
+        'SalesFullInfoBindingSource
         '
-        Me.SalesBindingSource.DataMember = "Sales"
-        Me.SalesBindingSource.DataSource = Me.JupiterDataSet
+        Me.SalesFullInfoBindingSource.DataMember = "SalesFullInfo"
+        Me.SalesFullInfoBindingSource.DataSource = Me.JupiterDataSet
         '
         'JupiterDataSet
         '
         Me.JupiterDataSet.DataSetName = "JupiterDataSet"
         Me.JupiterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SalesBindingSource
+        '
+        Me.SalesBindingSource.DataMember = "Sales"
+        Me.SalesBindingSource.DataSource = Me.JupiterDataSet
         '
         'LineItemsBindingSource
         '
@@ -58,13 +69,16 @@ Partial Class ClosingReport
         '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "SaleItemsInfo"
-        ReportDataSource1.Value = Me.SalesFullInfoBindingSource
+        ReportDataSource1.Name = "LineItemsInfo"
+        ReportDataSource1.Value = Me.LineItemsBindingSource
+        ReportDataSource2.Name = "StoreInfo"
+        ReportDataSource2.Value = Me.StoresBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ProjectMinerva.ClosingReport.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(186, 119)
+        Me.ReportViewer1.Location = New System.Drawing.Point(31, 98)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
+        Me.ReportViewer1.Size = New System.Drawing.Size(880, 399)
         Me.ReportViewer1.TabIndex = 0
         '
         'SalesTableAdapter
@@ -75,11 +89,6 @@ Partial Class ClosingReport
         '
         Me.LineItemsTableAdapter.ClearBeforeFill = True
         '
-        'SalesFullInfoBindingSource
-        '
-        Me.SalesFullInfoBindingSource.DataMember = "SalesFullInfo"
-        Me.SalesFullInfoBindingSource.DataSource = Me.JupiterDataSet
-        '
         'SalesFullInfoTableAdapter
         '
         Me.SalesFullInfoTableAdapter.ClearBeforeFill = True
@@ -88,6 +97,20 @@ Partial Class ClosingReport
         '
         Me.ReportsDataSet.DataSetName = "ReportsDataSet"
         Me.ReportsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LineItemsBindingSource1
+        '
+        Me.LineItemsBindingSource1.DataMember = "LineItems"
+        Me.LineItemsBindingSource1.DataSource = Me.JupiterDataSet
+        '
+        'StoresBindingSource
+        '
+        Me.StoresBindingSource.DataMember = "Stores"
+        Me.StoresBindingSource.DataSource = Me.JupiterDataSet
+        '
+        'StoresTableAdapter
+        '
+        Me.StoresTableAdapter.ClearBeforeFill = True
         '
         'ClosingReport
         '
@@ -101,11 +124,13 @@ Partial Class ClosingReport
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Closing Report"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalesFullInfoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JupiterDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LineItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReportsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LineItemsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -118,4 +143,7 @@ Partial Class ClosingReport
     Friend WithEvents SalesFullInfoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SalesFullInfoTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.SalesFullInfoTableAdapter
     Friend WithEvents ReportsDataSet As ProjectMinerva.ReportsDataSet
+    Friend WithEvents LineItemsBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents StoresBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents StoresTableAdapter As ProjectMinerva.JupiterDataSetTableAdapters.StoresTableAdapter
 End Class

@@ -18,7 +18,7 @@
     <Shape ID="DesignTable:Suppliers" ZOrder="11" X="1332" Y="70" Height="275" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
     <Shape ID="DesignTable:Tires" ZOrder="10" X="1596" Y="415" Height="275" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
     <Shape ID="DesignTable:Users" ZOrder="9" X="311" Y="760" Height="156" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
-    <Shape ID="DesignTable:SaleItems" ZOrder="1" X="873" Y="359" Height="258" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="211" />
+    <Shape ID="DesignTable:SaleItems" ZOrder="1" X="873" Y="359" Height="275" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="211" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_Accesses_ToUsers" ZOrder="8" LineWidth="11">
