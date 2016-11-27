@@ -292,6 +292,12 @@
     <Compile Include="Forms\SuppliersHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\TireInventoryReport.Designer.vb">
+      <DependentUpon>TireInventoryReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TireInventoryReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\TiresHome.Designer.vb">
       <DependentUpon>TiresHome.vb</DependentUpon>
     </Compile>
@@ -433,6 +439,9 @@
     <EmbeddedResource Include="Forms\SuppliersHome.resx">
       <DependentUpon>SuppliersHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TireInventoryReport.resx">
+      <DependentUpon>TireInventoryReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TiresHome.resx">
       <DependentUpon>TiresHome.vb</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +459,7 @@
     <EmbeddedResource Include="Reports\EmployeeSalesReport.rdlc" />
     <EmbeddedResource Include="Reports\PeriodReport.rdlc" />
     <EmbeddedResource Include="Reports\SalesReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\TireInventoryReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JupiterDataSet.xsc">
