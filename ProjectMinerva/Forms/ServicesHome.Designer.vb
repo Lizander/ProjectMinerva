@@ -27,6 +27,7 @@ Partial Class ServicesHome
         Me.FindServiceButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -87,12 +88,30 @@ Partial Class ServicesHome
         Me.Label1.Text = "Services"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
+        'BackButton
+        '
+        Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackButton.BackColor = System.Drawing.Color.Transparent
+        Me.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.BackButton.Image = CType(resources.GetObject("BackButton.Image"), System.Drawing.Image)
+        Me.BackButton.Location = New System.Drawing.Point(12, 493)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(80, 80)
+        Me.BackButton.TabIndex = 15
+        Me.BackButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BackButton.UseVisualStyleBackColor = False
+        '
         'ServicesHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1349, 585)
+        Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ServicesHome"
@@ -101,10 +120,12 @@ Partial Class ServicesHome
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents CreateServiceButton As System.Windows.Forms.Button
     Friend WithEvents FindServiceButton As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents BackButton As System.Windows.Forms.Button
 End Class

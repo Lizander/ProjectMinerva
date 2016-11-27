@@ -81,4 +81,17 @@ Public Class CreateCustomer
             PhoneNumberMaskedTextBox.BackColor = Color.Red
         End If
     End Sub
+
+    Private Sub CreateCustomer_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        FirstNameTextBox.Text = ""
+        FirstNameTextBox.BackColor = Color.White
+        FirstLastNameTextBox.Text = ""
+        FirstLastNameTextBox.BackColor = Color.White
+        SecondLastNameTextBox.Text = ""
+        PhoneNumberMaskedTextBox.Text = ""
+        PhoneNumberMaskedTextBox.BackColor = Color.White
+        EmailAddressTextBox.Text = ""
+        CityTextBox.Text = ""
+
+    End Sub
 End Class

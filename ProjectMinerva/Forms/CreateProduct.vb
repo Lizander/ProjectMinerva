@@ -11,15 +11,23 @@
     Private Sub CreateProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'JupiterDataSet.Suppliers' table. You can move, or remove it, as needed.
         Me.SuppliersTableAdapter.Fill(Me.JupiterDataSet.Suppliers)
-        'TODO: This line of code loads data into the 'JupiterDataSet.Products' table. You can move, or remove it, as needed.
         Me.ProductsTableAdapter.Fill(Me.JupiterDataSet.Products)
-
     End Sub
 
     Private Sub CreateProduct_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         StateExemptComboBox.SelectedIndex = 0
         MunicipalExemptComboBox.SelectedIndex = 0
         SupplierIDComboBox.SelectedIndex = 0
+        NameTextBox.Text = ""
+        NameTextBox.BackColor = Color.White
+        CategoryComboBox.Text = ""
+        CategoryComboBox.BackColor = Color.White
+        DescriptionTextBox.Text = ""
+        WarrantyTextBox.Text = ""
+        _PriceNumericUpDown.Value = 0
+        CostNumericUpDown.Value = 0
+        StockNumericUpDown.Value = 0
+        ReorderPointNumericUpDown.Value = 0
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
@@ -76,5 +84,10 @@
                 MessageBox.Show("Something went wrong.", "Create Product - Project Minerva", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        ProductsHome.Show()
+        Me.Close()
     End Sub
 End Class

@@ -153,6 +153,8 @@ Partial Class CreateService
         'CategoryComboBox
         '
         Me.CategoryComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Category", True))
+        Me.CategoryComboBox.DataSource = Me.ServicesBindingSource
+        Me.CategoryComboBox.DisplayMember = "Category"
         Me.CategoryComboBox.FormattingEnabled = True
         Me.CategoryComboBox.Location = New System.Drawing.Point(123, 130)
         Me.CategoryComboBox.Name = "CategoryComboBox"
@@ -216,12 +218,14 @@ Partial Class CreateService
         'BackButton
         '
         Me.BackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BackButton.AutoSize = True
+        Me.BackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackButton.FlatAppearance.BorderSize = 0
         Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackButton.Image = Global.ProjectMinerva.My.Resources.Resources.back_icon
-        Me.BackButton.Location = New System.Drawing.Point(12, 424)
+        Me.BackButton.Location = New System.Drawing.Point(12, 468)
         Me.BackButton.Name = "BackButton"
-        Me.BackButton.Size = New System.Drawing.Size(188, 122)
+        Me.BackButton.Size = New System.Drawing.Size(78, 78)
         Me.BackButton.TabIndex = 20
         Me.BackButton.UseVisualStyleBackColor = True
         '
@@ -299,6 +303,7 @@ Partial Class CreateService
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents JupiterDataSet As ProjectMinerva.JupiterDataSet

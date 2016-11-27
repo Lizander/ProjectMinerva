@@ -147,6 +147,12 @@
     <Compile Include="Forms\CreateTire.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\CustomerSalesReport.Designer.vb">
+      <DependentUpon>CustomerSalesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerSalesReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CustomersHome.Designer.vb">
       <DependentUpon>CustomersHome.vb</DependentUpon>
     </Compile>
@@ -355,6 +361,9 @@
     <EmbeddedResource Include="Forms\CreateTire.resx">
       <DependentUpon>CreateTire.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerSalesReport.resx">
+      <DependentUpon>CustomerSalesReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersHome.resx">
       <DependentUpon>CustomersHome.vb</DependentUpon>
     </EmbeddedResource>
@@ -437,6 +446,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ClosingReport.rdlc" />
+    <EmbeddedResource Include="Reports\CustomerSalesReport.rdlc" />
     <EmbeddedResource Include="Reports\EmployeeSalesReport.rdlc" />
     <EmbeddedResource Include="Reports\PeriodReport.rdlc" />
     <EmbeddedResource Include="Reports\SalesReceipt.rdlc" />

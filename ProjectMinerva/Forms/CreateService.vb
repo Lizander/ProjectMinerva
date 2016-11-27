@@ -39,6 +39,12 @@
     Private Sub CreateService_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         MunicipalExemptComboBox.SelectedIndex = 0
         StateExemptComboBox.SelectedIndex = 0
+        CategoryComboBox.Text = ""
+        CategoryComboBox.BackColor = Color.White
+        NameTextBox.Text = ""
+        DescriptionTextBox.Text = ""
+        PriceNumericUpDown.Value = 0
+        CostNumericUpDown.Value = 0
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click

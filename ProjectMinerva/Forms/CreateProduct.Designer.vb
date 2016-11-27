@@ -126,9 +126,9 @@ Partial Class CreateProduct
         SupplierIDLabel.AutoSize = True
         SupplierIDLabel.Location = New System.Drawing.Point(11, 149)
         SupplierIDLabel.Name = "SupplierIDLabel"
-        SupplierIDLabel.Size = New System.Drawing.Size(62, 13)
+        SupplierIDLabel.Size = New System.Drawing.Size(48, 13)
         SupplierIDLabel.TabIndex = 21
-        SupplierIDLabel.Text = "Supplier ID:"
+        SupplierIDLabel.Text = "Supplier:"
         '
         'StateExemptLabel
         '
@@ -234,6 +234,8 @@ Partial Class CreateProduct
         '
         Me.CategoryComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CategoryComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "Category", True))
+        Me.CategoryComboBox.DataSource = Me.ProductsBindingSource
+        Me.CategoryComboBox.DisplayMember = "Category"
         Me.CategoryComboBox.FormattingEnabled = True
         Me.CategoryComboBox.Location = New System.Drawing.Point(103, 100)
         Me.CategoryComboBox.Name = "CategoryComboBox"
