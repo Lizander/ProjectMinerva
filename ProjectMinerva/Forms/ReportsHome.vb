@@ -10,6 +10,8 @@
             ClosingReport.Show()
         ElseIf PeriodRadio.Checked Then
             PeriodReport.Show()
+        ElseIf EmployeeSalesRadio.Checked Then
+            EmployeeSalesReport.Show()
         End If
     End Sub
 End Class

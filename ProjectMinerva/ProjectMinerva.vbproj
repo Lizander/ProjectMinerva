@@ -189,6 +189,12 @@
     <Compile Include="Forms\EditTire.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\EmployeeSalesReport.Designer.vb">
+      <DependentUpon>EmployeeSalesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmployeeSalesReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FindProduct.Designer.vb">
       <DependentUpon>FindProduct.vb</DependentUpon>
     </Compile>
@@ -370,6 +376,9 @@
     <EmbeddedResource Include="Forms\EditTire.resx">
       <DependentUpon>EditTire.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeSalesReport.resx">
+      <DependentUpon>EmployeeSalesReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FindProduct.resx">
       <DependentUpon>FindProduct.vb</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +437,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ClosingReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeeSalesReport.rdlc" />
     <EmbeddedResource Include="Reports\PeriodReport.rdlc" />
     <EmbeddedResource Include="Reports\SalesReceipt.rdlc" />
   </ItemGroup>

@@ -26,7 +26,6 @@ Partial Class ReportsHome
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ClosingRadio = New System.Windows.Forms.RadioButton()
         Me.PeriodRadio = New System.Windows.Forms.RadioButton()
-        Me.TireBreakdownRadio = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PurchaseListRadio = New System.Windows.Forms.RadioButton()
         Me.VisitBreakdownRadio = New System.Windows.Forms.RadioButton()
@@ -73,17 +72,6 @@ Partial Class ReportsHome
         Me.PeriodRadio.Text = "Period Report"
         Me.PeriodRadio.UseVisualStyleBackColor = True
         '
-        'TireBreakdownRadio
-        '
-        Me.TireBreakdownRadio.AutoSize = True
-        Me.TireBreakdownRadio.Location = New System.Drawing.Point(208, 159)
-        Me.TireBreakdownRadio.Name = "TireBreakdownRadio"
-        Me.TireBreakdownRadio.Size = New System.Drawing.Size(135, 17)
-        Me.TireBreakdownRadio.TabIndex = 3
-        Me.TireBreakdownRadio.TabStop = True
-        Me.TireBreakdownRadio.Text = "Tire Breakdown Report"
-        Me.TireBreakdownRadio.UseVisualStyleBackColor = True
-        '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -122,7 +110,7 @@ Partial Class ReportsHome
         'EmployeeSalesRadio
         '
         Me.EmployeeSalesRadio.AutoSize = True
-        Me.EmployeeSalesRadio.Location = New System.Drawing.Point(208, 183)
+        Me.EmployeeSalesRadio.Location = New System.Drawing.Point(208, 159)
         Me.EmployeeSalesRadio.Name = "EmployeeSalesRadio"
         Me.EmployeeSalesRadio.Size = New System.Drawing.Size(100, 17)
         Me.EmployeeSalesRadio.TabIndex = 7
@@ -259,7 +247,6 @@ Partial Class ReportsHome
         Me.Controls.Add(Me.VisitBreakdownRadio)
         Me.Controls.Add(Me.PurchaseListRadio)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TireBreakdownRadio)
         Me.Controls.Add(Me.PeriodRadio)
         Me.Controls.Add(Me.ClosingRadio)
         Me.Controls.Add(Me.Label1)
@@ -274,7 +261,6 @@ Partial Class ReportsHome
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ClosingRadio As System.Windows.Forms.RadioButton
     Friend WithEvents PeriodRadio As System.Windows.Forms.RadioButton
-    Friend WithEvents TireBreakdownRadio As System.Windows.Forms.RadioButton
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PurchaseListRadio As System.Windows.Forms.RadioButton
     Friend WithEvents VisitBreakdownRadio As System.Windows.Forms.RadioButton
