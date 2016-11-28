@@ -353,12 +353,72 @@ Public Class LineItem
 
     Private Function GetStateTaxRate()
         Dim Table As New StoresTableAdapter
-        Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+        Dim ProductTable As New ProductsTableAdapter
+        Dim TireTable As New TiresTableAdapter
+        Dim ServiceTable As New ServicesTableAdapter
+        Select Case Me.ItemType
+            Case "Tire"
+                Dim Answer = TireTable.GetByID(Me.ItemID).Rows(0).Item(11)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+                End If
+            Case "Product"
+                Dim Answer = ProductTable.GetByID(Me.ItemID).Rows(0).Item(6)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+                End If
+            Case "Service"
+                Dim Answer = ServiceTable.GetDataByID(Me.ItemID).Rows(0).Item(7)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+                End If
+            Case Else
+                Return Double.Parse(Table.GetData().Rows(0).Item("StateTaxRate"))
+        End Select
     End Function
 
     Private Function GetMunicipalTaxRate()
         Dim Table As New StoresTableAdapter
-        Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+        Dim ProductTable As New ProductsTableAdapter
+        Dim TireTable As New TiresTableAdapter
+        Dim ServiceTable As New ServicesTableAdapter
+        Select Case Me.ItemType
+            Case "Tire"
+                Dim Answer = TireTable.GetByID(Me.ItemID).Rows(0).Item(12)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+                End If
+            Case "Product"
+                Dim Answer = ProductTable.GetByID(Me.ItemID).Rows(0).Item(7)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+                End If
+            Case "Service"
+                Dim Answer = ServiceTable.GetDataByID(Me.ItemID).Rows(0).Item(8)
+                Answer = Trim(Answer)
+                If Answer = "Yes" Or Answer = "YES" Then
+                    Return 0
+                Else
+                    Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+                End If
+            Case Else
+                Return Double.Parse(Table.GetData().Rows(0).Item("MunicipalTaxRate"))
+        End Select
     End Function
 
     Public Overloads Sub ReturnStock(ChosenTire As Tire, TireTable As TiresTableAdapter)

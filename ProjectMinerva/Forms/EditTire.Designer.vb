@@ -582,9 +582,11 @@ Partial Class EditTire
         Me.StockNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TiresBindingSource, "Stock", True))
         Me.StockNumericUpDown.Location = New System.Drawing.Point(117, 223)
         Me.StockNumericUpDown.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
+        Me.StockNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.StockNumericUpDown.Name = "StockNumericUpDown"
         Me.StockNumericUpDown.Size = New System.Drawing.Size(180, 20)
         Me.StockNumericUpDown.TabIndex = 28
+        Me.StockNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Panel3
         '

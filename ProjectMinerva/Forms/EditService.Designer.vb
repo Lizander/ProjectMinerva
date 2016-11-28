@@ -61,6 +61,69 @@ Partial Class EditService
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
+        'PriceLabel
+        '
+        PriceLabel.AutoSize = True
+        PriceLabel.Location = New System.Drawing.Point(30, 35)
+        PriceLabel.Name = "PriceLabel"
+        PriceLabel.Size = New System.Drawing.Size(34, 13)
+        PriceLabel.TabIndex = 9
+        PriceLabel.Text = "Price:"
+        '
+        'CostLabel
+        '
+        CostLabel.AutoSize = True
+        CostLabel.Location = New System.Drawing.Point(30, 80)
+        CostLabel.Name = "CostLabel"
+        CostLabel.Size = New System.Drawing.Size(31, 13)
+        CostLabel.TabIndex = 11
+        CostLabel.Text = "Cost:"
+        '
+        'MunicipalExemptLabel
+        '
+        MunicipalExemptLabel.AutoSize = True
+        MunicipalExemptLabel.Location = New System.Drawing.Point(30, 201)
+        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
+        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
+        MunicipalExemptLabel.TabIndex = 17
+        MunicipalExemptLabel.Text = "Municipal Exempt:"
+        '
+        'StateExemptLabel
+        '
+        StateExemptLabel.AutoSize = True
+        StateExemptLabel.Location = New System.Drawing.Point(30, 138)
+        StateExemptLabel.Name = "StateExemptLabel"
+        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
+        StateExemptLabel.TabIndex = 15
+        StateExemptLabel.Text = "State Exempt:"
+        '
+        'NameLabel
+        '
+        NameLabel.AutoSize = True
+        NameLabel.Location = New System.Drawing.Point(24, 35)
+        NameLabel.Name = "NameLabel"
+        NameLabel.Size = New System.Drawing.Size(38, 13)
+        NameLabel.TabIndex = 3
+        NameLabel.Text = "Name:"
+        '
+        'CategoryLabel
+        '
+        CategoryLabel.AutoSize = True
+        CategoryLabel.Location = New System.Drawing.Point(24, 133)
+        CategoryLabel.Name = "CategoryLabel"
+        CategoryLabel.Size = New System.Drawing.Size(52, 13)
+        CategoryLabel.TabIndex = 7
+        CategoryLabel.Text = "Category:"
+        '
+        'DescriptionLabel
+        '
+        DescriptionLabel.AutoSize = True
+        DescriptionLabel.Location = New System.Drawing.Point(24, 80)
+        DescriptionLabel.Name = "DescriptionLabel"
+        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
+        DescriptionLabel.TabIndex = 5
+        DescriptionLabel.Text = "Description:"
+        '
         'ServicesBindingSource
         '
         Me.ServicesBindingSource.DataMember = "Services"
@@ -117,15 +180,6 @@ Partial Class EditService
         Me.PriceNumericUpDown.Size = New System.Drawing.Size(121, 20)
         Me.PriceNumericUpDown.TabIndex = 10
         '
-        'PriceLabel
-        '
-        PriceLabel.AutoSize = True
-        PriceLabel.Location = New System.Drawing.Point(30, 35)
-        PriceLabel.Name = "PriceLabel"
-        PriceLabel.Size = New System.Drawing.Size(34, 13)
-        PriceLabel.TabIndex = 9
-        PriceLabel.Text = "Price:"
-        '
         'CostNumericUpDown
         '
         Me.CostNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ServicesBindingSource, "Cost", True))
@@ -135,36 +189,10 @@ Partial Class EditService
         Me.CostNumericUpDown.Size = New System.Drawing.Size(121, 20)
         Me.CostNumericUpDown.TabIndex = 12
         '
-        'CostLabel
-        '
-        CostLabel.AutoSize = True
-        CostLabel.Location = New System.Drawing.Point(30, 80)
-        CostLabel.Name = "CostLabel"
-        CostLabel.Size = New System.Drawing.Size(31, 13)
-        CostLabel.TabIndex = 11
-        CostLabel.Text = "Cost:"
-        '
-        'MunicipalExemptLabel
-        '
-        MunicipalExemptLabel.AutoSize = True
-        MunicipalExemptLabel.Location = New System.Drawing.Point(30, 201)
-        MunicipalExemptLabel.Name = "MunicipalExemptLabel"
-        MunicipalExemptLabel.Size = New System.Drawing.Size(93, 13)
-        MunicipalExemptLabel.TabIndex = 17
-        MunicipalExemptLabel.Text = "Municipal Exempt:"
-        '
-        'StateExemptLabel
-        '
-        StateExemptLabel.AutoSize = True
-        StateExemptLabel.Location = New System.Drawing.Point(30, 138)
-        StateExemptLabel.Name = "StateExemptLabel"
-        StateExemptLabel.Size = New System.Drawing.Size(73, 13)
-        StateExemptLabel.TabIndex = 15
-        StateExemptLabel.Text = "State Exempt:"
-        '
         'MunicipalExemptComboBox
         '
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "MunicipalExempt", True))
+        Me.MunicipalExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MunicipalExemptComboBox.FormattingEnabled = True
         Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(129, 198)
@@ -175,6 +203,7 @@ Partial Class EditService
         'StateExemptComboBox
         '
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "StateExempt", True))
+        Me.StateExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StateExemptComboBox.FormattingEnabled = True
         Me.StateExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.StateExemptComboBox.Location = New System.Drawing.Point(129, 135)
@@ -203,15 +232,6 @@ Partial Class EditService
         Me.NameTextBox.Size = New System.Drawing.Size(121, 20)
         Me.NameTextBox.TabIndex = 4
         '
-        'NameLabel
-        '
-        NameLabel.AutoSize = True
-        NameLabel.Location = New System.Drawing.Point(24, 35)
-        NameLabel.Name = "NameLabel"
-        NameLabel.Size = New System.Drawing.Size(38, 13)
-        NameLabel.TabIndex = 3
-        NameLabel.Text = "Name:"
-        '
         'DescriptionTextBox
         '
         Me.DescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "Description", True))
@@ -219,24 +239,6 @@ Partial Class EditService
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.Size = New System.Drawing.Size(121, 20)
         Me.DescriptionTextBox.TabIndex = 6
-        '
-        'CategoryLabel
-        '
-        CategoryLabel.AutoSize = True
-        CategoryLabel.Location = New System.Drawing.Point(24, 133)
-        CategoryLabel.Name = "CategoryLabel"
-        CategoryLabel.Size = New System.Drawing.Size(52, 13)
-        CategoryLabel.TabIndex = 7
-        CategoryLabel.Text = "Category:"
-        '
-        'DescriptionLabel
-        '
-        DescriptionLabel.AutoSize = True
-        DescriptionLabel.Location = New System.Drawing.Point(24, 80)
-        DescriptionLabel.Name = "DescriptionLabel"
-        DescriptionLabel.Size = New System.Drawing.Size(63, 13)
-        DescriptionLabel.TabIndex = 5
-        DescriptionLabel.Text = "Description:"
         '
         'CategoryComboBox
         '

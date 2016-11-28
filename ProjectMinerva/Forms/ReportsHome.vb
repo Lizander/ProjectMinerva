@@ -16,6 +16,8 @@
             CustomerSalesReport.Show()
         ElseIf TireInventoryRadio.Checked Then
             TireInventoryReport.Show()
+        ElseIf ProductInventoryRadio.Checked Then
+            ProductInventoryReport.Show()
         End If
     End Sub
 End Class

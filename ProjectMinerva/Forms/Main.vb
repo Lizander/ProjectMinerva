@@ -7,4 +7,8 @@
     Private Sub SalesHomeButton_Click(sender As Object, e As EventArgs) Handles SalesHomeButton.Click
         SalesHome.Show()
     End Sub
+
+    Private Sub TireSearchButton_Click(sender As Object, e As EventArgs)
+        FindTire.Show()
+    End Sub
 End Class

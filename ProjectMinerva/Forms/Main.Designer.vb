@@ -23,25 +23,9 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Me.TireSearchButton = New System.Windows.Forms.Button()
         Me.AdministrationButton = New System.Windows.Forms.Button()
         Me.SalesHomeButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'TireSearchButton
-        '
-        Me.TireSearchButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.TireSearchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TireSearchButton.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.TireSearchButton.FlatAppearance.BorderSize = 0
-        Me.TireSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TireSearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TireSearchButton.Location = New System.Drawing.Point(560, 215)
-        Me.TireSearchButton.Name = "TireSearchButton"
-        Me.TireSearchButton.Size = New System.Drawing.Size(205, 149)
-        Me.TireSearchButton.TabIndex = 1
-        Me.TireSearchButton.Text = "Tire Search"
-        Me.TireSearchButton.UseVisualStyleBackColor = False
         '
         'AdministrationButton
         '
@@ -88,8 +72,8 @@ Partial Class Main
         Me.BackColor = System.Drawing.Color.Azure
         Me.ClientSize = New System.Drawing.Size(1364, 672)
         Me.Controls.Add(Me.AdministrationButton)
-        Me.Controls.Add(Me.TireSearchButton)
         Me.Controls.Add(Me.SalesHomeButton)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Project Minerva"
@@ -99,7 +83,6 @@ Partial Class Main
 
     End Sub
     Friend WithEvents SalesHomeButton As System.Windows.Forms.Button
-    Friend WithEvents TireSearchButton As System.Windows.Forms.Button
     Friend WithEvents AdministrationButton As System.Windows.Forms.Button
 
 End Class

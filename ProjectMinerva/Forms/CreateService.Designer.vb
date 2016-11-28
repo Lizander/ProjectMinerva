@@ -182,6 +182,7 @@ Partial Class CreateService
         'StateExemptComboBox
         '
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "StateExempt", True))
+        Me.StateExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StateExemptComboBox.FormattingEnabled = True
         Me.StateExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.StateExemptComboBox.Location = New System.Drawing.Point(129, 135)
@@ -192,6 +193,7 @@ Partial Class CreateService
         'MunicipalExemptComboBox
         '
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ServicesBindingSource, "MunicipalExempt", True))
+        Me.MunicipalExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MunicipalExemptComboBox.FormattingEnabled = True
         Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(129, 198)

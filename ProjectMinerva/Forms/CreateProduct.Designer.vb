@@ -282,6 +282,7 @@ Partial Class CreateProduct
         '
         Me.StateExemptComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StateExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "StateExempt", True))
+        Me.StateExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StateExemptComboBox.FormattingEnabled = True
         Me.StateExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.StateExemptComboBox.Location = New System.Drawing.Point(122, 148)
@@ -293,6 +294,7 @@ Partial Class CreateProduct
         '
         Me.MunicipalExemptComboBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MunicipalExemptComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductsBindingSource, "MunicipalExempt", True))
+        Me.MunicipalExemptComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MunicipalExemptComboBox.FormattingEnabled = True
         Me.MunicipalExemptComboBox.Items.AddRange(New Object() {"No", "Yes"})
         Me.MunicipalExemptComboBox.Location = New System.Drawing.Point(122, 195)
@@ -314,9 +316,12 @@ Partial Class CreateProduct
         Me.StockNumericUpDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StockNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductsBindingSource, "Stock", True))
         Me.StockNumericUpDown.Location = New System.Drawing.Point(110, 91)
+        Me.StockNumericUpDown.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.StockNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.StockNumericUpDown.Name = "StockNumericUpDown"
         Me.StockNumericUpDown.Size = New System.Drawing.Size(243, 20)
         Me.StockNumericUpDown.TabIndex = 20
+        Me.StockNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         '_PriceNumericUpDown
         '
