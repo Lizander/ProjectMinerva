@@ -16,6 +16,10 @@ Public Class ClosingReport
     End Sub
 
     Private Sub ClosingReport_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Me.LineItemsTableAdapter.FillBySalesDate(Me.JupiterDataSet.LineItems, SaleDatePicker.Value.ToShortDateString)
+        Me.SalesTableAdapter.FillByDate(Me.JupiterDataSet.Sales, SaleDatePicker.Value.ToShortDateString)
+        Dim SaleDate = New ReportParameter("ReportDate", SaleDatePicker.Value.ToShortDateString)
+        ReportViewer1.LocalReport.SetParameters(SaleDate)
     End Sub
 
     Private Sub SaleDatePicker_ValueChanged(sender As Object, e As EventArgs) Handles SaleDatePicker.ValueChanged

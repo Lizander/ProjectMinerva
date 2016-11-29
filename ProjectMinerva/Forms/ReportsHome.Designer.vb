@@ -25,7 +25,7 @@ Partial Class ReportsHome
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReportsHome))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ClosingRadio = New System.Windows.Forms.RadioButton()
-        Me.MonthlyRadio = New System.Windows.Forms.RadioButton()
+        Me.PeriodRadio = New System.Windows.Forms.RadioButton()
         Me.TireBreakdownRadio = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PurchaseListRadio = New System.Windows.Forms.RadioButton()
@@ -62,16 +62,16 @@ Partial Class ReportsHome
         Me.ClosingRadio.Text = "Closing Report"
         Me.ClosingRadio.UseVisualStyleBackColor = True
         '
-        'MonthlyRadio
+        'PeriodRadio
         '
-        Me.MonthlyRadio.AutoSize = True
-        Me.MonthlyRadio.Location = New System.Drawing.Point(208, 136)
-        Me.MonthlyRadio.Name = "MonthlyRadio"
-        Me.MonthlyRadio.Size = New System.Drawing.Size(97, 17)
-        Me.MonthlyRadio.TabIndex = 2
-        Me.MonthlyRadio.TabStop = True
-        Me.MonthlyRadio.Text = "Monthly Report"
-        Me.MonthlyRadio.UseVisualStyleBackColor = True
+        Me.PeriodRadio.AutoSize = True
+        Me.PeriodRadio.Location = New System.Drawing.Point(208, 136)
+        Me.PeriodRadio.Name = "PeriodRadio"
+        Me.PeriodRadio.Size = New System.Drawing.Size(90, 17)
+        Me.PeriodRadio.TabIndex = 2
+        Me.PeriodRadio.TabStop = True
+        Me.PeriodRadio.Text = "Period Report"
+        Me.PeriodRadio.UseVisualStyleBackColor = True
         '
         'TireBreakdownRadio
         '
@@ -260,7 +260,7 @@ Partial Class ReportsHome
         Me.Controls.Add(Me.PurchaseListRadio)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TireBreakdownRadio)
-        Me.Controls.Add(Me.MonthlyRadio)
+        Me.Controls.Add(Me.PeriodRadio)
         Me.Controls.Add(Me.ClosingRadio)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -273,7 +273,7 @@ Partial Class ReportsHome
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ClosingRadio As System.Windows.Forms.RadioButton
-    Friend WithEvents MonthlyRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents PeriodRadio As System.Windows.Forms.RadioButton
     Friend WithEvents TireBreakdownRadio As System.Windows.Forms.RadioButton
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PurchaseListRadio As System.Windows.Forms.RadioButton
